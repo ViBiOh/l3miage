@@ -17,6 +17,8 @@ Consultant formateur chez [Zenika](www.zenika.com)
 
 ### i18n
 
+### *Keep It Simple Stupid*
+
 ## Tests
 
 ### Unitaire
@@ -54,6 +56,11 @@ public class MonService {
 ### Git
 
 ### Markdown
+
+### Revue de code
+
+* méthode du canard en plastique
+* *pull-request*
 
 ### IDE
 
