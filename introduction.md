@@ -1,9 +1,9 @@
 # Génie logiciel
 
 Vincent Boutour
-Consultant formateur chez [Zenika](www.zenika.com)
+Consultant formateur chez [Zenika](http://www.zenika.com)
 
-@ViBiOh
+[@ViBiOh](https://twitter.com/ViBiOh)
 
 ## Sommaire
 
