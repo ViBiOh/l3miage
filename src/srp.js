@@ -25,9 +25,9 @@ class ScreenWriter {
   }
 }
 
-let converter = new IntegerConverter();
-let inverse = new InverseProcess();
-let display = new ScreenWriter();
+const converter = new IntegerConverter();
+const inverse = new InverseProcess();
+const display = new ScreenWriter();
 
 try {
   display.info('Inverse: ' + inverse.do(converter.fromString(process.argv[2])));
