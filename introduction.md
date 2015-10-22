@@ -16,22 +16,14 @@ Consultant formateur chez [Zenika](http://www.zenika.com)
 Lire un entier et en donner son inverse
 
 ```javascript
-process.stdin.setEncoding('utf8');
+'use strict';
 
-process.stdin.on('readable', () => {
-  var chunk = process.stdin.read();
-  if (chunk !== null) {
-    chunk.replace(/^([\+\-]?[0-9]+).*/gmi, (global, number) => {
-      console.info('Inverse : ' + 1 / parseInt(number, 10));
-      process.exit(0);
-    });
-    console.error('<' + chunk.replace(/\n/gmi, '') + ' > is not a valid integer');
-  }
+let value = process.argv[2];
+value.replace(/^([\+\-]?[0-9]+).*/gmi, (global, number) => {
+  console.info('Inverse: ' + 1 / parseInt(number, 10));
+  process.exit(0);
 });
-
-process.stdin.on('end', () => {
-  process.stdout.write('end');
-});
+console.error('<' + process.argv[2] + '> is not a valid integer');
 ```
 
 ### *Single Responsibility Principle*
@@ -41,35 +33,42 @@ process.stdin.on('end', () => {
     - Process
     - Ecriture
 
-```java
-public class KeyboardReader {
-  private final Scanner scanner = new Scanner(System.in);
+```javascript
+'use strict';
 
-  public int read() {
-    return this.scanner.nextInt();
+class IntegerConverter {
+  fromString(str) {
+    if (str.search(/^[\+\-]?[0-9]+$/) !== -1) {
+      return parseInt(str, 10);
+    }
+    throw new Error('<' + str + '> is not a valid integer');
   }
 }
 
-public class InverseProcess {
-  public int do(final int value) {
-    return 1 / value;
+class InverseProcess {
+  do(intValue) {
+    return 1 / intValue;
   }
 }
 
-public class ScreenWriter {
-  public int write(final int value) {
-    System.out.println(value);
+class ScreenWriter {
+  info(value) {
+    console.info(value);
+  }
+
+  error(value) {
+    console.error(value);
   }
 }
 
-public class Inverse {
-  public static void main(final String[] args) {
-    final KeyboardReader keyboard = new KeyboardReader();
-    final InverseProcess inverse = new InverseProcess();
-    final ScreenWriter screen = new ScreenWriter();
+let converter = new IntegerConverter();
+let inverse = new InverseProcess();
+let display = new ScreenWriter();
 
-    screen.display(inverse.do(keyboard.read()));
-  }
+try {
+  display.info('Inverse: ' + inverse.do(converter.fromString(process.argv[2])));
+} catch (err) {
+  display.error(err.message);
 }
 ```
 
