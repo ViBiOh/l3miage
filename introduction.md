@@ -13,7 +13,7 @@ Consultant formateur chez [Zenika](http://www.zenika.com)
 
 ### Programme simple
 
-Lire un entier et en donner son inverse
+Afficher l'inverse de l'entier fourni en paramètre
 
 ```javascript
 'use strict';
@@ -26,12 +26,12 @@ value.replace(/^([\+\-]?[0-9]+).*/gmi, (global, number) => {
 console.error('<' + process.argv[2] + '> is not a valid integer');
 ```
 
-### *Single Responsibility Principle*
+### *Single Responsibility Principle* - SRP
 
 * Trois concepts identifiés
-    - Lecture
-    - Process
-    - Ecriture
+    - Conversion du paramètre en entier
+    - Calcul de l'inverse
+    - Affichage
 
 ```javascript
 'use strict';
@@ -72,7 +72,7 @@ try {
 }
 ```
 
-### *Inversion of Control*
+### *Inversion of Control* - IoC
 
 * On fait plein de `new`
 * Aucune mutualisation
@@ -92,9 +92,15 @@ public class Inverse {
 
 [Inversion de contrôle](https://blog.imirhil.fr/linversion-de-controle-cest-bon-mangez-en.html)
 
-### i18n
+### *Liskov Substitution Principle* - LSP
 
-### *Keep It Simple Stupid*
+### *Keep It Simple Stupid* - KISS
+
+### *Don't Repeat Yourself¨* - DRY
+
+### *Law of Demeter* - LoD
+
+### i18n
 
 ## Tests
 
