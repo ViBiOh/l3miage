@@ -11,96 +11,202 @@ Consultant formateur chez [Zenika](http://www.zenika.com)
 
 ## Principe de programmation
 
-### Programme simple
+### Programme
 
-Afficher l'inverse de l'entier fourni en paramètre
+Afficher l'inverse de l'entier fourni par l'utilisateur
 
-```javascript
-'use strict';
-
-let value = process.argv[2];
-value.replace(/^([\+\-]?[0-9]+).*/gmi, (global, number) => {
-  console.info('Inverse: ' + 1 / parseInt(number, 10));
-  process.exit(0);
-});
-console.error('<' + process.argv[2] + '> is not a valid integer');
+```java
+public class Program {
+  public static void main(final String[] args) {
+    System.out.println("Inverse: " + (1D / new Scanner(System.in).readInt()));
+  }
+}
 ```
 
 ### *Single Responsibility Principle* - SRP
 
-* Trois concepts identifiés
-    - Conversion du paramètre en entier
-    - Calcul de l'inverse
-    - Affichage
+* Eviter les [*god objects*](https://en.wikipedia.org/wiki/God_object)
+* Principe de diviser pour mieux régner
+* e.g. trois concepts identifiés
+    - Lire un entier au clavier
+    - Calculer l'inverse d'un entier
+    - Afficher le résultat à l'écran
+* Comment afficher le carré en plus de l'inverse ?
 
-```javascript
-'use strict';
+```java
+public class KeyboardReader {
+  private Scanner in;
 
-class IntegerConverter {
-  fromString(str) {
-    if (str.search(/^[\+\-]?[0-9]+$/) !== -1) {
-      return parseInt(str, 10);
-    }
-    throw new Error('<' + str + '> is not a valid integer');
+  public KeyboardReader() {
+    this.in = new Scanner(System.in);
+  }
+
+  public int readInt() {
+    return in.readInt();
   }
 }
 
-class InverseProcess {
-  do(intValue) {
-    return 1 / intValue;
+public class InverseProcess {
+  public double do(final int intValue) {
+    return 1D / intValue;
   }
 }
 
-class ScreenWriter {
-  info(value) {
-    console.info(value);
-  }
-
-  error(value) {
-    console.error(value);
+public class ScreenWriter {
+  public void write(final String value) {
+    System.out.println(value);
   }
 }
 
-let converter = new IntegerConverter();
-let inverse = new InverseProcess();
-let display = new ScreenWriter();
+public class Program {
+  public static void main(final String[] args) {
+    final KeyboardReader keyboard = new KeyboardReader();
+    final InverseProcess process = new InverseProcess();
+    final ScreenWriter display = new ScreenWriter();
 
-try {
-  display.info('Inverse: ' + inverse.do(converter.fromString(process.argv[2])));
-} catch (err) {
-  display.error(err.message);
+    display.write("Inverse: " + process.do(keyboard.readInt()));
+  }
 }
 ```
 
-### *Inversion of Control* - IoC
+### *[Inversion of Control](https://blog.imirhil.fr/linversion-de-controle-cest-bon-mangez-en.html)* - IoC
 
-* On fait plein de `new`
-* Aucune mutualisation
+* Beaucoup d'instanciations via `new` sans mutualisation
+* Forte adhérence des composants :
+    - Lire depuis un fichier et écrire dans une base de données ?
+    - Calculer la racine carrée ?
 
 #### Séparation des concepts
 
-Lire un entier et en donner son inverse
-
 ```java
-public class Inverse {
-    public static void main(final String[] args) {
-        final Scanner scanner = new Scanner(System.in);
-        System.out.println(1 / scanner.nextInt());
-    }
+public interface Reader {
+  int readInt();
+}
+
+public interface Process {
+  String do(int value);
+}
+
+public interface Writer {
+  void write(String value);
+}
+
+public interface Operation<T> {
+  void compute();
+}
+
+public class KeyboardReader extends Reader {
+  private Scanner in;
+
+  public KeyboardReader() {
+    this.in = new Scanner(System.in);
+  }
+
+  public int readInt() {
+    return in.readInt();
+  }
+}
+
+public class InverseProcess extends Process {
+  public String do(final int intValue) {
+    return "Inverse: " + 1D / intValue;
+  }
+}
+
+public class SquareProcess extends Process {
+  public String do(final int intValue) {
+    return "Square: " + intValue * intValue;
+  }
+}
+
+public class ScreenWriter extends Writer {
+  public void write(final String value) {
+    System.out.println(value);
+  }
+}
+
+public class IntegerOperation extends Operation<Integer> {
+  private Reader reader;
+  private Process process;
+  private Writer writer;
+
+  public void compute() {
+    writer.write(process.do(reader.readInt()));
+  }
+
+  public void setReader(final Reader reader) {
+    this.reader = reader;
+  }
+
+  public void setProcess(final Process process) {
+    this.process = process;
+  }
+
+  public void setWriter(final Writer writer) {
+    this.writer = writer;
+  }
+}
+
+public class Program {
+  public static void main(final String[] args) {
+    final Reader reader = new KeyboardReader();
+    final Writer writer = new ScreenWriter();
+
+    final Process inverseProcess = new InverseProcess();
+    final Process squareProcess = new SquareProcess();
+
+    final Operation<Integer> inverse = new IntegerOperation();
+    inverse.setReader(reader);
+    inverse.setProcess(process);
+    inverse.setWriter(writer);
+    operation.compute();
+
+    final Operation<Integer> square = new IntegerOperation();
+    square.setReader(reader);
+    square.setProcess(squareProcess);
+    square.setWriter(writer);
+    operation.compute();
+  }
 }
 ```
 
-[Inversion de contrôle](https://blog.imirhil.fr/linversion-de-controle-cest-bon-mangez-en.html)
+#### Injection des dépendances
+
+```
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class IntegerOperation extends Operation {
+  @Autowired
+  private Reader reader;
+  @Autowired
+  private Process process;
+  @Autowired
+  private Writer writer;
+
+  public void compute() {
+    writer.write(process.do(reader.readInt()));
+  }
+}
+```
 
 ### *Liskov Substitution Principle* - LSP
 
 ### *Keep It Simple Stupid* - KISS
 
-### *Don't Repeat Yourself¨* - DRY
+### *Don't Repeat Yourself* - DRY
 
 ### *Law of Demeter* - LoD
 
 ### i18n
+
+* Ne pas se rendre dépendant d'une coutume
+* l10n - Localization - Traduction des libellés
+* Affichage des devises, des dates
+
+### Dette technique
+
+* Temps accumulé et ajouté à chaque nouvelle feature
+* Viser à la réduire ou à la contenir
 
 ## Tests
 
