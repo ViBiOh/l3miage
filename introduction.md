@@ -9,16 +9,31 @@ Consultant formateur chez [Zenika](http://www.zenika.com)
 
 [TOC]
 
+## Objectifs
+
+* Faire du **bon** code
+    - Maintenable
+    - Compréhensible
+    - Sûr
+    - Réutilisable
+    - Documenté
+    - Performant
+
+* Maitriser l'environnement de réalisation
+* Connaitre le processus de *delivery*
+
 ## Principe de programmation
 
-### Programme
+### Un cas simple
 
-Afficher l'inverse de l'entier fourni par l'utilisateur
+Afficher l'inverse de l'entier fourni par l'utilisateur en Java
 
 ```java
+import java.util.Scanner;
+
 public class Program {
   public static void main(final String[] args) {
-    System.out.println("Inverse: " + (1D / new Scanner(System.in).readInt()));
+    System.out.println("Inverse: " + (1D / new Scanner(System.in).nextInt()));
   }
 }
 ```
@@ -31,9 +46,13 @@ public class Program {
     - Lire un entier au clavier
     - Calculer l'inverse d'un entier
     - Afficher le résultat à l'écran
-* Comment afficher le carré en plus de l'inverse ?
+* ***how-to*** : Afficher le carré en plus de l'inverse ?
+
+Lecture d'un entier
 
 ```java
+import java.util.Scanner;
+
 public class KeyboardReader {
   private Scanner in;
 
@@ -42,36 +61,47 @@ public class KeyboardReader {
   }
 
   public int readInt() {
-    return in.readInt();
+    return in.nextInt();
   }
 }
+```
 
+Calcul de l'inverse
+
+```java
 public class InverseProcess {
   public double do(final int intValue) {
     return 1D / intValue;
   }
 }
+```
 
+Affichage du résultat
+
+```java
 public class ScreenWriter {
   public void write(final String value) {
     System.out.println(value);
   }
 }
+```
 
+Orchestration
+
+```java
 public class Program {
   public static void main(final String[] args) {
     final KeyboardReader keyboard = new KeyboardReader();
-    final InverseProcess process = new InverseProcess();
+    final InverseProcess inverse = new InverseProcess();
     final ScreenWriter display = new ScreenWriter();
 
-    display.write("Inverse: " + process.do(keyboard.readInt()));
+    display.write("Inverse: " + inverse.do(keyboard.readInt()));
   }
 }
 ```
 
 ### *[Inversion of Control](https://blog.imirhil.fr/linversion-de-controle-cest-bon-mangez-en.html)* - IoC
 
-* Beaucoup d'instanciations via `new` sans mutualisation
 * Forte adhérence des composants :
     - Lire depuis un fichier et écrire dans une base de données ?
     - Calculer la racine carrée ?
@@ -95,6 +125,8 @@ public interface Operation<T> {
   void compute();
 }
 
+import java.util.Scanner;
+
 public class KeyboardReader extends Reader {
   private Scanner in;
 
@@ -103,7 +135,7 @@ public class KeyboardReader extends Reader {
   }
 
   public int readInt() {
-    return in.readInt();
+    return in.nextInt();
   }
 }
 
@@ -172,6 +204,8 @@ public class Program {
 
 #### Injection des dépendances
 
+* Beaucoup d'instanciations via `new`
+
 ```
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -191,31 +225,56 @@ public class IntegerOperation extends Operation {
 
 ### *Liskov Substitution Principle* - LSP
 
-### *Keep It Simple Stupid* - KISS
+### *Keep It Simple, Stupid* - KISS
 
 ### *Don't Repeat Yourself* - DRY
 
 ### *Law of Demeter* - LoD
 
+> Ne parlez qu'aux gens que vous connaissez
+
+### *Read The Fucking Manual* - RTFM
+
 ### i18n
 
 * Ne pas se rendre dépendant d'une coutume
-* l10n - Localization - Traduction des libellés
-* Affichage des devises, des dates
+* `l10n` *Localization* Traduction des libellés
+* Affichage des devises, des dates, des couleurs
+* Ne pas le prévoir, c'est s'attendre à beaucoup de *refactoring*
 
 ### Dette technique
 
 * Temps accumulé et ajouté à chaque nouvelle feature
 * Viser à la réduire ou à la contenir
 
+### Ne pas réinventer la roue
+
+* Utiliser ce qui existe
+
 ## Tests
 
 ### Unitaire
 
-* Stub
-* Mock
+* Tester **un** composant et pas ses dépendances
+* Couvrir les lignes de code
+
+#### Stub
+
+* Créer des classes ayant le même comportement que les dépendances
+* Avantage majeur : envisager tous les comportements possibles sans les provoquer
+    - Fichier inexistant
+    - Base de données en timeout
+    - Coupure réseau
+* Inconvénient majeur : il faut les créer des classes
+
+#### Mock
+
+* Simuler le comportement d'une dépendance sans l'appeler
+* Préciser l'entrée à laquelle on réagit et la sortie que l'on produit
 
 ### Intégration
+
+* S'assurer de la bonne intégration des composants entre eux.
 
 ```java
 public class DateHelper {
@@ -224,7 +283,7 @@ public class DateHelper {
   }
 }
 
-public class MonService {
+public class MyService {
     public boolean isBefore(final Date value) throws ParseException {
         return new SimpleDateFormat("yyyy/MM/dd").parse(DateHelper.now()).before(value); // Mostly true
     }
@@ -233,7 +292,11 @@ public class MonService {
 
 ### Fonctionnel
 
+* Outils : [Cucumber](https://cucumber.io), [Fitnese](http://www.fitnesse.org), Robot Framework
+
 ### Charge
+
+* Apache JMeter, Gatling
 
 ### Autres
 
@@ -244,17 +307,46 @@ public class MonService {
 
 ### Git
 
+* Gestion de la configuration
+* Fonctionnement *à la ligne*
+* Décentralisé, pas forcément besoin d'un serveur
+* Branches, *cherry-pick*, tag
+
 ### Markdown
+
+* Rédaction de documentation *content-centric*
+* Aussi lisible brut que transformé (en HTML principalement)
+* Intégré dans de nombreux outils : e.g. GitHub, JIRA, Blog
 
 ### Revue de code
 
 * méthode du canard en plastique
 * *pull-request*
 
+### Qualimétrie
+
+* [SonarQube](http://www.sonarqube.org), CodeSmell, Linter
+
+### Organisation
+
+* [JIRA](https://www.atlassian.com/software/jira/)
+* [Trello](https://trello.com)
+
 ### IDE
 
-* vi / emacs
-* Notepad++ / Atom / SublimeText
-* Eclipse / IntelliJ / VisualStudio
+* [vi/vim](http://www.vim.org) / [emacs](https://www.gnu.org/software/emacs/)
+* [SublimeText](http://www.sublimetext.com) / [Atom](https://atom.io) / [Notepad++](https://notepad-plus-plus.org/fr/)
+* [IntelliJ](https://www.jetbrains.com/idea/) / [Eclipse](https://eclipse.org/) / [NetBeans](https://netbeans.org) / [VisualStudio](https://www.visualstudio.com)
+* Peu importe votre religion, il faut l'assumer et la maîtriser
 
 ### Déploiement
+
+* [Jenkins](https://jenkins-ci.org), [Bamboo](https://www.atlassian.com/software/bamboo/)
+* [Docker](https://www.docker.com), [Puppet](https://puppetlabs.com)
+
+## Littérature
+
+* [The Pragmatic Programmer](http://www.amazon.fr/dp/B003GCTQAE), *Andrew Hunt & David Thomas*
+* [Clean Code](http://www.amazon.fr/dp/B001GSTOAM), *Robert C. Martin*
+* [Effective Java](http://www.amazon.fr/dp/B00B8V09HY), *Joshua Bloch*
+* [Reword](http://www.amazon.fr/dp/B003ELY7PG), *Jason Fried & David Heinemeier Hansson*
