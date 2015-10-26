@@ -244,7 +244,7 @@ public class Program {
 
 * Beaucoup d'instanciations via `new` encore
 
-```
+```java
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class IntegerOperation extends Operation {
