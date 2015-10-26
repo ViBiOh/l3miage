@@ -106,15 +106,15 @@ public class Program {
     - Lire depuis un fichier et écrire dans une base de données ?
     - Calculer la racine carrée ?
 
-#### Séparation des concepts
+#### Définition des comportements
 
 ```java
 public interface Reader {
   int readInt();
 }
 
-public interface Process {
-  String do(int value);
+public interface Process<T> {
+  String execute(T value);
 }
 
 public interface Writer {
@@ -124,7 +124,11 @@ public interface Writer {
 public interface Operation<T> {
   void compute();
 }
+```
 
+#### Implémentation des comportements
+
+```java
 import java.util.Scanner;
 
 public class KeyboardReader extends Reader {
@@ -138,25 +142,39 @@ public class KeyboardReader extends Reader {
     return in.nextInt();
   }
 }
+```
 
-public class InverseProcess extends Process {
-  public String do(final int intValue) {
+```java
+public class InverseProcess<Integer> extends Process {
+  public String do(final Integer intValue) {
     return "Inverse: " + 1D / intValue;
   }
 }
+```
 
-public class SquareProcess extends Process {
-  public String do(final int intValue) {
-    return "Square: " + intValue * intValue;
+```java
+public class SquareProcess<Integer> extends Process {
+  public String do(final Integer value) {
+    if (value == null) {
+      throw new IllegalArgumentException("value is null");
+    }
+    if (value == 0) {
+      throw new IllegalArgumentException("Can't give inverse of zero");
+    }
+    return "Square: " + value * value;
   }
 }
+```
 
+```java
 public class ScreenWriter extends Writer {
   public void write(final String value) {
     System.out.println(value);
   }
 }
+```
 
+```java
 public class IntegerOperation extends Operation<Integer> {
   private Reader reader;
   private Process process;
@@ -178,7 +196,11 @@ public class IntegerOperation extends Operation<Integer> {
     this.writer = writer;
   }
 }
+```
 
+#### Exécution
+
+```java
 public class Program {
   public static void main(final String[] args) {
     final Reader reader = new KeyboardReader();
@@ -204,7 +226,7 @@ public class Program {
 
 #### Injection des dépendances
 
-* Beaucoup d'instanciations via `new`
+* Beaucoup d'instanciations via `new` encore
 
 ```
 import org.springframework.beans.factory.annotation.Autowired;
@@ -271,10 +293,41 @@ public class IntegerOperation extends Operation {
 
 * Simuler le comportement d'une dépendance sans l'appeler
 * Préciser l'entrée à laquelle on réagit et la sortie que l'on produit
+* [Mockito](http://mockito.org) voire [PowerMock](https://github.com/jayway/powermock) (pour *mocker* les classes statiques)
+
+```java
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+public class IntegerOperationTest {
+  @InjectMocks
+  private IntegerOperation operation;
+  @Mock
+  private Reader reader;
+  @Mock
+  private Process process;
+  @Mock
+  private Writer writer;
+
+  @Before
+  private void setUp() {
+    MockitoAnnotations.initMocks(this);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void compute_null() {
+    when(reader.readInt()).thenReturn(null);
+    operation.compute();
+  }
+}
+```
 
 ### Intégration
 
-* S'assurer de la bonne intégration des composants entre eux.
+* S'assurer de la bonne intégration :
+    - des composants entre eux
+    - des versions entre elles (e.g. Mockito *2.0* et PowerMock *1.6.2* ne sont pas compatibles)
 
 ```java
 public class DateHelper {
