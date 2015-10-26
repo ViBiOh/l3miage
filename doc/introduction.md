@@ -255,8 +255,6 @@ public class IntegerOperation extends Operation {
 
 > Ne parlez qu'aux gens que vous connaissez
 
-### *Read The Fucking Manual* - RTFM
-
 ### i18n
 
 * Ne pas se rendre dépendant d'une coutume
@@ -396,6 +394,33 @@ public class MyService {
 
 * [Jenkins](https://jenkins-ci.org), [Bamboo](https://www.atlassian.com/software/bamboo/)
 * [Docker](https://www.docker.com), [Puppet](https://puppetlabs.com)
+
+## Méthodes pratiques
+
+### Cycle V
+
+### Agile - Scrum
+
+### Communication
+
+> Seul on va plus vite, ensemble on va plus loin.
+
+* Slack, RocketChat, HipChat
+* Acquérir le *team-spirit*
+
+### Principe du *boy-scout*
+
+> *Leave the campground cleaner that you found it.*
+
+* Amélioration continue du logiciel
+* Pas de coupable, pensez en équipe et pas en individuel
+
+### *Read The Fucking Manual* - RTFM
+
+* La réponse est bien souvent dans la documentation
+* La réponse est sur [Google](http://lmgtfy.com/?q=google.fr&l=1) / [StackOverflow](http://lmgtfy.com/?q=stacksverflow.com&l=1)
+* La réponse est dans les *issues* GitHub
+* La réponse est [42](https://en.wikipedia.org/wiki/42_(number)#The_Hitchhiker.27s_Guide_to_the_Galaxy)
 
 ## Littérature
 
