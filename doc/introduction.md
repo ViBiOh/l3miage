@@ -69,8 +69,8 @@ public class KeyboardReader {
 Calcul de l'inverse
 
 ```java
-public class InverseProcess {
-  public double do(final int intValue) {
+public class InverseOperation {
+  public double compute(final int intValue) {
     return 1D / intValue;
   }
 }
@@ -92,10 +92,10 @@ Orchestration
 public class Program {
   public static void main(final String[] args) {
     final KeyboardReader keyboard = new KeyboardReader();
-    final InverseProcess inverse = new InverseProcess();
+    final InverseOperation inverse = new InverseOperation();
     final ScreenWriter display = new ScreenWriter();
 
-    display.write("Inverse: " + inverse.do(keyboard.readInt()));
+    display.write("Inverse: " + inverse.compute(keyboard.readInt()));
   }
 }
 ```
@@ -109,20 +109,25 @@ public class Program {
 #### Définition des comportements
 
 ```java
-public interface Reader {
-  int readInt();
+public interface Reader<T> {
+  T read();
 }
 
-public interface Process<T> {
-  String execute(T value);
+public interface Operation<I, O> {
+  O compute(I value);
+  String computeVerbose(I value);
 }
 
-public interface Writer {
-  void write(String value);
+public interface Writer<T> {
+  void write(T value);
 }
 
-public interface Operation<T> {
-  void compute();
+public interface Process<I> {
+  Process execute();
+
+  Process setReader(final Reader<I> reader);
+  Process setOperation(final Operation<I, ?> operation);
+  Process setWriter(final Writer<String> writer);
 }
 ```
 
@@ -131,43 +136,51 @@ public interface Operation<T> {
 ```java
 import java.util.Scanner;
 
-public class KeyboardReader extends Reader {
+public class KeyboardReader implements Reader<Integer> {
   private Scanner in;
 
   public KeyboardReader() {
     this.in = new Scanner(System.in);
   }
 
-  public int readInt() {
+  @Override
+  public Integer read() {
     return in.nextInt();
   }
 }
 ```
 
 ```java
-public class InverseProcess<Integer> extends Process {
-  public String do(final Integer intValue) {
-    return "Inverse: " + 1D / intValue;
+public class InverseOperation implements Operation<Integer, Double> {
+  @Override
+  public Double compute(final Integer intValue) {
+    return 1D / intValue;
+  }
+
+  @Override
+  public String computeVerbose(Integer value) {
+    return "Inverse:" + this.compute(value);
   }
 }
 ```
 
 ```java
-public class SquareProcess<Integer> extends Process {
-  public String do(final Integer value) {
-    if (value == null) {
-      throw new IllegalArgumentException("value is null");
-    }
-    if (value == 0) {
-      throw new IllegalArgumentException("Can't give inverse of zero");
-    }
-    return "Square: " + value * value;
+public class SquareOperation implements Operation<Integer, Integer> {
+  @Override
+  public Integer compute(final Integer value) {
+    return value * value;
+  }
+
+  @Override
+  public String computeVerbose(Integer value) {
+    return "Square: " + this.compute(value);
   }
 }
 ```
 
 ```java
-public class ScreenWriter extends Writer {
+public class ScreenWriter implements Writer<String> {
+  @Override
   public void write(final String value) {
     System.out.println(value);
   }
@@ -175,25 +188,33 @@ public class ScreenWriter extends Writer {
 ```
 
 ```java
-public class IntegerOperation extends Operation<Integer> {
-  private Reader reader;
-  private Process process;
-  private Writer writer;
+public class ProcessImpl<I> implements Process<I> {
+  private Reader<I> reader;
+  private Operation<I, ?> operation;
+  private Writer<String> writer;
 
-  public void compute() {
-    writer.write(process.do(reader.readInt()));
+  @Override
+  public Process execute() {
+    writer.write(operation.computeVerbose(reader.read()));
+    return this;
   }
 
-  public void setReader(final Reader reader) {
+  @Override
+  public Process setReader(final Reader<I> reader) {
     this.reader = reader;
+    return this;
   }
 
-  public void setProcess(final Process process) {
-    this.process = process;
+  @Override
+  public Process setOperation(final Operation<I, ?> operation) {
+    this.operation = operation;
+    return this;
   }
 
-  public void setWriter(final Writer writer) {
+  @Override
+  public Process setWriter(final Writer<String> writer) {
     this.writer = writer;
+    return this;
   }
 }
 ```
@@ -203,23 +224,18 @@ public class IntegerOperation extends Operation<Integer> {
 ```java
 public class Program {
   public static void main(final String[] args) {
-    final Reader reader = new KeyboardReader();
-    final Writer writer = new ScreenWriter();
+    final Reader<Integer> reader = new KeyboardReader();
+    final Writer<String> writer = new ScreenWriter();
+    final Operation<Integer, Double> inverse = new InverseOperation();
+    final Operation<Integer, Integer> square = new SquareOperation();
 
-    final Process inverseProcess = new InverseProcess();
-    final Process squareProcess = new SquareProcess();
-
-    final Operation<Integer> inverse = new IntegerOperation();
-    inverse.setReader(reader);
-    inverse.setProcess(process);
-    inverse.setWriter(writer);
-    operation.compute();
-
-    final Operation<Integer> square = new IntegerOperation();
-    square.setReader(reader);
-    square.setProcess(squareProcess);
-    square.setWriter(writer);
-    operation.compute();
+    new ProcessImpl<Integer>()
+        .setReader(reader)
+        .setOperation(inverse)
+        .setWriter(writer)
+        .execute()
+        .setOperation(square)
+        .execute();
   }
 }
 ```
