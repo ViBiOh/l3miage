@@ -14,7 +14,7 @@ Bien au contraire, écrire un test est un gage de qualité.
 
 > Ça prend du temps, ça ne sert à rien, il faut les maintenir.
 
-Oui c'est vrai, mais c'est de la [capitalisation](TODO test du Marshmallow).
+Oui c'est vrai, mais c'est de la [capitalisation](https://en.wikipedia.org/wiki/Stanford_marshmallow_experiment).
 
 ### Le réel intérêt des tests
 
