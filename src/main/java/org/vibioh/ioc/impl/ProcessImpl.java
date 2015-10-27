@@ -7,12 +7,12 @@ import org.vibioh.ioc.Writer;
 
 public class ProcessImpl<I> implements Process<I> {
   private Reader<I> reader;
-  private Operation<I, ?> operation;
-  private Writer<String> writer;
+  private Operation<I, Object> operation;
+  private Writer<Object> writer;
 
   @Override
   public Process execute() {
-    writer.write(operation.computeVerbose(reader.read()));
+      writer.write(operation.compute(reader.read()));
     return this;
   }
 
@@ -23,13 +23,13 @@ public class ProcessImpl<I> implements Process<I> {
   }
 
   @Override
-  public Process setOperation(final Operation<I, ?> operation) {
+  public Process setOperation(final Operation<I, Object> operation) {
     this.operation = operation;
     return this;
   }
 
   @Override
-  public Process setWriter(final Writer<String> writer) {
+  public Process setWriter(final Writer<Object> writer) {
     this.writer = writer;
     return this;
   }

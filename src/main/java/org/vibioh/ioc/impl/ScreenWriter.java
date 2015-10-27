@@ -2,9 +2,11 @@ package org.vibioh.ioc.impl;
 
 import org.vibioh.ioc.Writer;
 
-public class ScreenWriter implements Writer<String> {
+import java.util.Optional;
+
+public class ScreenWriter implements Writer<Object> {
   @Override
-  public void write(final String value) {
-    System.out.println(value);
+  public void write(final Optional<Object> value) {
+    System.out.println(value.get());
   }
 }

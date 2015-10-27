@@ -2,6 +2,7 @@ package org.vibioh.ioc.impl;
 
 import org.vibioh.ioc.Reader;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class KeyboardReader implements Reader<Integer> {
@@ -12,7 +13,7 @@ public class KeyboardReader implements Reader<Integer> {
   }
 
   @Override
-  public Integer read() {
-    return in.nextInt();
+  public Optional<Integer> read() {
+    return Optional.of(in.nextInt());
   }
 }

@@ -1,5 +1,7 @@
 package org.vibioh.ioc;
 
+import java.util.Optional;
+
 public interface Writer<T> {
-  void write(T value);
+  void write(Optional<T> value);
 }
