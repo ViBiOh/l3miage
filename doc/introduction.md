@@ -5,7 +5,7 @@ Consultant formateur chez [Zenika](http://www.zenika.com)
 
 [@ViBiOh](https://twitter.com/ViBiOh)
 
-
+---
 
 ## Sommaire
 
@@ -15,6 +15,8 @@ Consultant formateur chez [Zenika](http://www.zenika.com)
 * [Méthodes](methods.md)
 * [Outils](tools.md)
 * [Principes pratiques](principles.md)
+
+---
 
 ## Objectifs
 
@@ -26,8 +28,12 @@ Consultant formateur chez [Zenika](http://www.zenika.com)
     - Documenté
     - Performant
 
+---
+
 * Maitriser l'environnement de réalisation
 * Connaitre le processus de *delivery*
+
+---
 
 ## Littérature
 

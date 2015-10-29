@@ -1,3 +1,10 @@
+# Application specific
+
+/web/css
+/web/js
+/web/lib
+/web/plugin
+
 # Sublime Text
 
 ## cache files for sublime text
