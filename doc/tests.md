@@ -8,13 +8,13 @@
 
 Oui c'est vrai. Mais l'avenir est incertain.
 
-> Les tests c'est pour ceux qui ne savent pas coder.
-
-Bien au contraire, écrire un test est un gage de qualité.
-
 > Ça prend du temps, ça ne sert à rien, il faut les maintenir.
 
 Oui c'est vrai, mais c'est de la [capitalisation](https://en.wikipedia.org/wiki/Stanford_marshmallow_experiment).
+
+> Les tests c'est pour ceux qui ne savent pas coder.
+
+Bien au contraire, écrire un test est un gage de qualité.
 
 ### Le réel intérêt des tests
 
@@ -23,11 +23,31 @@ Oui c'est vrai, mais c'est de la [capitalisation](https://en.wikipedia.org/wiki/
     - en disposer pour *refactorer*
 * Vérifier qu'il n'y a pas de code inutile
 * Identifier les anomalies au plus tôt et ainsi, économiser !
-* Etre exécuter fréquemment : on ne négocie pas avec la qualité
-* Faire partie du code de l'application
+
+#### Le bon test et le mauvais test
+
+##### Le mauvais test
+
+* est exécuté au moment de sa création, puis dès qu'il échoue, est désactivé *"parce qu'on a pas le temps"*
+* est dans un projet séparé du code de l'application
+* cherche à couvrir des lignes de codes et pas un besoin
+* teste seulement les cas nominaux
+* est long à s'exécuter
+
+##### Le bon test
+
+* est exécuté fréquemment, à chaque modification du code de l'application
+    - doit donc être performant et rapide
+    - doit donc être maintenu
+* fait partie du code de l'application :
+    - ne doit pas en être séparé
+    - est maintenu en même temps que le code testé
     - doit être aussi plaisant à maintenir
     - doit être relu
-    - ne doit pas en être séparé
+* couvre un besoin ou un cas technique ou fonctionnel
+    - ne pas tester tous les scénarios possibles et imaginables
+    - se concentrer sur le *use-case*, la *user-story* ou les "cas probables"
+* est créé dès qu'un bug a été détecté afin d'éviter qu'il ne revienne
 
 ## Unitaire
 
@@ -110,7 +130,7 @@ public class MyService {
 
 * Outils : [Cucumber](https://cucumber.io), [Fitnese](http://www.fitnesse.org), Robot Framework
 
-## Charge
+## Charge / Performance
 
 * Apache JMeter, Gatling
 
@@ -119,3 +139,13 @@ public class MyService {
 * de sécurité *pen-testing*
 * humains (*Quality Assurance*, *User eXperience*)
 * *Test Driven Development* - TDD
+
+## Conclusion
+
+L'objectif est de faire du **bon** code : 
+    - Maintenable ()
+    - Compréhensible
+    - Sûr (*pen-testing*)
+    - Réutilisable (*)
+    - Documenté
+    - Performant (*tests de performance*)

@@ -239,8 +239,6 @@ public class IntegerOperation extends Operation {
 
 ## *Liskov Substitution Principle* - LSP
 
-## *Keep It Simple, Stupid* - KISS
-
 ## *Don't Repeat Yourself* - DRY
 
 ## *Law of Demeter* - LoD
