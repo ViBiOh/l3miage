@@ -1,6 +1,5 @@
 # Outils
 
----
 
 ## Git
 
@@ -9,7 +8,6 @@
 * Décentralisé, pas forcément besoin d'un serveur
 * Branches, *cherry-pick*, tag
 
----
 
 ## Markdown
 
@@ -17,27 +15,23 @@
 * Aussi lisible brut que transformé (en HTML principalement)
 * Intégré dans de nombreux outils : e.g. GitHub, JIRA, Blog
 
----
 
 ## Revue de code
 
 * méthode du canard en plastique
 * *pull-request*
 
----
 
 ## Qualimétrie
 
 * [SonarQube](http://www.sonarqube.org), CodeSmell, Linter
 
----
 
 ## Organisation
 
 * [JIRA](https://www.atlassian.com/software/jira/)
 * [Trello](https://trello.com)
 
----
 
 ## IDE
 
@@ -46,7 +40,6 @@
 * [IntelliJ](https://www.jetbrains.com/idea/) / [Eclipse](https://eclipse.org/) / [NetBeans](https://netbeans.org) / [VisualStudio](https://www.visualstudio.com)
 * Peu importe votre religion, il faut l'assumer et la maîtriser
 
----
 
 ## Déploiement
 

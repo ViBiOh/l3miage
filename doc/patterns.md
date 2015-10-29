@@ -1,12 +1,10 @@
 # *Patterns* de programmation
 
----
 
 ## Un cas simple
 
 Afficher l'inverse de l'entier fourni par l'utilisateur en Java
 
----
 
 ```java
 import java.util.Scanner;
@@ -19,7 +17,6 @@ public class Program {
 }
 ```
 
----
 
 ## *Single Responsibility Principle* - SRP
 
@@ -31,7 +28,6 @@ public class Program {
     - Afficher le résultat à l'écran
 * ***how-to*** : Afficher le carré en plus de l'inverse ?
 
----
 
 Lecture d'un entier
 
@@ -51,7 +47,6 @@ public class KeyboardReader {
 }
 ```
 
----
 
 Calcul de l'inverse
 
@@ -63,7 +58,6 @@ public class InverseOperation {
 }
 ```
 
----
 
 Affichage du résultat
 
@@ -75,7 +69,6 @@ public class ScreenWriter {
 }
 ```
 
----
 
 Orchestration
 
@@ -91,7 +84,6 @@ public class Program {
 }
 ```
 
----
 
 ## *[Inversion of Control](https://blog.imirhil.fr/linversion-de-controle-cest-bon-mangez-en.html)* - IoC
 
@@ -99,7 +91,6 @@ public class Program {
     - Lire depuis un fichier et écrire dans une base de données ?
     - Calculer la racine carrée ?
 
----
 
 ### Définition des comportements
 
@@ -126,7 +117,6 @@ public interface Process<I> {
 }
 ```
 
----
 
 ### Implémentation des comportements
 
@@ -147,7 +137,6 @@ public class KeyboardReader implements Reader<Integer> {
 }
 ```
 
----
 
 ```java
 public class InverseOperation implements Operation<Integer, Double> {
@@ -163,7 +152,6 @@ public class InverseOperation implements Operation<Integer, Double> {
 }
 ```
 
----
 
 ```java
 public class SquareOperation implements Operation<Integer, Integer> {
@@ -179,7 +167,6 @@ public class SquareOperation implements Operation<Integer, Integer> {
 }
 ```
 
----
 
 ```java
 public class ScreenWriter implements Writer<String> {
@@ -190,7 +177,6 @@ public class ScreenWriter implements Writer<String> {
 }
 ```
 
----
 
 ```java
 public class ProcessImpl<I> implements Process<I> {
@@ -224,7 +210,6 @@ public class ProcessImpl<I> implements Process<I> {
 }
 ```
 
----
 
 ### Exécution
 
@@ -247,13 +232,11 @@ public class Program {
 }
 ```
 
----
 
 ### Injection des dépendances
 
 * Beaucoup d'instanciations via `new` encore
 
----
 
 ```java
 import org.springframework.beans.factory.annotation.Autowired;
@@ -272,23 +255,18 @@ public class IntegerOperation extends Operation {
 }
 ```
 
----
 
 ## *Liskov Substitution Principle* - LSP
 
----
 
 ## *Don't Repeat Yourself* - DRY
 
----
 
 ## *Law of Demeter* - LoD
 
----
 
 > Ne parlez qu'aux gens que vous connaissez
 
----
 
 ## i18n
 

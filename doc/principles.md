@@ -1,6 +1,5 @@
 # Principes pratiques
 
----
 
 ## Dette technique
 
@@ -9,13 +8,11 @@
 * définitionTemps accumulé et ajouté à chaque nouvelle feature
 * Viser à la réduire ou à la contenir
 
----
 
 ## Ne pas réinventer la roue
 
 * Utiliser ce qui existe
 
----
 
 ## Principe du *boy-scout*
 
@@ -24,7 +21,6 @@
 * Amélioration continue du logiciel
 * Pas de coupable, pensez en équipe et pas en individuel
 
----
 
 ## *Keep It Simple, Stupid* - KISS
 
@@ -32,7 +28,6 @@
 
 * Il est parfois compliqué de faire simple en appliquant les *patterns* de programmation
 
----
 
 ## *Read The Fucking Manual* - RTFM
 
@@ -41,7 +36,6 @@
 * La réponse est dans les *issues* GitHub
 * La réponse est [42](https://en.wikipedia.org/wiki/42_(number)#The_Hitchhiker.27s_Guide_to_the_Galaxy)
 
----
 
 * S'il y a vraiment un bug (i.e. après avoir lu la documentation), ouvrez un ticket !
 * Contribuez, corrigez, ameliorez : appropriez-vous vos outils

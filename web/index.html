@@ -14,7 +14,7 @@
     <div class="reveal">
       <div class="slides">
         <section data-markdown="./doc/patterns.md"
-                 data-separator="^---"
+                 data-separator="\n\n\n"
                  data-charset="utf-8">
         </section>
       </div>
@@ -31,9 +31,21 @@
     center: true,
     transition: 'slide',
     dependencies: [
-      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
-    ]
+      {
+        src: 'lib/js/classList.js',
+        condition: function() {
+          return !document.body.classList;
+        }
+      }, {
+        src: 'plugin/markdown/marked.js',
+        condition: function() {
+          return !!document.querySelector('[data-markdown]');
+        }
+      }, {
+        src: 'plugin/markdown/markdown.js',
+        condition: function() {
+          return !!document.querySelector('[data-markdown]');
+        }
+      }]
   });
 </script>

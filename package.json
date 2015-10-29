@@ -4,10 +4,12 @@
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
   "scripts": {
-    "reveal-css": "cp -R ./nodes_modules/reveal.js/css ./web/css",
-    "reveal-lib": "cp -R ./nodes_modules/reveal.js/lib ./web/lib",
-    "reveal-plugin": "cp -R ./nodes_modules/reveal.js/plugin ./web/plugin",
-    "reveal-js": "cp -R ./nodes_modules/reveal.js/js ./web/js",
+    "reveal:css": "cp -R ./node_modules/reveal.js/css ./web/css",
+    "reveal:lib": "cp -R ./node_modules/reveal.js/lib ./web/lib",
+    "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin ./web/plugin",
+    "reveal:js": "cp -R ./node_modules/reveal.js/js ./web/js",
+    "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin && npm run reveal:js",
+    "postinstall": "npm run reveal",
     "start": "node ./server/server.js"
   },
   "repository": {
@@ -28,7 +30,7 @@
   },
   "homepage": "https://github.com/ViBiOh/md-genie-logiciel#readme",
   "dependencies": {
-    "express": "^4.13.3",
+    "express": "latest",
     "reveal": "https://github.com/hakimel/reveal.js.git"
   },
   "devDependencies": {}
