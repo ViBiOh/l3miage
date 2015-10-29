@@ -1,0 +1,33 @@
+{
+  "name": "md-genie-logiciel",
+  "version": "1.0.0",
+  "description": "Course for Genie Lociel in Paris Descartes",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "reveal": "https://github.com/hakimel/reveal.js.git"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViBiOh/md-genie-logiciel.git"
+  },
+  "keywords": [
+    "markdown",
+    "course",
+    "quality",
+    "genie",
+    "lociciel"
+  ],
+  "author": "Vincent Boutour <vincent.boutour@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViBiOh/md-genie-logiciel/issues"
+  },
+  "homepage": "https://github.com/ViBiOh/md-genie-logiciel#readme"
+}
