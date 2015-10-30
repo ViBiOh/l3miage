@@ -1,9 +1,8 @@
 # Génie logiciel
 
-[Vincent Boutour](https://www.linkedin.com/in/vboutour)
-Consultant formateur chez [Zenika](http://www.zenika.com)
+[Vincent Boutour](https://www.linkedin.com/in/vboutour) - [@ViBiOh](https://twitter.com/ViBiOh)
 
-[@ViBiOh](https://twitter.com/ViBiOh)
+Consultant formateur chez [Zenika](http://www.zenika.com)
 
 
 ## Sommaire
@@ -16,9 +15,65 @@ Consultant formateur chez [Zenika](http://www.zenika.com)
 * [Principes pratiques](principles.md)
 
 
+## Définition
+
+Qu'est-ce que le génie ?
+
+
+![](/img/genie.png)
+
+
+> Démon qui préside la conception
+
+
+> Personne dont les conseils influent sur la vie des autres
+
+
+> Personne douée d'un talent exceptionnel
+
+
+> Esprit supérieur qui crée, innove et entreprend
+
+
 ## Objectifs
 
-* Faire du **bon** code
+
+### Comprendre le besoin
+
+* Maîtriser les enjeux (e.g. volumétrie, User eXpérience, sécurité, etc.)
+* Traduire le besoin en solution
+* Evaluer la faisabilité technique et les points d’achoppement
+
+
+> The Project Cartoon
+
+![](/img/cartoon.png)
+
+
+> La perfection est atteinte, non pas lorsqu'il n'y a plus rien à ajouter, mais lorsqu'il n'y a plus rien à retirer.
+
+> Antoine de Saint-Exupéry
+
+
+### Travailler avec efficience en équipe
+
+* Découper la solution en tâches parallélisables et les répartir
+* Mutualiser les besoins communs
+* Partager la même vision du produit
+* S’entraider et… communiquer !
+
+
+> Vous voulez aller vite ? Alors prenez votre temps !
+
+> Daniel Guillaume
+
+
+> Réaliser un « *bon* » produit
+
+![](/img/triptique.png)
+
+
+* Faire du « *bon* » code
     - Maintenable
     - Compréhensible
     - Sûr
@@ -29,6 +84,10 @@ Consultant formateur chez [Zenika](http://www.zenika.com)
 
 * Maitriser l'environnement de réalisation
 * Connaitre le processus de *delivery*
+
+> L’imagination est plus importante que le savoir
+
+> Albert Einstein
 
 
 ## Littérature

@@ -3,7 +3,12 @@
 
 ## Un cas simple
 
-Afficher l'inverse de l'entier fourni par l'utilisateur en Java
+> Toujours prendre un exemple stupide pour que tout le monde comprenne.
+
+> Daniel Guillaume
+
+
+Afficher l'inverse de l'entier fourni par l'utilisateur
 
 
 ```java
@@ -18,14 +23,26 @@ public class Program {
 ```
 
 
+Quel sont les problèmes ?
+
+
+La classe fait trois choses :
+
+1. Lecture au clavier d'un entier
+2. Calcul de l'inverse de l'entier
+3. Affichage à l'écran du résultat
+
+
+Pas réutilisable
+
+
+Sujet à des changements pour diverses raisons
+
+
 ## *Single Responsibility Principle* - SRP
 
 * Eviter les [*god objects*](https://en.wikipedia.org/wiki/God_object)
 * Principe de diviser pour mieux régner
-* e.g. trois concepts identifiés
-    - Lire un entier au clavier
-    - Calculer l'inverse d'un entier
-    - Afficher le résultat à l'écran
 * ***how-to*** : Afficher le carré en plus de l'inverse ?
 
 

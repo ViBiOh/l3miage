@@ -6,12 +6,22 @@
 
 ## Agile - Scrum
 
-La qualité vous terrorise ? tant mieux : on ne négocie pas avec ~~les terroristes~~ la qualité.
+La qualité vous fait peur ?
+
+Tant mieux : on ne négocie pas avec ~~les terroristes~~ la qualité.
+
+
+[Devenir agile en 15 min](https://www.youtube.com/watch?v=3qMpB-UH9kA)
 
 
 ## Intégration continue
 
-L'objectif de l'entreprise est de réduire le *Time To Market* (TTM) et donc pour la R&D le *Time To Ship* sans négocier la qualité de l'application déployée.
+L'objectif de l'entreprise est de réduire le *Time To Market* (T.T.M.) et donc pour la R&D le *Time To Ship*.
+
+
+On livre toujours du code qu'on assume : exempt de bugs, performant...
+
+De qualité !
 
 
 Le workflow automatique et idéal est le suivant :
@@ -41,7 +51,9 @@ A chaque erreur détectée lors de la compilation, du *packaging*, de la qualim�
     - de l'écosystème dans lequel vous êtes
 * Faire de la veille, des conférences, assister à des *meetups*
 * Discuter des implémentations, technologies, actualités
+    - méso-économie : personne n'a que faire d'un évènement.
 
 
-* Slack, RocketChat, HipChat
-* Acquérir le *team-spirit*
+* [Slack](http://www.slack.com)
+* RocketChat, HipChat
+* Animer l'équipe et acquérir le *team-spirit*

@@ -31,7 +31,7 @@
   "homepage": "https://github.com/ViBiOh/md-genie-logiciel#readme",
   "dependencies": {
     "express": "latest",
-    "reveal": "https://github.com/hakimel/reveal.js.git"
+    "reveal.js": "git+https://github.com/hakimel/reveal.js.git"
   },
   "devDependencies": {}
 }
