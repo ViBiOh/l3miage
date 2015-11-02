@@ -12,8 +12,6 @@ Afficher l'inverse de l'entier fourni par l'utilisateur
 
 
 ```java
-import java.util.Scanner;
-
 public class Program {
   public static void main(final String[] args) {
     System.out.println("Inverse: " + (1D / new Scanner(System.in).nextInt()));
@@ -39,10 +37,10 @@ La classe fait ~~trois~~ ~~cinq~~ trop de choses :
     1. du résultat
 
 
-N'est pas réutilisable
+Aucune réutilisabilité
 
 
-Peut évoluer pour diverses raisons
+Multiples raisons d'évolution
 
 
 ## *Single Responsibility Principle* - SRP
@@ -55,9 +53,6 @@ Peut évoluer pour diverses raisons
 Lecture d'un entier
 
 ```java
-import java.io.InputStream;
-import java.util.Scanner;
-
 public class IntegerReader {
   private Scanner in;
 
@@ -77,10 +72,6 @@ Juste un proxy ? Justement, ajoutons une validation par *regex*
 
 ```class IntegerReader```
 ```java
-import java.util.regex.Pattern;
-
-[...]
-
 public static Integer read(final String raw) {
   if (Pattern.compile("^[+-]?[0-9]+$").matcher(raw).matches()) {
     return Integer.parseInt(raw);
@@ -104,10 +95,6 @@ public class InverseOperation {
 Affichage du résultat
 
 ```java
-import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
-
 public class InverseWriter {
   private OutputStream out;
 
@@ -122,14 +109,9 @@ public class InverseWriter {
 ```
 
 
-Quels sont les problèmes ?
-
-
 Orchestration
 
 ```java
-import java.io.IOException;
-
 public class Program {
   public static void main(final String[] args) throws IOException {
     final IntegerReader integerReader = new IntegerReader(System.in);
@@ -142,11 +124,27 @@ public class Program {
 ```
 
 
+Quels sont les problèmes ?
+
+
+Nombreuses instanciations, avec des arguments
+
+
+Composants intimement liés
+
+
+Testabilité complexe voire impossible
+
+
 ## *[Inversion of Control](https://blog.imirhil.fr/linversion-de-controle-cest-bon-mangez-en.html)* - IoC
 
-* Forte adhérence des composants :
-    - Lire depuis un fichier et écrire dans une base de données ?
-    - Calculer la racine carrée ?
+
+L'application a besoin de comportements, pas d'implémentations
+
+
+Les comportements existent :
+* sous la forme de *singletons*
+* n'ont pas à être instanciés
 
 
 ### Définition des comportements
@@ -157,124 +155,141 @@ public interface Reader<T> {
 }
 
 public interface Operation<I, O> {
-  O compute(I value);
-  String computeVerbose(I value);
+    Optional<O> compute(Optional<I> value);
 }
 
 public interface Writer<T> {
-  void write(T value);
+  void write(Optional<T> value) throws IOException;
 }
 
 public interface Process<I> {
   Process execute();
 
   Process setReader(final Reader<I> reader);
-  Process setOperation(final Operation<I, ?> operation);
-  Process setWriter(final Writer<String> writer);
+  Process setOperation(final Operation<I, Object> operation);
+  Process setWriter(final Writer<Object> writer);
 }
 ```
 
 
 ### Implémentation des comportements
 
-```java
-import java.util.Scanner;
 
-public class KeyboardReader implements Reader<Integer> {
+Lecture d'un entier
+```java
+public class IntegerReader implements Reader<Integer> {
   private Scanner in;
 
-  public KeyboardReader() {
-    this.in = new Scanner(System.in);
+  public IntegerReader(final InputStream input) {
+    this.in = new Scanner(input);
   }
 
   @Override
-  public Integer read() {
-    return in.nextInt();
+  public Optional<Integer> read() {
+    return Optional.ofNullable(in.nextInt());
   }
 }
 ```
 
 
+Calcul de l'inverse
 ```java
 public class InverseOperation implements Operation<Integer, Double> {
   @Override
-  public Double compute(final Integer intValue) {
-    return 1D / intValue;
-  }
-
-  @Override
-  public String computeVerbose(Integer value) {
-    return "Inverse:" + this.compute(value);
+  public Optional<Double> compute(final Optional<Integer> intValue) {
+    return intValue.map(value -> 1D / value);
   }
 }
 ```
 
 
+Calcul du carré
 ```java
 public class SquareOperation implements Operation<Integer, Integer> {
   @Override
-  public Integer compute(final Integer value) {
-    return value * value;
-  }
-
-  @Override
-  public String computeVerbose(Integer value) {
-    return "Square: " + this.compute(value);
+  public Optional<Integer> compute(final Optional<Integer> intValue) {
+    return intValue.map(value -> value * value);
   }
 }
 ```
 
 
+Ecriture du résultat
 ```java
-public class ScreenWriter implements Writer<String> {
-  @Override
-  public void write(final String value) {
-    System.out.println(value);
+public class InverseWriter implements Writer<Object> {
+  private OutputStream out;
+
+  public InverseWriter(final OutputStream out) {
+    this.out = out;
+  }
+
+  public void write(final Optional<Object> inverseValue) throws IOException {
+    if (inverseValue.isPresent()) {
+      out.write(("Inverse: " + inverseValue.get()).getBytes(StandardCharsets.UTF_8));
+    }
   }
 }
 ```
 
 
+Processus de traitement : lire - traiter - écrire
 ```java
 public class ProcessImpl<I> implements Process<I> {
+  private static final Logger logger = Logger.getLogger(Process.class.getSimpleName());
+
   private Reader<I> reader;
-  private Operation<I, ?> operation;
-  private Writer<String> writer;
+  private Operation<I, Object> operation;
+  private Writer<Object> writer;
 
   @Override
   public Process execute() {
-    writer.write(operation.computeVerbose(reader.read()));
+    try {
+      writer.write(operation.compute(reader.read()));
+    } catch (final IOException e) {
+      logger.log(Level.SEVERE, "Something went wrong", e);
+    }
     return this;
   }
 
-  @Override
-  public Process setReader(final Reader<I> reader) {
-    this.reader = reader;
-    return this;
-  }
+  [...]
+}
+```
 
-  @Override
-  public Process setOperation(final Operation<I, ?> operation) {
-    this.operation = operation;
-    return this;
-  }
 
-  @Override
-  public Process setWriter(final Writer<String> writer) {
-    this.writer = writer;
-    return this;
-  }
+Processus de traitement : des méthodes à générer
+```java
+[...]
+
+@Override
+public Process setReader(final Reader<I> reader) {
+  this.reader = reader;
+  return this;
+}
+
+@Override
+public Process setOperation(final Operation<I, Object> operation) {
+  this.operation = operation;
+  return this;
+}
+
+@Override
+public Process setWriter(final Writer<Object> writer) {
+  this.writer = writer;
+  return this;
 }
 ```
 
 
 ### Exécution
 
+
+Orchestration
+
 ```java
 public class Program {
   public static void main(final String[] args) {
-    final Reader<Integer> reader = new KeyboardReader();
-    final Writer<String> writer = new ScreenWriter();
+    final Reader<Integer> reader = new IntegerReader(System.in);
+    final Writer<Object> writer = new InverseWriter(System.out);
     final Operation<Integer, Double> inverse = new InverseOperation();
     final Operation<Integer, Integer> square = new SquareOperation();
 
@@ -290,14 +305,14 @@ public class Program {
 ```
 
 
-### Injection des dépendances
 
-* Beaucoup d'instanciations via `new` encore
+Quels sont les problèmes ?
+
+
+### Injection des dépendances
 
 
 ```java
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class IntegerOperation extends Operation {
   @Autowired
   private Reader reader;

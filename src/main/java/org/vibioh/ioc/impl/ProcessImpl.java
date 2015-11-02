@@ -5,14 +5,24 @@ import org.vibioh.ioc.Process;
 import org.vibioh.ioc.Reader;
 import org.vibioh.ioc.Writer;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class ProcessImpl<I> implements Process<I> {
+  private static final Logger logger = Logger.getLogger(Process.class.getSimpleName());
+
   private Reader<I> reader;
   private Operation<I, Object> operation;
   private Writer<Object> writer;
 
   @Override
   public Process execute() {
+    try {
       writer.write(operation.compute(reader.read()));
+    } catch (final IOException e) {
+      logger.log(Level.SEVERE, "Something went wrong", e);
+    }
     return this;
   }
 

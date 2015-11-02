@@ -5,11 +5,8 @@ import org.vibioh.ioc.Operation;
 import java.util.Optional;
 
 public class SquareOperation implements Operation<Integer, Integer> {
-    @Override
-    public Optional<Integer> compute(final Optional<Integer> intValue) {
-        if (intValue.isPresent()) {
-            return Optional.of(intValue.get() * intValue.get());
-        }
-        return Optional.empty();
-    }
+  @Override
+  public Optional<Integer> compute(final Optional<Integer> intValue) {
+    return intValue.map(value -> value * value);
+  }
 }
