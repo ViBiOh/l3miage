@@ -16,51 +16,76 @@ import java.util.Scanner;
 
 public class Program {
   public static void main(final String[] args) {
-    System.out.println("Inverse: " + 
-        (1D / new Scanner(System.in).nextInt()));
+    System.out.println("Inverse: " + (1D / new Scanner(System.in).nextInt()));
   }
 }
 ```
 
 
-Quel sont les problèmes ?
+Quels sont les problèmes ?
 
 
-La classe fait trois choses :
-
-1. Lecture au clavier d'un entier
-2. Calcul de l'inverse de l'entier
-3. Affichage à l'écran du résultat
+Combien d'actions sont réalisées ?
 
 
-Pas réutilisable
+La classe fait ~~trois~~ ~~cinq~~ trop de choses :
+
+1. Lecture
+    1. au clavier
+    1. d'un entier
+1. Calcul de l'inverse de l'entier
+1. Affichage
+    1. à l'écran
+    1. du résultat
 
 
-Sujet à des changements pour diverses raisons
+N'est pas réutilisable
+
+
+Peut évoluer pour diverses raisons
 
 
 ## *Single Responsibility Principle* - SRP
 
+
 * Eviter les [*god objects*](https://en.wikipedia.org/wiki/God_object)
 * Principe de diviser pour mieux régner
-* ***how-to*** : Afficher le carré en plus de l'inverse ?
 
 
 Lecture d'un entier
 
 ```java
+import java.io.InputStream;
 import java.util.Scanner;
 
-public class KeyboardReader {
+public class IntegerReader {
   private Scanner in;
 
-  public KeyboardReader() {
-    this.in = new Scanner(System.in);
+  public IntegerReader(final InputStream input) {
+    this.in = new Scanner(input);
   }
 
   public int readInt() {
     return in.nextInt();
   }
+}
+```
+
+
+Juste un proxy ? Justement, ajoutons une validation par *regex*
+
+
+```class IntegerReader```
+```java
+import java.util.regex.Pattern;
+
+[...]
+
+public static Integer read(final String raw) {
+  if (Pattern.compile("^[+-]?[0-9]+$").matcher(raw).matches()) {
+    return Integer.parseInt(raw);
+  }
+  return null;
 }
 ```
 
@@ -79,24 +104,39 @@ public class InverseOperation {
 Affichage du résultat
 
 ```java
-public class ScreenWriter {
-  public void write(final String value) {
-    System.out.println(value);
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+
+public class InverseWriter {
+  private OutputStream out;
+
+  public InverseWriter(final OutputStream out) {
+    this.out = out;
+  }
+
+  public void write(final double inverseValue) throws IOException {
+    out.write(("Inverse: " + inverseValue).getBytes(StandardCharsets.UTF_8));
   }
 }
 ```
 
 
+Quels sont les problèmes ?
+
+
 Orchestration
 
 ```java
-public class Program {
-  public static void main(final String[] args) {
-    final KeyboardReader keyboard = new KeyboardReader();
-    final InverseOperation inverse = new InverseOperation();
-    final ScreenWriter display = new ScreenWriter();
+import java.io.IOException;
 
-    display.write("Inverse: " + inverse.compute(keyboard.readInt()));
+public class Program {
+  public static void main(final String[] args) throws IOException {
+    final IntegerReader integerReader = new IntegerReader(System.in);
+    final InverseOperation inverse = new InverseOperation();
+    final InverseWriter display = new InverseWriter(System.out);
+
+    display.write(inverse.compute(integerReader.readInt()));
   }
 }
 ```
