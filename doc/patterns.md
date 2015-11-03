@@ -456,10 +456,10 @@ Ne pas se rendre dépendant d'une coutume
 
 Affichage particuliers
 * des libellés (l10n - *Localization*)
-* des nombres
-* des dates
-* des devises
-* des couleurs
+* des nombres (e.g. 1,000 ~= 1 000)
+* des dates (e.g. 1/5/2015 ~= 5/1/15 )
+* des devises (e.g. $ 9.99 ~= 9,99 €)
+* des couleurs (e.g. daltoniens)
 
 
 Pas que de l'affichage : quid des fuseaux horaires ?
