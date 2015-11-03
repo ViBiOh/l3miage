@@ -9,11 +9,9 @@ import org.vibioh.spring.Process;
 
 import java.io.IOException;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @Component
 public class ProcessImpl<I> implements Process {
-  private static final Logger logger = Logger.getLogger(org.vibioh.ioc.Process.class.getSimpleName());
 
   @Autowired
   private Reader<I> reader;

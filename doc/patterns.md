@@ -163,6 +163,7 @@ public interface Writer<T> {
 }
 
 public interface Process<I> {
+  Logger logger = Logger.getLogger(Process.class.getSimpleName());
   Process execute();
 
   Process setReader(final Reader<I> reader);
@@ -235,8 +236,6 @@ public class InverseWriter implements Writer<Object> {
 Processus de traitement : lire - traiter - écrire
 ```java
 public class ProcessImpl<I> implements Process<I> {
-  private static final Logger logger = Logger.getLogger(Process.class.getSimpleName());
-
   private Reader<I> reader;
   private Operation<I, Object> operation;
   private Writer<Object> writer;
@@ -309,20 +308,128 @@ public class Program {
 Quels sont les problèmes ?
 
 
-### Injection des dépendances
+Déclaration des *getters/setters* fastidieuse
 
+
+Toujours des instanciations avec arguments, mais externalisées
+
+
+Connaissance des dépendances entre classes
+* l'ordre est important
+* l'arbre également
+
+
+### Injection de dépendances
+
+
+**Service** de calcul d'une inverse
 
 ```java
-public class IntegerOperation extends Operation {
-  @Autowired
-  private Reader reader;
-  @Autowired
-  private Process process;
-  @Autowired
-  private Writer writer;
+@Service
+public class InverseOperation implements Operation<Integer, Object> {
+  @Override
+  public Optional<Object> compute(final Optional<Integer> intValue) {
+    return intValue.map(value -> 1D / value);
+  }
+}
+```
 
-  public void compute() {
-    writer.write(process.do(reader.readInt()));
+
+Injection de dépendances dans le constructeur
+
+```java
+@Service
+public class IntegerReader implements Reader<Integer> {
+  private Scanner in;
+
+  @Autowired
+  public IntegerReader(final InputStream input) {
+    this.in = new Scanner(System.in);
+  }
+
+  @Override
+  public Optional<Integer> read() {
+    return Optional.ofNullable(in.nextInt());
+  }
+}
+```
+
+
+Injection de dépendances automatique
+
+```java
+@Service
+public class InverseWriter implements Writer<Object> {
+  @Autowired
+  private OutputStream out;
+
+  public void write(final Optional<Object> inverseValue) throws IOException {
+    if (inverseValue.isPresent()) {
+      out.write(("Inverse: " + inverseValue.get()).getBytes(StandardCharsets.UTF_8));
+    }
+  }
+}
+```
+
+
+Déclaration des comportements attendus
+
+```java
+@Component
+public class ProcessImpl<I> implements Process {
+  @Autowired
+  private Reader<I> reader;
+  @Autowired
+  private Operation<I, Object> operation;
+  @Autowired
+  private Writer<Object> writer;
+
+  @Override
+  public void execute() {
+    try {
+      writer.write(operation.compute(reader.read()));
+    } catch (final IOException e) {
+      logger.log(Level.SEVERE, "Something went wrong", e);
+    }
+  }
+}
+```
+
+
+Configuration de l'application
+
+```java
+@Configuration
+@ComponentScan(value = "org.vibioh.spring")
+public class SpringConfiguration {
+  @Bean
+  public InputStream getInput() {
+    return System.in;
+  }
+
+  @Bean
+  public OutputStream getOuput() {
+    return System.out;
+  }
+}
+```
+
+
+Démarrage de l'application par autoconfiguration
+
+```java
+@SpringBootApplication
+public class Program implements CommandLineRunner {
+  @Autowired
+  private Process inverse;
+
+  @Override
+  public void run(final String... strings) throws Exception {
+    inverse.execute();
+  }
+
+  public static void main(final String[] args) {
+    SpringApplication.run(SpringConfiguration.class, args);
   }
 }
 ```
@@ -334,15 +441,50 @@ public class IntegerOperation extends Operation {
 ## *Don't Repeat Yourself* - DRY
 
 
+```java
+public class Program {
+  public static final main(final String[] args) {
+  }
+}
+
+
+## *Internationalization* - i18n
+
+
+Ne pas se rendre dépendant d'une coutume
+
+
+Affichage particuliers
+* des libellés (l10n - *Localization*)
+* des nombres
+* des dates
+* des devises
+* des couleurs
+
+
+Pas que de l'affichage : quid des fuseaux horaires ?
+
+
+Ne pas le prévoir, c'est s'attendre à beaucoup de *refactoring*
+
+
 ## *Law of Demeter* - LoD
 
 
 > Ne parlez qu'aux gens que vous connaissez
 
 
-## i18n
+Eviter l'effet tunnel de l'appel de composants
 
-* Ne pas se rendre dépendant d'une coutume
-* `l10n` *Localization* Traduction des libellés
-* Affichage des devises, des dates, des couleurs
-* Ne pas le prévoir, c'est s'attendre à beaucoup de *refactoring*
+```java
+promotion
+  .getStudents().get(0) // Récupération d'un étudiant
+  .getAddress().getCountry() // Récupération de son pays
+  .getLocale(); // Récupération des informations de l10n
+```
+
+
+Que faire en cas d'évolutions de la classe `Etudiant` ?
+
+
+Comment gérer les `null-check` ? Les exceptions ?

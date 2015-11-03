@@ -13,7 +13,9 @@ Oui c'est vrai. Mais l'avenir est incertain.
 
 > Ça prend du temps, ça ne sert à rien, il faut les maintenir.
 
-Oui c'est vrai, mais c'est de la [capitalisation](https://en.wikipedia.org/wiki/Stanford_marshmallow_experiment).
+Oui ça prend du temps, mais c'est de la [capitalisation](https://en.wikipedia.org/wiki/Stanford_marshmallow_experiment).
+
+Ça sert énormément en cas de *refactoring*.
 
 
 > Les tests c'est pour ceux qui ne savent pas coder.
@@ -23,11 +25,15 @@ Bien au contraire, écrire un test est un gage de qualité.
 
 ### Le réel intérêt des tests
 
-* Connaître le comportement attendu de l'application :
-    - s'en assurer
-    - en disposer pour *refactorer*
-* Vérifier qu'il n'y a pas de code inutile
-* Identifier les anomalies au plus tôt et ainsi, économiser !
+Connaître le comportement attendu de l'application :
+* s'en assurer
+* en disposer pour *refactorer*
+
+
+Vérifier qu'il n'y a pas de code inutile
+
+
+Identifier les anomalies au plus tôt et ainsi, économiser !
 
 
 #### Le bon test et le mauvais test
@@ -35,7 +41,7 @@ Bien au contraire, écrire un test est un gage de qualité.
 
 ##### Le mauvais test
 
-* est exécuté au moment de sa création, puis dès qu'il échoue, est désactivé *"parce qu'on a pas le temps"*
+* est exécuté au moment de sa création, puis dès qu'il échoue, est désactivé *« parce qu'on a pas le temps »*
 * est dans un projet séparé du code de l'application
 * cherche à couvrir des lignes de codes et pas un besoin
 * teste seulement les cas nominaux
@@ -44,18 +50,25 @@ Bien au contraire, écrire un test est un gage de qualité.
 
 ##### Le bon test
 
-* est exécuté fréquemment, à chaque modification du code de l'application
-    - doit donc être performant et rapide
-    - doit donc être maintenu
-* fait partie du code de l'application :
-    - ne doit pas en être séparé
-    - est maintenu en même temps que le code testé
-    - doit être aussi plaisant à maintenir
-    - doit être relu
-* couvre un besoin ou un cas technique ou fonctionnel
-    - ne pas tester tous les scénarios possibles et imaginables
-    - se concentrer sur le *use-case*, la *user-story* ou les "cas probables"
-* est créé dès qu'un bug a été détecté afin d'éviter qu'il ne revienne
+
+Il est exécuté fréquemment, à chaque modification du code de l'application
+* doit donc être performant et rapide
+* doit donc être maintenu
+
+
+Il fait partie du code de l'application :
+* ne doit pas en être séparé
+* est maintenu en même temps que le code testé
+* doit être aussi plaisant à maintenir
+* doit être relu
+
+
+Il couvre un besoin ou un cas technique ou fonctionnel
+* ne pas tester tous les scénarios possibles et imaginables
+* se concentrer sur le *use-case*, la *user-story* ou les « cas probables »
+
+
+Il est créé dès qu'un bug a été détecté afin d'éviter qu'il ne revienne
 
 
 ## Unitaire
