@@ -37,7 +37,7 @@ public class IntegerReaderTest {
   }
 
   @Test
-  public void read_matchNegativ_null() throws Exception {
+  public void read_matchNegative_null() throws Exception {
     assertEquals(Integer.valueOf(-123), IntegerReader.read("-123"));
   }
 }
