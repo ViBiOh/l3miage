@@ -54,6 +54,7 @@ Identifier les anomalies au plus tôt et ainsi, économiser !
 Il est exécuté fréquemment, à chaque modification du code de l'application
 * doit donc être performant et rapide
 * doit donc être maintenu
+* à l'optimum, il est écrit avant le code de l'application
 
 
 Il fait partie du code de l'application :
@@ -71,38 +72,117 @@ Il couvre un besoin ou un cas technique ou fonctionnel
 Il est créé dès qu'un bug a été détecté afin d'éviter qu'il ne revienne
 
 
-## Unitaire
+## Test unitaire
 
-* Tester **un** composant et pas ses dépendances
-* Couvrir les lignes de code (< 75% vous êtes mauvais)
+
+Tester **un** seul composant et pas ses dépendances
+* maîtriser le contexte d'exécution
+* pas de dépendance au réseau / moment
+
+
+Pouvoir rejouer chaque test unitairement et à tout moment
+
+Aucune dépendance entre les tests :
+* d'une même classe
+* de classes différentes
+
+
+Pouvoir se dire « ce composant est stable »
+
+
 * Tester ce qui a du sens fonctionnel ou technique
 * Un cas possible = un test
     - pas de vérifications multiples
     - pas de "scénario" alambiqués
 
 
-* Maitriser le context d'exécution
-* Pouvoir rejouer chaque test unitairement à tout moment
-* Aucune dépendance entre les tests :
-    - d'une même classe
-    - de classes différentes
+Test du lecteur d'entiers
+
+```java
+public class IntegerReaderTest {
+  @Test(expected = NullPointerException.class)
+  public void read_null_exception() throws Exception {
+    IntegerReader.read(null);
+  }
+
+  @Test
+  public void read_match_null() throws Exception {
+    assertEquals(Integer.valueOf(123), IntegerReader.read("123"));
+  }
+
+  @Test
+  public void read_matchNegative_null() throws Exception {
+    assertEquals(Integer.valueOf(-123), IntegerReader.read("-123"));
+  }
+}
+```
 
 
-### Stub
-
-* Créer des classes ayant le même comportement que les dépendances
-* Avantage majeur : envisager tous les comportements possibles sans les provoquer
-    - Fichier inexistant
-    - Base de données en timeout
-    - Coupure réseau
-* Inconvénient majeur : il faut les créer des classes
+Quels sont les problèmes ?
 
 
-### Mock
+Comment tester le déroulement d'un algorithme ayant des dépendances mais sans en être dépendant ?
 
-* Simuler le comportement d'une dépendance sans l'appeler
-* Préciser l'entrée à laquelle on réagit et la sortie que l'on produit
-* [Mockito](http://mockito.org) voire [PowerMock](https://github.com/jayway/powermock) (pour *mocker* les classes statiques)
+> e.g. sauvegarde dans une base de données, lecture d'un fichier, service qui calcule une information complexe
+
+
+### Les Stub
+
+
+Créer des classes ayant le même comportement que les dépendances
+
+
+Fournir un jeu de données fixe pour les tests
+
+
+Stub InputStream pour IntegerReader
+
+```java
+public class InputStreamStub extends InputStream {
+  private String[] VALUES = { "0", "123", "-123" };
+  private int index;
+  private int seq;
+
+  public InputStreamStub(final int index) {
+    this.index = index;
+  }
+
+  @Override
+  public int read() throws IOException {
+    if (seq < VALUES[index].length()) {
+      return VALUES[index].charAt(seq++);
+    }
+    return -1;
+  }
+}
+```
+
+
+Envisager les comportements possibles sans les provoquer
+* Fichier inexistant
+* Base de données en timeout
+* Coupure réseau
+
+
+Quels sont les problèmes ?
+
+
+Fastidieux à écrire et cela requiert un effort de maintenance considérable
+
+
+Fort couplage entre le jeu de données décrit dans le Stub et le cas de test
+
+
+### Les Mock
+
+
+Simuler le comportement d'une dépendance sans l'appeler et sans l'écrire
+
+
+Préciser l'entrée à laquelle on réagit et la sortie que l'on produit en conséquence
+
+
+[Mockito](http://mockito.org) voire [PowerMock](https://github.com/jayway/powermock) (pour *mocker* les classes statiques)
 
 
 ```java
@@ -134,7 +214,16 @@ public class IntegerOperationTest {
 ```
 
 
-## Intégration
+Quels sont les problèmes ?
+
+
+Chaque composant peut fonctionner parfaitement individuellement...
+
+
+...mais ne pas fonctionner en équipe !
+
+
+## Test d'ntégrations
 
 * S'assurer de la bonne intégration :
     - des composants entre eux
