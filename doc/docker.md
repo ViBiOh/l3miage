@@ -28,6 +28,29 @@ Un format standard pour un transport multi-modal
 La règle d'or dans Docker : un processus = un docker
 
 
+> Qui va s'en servir ?
+
+dev
+
+```alias npm='docker run --rm -v $(pwd):/usr/src -w /usr/src vibioh/node:dev npm'```
+
+> Plus besoin d'installer NodeJS en local (idem pour Maven)
+
+qa
+
+```docker-compose up -d```
+
+> Plus besoin d'installer l'application en local, on la déploie
+
+
+prod
+
+```docker run -d -p 80:8080 tomcat:latest```
+
+> Plus besoin de configurer l'application, on l'exécute dans son contexte
+
+
+
 ### Conséquences
 
 
