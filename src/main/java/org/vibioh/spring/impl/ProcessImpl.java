@@ -25,7 +25,7 @@ public class ProcessImpl<I> implements Process {
     try {
       writer.write(operation.compute(reader.read()));
     } catch (final IOException e) {
-      logger.log(Level.SEVERE, "Something went wrong", e);
+      getLogger().log(Level.SEVERE, "Something went wrong", e);
     }
   }
 }

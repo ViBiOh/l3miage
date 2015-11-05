@@ -123,17 +123,45 @@ Quels sont les problèmes ?
 
 Comment tester le déroulement d'un algorithme ayant des dépendances mais sans en être dépendant ?
 
-> e.g. sauvegarde dans une base de données, lecture d'un fichier, service qui calcule une taxe complexe
+> e.g. sauvegarde dans une base de données, lecture d'un fichier, service qui calcule une information complexe
 
 
 ### Les Stub
 
-* Créer des classes ayant le même comportement que les dépendances
-* Avantage majeur : envisager tous les comportements possibles sans les provoquer
-    - Fichier inexistant
-    - Base de données en timeout
-    - Coupure réseau
-* Inconvénient majeur : il faut les créer des classes
+
+Créer des classes ayant le même comportement que les dépendances
+
+
+Fournir un jeu de données fixe pour les tests
+
+
+Stub InputStream pour IntegerReader
+
+```java
+public class InputStreamStub extends InputStream {
+  private String[] VALUES = { "0", "123", "-123" };
+  private int index;
+  private int seq;
+
+  public InputStreamStub(final int index) {
+    this.index = index;
+  }
+
+  @Override
+  public int read() throws IOException {
+    if (seq < VALUES[index].length()) {
+      return VALUES[index].charAt(seq++);
+    }
+    return -1;
+  }
+}
+```
+
+
+Envisager les comportements possibles sans les provoquer
+* Fichier inexistant
+* Base de données en timeout
+* Coupure réseau
 
 
 Quels sont les problèmes ?
@@ -142,11 +170,19 @@ Quels sont les problèmes ?
 Fastidieux à écrire et cela requiert un effort de maintenance considérable
 
 
+Fort couplage entre le jeu de données décrit dans le Stub et le cas de test
+
+
 ### Les Mock
 
-* Simuler le comportement d'une dépendance sans l'appeler
-* Préciser l'entrée à laquelle on réagit et la sortie que l'on produit
-* [Mockito](http://mockito.org) voire [PowerMock](https://github.com/jayway/powermock) (pour *mocker* les classes statiques)
+
+Simuler le comportement d'une dépendance sans l'appeler et sans l'écrire
+
+
+Préciser l'entrée à laquelle on réagit et la sortie que l'on produit en conséquence
+
+
+[Mockito](http://mockito.org) voire [PowerMock](https://github.com/jayway/powermock) (pour *mocker* les classes statiques)
 
 
 ```java
