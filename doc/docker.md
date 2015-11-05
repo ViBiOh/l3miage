@@ -1,4 +1,4 @@
-![](/img/docker_logo.png)
+# ![](/img/docker_logo.png)
 
 
 ## Définition
@@ -6,7 +6,7 @@
 
 > Quest-ce que Docker ?
 
-Docker est une plateforme ouverte utilisant la technologie des *conteneurs* Linux.
+Docker est une plateforme *open-source* utilisant la technologie des *conteneurs* Unix.
 
 
 > Qu'est-ce qu'un conteneur ?
@@ -14,54 +14,76 @@ Docker est une plateforme ouverte utilisant la technologie des *conteneurs* Linu
 Un système virtualisant les resources (i.e. *CPU / RAM / Network / File System*) mais pas les composants (i.e. *hardware*)
 
 
-La technologie des conteneurs se réfèrent au principe utilisé en logistique.
-
-
-Un format standard pour un transport multi-modal
-* bateau
-* camion
-* train
-
-
-> Comment s'en servir ?
-
-La règle d'or dans Docker : un processus = un docker
-
-
-> Qui va s'en servir ?
-
-dev
-
-```alias npm='docker run --rm -v $(pwd):/usr/src -w /usr/src vibioh/node:dev npm'```
-
-> Plus besoin d'installer NodeJS en local (idem pour Maven)
-
-qa
-
-```docker-compose up -d```
-
-> Plus besoin d'installer l'application en local, on la déploie
-
-
-prod
-
-```docker run -d -p 80:8080 tomcat:latest```
-
-> Plus besoin de configurer l'application, on l'exécute dans son contexte
-
-
-
-### Conséquences
-
+Portable
 
 Beaucoup plus léger
 * taille d'images
 * consommation ressources
 
 
-Orienté micro-services et composition plutôt que monolithe
+La technologie des conteneurs est analogue à celle en logistique.
+
+
+Un format standard pour un transport multi-modal
+* camion
+* train
+* bateau
+* avion
+
+
+> Qui va s'en servir ?
+
+Un peu tout le monde
+
+
+**dev** > Plus besoin d'installer **node** en local
+
+```alias npm='docker run --rm -v $(pwd):/usr/src -w /usr/src vibioh/node:dev npm'```
+
+
+**qa** > Plus besoin d'installer les dépendances localement
+
+```docker-compose up -d```
+
+
+**it** > Plus besoin de configurer l'application
+
+```docker run -d -p 80:3000 awesome_app:latest```
+
+
+Certains s'en servent pour lancer des applications avec une UI (Spotify, Chrome, etc...) en utilisant un serveur X11.
+
+
+> Si plus personne ne fait plus rien, qui le fait ?
+
+`Dockerfile` et donc les devs / dev-ops.
+
+
+L'automatisation de la construction du livrable existe déjà mais...
+
+...maintenant on peut le déployer facilement en lançant le *docker*
+
+
+Besoin d'une nouvelle instance sur le cluster ? Lançons un *docker*
+
+
+> Comment s'en servir ?
+
+un processus = un *docker*
+
+Point.
+
+
+> *Cattle vs Kittens*
+
+*Cattle* : Un *docker* « malade », on le tue et on le relance.
+
+*Kitten* : Une *Virtual Machine* « malade », on essaie de la soigner.
+
 
 > L'avenir et/ou la mode du moment dans le monde de l'IT
+
+Orienté micro-services et composition plutôt que monolithe
 
 
 Terminologie :
@@ -71,10 +93,13 @@ Terminologie :
 * *Docker Hub* : référentiel sur lequel sont construites et/ou déposées les images
 
 
-# Utilisation
+## Utilisation sous Windows / Mac
 
 
-# Utilisation sur Chassagne
+Docker utilise des API bien particulières du noyau Unix, non présentes sous  et forcément absente de Windows.
+
+
+On utilise donc une VM Linux afin d'avoir accès à ces API : [Docker Toolbox](https://www.docker.com/docker-toolbox) (anciennement Boot2Docker).
 
 
 L'application a des dépendances (FileSystem, Database, NoSQL, SMTP, RabbitMQ, etc...).
