@@ -123,7 +123,7 @@ Docker permet de lier les conteneurs entre eux sans exposer les ports publiqueme
 
 `docker run --link mysql:db awesome_app:latest`
 
-> **`awesome_app`** parlera à **`mysql`** via le port **3306** sans que celui-ci ne soit disponible à l'extérieur de Docker
+> **`awesome_app`** parlera à **`mysql`** via le port **3306** sur le nom **db** sans que celui-ci ne soit disponible à l'extérieur de Docker
 
 
 > Comment accèder à l'application ?
@@ -174,7 +174,37 @@ On peut lancer plusieurs fois la même application, avec toutes ses dépendances
 La configuration est éditable et le monitoring des *hosts* voire des *dockers* est possible.
 
 
-> Utilisation sur le projet Chassagne
+# Utilisation sur le projet Chassagne
 
-Création de plusieurs environnements pour la QA, des portails clients et pour la démonstration.
 
+Besoin d'avoir des jeux de données afin de dérouler des campagnes de tests.
+
+> Création de ceux-ci sous la forme de volumes (*FileSystem*, *DB*, *NoSQL*)
+
+
+Besoin d'avoir plusieurs environnements pour tester les portails.
+
+> Création sous la forme de *compose* / *Stack*, avec des configurations particulières
+
+
+Besoin d'un environnement de démonstration pour la *review* du Lundi
+
+> Création d'un jeu de données **de base** duquel on va repartir à chaque *review*
+
+
+La configuration de l'application Chassagne se fait via des variables d'environnements au démarrage du *container* et n'est pas présente sur le système de fichier.
+
+Actuellement, toutes les propriétés ne sont pas éditables : connexion, emplacement des répertoires et quelques options. C'est modifiable selon le besoin.
+
+
+Docker Compose de Chassagne
+
+# ![](/img/rancher.png)
+
+
+# Travail restant à faire
+
+
+* Déploiement à chaud depuis CI
+* Permettre l'*upload* de fichiers facilement (i.e. un docker avec un interface Web branchée sur le *FileSystem*)
+* Permettre l'import / export des bases
