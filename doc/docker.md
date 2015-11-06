@@ -172,39 +172,3 @@ On peut lancer plusieurs fois la même application, avec toutes ses dépendances
 [Rancher](http://rancher.com/rancher/) est un outil Web permettant de contrôler un ou plusieurs hôtes Docker. Il permet d'importer son *compose* et de le déployer dans une *stack*.
 
 La configuration est éditable et le monitoring des *hosts* voire des *dockers* est possible.
-
-
-# Utilisation sur le projet Chassagne
-
-
-Besoin d'avoir des jeux de données afin de dérouler des campagnes de tests.
-
-> Création de ceux-ci sous la forme de volumes (*FileSystem*, *DB*, *NoSQL*)
-
-
-Besoin d'avoir plusieurs environnements pour tester les portails.
-
-> Création sous la forme de *compose* / *Stack*, avec des configurations particulières
-
-
-Besoin d'un environnement de démonstration pour la *review* du Lundi
-
-> Création d'un jeu de données **de base** duquel on va repartir à chaque *review*
-
-
-La configuration de l'application Chassagne se fait via des variables d'environnements au démarrage du *container* et n'est pas présente sur le système de fichier.
-
-Actuellement, toutes les propriétés ne sont pas éditables : connexion, emplacement des répertoires et quelques options. C'est modifiable selon le besoin.
-
-
-Docker Compose de Chassagne
-
-# ![](/img/rancher.png)
-
-
-# Travail restant à faire
-
-
-* Déploiement à chaud depuis CI
-* Permettre l'*upload* de fichiers facilement (i.e. un docker avec un interface Web branchée sur le *FileSystem*)
-* Permettre l'import / export des bases
