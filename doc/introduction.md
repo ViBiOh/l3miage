@@ -92,12 +92,36 @@ Maîtriser la réalisation
 
 
 Faire du « ***bon*** » code
-* Maintenable
-* Compréhensible
-* Sûr
-* Réutilisable
-* Documenté
-* Performant
+
+
+Conforme
+
+> Le code répond au besoin de l'utilisateur
+
+
+Maintenable
+
+> Le code est compréhensible par mes pairs
+
+
+Testable
+
+> Le code est sûr et ne régresse pas
+
+
+Réutilisable
+
+> Le code est modulaire et limite ses adhérences
+
+
+Documenté
+
+> Le contexte et/ou code sont expliqués
+
+
+Performant
+
+> Le code s'exécute promptement sur la volumétrie cible
 
 
 Livrer constamment

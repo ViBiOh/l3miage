@@ -1,6 +1,15 @@
 # Outils
 
 
+## Debuggeur
+
+
+Débugger son code avec des *sysout*, *console.log* ou des *echo* c'est bien quand on est un *script kiddie*.
+
+
+Un professionnel met des points d'arrêt et observe la *stack* et le contenu des variables.
+
+
 ## Git
 
 * Gestion de la configuration

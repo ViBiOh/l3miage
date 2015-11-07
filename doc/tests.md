@@ -319,19 +319,19 @@ public class BadDAO {
 Quels sont les problèmes ?
 
 
-On ne vérifie pas le fonctionnel de l'application mais seulement que les composants se comprennent.
+On ne vérifie pas le fonctionnel de l'application mais seulement que les composants se comprennent
 
 
 ## Tests fonctionnels
 
 
-Simuler l'utilisation du logiciel par un utilisateur final.
+Simuler l'utilisation du logiciel par un utilisateur final
 
 
-Vérifier que les règles de gestion de l'application sont respectées.
+Vérifier que les règles de gestion de l'application sont respectées
 
 
-Vérifier que le rendu final est conforme aux attentes.
+Vérifier que le rendu final est conforme aux attentes
 
 
 [Cucumber](https://cucumber.io), [Fitnese](http://www.fitnesse.org), [Robot Framework](http://robotframework.org), etc.
