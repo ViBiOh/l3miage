@@ -5,7 +5,7 @@
 Consultant formateur chez [Zenika](http://www.zenika.com)
 
 
-## Sommaire
+## Plan du module
 
 * Introduction
 * [*Patterns* de programmation](patterns.md)
@@ -22,17 +22,17 @@ Qu'est-ce que le génie ?
 
 ![](/img/genie.png)
 
-
-> Démon qui préside la conception
-
-
-> Personne dont les conseils influent sur la vie des autres
+> La personne qui exauce vos voeux
 
 
-> Personne douée d'un talent exceptionnel
+« Démon qui préside à la conception »
+
+> Wiktionnaire
 
 
-> Esprit supérieur qui crée, innove et entreprend
+« Aptitude de quelqu'un à concevoir des choses d'une qualité exceptionnelle »
+
+> Larousse
 
 
 ## Objectifs
@@ -40,9 +40,25 @@ Qu'est-ce que le génie ?
 
 ### Comprendre le besoin
 
-* Maîtriser les enjeux (e.g. volumétrie, User eXpérience, sécurité, etc.)
-* Traduire le besoin en solution
-* Evaluer la faisabilité technique et les points d’achoppement
+> Pas d'intérêt, pas d'action - locus standi
+
+
+Maîtriser les enjeux / problématiques :
+* qualité
+* performance
+* User eXpérience
+* sécurité
+* etc.
+
+
+Traduire le besoin en solution (i.e. ingénierie)
+
+
+Maîtriser la réalisation
+* faisabilité technique
+* organisation & processus
+* contrainte logistique
+* anticiper les points d'achoppement
 
 
 > The Project Cartoon
@@ -55,9 +71,10 @@ Qu'est-ce que le génie ?
 > Antoine de Saint-Exupéry
 
 
-### Travailler avec efficience en équipe
+### Travailler avec efficience
 
-* Découper la solution en tâches parallélisables et les répartir
+
+* Découper la solution en tâches et les paralléliser
 * Mutualiser les besoins communs
 * Partager la même vision du produit
 * S’entraider et… communiquer !
@@ -68,22 +85,26 @@ Qu'est-ce que le génie ?
 > Daniel Guillaume
 
 
-> Réaliser un « *bon* » produit
-
-![](/img/triptique.png)
+### [La triple contrainte](https://en.wikipedia.org/wiki/Project_management_triangle)
 
 
-* Faire du « *bon* » code
-    - Maintenable
-    - Compréhensible
-    - Sûr
-    - Réutilisable
-    - Documenté
-    - Performant
+![](/img/triptique.jpg)
 
 
-* Maitriser l'environnement de réalisation
-* Connaitre le processus de *delivery*
+Faire du « ***bon*** » code
+* Maintenable
+* Compréhensible
+* Sûr
+* Réutilisable
+* Documenté
+* Performant
+
+
+Livrer constamment
+* Automatisation omniprésente
+* Déploiement à chaud
+* Réduire le « *Time To Market* »
+
 
 > L’imagination est plus importante que le savoir
 
@@ -95,4 +116,5 @@ Qu'est-ce que le génie ?
 * [The Pragmatic Programmer](http://www.amazon.fr/dp/B003GCTQAE), *Andrew Hunt & David Thomas*
 * [Clean Code](http://www.amazon.fr/dp/B001GSTOAM), *Robert C. Martin*
 * [Effective Java](http://www.amazon.fr/dp/B00B8V09HY), *Joshua Bloch*
-* [Reword](http://www.amazon.fr/dp/B003ELY7PG), *Jason Fried & David Heinemeier Hansson*
+* [Rework](http://www.amazon.fr/dp/B003ELY7PG), *Jason Fried & David Heinemeier Hansson*
+* [Linchpin](http://www.amazon.fr/dp/0749953357), *Seth Godin*
