@@ -135,7 +135,14 @@ Créer des classes ayant le même comportement que les dépendances
 Fournir un jeu de données fixe pour les tests
 
 
-Stub InputStream pour IntegerReader
+Envisager les comportements probables sans les provoquer
+* Fichier inexistant : oui
+* Erreur de connexion : oui
+* Base de données en timeout : non !
+* Coupure réseau : non !
+
+
+Stub `InputStream` pour `IntegerReader`
 
 ```java
 public class InputStreamStub extends InputStream {
@@ -158,10 +165,25 @@ public class InputStreamStub extends InputStream {
 ```
 
 
-Envisager les comportements possibles sans les provoquer
-* Fichier inexistant
-* Base de données en timeout
-* Coupure réseau
+`IntegerReaderTest`
+
+```java
+public class IntegerReaderTest {
+  private IntegerReader integerReader;
+
+  @Test
+  public void nextInt_123() {
+    integerReader = new IntegerReader(new InputStreamStub(1));
+    assertEquals(123, integerReader.readInt());
+  }
+
+  @Test
+  public void nextInt_negative_123() {
+    integerReader = new IntegerReader(new InputStreamStub(2));
+    assertEquals(-123, integerReader.readInt());
+  }
+}
+```
 
 
 Quels sont les problèmes ?
@@ -185,30 +207,47 @@ Préciser l'entrée à laquelle on réagit et la sortie que l'on produit en cons
 [Mockito](http://mockito.org) voire [PowerMock](https://github.com/jayway/powermock) (pour *mocker* les classes statiques)
 
 
-```java
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+Préparation du contexte d'exécution
 
-public class IntegerOperationTest {
+```java
+public class ProcessImplTest {
   @InjectMocks
-  private IntegerOperation operation;
+  private ProcessImpl<Integer> process;
+
   @Mock
-  private Reader reader;
+  private Reader<Integer> reader;
   @Mock
-  private Process process;
+  private Operation<Integer, Object> operation;
   @Mock
-  private Writer writer;
+  private Writer<Object> writer;
 
   @Before
-  private void setUp() {
+  public void setUp() throws Exception {
     MockitoAnnotations.initMocks(this);
   }
 
-  @Test(expected = IllegalArgumentException.class)
-  public void compute_null() {
-    when(reader.readInt()).thenReturn(null);
-    operation.compute();
+  [...]
+
+}
+```
+
+
+Test à proprement parler
+
+```java
+public class ProcessImplTest {
+
+  [...]
+
+  @Test
+  public void nextInt_empty() throws IOException {
+    when(reader.read()).thenReturn(Optional.empty());
+    when(operation.compute(eq(Optional.empty()))).thenReturn(Optional.empty());
+    doThrow(new IOException()).when(writer).write(eq(Optional.empty()));
+
+    final int result = process.execute();
+
+    assertEquals(1, result);
   }
 }
 ```
@@ -223,12 +262,19 @@ Chaque composant peut fonctionner parfaitement individuellement...
 ...mais ne pas fonctionner en équipe !
 
 
-## Test d'ntégrations
+## Test d'intégrations
 
-* S'assurer de la bonne intégration :
-    - des composants entre eux
-    - des versions entre elles (e.g. Mockito *2.0* et PowerMock *1.6.2* ne sont pas compatibles)
 
+S'assurer de la bonne intégration :
+* des composants entre eux
+* des versions entre elles (e.g. Mockito 2.*n* et PowerMock 1.6.*n* ne sont pas compatibles)
+* des composants avec leur dépendances
+
+
+e.g. Tester la bonne intégration des composants
+
+
+Intégration problématique entre composants
 
 ```java
 public class DateHelper {
@@ -239,15 +285,56 @@ public class DateHelper {
 
 public class MyService {
     public boolean isBefore(final Date value) throws ParseException {
-        return new SimpleDateFormat("yyyy/MM/dd").parse(DateHelper.now()).before(value); // Mostly true
+        return new SimpleDateFormat("yyyy/MM/dd")
+            .parse(DateHelper.now()).before(value); // Mostly true
     }
 }
 ```
 
 
-## Fonctionnel
+e.g. Tester la validité des requêtes SQL
 
-* Outils : [Cucumber](https://cucumber.io), [Fitnese](http://www.fitnesse.org), Robot Framework
+
+Intégration problématique avec une dépendance
+
+```java
+@Repository
+public class BadDAO {
+  private JdbcTemplate jdbcTemplate;
+
+  @Autowired
+  public void init(final DataSource dataSource) {
+    this.jdbcTemplate = new JdbcTemplate(dataSource);
+  }
+
+  public Collection<String> list() {
+    return jdbcTemplate
+      .queryForList("SELECT age FROM Person WHERE name = birthDate", String.class);
+      // Seems annoying
+  }
+}
+```
+
+
+Quels sont les problèmes ?
+
+
+On ne vérifie pas le fonctionnel de l'application mais seulement que les composants se comprennent.
+
+
+## Tests fonctionnels
+
+
+Simuler l'utilisation du logiciel par un utilisateur final.
+
+
+Vérifier que les règles de gestion de l'application sont respectées.
+
+
+Vérifier que le rendu final est conforme aux attentes.
+
+
+[Cucumber](https://cucumber.io), [Fitnese](http://www.fitnesse.org), [Robot Framework](http://robotframework.org), etc.
 
 
 ## Charge / Performance

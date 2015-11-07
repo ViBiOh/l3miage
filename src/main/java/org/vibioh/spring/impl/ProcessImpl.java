@@ -21,11 +21,13 @@ public class ProcessImpl<I> implements Process {
   private Writer<Object> writer;
 
   @Override
-  public void execute() {
+  public int execute() {
     try {
       writer.write(operation.compute(reader.read()));
+      return 0;
     } catch (final IOException e) {
       getLogger().log(Level.SEVERE, "Something went wrong", e);
+      return 1;
     }
   }
 }

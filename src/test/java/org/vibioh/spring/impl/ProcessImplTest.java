@@ -12,10 +12,10 @@ import org.vibioh.ioc.Writer;
 import java.io.IOException;
 import java.util.Optional;
 
-import static org.mockito.Matchers.any;
+import static junit.framework.TestCase.assertEquals;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class ProcessImplTest {
@@ -35,13 +35,35 @@ public class ProcessImplTest {
   }
 
   @Test
+  public void nextInt_empty() throws IOException {
+    when(reader.read()).thenReturn(Optional.empty());
+    when(operation.compute(eq(Optional.empty()))).thenReturn(Optional.empty());
+    doThrow(new IOException()).when(writer).write(eq(Optional.empty()));
+
+    final int result = process.execute();
+
+    assertEquals(1, result);
+  }
+
+  @Test
   public void nextInt_zero() throws IOException {
     when(reader.read()).thenReturn(Optional.of(0));
-    when(operation.compute(any(Optional.class))).thenReturn(null);
-    doThrow(new IOException()).when(writer).write(any(Optional.class));
+    when(operation.compute(eq(Optional.of(0)))).thenReturn(Optional.empty());
+    doThrow(new IOException()).when(writer).write(eq(Optional.empty()));
 
-    process.execute();
+    final int result = process.execute();
 
-    verify(process, times(1)).getLogger();
+    assertEquals(1, result);
+  }
+
+  @Test
+  public void nextInt_value() throws IOException {
+    when(reader.read()).thenReturn(Optional.of(10));
+    when(operation.compute(eq(Optional.of(10)))).thenReturn(Optional.empty());
+    doNothing().when(writer).write(eq(Optional.empty()));
+
+    final int result = process.execute();
+
+    assertEquals(0, result);
   }
 }
