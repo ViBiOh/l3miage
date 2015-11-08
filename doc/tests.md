@@ -319,6 +319,23 @@ public class BadDAO {
 Quels sont les problèmes ?
 
 
+Dans quel ordre tester les composants ?
+
+Du plus bas niveau vers le haut ?
+
+Du plus haut niveau vers le bas ?
+
+Aucune solution n'est satisfaisante.
+
+
+Cela requiert un ou plusieurs environnements d'intégration.
+
+
+Plus lent à s'exécuter car nécessite de préparer l'environnement à chaque exécution de test.
+
+e.g. chargement de base de données, copie de fichiers, etc.
+
+
 On ne vérifie pas le fonctionnel de l'application mais seulement que les composants se comprennent
 
 
@@ -337,15 +354,73 @@ Vérifier que le rendu final est conforme aux attentes
 [Cucumber](https://cucumber.io), [Fitnese](http://www.fitnesse.org), [Robot Framework](http://robotframework.org), etc.
 
 
+## Conclusion
+
+
+Dans un monde idéal, on réalise les trois types de tests précédents. Dans un registre plus pragmatique, on réalise les tests unitaires et fonctionnels.
+
+
+Les tests d'intégration sont complexes et nécessitent une stratégie afin d'être mis en place. Mise en place qui peut se révéler (trop) coûteuse pour le projet.
+
+
 ## Charge / Performance
 
-* Apache JMeter, Gatling
+
+Votre application doit être conforme aux règles métiers de l'utilisateur mais elle doit le faire dans un temps acceptable.
+
+
+Effectuer des tests fonctionnels "unitaires" ne permet pas d'apprécier le temps de réponse sur une volumétrie réelle.
+
+
+e.g. Générer la fiche de paye PDF d'un salarié prend 1 seconde. Si vous l'implantez chez *Wall Mart* (1 M d'employés), il vous faudra plus de 11 jours **complets** pour tout générer.
+
+
+e.g. Effectuer une recherche dans le référentiel "Produit" prend une demi-seconde. Ce temps est-il constant si vous importez le catalogue d'Amazon ?
+
+
+Il existe des outils pour simuler la connexion simultanée de plusieurs utilisateurs : [Gatling](TODO), [Apache JMeter](TODO)
+
+
+Il ne faut pas chercher à bâtir une architecture qui réponde quoiqu'il advienne mais connaître les limites et analyser la courbe de réponse avec des outils de *profiling*
+
+
+Cela requiert, comme pour les tests d'intégration, des environnements capables de supporter la volumétrie et la charge.
 
 
 ## Autres
 
-* de sécurité *pen-testing*
-* humains (*Quality Assurance*, *User eXperience*)
+
+Il existe d'autres tests à réaliser sur une application, plus marginaux, mais néanmoins possibles.
+
+
+Les tests ou audit de sécurité pratiquent notamment du *pen-testing* ou s'assurent que les normes de sécurité sont respectés
+
+
+La sécurité est aussi bien :
+* physique (i.e. accès au datacenter)
+* logique (i.e. processus applicatif)
+* technique (i.e. utilisation des outils en dernière version)
+* informatique (i.e. chiffrement des données sensibles)
+* humaine (i.e. verrouillage des postes de travail)
+
+
+L'erreur est toujours humaine.
+
+
+Les tests d'assurance qualité (*Quality Assurance - QA*) sont aussi essentiels. On ne peut pas tout tester automatiquement, à un moment, il faut qu'un humain utilise vraiment l'application.
+
+
+e.g. Vérifier que des éléments sont bien alignés à l'écran. Vérifier la présence judicieuse des *scroll-bar*
+
+
+Cela conduit bien souvent à vérifier que la *User eXpérience* est satisfaisante au niveau de l'application.
+
+
+Attention, l'UX n'est pas synonyme d'UI ni d'ergonomie. C'est bien de l'« expérience utilisateur » que l'on parle.
+
+e.g. Uber vous propose une application sobre, mais la majeure partie de l'UX s'effectue dans la voiture.
+
+
 * *Test Driven Development* - TDD
 
 
