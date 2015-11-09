@@ -18,37 +18,13 @@
       <a href="/?m=tools">Outils</a>
     </header>
     <div class="reveal">
-      <div class="slides">
-        <section data-markdown="" />
-      </div>
+      <div class="slides" />
     </div>
   </body>
 </html>
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
 <script>
-  function removeAllChild(element) {
-    while (element.firstChild) {
-      element.removeChild(element.firstChild);
-    }
-  }
-
-  function changeMd(markdown) {
-    console.log(markdown);
-    var slides = document.getElementsByClassName('slides')[0];
-    removeAllChild(slides);
-
-    var section = document.createElement('section');
-    section.setAttribute('data-markdown', './doc/' + markdown);
-    section.setAttribute('data-separator', '\n\n\n');
-    section.setAttribute('data-charset', 'utf-8');
-
-    slides.appendChild(section);
-
-    RevealMarkdown.initialize();
-    Reveal.navigateTo(0);
-  }
-
   Reveal.initialize({
     controls: false,
     progress: true,
@@ -73,6 +49,28 @@
         }
       }]
   });
+  
+  function removeAllChild(element) {
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+  }
+
+  function changeMd(markdown) {
+    console.log(markdown);
+    var slides = document.getElementsByClassName('slides')[0];
+    removeAllChild(slides);
+
+    var section = document.createElement('section');
+    section.setAttribute('data-markdown', './doc/' + markdown);
+    section.setAttribute('data-separator', '\n\n\n');
+    section.setAttribute('data-charset', 'utf-8');
+
+    slides.appendChild(section);
+
+    RevealMarkdown.initialize();
+    Reveal.navigateTo(0);
+  }
 
   function loadDoc(fallback) {
     var mdDoc = fallback;
@@ -81,7 +79,10 @@
     });
     changeMd(mdDoc + '.md');
   }
-  loadDoc('introduction');
+  
+  Reveal.addEventListener( 'ready', function() {
+    loadDoc('introduction');
+  });
 </script>
 
 <style type="text/css">
