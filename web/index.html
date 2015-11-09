@@ -27,6 +27,19 @@
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
 <script>
+  var markdown = 'introduction';
+  var pageNum = 0;
+
+  (function() {
+    window.location.search.replace(/m=([^&]+)/gmi, function(match, md) {
+      markdown = md || markdown;
+    });
+
+    window.location.hash.replace(/([0-9]+)$/gmi, function(match, page) {
+      pageNum = page || pageNum;
+    });
+  })();
+
   Reveal.initialize({
     controls: false,
     progress: true,
@@ -58,32 +71,23 @@
     }
   }
 
-  function changeMd(markdown) {
-    console.log(markdown);
+  function loadMarkdown() {
     var slides = document.getElementsByClassName('slides')[0];
     removeAllChild(slides);
 
     var section = document.createElement('section');
-    section.setAttribute('data-markdown', './doc/' + markdown);
+    section.setAttribute('data-markdown', './doc/' + markdown + '.md');
     section.setAttribute('data-separator', '\n\n\n');
     section.setAttribute('data-charset', 'utf-8');
 
     slides.appendChild(section);
 
     RevealMarkdown.initialize();
-    Reveal.navigateTo(0);
-  }
-
-  function loadDoc(fallback) {
-    var mdDoc = fallback;
-    window.location.search.replace(/m=([^&]+)/gmi, function(match, mdName) {
-      mdDoc = mdName || fallback;
-    });
-    changeMd(mdDoc + '.md');
+    Reveal.navigateTo(pageNum);
   }
   
   Reveal.addEventListener( 'ready', function() {
-    loadDoc('introduction');
+    loadMarkdown();
   });
 </script>
 
