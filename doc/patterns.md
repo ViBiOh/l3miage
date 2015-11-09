@@ -8,6 +8,7 @@
 > Daniel Guillaume
 
 
+
 Afficher l'inverse de l'entier fourni par l'utilisateur
 
 
@@ -446,6 +447,7 @@ public class Program {
   public static final main(final String[] args) {
   }
 }
+```
 
 
 ## *Internationalization* - i18n
