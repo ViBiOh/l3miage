@@ -442,9 +442,71 @@ public class Program implements CommandLineRunner {
 ## *Don't Repeat Yourself* - DRY
 
 
+En dehors de vos Vines, personne n'aime se répéter
+
+
+Extraire toutes les constantes du code, aussi appelés *magic number*
+
+
+
+Implémentation ne respectant pas le DRY
+
 ```java
-public class Program {
-  public static final main(final String[] args) {
+public class BadDry {
+  public static void main(final String[] args) {
+    if (args.length > 0 && !"8000".equals(args[0])) {
+      args[0] = "8000";
+    }
+    if (args.length > 1 && !"Emile".equals(args[1])) {
+      args[1] = "Emile";
+    }
+    Logger.getAnonymousLogger().info(Arrays.toString(args));
+  }
+}
+```
+
+
+Extraction des constantes et mutualisation du code
+
+```java
+public class GoodDry {
+  private static String FIRST_VALUE = "8000";
+  private static String SECOND_VALUE = "Emile";
+
+  public static void main(final String[] args) {
+    forceArgValue(FIRST_VALUE, args, 0);
+    forceArgValue(SECOND_VALUE, args, 1);
+    Logger.getAnonymousLogger().info(Arrays.toString(args));
+  }
+
+  private static void forceArgValue(final String expectedValue,
+                                    final String[] array,
+                                    final int i) {
+    if (array.length > i && !expectedValue.equals(array[i])) {
+      array[i] = expectedValue;
+    }
+  }
+}
+```
+
+
+Transformation de l'appel répété par une boucle
+
+```java
+public class BestDry {
+  private static String[] EXPECTED_VALUES = { "8000", "Emile" };
+
+  public static void main(final String[] args) {
+    forceArgValues(args);
+    Logger.getAnonymousLogger().info(Arrays.toString(args));
+  }
+
+  private static void forceArgValues(final String[] array) {
+    for (int i = 0, size = array.length; i < size; ++i) {
+      if (!EXPECTED_VALUES[i].equals(array[i])) {
+        array[i] = EXPECTED_VALUES[i];
+      }
+    }
   }
 }
 ```
@@ -464,10 +526,17 @@ Affichage particuliers
 * des couleurs (e.g. daltoniens)
 
 
-Pas que de l'affichage : quid des fuseaux horaires ?
+Pas que de l'affichage :
+* quid des fuseaux horaires ?
+* lois spécifiques d'un pays ?
 
 
 Ne pas le prévoir, c'est s'attendre à beaucoup de *refactoring*
+
+
+L'ajout d'une *Locale* doit rester simple
+
+Mettre toutes les règles dans un fichier
 
 
 ## *Law of Demeter* - LoD
@@ -482,11 +551,16 @@ Eviter l'effet tunnel de l'appel de composants
 promotion
   .getStudents().get(0) // Récupération d'un étudiant
   .getAddress().getCountry() // Récupération de son pays
-  .getLocale(); // Récupération des informations de l10n
+  .getLocale(); // Récupération des informations de i18n
 ```
 
 
 Que faire en cas d'évolutions de la classe `Etudiant` ?
 
+e.g. Ce n'est plus une liste mais une *map* clé/valeur
+
 
 Comment gérer les `null-check` ? Les exceptions ?
+
+
+Fournir des méthodes qui vont, de proche en proche, récupérer l'information souhaitée

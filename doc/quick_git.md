@@ -1,14 +1,17 @@
 # Petit précis sur Git
 
+
 ## Cloner un repository existant
 
 `git clone user@url-de-votre-repo`
 
 > git clone git@github.com:ViBiOh/GenieLogiciel.git
 
+
 ## Connaître l'état de la copie locale
 
 `git status`
+
 
 ## Ajouter un fichier au système de version
 
@@ -16,13 +19,16 @@
 
 > git add README.md
 
+
 ### Pour ajouter tous les fichiers en cours d'édition
 
 `git add *`
 
+
 ### En mode interactif pour ajouter seulement ceux souhaités
 
 `git add -i`
+
 
 ## Valider localement ses modifications
 
@@ -30,15 +36,18 @@
 
 > git commit -m "Initial commit. CR By John Doe"
 
+
 ### Pour ajouter tous les fichiers et créer un commit en même temps
 
 `git commit -am "commentaire de votre commit"`
 
 > git commit -am "Adding all files. CR By John Smith"
 
+
 ## Pousser ses modifications sur le serveur
 
 `git push`
+
 
 ### En précisant la destination, la branche
 
@@ -46,21 +55,27 @@
 
 > git push origin master
 
+
 ### En précisant la destination, la branche, la référence locale
 
 `git push nom-du-serveur-distant référence-du-commit:nom-de-la-branche`
 
 > git push origin HEAD:master
 
+Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
+
+
 ## Récupérer les modifications du serveur
 
 `git pull`
+
 
 ### En précisant la source, la branche
 
 `git pull nom-du-serveur-distant nom-de-la-branche`
 
 > git pull origin master
+
 
 # Références
 
