@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class IntegerReader {
+  private static final Pattern INTEGER = Pattern.compile("^[+-]?[0-9]+$");
   private Scanner in;
 
   public IntegerReader(final InputStream input) {
@@ -16,7 +17,7 @@ public class IntegerReader {
   }
 
   public static Integer read(final String raw) {
-    if (Pattern.compile("^[+-]?[0-9]+$").matcher(raw).matches()) {
+    if (INTEGER.matcher(raw).matches()) {
       return Integer.parseInt(raw);
     }
     return null;

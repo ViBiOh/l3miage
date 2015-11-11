@@ -48,6 +48,30 @@ Identifier les anomalies au plus tôt et ainsi, économiser !
 * est long à s'exécuter
 
 
+Exemple d'un mauvais test
+
+```java
+public class BadTest {
+  private static int i;
+
+  @BeforeClass
+  public static void setUp() {
+    i = 0;
+  }
+
+  @Test
+  public void increment() {
+    assertEquals(1, ++i);
+  }
+
+  @Test
+  public void decrement() {
+    assertEquals(0, --i); // Result depends on test suite
+  }
+}
+```
+
+
 ##### Le bon test
 
 
@@ -421,15 +445,142 @@ Attention, l'UX n'est pas synonyme d'UI ni d'ergonomie. C'est bien de l'« expé
 e.g. Uber vous propose une application sobre, mais la majeure partie de l'UX s'effectue dans la voiture.
 
 
-* *Test Driven Development* - TDD
+# *Test Driven Development* - TDD
 
 
-## Conclusion
+Lorsqu'on écrit du code, on cherche à répondre à un besoin
 
-L'objectif est de faire du **bon** code : 
-    - Maintenable ()
-    - Compréhensible
-    - Sûr (*pen-testing*)
-    - Réutilisable (*)
-    - Documenté
-    - Performant (*tests de performance*)
+Ce besoin peut se formuler sous la forme d'un test
+
+
+On écrit d'abord le test qui vérifie notre besoin, et ensuite on écrit le code qui répond à ce test
+
+
+Tout ceci s'inclut dans un processus itératif afin d'éviter d'écrire trop de choses non testées. On répond au test, puis on refactore.
+
+
+e.g. Enlever les accents d'une chaîne de caractères
+
+
+> En cas de null, lever une exception
+
+```java
+public class TDDTest {
+  @Test(expected = IllegalArgumentException.class)
+  public void null_exception() {
+    TDD.execute(null);
+  }
+}
+```
+
+
+Le code correspondant est donc le suivant
+
+```java
+public class TDD {
+  public static String execute(final String input) {
+    Assert.notNull(input);
+    return null;
+  }
+}
+```
+
+
+> Si ma chaîne est vide, ne rien faire
+
+```java
+  @Test
+  public void empty_return() {
+    assertEquals("", TDD.execute(""));
+  }
+```
+
+
+Modification du code
+
+```java
+  public static String execute(final String input) {
+    Assert.notNull(input);
+
+    if (input.length() == 0) {
+      return input;
+    }
+    return null;
+  }
+```
+
+
+> Si ma chaîne ne contient pas de caractères, ne rien faire
+
+```java
+  @Test
+  public void spaces_return() {
+    assertEquals("  ", TDD.execute("  "));
+  }
+```
+
+
+Modification du code
+
+```java
+  public static String execute(final String input) {
+    Assert.notNull(input);
+
+    if (input.length() == 0 || "".equals(input.trim())) {
+      return input;
+    }
+    return null;
+  }
+```
+
+
+Refactoring possible ?
+
+
+```java
+  public static String execute(final String input) {
+    Assert.notNull(input);
+
+    if (input.trim().length() == 0) {
+      return input;
+    }
+    return null;
+  }
+```
+
+
+> Si ma chaîne contient des caractères accentués, enlever les accents
+
+```java
+  @Test
+  public void smallCase_return() {
+    assertEquals("A ce bon eleve a la maitrise inouie",
+                TDD.execute("À ce bon élève à la maîtrise inouïe"));
+  }
+```
+
+
+Modification du code
+
+```java
+  public static String execute(final String input) {
+    Assert.notNull(input);
+
+    if (input.trim().length() == 0) {
+      return input;
+    }
+
+    return Normalizer.normalize(input, Normalizer.Form.NFD).replaceAll("[̀́̂̈]+", "");
+  }
+```
+
+
+Refactoring
+
+```java
+  public static String execute(final String input) {
+    Assert.notNull(input);
+
+    return Normalizer.normalize(input, Normalizer.Form.NFD).replaceAll("[̀́̂̈]+", "");
+  }
+```

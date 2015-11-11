@@ -73,9 +73,12 @@ Juste un proxy ? Justement, ajoutons une validation par *regex*
 
 
 ```class IntegerReader```
+
 ```java
+private static final Pattern INTEGER = Pattern.compile("^[+-]?[0-9]+$");
+
 public static Integer read(final String raw) {
-  if (Pattern.compile("^[+-]?[0-9]+$").matcher(raw).matches()) {
+  if (INTEGER.matcher(raw).matches()) {
     return Integer.parseInt(raw);
   }
   return null;
