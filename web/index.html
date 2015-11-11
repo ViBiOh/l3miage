@@ -9,40 +9,44 @@
     <link rel="stylesheet" href="css/theme/night.css" id="theme">
     <link rel="stylesheet" href="lib/css/zenburn.css">
     <style type="text/css">
-      header > ul {
+      nav > ul {
+        z-index: 8000;
+        position: absolute;
+        top: 0;
+        left: 0;
         padding: 5px;
         margin: 0;
         border: 0;
       }
-      header > ul > li {
+      nav > ul > li {
         display: inline-block;
       }
-      header > ul > li > a {
+      nav > ul > li > a {
         color: white;
         text-decoration: none;
       }
-      header > ul > li > a::after {
+      nav > ul > li > a::after {
         content: " |";
       }
-      header > ul > li:last-child > a::after {
+      nav > ul > li:last-child > a::after {
         content: "";
       }
     </style>
   </head>
 
   <body>
-    <header>
+    <nav>
       <ul>
-        <li><a href="/?m=introduction">Introduction</a></li>
-        <li><a href="/?m=patterns">Patterns</a></li>
-        <li><a href="/?m=tests">Tests</a></li>
-        <li><a href="/?m=principles">Principes</a></li>
-        <li><a href="/?m=methods">Méthodes</a></li>
-        <li><a href="/?m=tools">Outils</a></li>
-        <li><a href="/?m=quick_git">Git</a></li>
-        <li><a href="/?m=quick_markdown">Markdown</a></li>
+        <li><a href="/?introduction/">Introduction</a></li>
+        <li><a href="/?patterns/">Patterns</a></li>
+        <li><a href="/?tests/">Tests</a></li>
+        <li><a href="/?principles/">Principes</a></li>
+        <li><a href="/?methods/">Méthodes</a></li>
+        <li><a href="/?tools/">Outils</a></li>
+        <li><a href="/?quick_git/">Git</a></li>
+        <li><a href="/?quick_markdown/">Markdown</a></li>
       </ul>
-    </header>
+    </nav>
     <div class="reveal">
       <div class="slides">
         <section data-markdown="" />
@@ -63,7 +67,7 @@
       });
     }
 
-    overrideConfig('search', /m=([^&]+)/gmi, 'markdown', 'introduction');
+    overrideConfig('search', /([^?/]+)/gmi, 'markdown', 'introduction');
     overrideConfig('hash', /([0-9]+)$/gmi, 'pageNum', 0);
 
     return override;

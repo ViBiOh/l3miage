@@ -22,7 +22,7 @@ Master MIAGE Paris Descartes, 2011
 Qu'est-ce que le génie ?
 
 
-![](/img/genie.png)
+![](/doc/img/genie.png)
 
 > La personne qui exauce vos voeux
 
@@ -69,7 +69,7 @@ Traduire le besoin en solution (i.e. ingénierie)
 
 > The Project Cartoon
 
-![](/img/cartoon.png)
+![](/doc/img/cartoon.png)
 
 
 > La perfection est atteinte, non pas lorsqu'il n'y a plus rien à ajouter, mais lorsqu'il n'y a plus rien à retirer.
@@ -80,10 +80,10 @@ Traduire le besoin en solution (i.e. ingénierie)
 ### Travailler avec efficience
 
 
-Maitriser 
+Maitriser le processus de développement
 
 
-* Découper la solution en tâches et les paralléliser
+* Découper la solution en tâches parrallélisables
 * Mutualiser les besoins communs
 * Partager la même vision du produit
 * S’entraider et… communiquer !
@@ -97,7 +97,7 @@ Maitriser
 ### [La triple contrainte](https://en.wikipedia.org/wiki/Project_management_triangle)
 
 
-![](/img/triptique.jpg)
+![](/doc/img/triptique.jpg)
 
 
 Faire du « ***bon*** » code

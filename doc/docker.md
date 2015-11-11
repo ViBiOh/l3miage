@@ -1,4 +1,4 @@
-# ![](/img/docker_logo.png)
+# ![](/doc/img/docker_logo.png)
 
 
 ## Définition

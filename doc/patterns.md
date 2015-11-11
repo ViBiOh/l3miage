@@ -9,7 +9,7 @@
 
 
 
-Afficher l'inverse de l'entier fourni par l'utilisateur
+Afficher l'inverse de l'entier saisi par l'utilisateur
 
 
 ```java
@@ -47,8 +47,9 @@ Multiples raisons d'évolution
 ## *Single Responsibility Principle* - SRP
 
 
-* Eviter les [*god objects*](https://en.wikipedia.org/wiki/God_object)
-* Principe de diviser pour mieux régner
+Eviter les [*god objects*](https://en.wikipedia.org/wiki/God_object)
+
+Principe de « diviser pour mieux régner »
 
 
 Lecture d'un entier
@@ -178,6 +179,7 @@ public interface Process<I> {
 
 
 Lecture d'un entier
+
 ```java
 public class IntegerReader implements Reader<Integer> {
   private Scanner in;
@@ -195,6 +197,7 @@ public class IntegerReader implements Reader<Integer> {
 
 
 Calcul de l'inverse
+
 ```java
 public class InverseOperation implements Operation<Integer, Double> {
   @Override
@@ -206,6 +209,7 @@ public class InverseOperation implements Operation<Integer, Double> {
 
 
 Calcul du carré
+
 ```java
 public class SquareOperation implements Operation<Integer, Integer> {
   @Override
@@ -217,6 +221,7 @@ public class SquareOperation implements Operation<Integer, Integer> {
 
 
 Ecriture du résultat
+
 ```java
 public class InverseWriter implements Writer<Object> {
   private OutputStream out;
@@ -235,6 +240,7 @@ public class InverseWriter implements Writer<Object> {
 
 
 Processus de traitement : lire - traiter - écrire
+
 ```java
 public class ProcessImpl<I> implements Process<I> {
   private Reader<I> reader;
@@ -257,6 +263,7 @@ public class ProcessImpl<I> implements Process<I> {
 
 
 Processus de traitement : des méthodes à générer
+
 ```java
 [...]
 
