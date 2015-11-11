@@ -4,6 +4,8 @@
 
 Consultant formateur chez [Zenika](http://www.zenika.com)
 
+Master MIAGE Paris Descartes, 2011
+
 
 ## Plan du module
 
@@ -43,22 +45,26 @@ Qu'est-ce que le génie ?
 > Pas d'intérêt, pas d'action - locus standi
 
 
-Maîtriser les enjeux / problématiques :
+Maîtriser les enjeux, les problématiques :
 * qualité
+* *Time To Market*
 * performance
 * User eXpérience
 * sécurité
-* etc.
+
+
+### Solutionner
+
+> S'il n'y a pas de solutions, il n'y a pas de problèmes
+
+> Les Shadoks
 
 
 Traduire le besoin en solution (i.e. ingénierie)
-
-
-Maîtriser la réalisation
 * faisabilité technique
-* organisation & processus
+* processus méthodologique
 * contrainte logistique
-* anticiper les points d'achoppement
+* anticipation des points d'achoppement
 
 
 > The Project Cartoon
@@ -72,6 +78,9 @@ Maîtriser la réalisation
 
 
 ### Travailler avec efficience
+
+
+Maitriser 
 
 
 * Découper la solution en tâches et les paralléliser

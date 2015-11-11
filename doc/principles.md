@@ -3,7 +3,7 @@
 
 ## Dette technique
 
-* A chque nouvelle fonctionnalité, on rend le code
+* A chaque nouvelle fonctionnalité, on rend le code
 
 * définitionTemps accumulé et ajouté à chaque nouvelle feature
 * Viser à la réduire ou à la contenir
