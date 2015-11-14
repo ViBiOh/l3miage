@@ -12,9 +12,8 @@ Master MIAGE Paris Descartes, 2011
 * Introduction
 * [*Patterns* de programmation](patterns.md)
 * [Tests](tests.md)
-* [Méthodes](methods.md)
+* [Principes & Méthodes](principles.md)
 * [Outils](tools.md)
-* [Principes pratiques](principles.md)
 
 
 ## Définition
@@ -25,6 +24,8 @@ Qu'est-ce que le génie ?
 ![](/doc/img/genie.png)
 
 > La personne qui exauce vos voeux
+
+`¯\_(ツ)_/¯`
 
 
 « Démon qui préside à la conception »
@@ -47,7 +48,7 @@ Qu'est-ce que le génie ?
 
 Maîtriser les enjeux, les problématiques :
 * qualité
-* *Time To Market*
+* délai, i.e. *Time To Market*
 * performance
 * User eXpérience
 * sécurité
@@ -80,7 +81,7 @@ Traduire le besoin en solution (i.e. ingénierie)
 ### Travailler avec efficience
 
 
-Maitriser le processus de développement
+Maîtriser le processus de développement
 
 
 * Découper la solution en tâches parrallélisables
@@ -100,7 +101,7 @@ Maitriser le processus de développement
 ![](/doc/img/triptique.jpg)
 
 
-Faire du « ***bon*** » code
+On cherche donc à faire du « ***bon*** » code
 
 
 Conforme
@@ -133,10 +134,26 @@ Performant
 > Le code s'exécute promptement sur la volumétrie cible
 
 
-Livrer constamment
-* Automatisation omniprésente
-* Déploiement à chaud
-* Réduire le « *Time To Market* »
+Faire du bon code n'est pas complexe en soi, c'est l'environnement dans lequel vous le faites qui joue en votre défaveur.
+
+
+L'informatique est une science qui va très vite, ce qui est *hype* aujourd'hui sera obsolète demain.
+
+
+L'utilisateur a soif de nouveauté, se trouve dans un environnement concurrentiel, et son besoin est sans cesse réajusté.
+
+
+Pour produire de la technologie, utiliser de la technologie.
+
+
+Automatisation omniprésente
+
+Déploiement à chaud
+
+Livraisons très fréquentes, voire constantes
+
+
+Nous sommes à la fois la matière première de l'ère économique actuelle et aussi les artisans.
 
 
 > L’imagination est plus importante que le savoir
