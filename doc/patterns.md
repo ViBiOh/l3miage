@@ -1,6 +1,15 @@
 # *Patterns* de programmation
 
 
+Objectif : faire du code SOLID
+
+* *S*ingle Responsibility Principle
+* *O*pen / Close
+* *L*iskov Substitution Principle
+* *I*nterface segregation
+* *D*ependency Injection
+
+
 ## Un cas simple
 
 > Toujours prendre un exemple stupide pour que tout le monde comprenne.
