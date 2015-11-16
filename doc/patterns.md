@@ -1,13 +1,13 @@
 # *Patterns* de programmation
 
 
-Objectif : faire du code SOLID
+Objectif : faire du code **`SOLID`**
 
-* *S*ingle Responsibility Principle
-* *O*pen / Close
-* *L*iskov Substitution Principle
-* *I*nterface segregation
-* *D*ependency Injection
+* **`S`** ingle Responsibility Principle
+* **`O`** pen / Close
+* **`L`** iskov Substitution Principle
+* **`I`** nterface segregation
+* **`D`** ependency Injection
 
 
 ## Un cas simple
@@ -458,6 +458,9 @@ public class Program implements CommandLineRunner {
 ## *Liskov Substitution Principle* - LSP
 
 
+> Chaque sous-classe doit avoir le même comportement que la classe mère
+
+
 ## *Don't Repeat Yourself* - DRY
 
 
@@ -534,7 +537,7 @@ public class BestDry {
 ## *Internationalization* - i18n
 
 
-Ne pas se rendre dépendant d'une coutume
+> Ne pas se rendre dépendant d'une coutume
 
 
 Affichage particuliers
