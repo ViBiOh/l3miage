@@ -62,6 +62,14 @@
     hash: []
   };
 
+  (function () {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(printPdfRegex) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  })();
+
   var config = (function() {
     var override = {};
 
@@ -134,17 +142,8 @@
     RevealMarkdown.initialize();
     Reveal.navigateTo(config.pageNum);
   }
-
-  function addPrintPdfLink() {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match(printPdfRegex) ? 'css/print/pdf.css' : 'css/print/paper.css';
-    document.getElementsByTagName('head')[0].appendChild(link);
-  };
   
   Reveal.addEventListener('ready', function() {
     loadMarkdown();
-    addPrintPdfLink();
   });
 </script>
