@@ -56,17 +56,34 @@
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
 <script>
+  var printPdfRegex = /print-pdf/gi;
+  var reserved = {
+    search: [printPdfRegex],
+    hash: []
+  };
+
   var config = (function() {
     var override = {};
+
+    function isReserved(location, value) {
+      for (var i = 0, size = reserved[location].length; i < size; i++) {
+        if (value.match(reserved[location][0])) {
+          return true;
+        }
+      }
+      return false;
+    }
 
     function overrideConfig(location, regex, property, defaultValue) {
       override[property] = defaultValue;
       window.location[location].replace(regex, function(match, group) {
-        override[property] = group;
+        if (!isReserved(location, group)) {
+          override[property] = group;
+        }
       });
     }
 
-    overrideConfig('search', /([^?/]+)/gmi, 'markdown', 'introduction');
+    overrideConfig('search', /([^&?/]+)/gmi, 'markdown', 'introduction');
     overrideConfig('hash', /([0-9]+)$/gmi, 'pageNum', 0);
 
     return override;
@@ -117,8 +134,20 @@
     RevealMarkdown.initialize();
     Reveal.navigateTo(config.pageNum);
   }
+
+  function addPrintPdfLink() {
+    if (window.location.search.match(printPdfRegex)) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'css/print/pdf.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+      window.print();
+    }
+  };
   
-  Reveal.addEventListener( 'ready', function() {
+  Reveal.addEventListener('ready', function() {
     loadMarkdown();
+    addPrintPdfLink();
   });
 </script>
