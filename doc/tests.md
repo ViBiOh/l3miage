@@ -396,7 +396,7 @@ Votre application doit être conforme aux règles métiers de l'utilisateur mais
 Effectuer des tests fonctionnels "unitaires" ne permet pas d'apprécier le temps de réponse sur une volumétrie réelle.
 
 
-e.g. Générer la fiche de paye PDF d'un salarié prend 1 seconde. Si vous l'implantez chez *Wall Mart* (1 M d'employés), il vous faudra plus de 11 jours **complets** pour tout générer.
+e.g. Générer la fiche de paye PDF d'un salarié prend 1 seconde. Si vous l'implantez chez *Wal Mart* (~2 M d'employés), il vous faudra plus de 23 jours **complets** pour tout générer.
 
 
 e.g. Effectuer une recherche dans le référentiel "Produit" prend une demi-seconde. Ce temps est-il constant si vous importez le catalogue d'Amazon ?
@@ -584,3 +584,12 @@ Refactoring
     return Normalizer.normalize(input, Normalizer.Form.NFD).replaceAll("[̀́̂̈]+", "");
   }
 ```
+
+
+> La théorie, c'est quand on sait tout et que rien ne fonctionne.
+
+> La pratique, c'est quand tout fonctionne et que personne ne sait pourquoi.
+
+> Ici, nous avons réuni théorie et pratique : rien ne fonctionne... et personne ne sait pourquoi !
+
+> Albert Einstein

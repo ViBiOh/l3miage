@@ -10,6 +10,18 @@ Débugger son code avec des *sysout*, *console.log* ou des *echo* c'est bien qua
 Un professionnel met des points d'arrêt et observe la *stack* et le contenu des variables.
 
 
+Un débuggeur comporte principalement trois fonctionnalités.
+
+
+Positionnement de points d'arrêts & pilotage de l'exécution
+
+
+*watch* ou espion de variables
+
+
+Exploration de la *stack* d'appels
+
+
 ## Git
 
 * Gestion de la configuration
@@ -47,7 +59,8 @@ Un professionnel met des points d'arrêt et observe la *stack* et le contenu des
 * [vi/vim](http://www.vim.org) / [emacs](https://www.gnu.org/software/emacs/)
 * [SublimeText](http://www.sublimetext.com) / [Atom](https://atom.io) / [Notepad++](https://notepad-plus-plus.org/fr/)
 * [IntelliJ](https://www.jetbrains.com/idea/) / [Eclipse](https://eclipse.org/) / [NetBeans](https://netbeans.org) / [VisualStudio](https://www.visualstudio.com)
-* Peu importe votre religion, il faut l'assumer et la maîtriser
+
+> Peu importe votre religion, il faut l'assumer et la maîtriser
 
 
 ## Déploiement
