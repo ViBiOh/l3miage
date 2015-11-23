@@ -37,7 +37,7 @@ En mode `en ligne` simplement en l'entourant d'un guillement accentué **`**
 
 ## Ecriture de lien
 
-Le texte du lien doit se trouver entre crochets et l'url de votre lien dans des parenthèses juxtaposées. Si vous souhaitez insérer une image, c'est exactement la même syntaxe avec une apostrophe devant.
+Le texte du lien doit se trouver entre crochets et l'url de votre lien dans des parenthèses juxtaposées. Si vous souhaitez insérer une image, c'est exactement la même syntaxe avec un point d'exclamation devant.
 
 `[Texte de votre lien](url_de_votre_lien)`
 

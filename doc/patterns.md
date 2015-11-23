@@ -36,7 +36,7 @@ Quels sont les problèmes ?
 Combien d'actions sont réalisées ?
 
 
-La classe fait ~~trois~~ ~~cinq~~ trop de choses :
+La classe fait ~~trois ?~~ ~~cinq ?~~ trop de choses :
 
 1. Lecture
     1. au clavier

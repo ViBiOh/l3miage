@@ -23,7 +23,7 @@ Qu'est-ce que le génie ?
 
 ![](/doc/img/genie.png)
 
-> La personne qui exauce vos voeux
+> La personne qui exauce vos voeux ?
 
 `¯\_(ツ)_/¯`
 
@@ -49,6 +49,7 @@ Qu'est-ce que le génie ?
 Maîtriser les enjeux, les problématiques :
 * qualité
 * délai, i.e. *Time To Market*
+* processus
 * performance
 * User eXpérience
 * sécurité
@@ -56,9 +57,12 @@ Maîtriser les enjeux, les problématiques :
 
 ### Solutionner
 
-> S'il n'y a pas de solutions, il n'y a pas de problèmes
+> S'il n'y a pas de solutions, il n'y a pas de problèmes.
 
 > Les Shadoks
+
+
+Ecouter, comprendre et s'approprier le besoin.
 
 
 Traduire le besoin en solution (i.e. ingénierie)
@@ -81,66 +85,13 @@ Traduire le besoin en solution (i.e. ingénierie)
 ### Travailler avec efficience
 
 
-Maîtriser le processus de développement
+Maîtriser le processus de développement.
 
 
 * Découper la solution en tâches parrallélisables
 * Mutualiser les besoins communs
 * Partager la même vision du produit
 * S’entraider et… communiquer !
-
-
-> Vous voulez aller vite ? Alors prenez votre temps !
-
-> Daniel Guillaume
-
-
-### [La triple contrainte](https://en.wikipedia.org/wiki/Project_management_triangle)
-
-
-![](/doc/img/triptique.jpg)
-
-
-On cherche donc à faire du « ***bon*** » code
-
-
-Conforme
-
-> Le code répond au besoin de l'utilisateur
-
-
-Maintenable
-
-> Le code est compréhensible par mes pairs
-
-
-Testable
-
-> Le code est sûr et ne régresse pas
-
-
-Réutilisable
-
-> Le code est modulaire et limite ses adhérences
-
-
-Documenté
-
-> Le contexte et/ou code sont expliqués
-
-
-Performant
-
-> Le code s'exécute promptement sur la volumétrie cible
-
-
-Faire du bon code n'est pas complexe en soi, c'est l'environnement dans lequel vous le faites qui joue en votre défaveur.
-
-
-L'informatique est une science qui va très vite, ce qui est *hype* aujourd'hui sera obsolète demain.
-
-
-L'utilisateur a soif de nouveauté, se trouve dans un environnement concurrentiel, et son besoin est sans cesse réajusté.
 
 
 Pour produire de la technologie, utiliser de la technologie.
@@ -150,13 +101,75 @@ Automatisation omniprésente
 
 Déploiement à chaud
 
-Livraisons très fréquentes, voire constantes
+
+> Vous voulez aller vite ? Alors prenez votre temps !
+
+> Daniel Guillaume
+
+
+### Résoudre [la triple contrainte](https://en.wikipedia.org/wiki/Project_management_triangle)
+
+
+![](/doc/img/triptique.jpg)
+
+
+On cherche donc à faire un « ***bon*** » produit.
+
+
+Conforme
+
+> Le produit répond au besoin de l'utilisateur.
+
+
+Maintenable
+
+> Le code est compréhensible par mes pairs.
+
+
+Testable
+
+> Le produit est sûr et ne régresse pas.
+
+
+Réutilisable
+
+> Le code est modulaire et limite ses adhérences.
+
+
+Documenté
+
+> Le produit, contexte et/ou code sont expliqués.
+
+
+Performant
+
+> Le produit s'exécute promptement sur la volumétrie cible.
+
+
+### Ecouter
+
+
+Faire un produit n'est pas complexe en soi, c'est l'environnement dans lequel vous le faites qui joue en votre défaveur.
+
+
+L'informatique est une science qui va très vite, ce qui est *hype* aujourd'hui sera obsolète demain.
+
+
+L'utilisateur a soif de nouveauté, se trouve dans un environnement concurrentiel, et son besoin est sans cesse réajusté.
+
+
+Livraisons très fréquentes, voire constantes.
+
+
+Prendre en compte les retours utilisateurs et... leur faire un retour !
+
+> Rewarded feedback
 
 
 Nous sommes à la fois la matière première de l'ère économique actuelle et aussi les artisans.
 
 
-> L’imagination est plus importante que le savoir
+> L’imagination est plus importante que le savoir.
 
 > Albert Einstein
 

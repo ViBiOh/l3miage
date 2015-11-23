@@ -1,6 +1,11 @@
 # Principes & méthodes pratiques
 
 
+> Nine women can't make a baby in one month.
+
+> Frederic Brooks
+
+
 ## Cycle V
 
 
