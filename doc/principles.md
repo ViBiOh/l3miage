@@ -9,7 +9,20 @@
 ## Cycle V
 
 
+Très contractuel : un cahier des charges initial, un cahier de recette final.
+
+
+Crée un effet « tunnel » car chaque tâche dépend de la précédente, sans validation de l'utilisateur.
+
+
 ## Agile - Scrum
+
+
+Processus itératif où l'on présente fréquemment l'avancée du produit à l'utilisateur.
+
+
+Risque moins grand de dévier du besoin réel, possibilité de le réajuster en cours de développement.
+
 
 La qualité vous fait peur ?
 
@@ -49,24 +62,58 @@ A chaque erreur détectée lors de la compilation, du *packaging*, de la qualim�
 > Seul on va plus vite, ensemble on va plus loin.
 
 
-* Partager votre vision
-    - du projet
-    - du produit
-    - de l'équipe
-    - de l'écosystème dans lequel vous êtes
-* Faire de la veille, des conférences, assister à des *meetups*
-* Discuter des implémentations, technologies, actualités
-    - méso-économie : personne n'a que faire d'un évènement.
+Partager votre vision
+* projet
+* produit
+* équipe
+* environnement
 
 
-* [Slack](http://www.slack.com)
-* RocketChat, HipChat
+Faire de la veille, assister à des conférences, des *meetups*
+
+
+Discuter des implémentations, technologies, actualités
+* méso-économie : personne n'a que faire d'un évènement.
+
+
+Être bon communicant passe outils par de bons outils
+
+
+* [Slack](http://www.slack.com), RocketChat, HipChat, IRC
+* Réseaux sociaux
 * Animer l'équipe et acquérir le *team-spirit*
+
+
+## Sociologie
+
+
+Travailler en équipe implique de connaître quelques lois sociologiques ou psychologiques.
+
+
+Loi de Dilbert - Principe de Peter
+
+
+Loi de l'emmerdement maximal
+
+
+Règle des 5P
+
+
+CQQCOQP
+
+
+## Principe du *boy-scout*
+
+> *Leave the campground cleaner that you found it.*
+
+
+* Amélioration continue du logiciel
+* Pas de coupable, pensez en équipe et pas en individuel
 
 
 ## Dette technique
 
-* A chaque nouvelle fonctionnalité, on rend le code
+* A chaque nouvelle fonctionnalité, on rend le code 
 
 * définitionTemps accumulé et ajouté à chaque nouvelle feature
 * Viser à la réduire ou à la contenir
@@ -74,25 +121,26 @@ A chaque erreur détectée lors de la compilation, du *packaging*, de la qualim�
 
 ## Ne pas réinventer la roue
 
-* Utiliser ce qui existe
+
+Utiliser ce qui existe quand cela répond à votre besoin
 
 
-## Principe du *boy-scout*
+En combinant des outils, on peut en créer d'autres.
 
-> *Leave the campground cleaner that you found it.*
-
-* Amélioration continue du logiciel
-* Pas de coupable, pensez en équipe et pas en individuel
+e.g. la stack ELK : ElasticSearch Logstash Kibana
 
 
 ## *Keep It Simple, Stupid* - KISS
 
+
 > Pourquoi faire compliqué quand on peut faire simple ?
+
 
 * Il est parfois compliqué de faire simple en appliquant les *patterns* de programmation
 
 
 ## *Read The Fucking Manual* - RTFM
+
 
 * La réponse est bien souvent dans la documentation
 * La réponse est sur [Google](http://lmgtfy.com/?q=google.fr&l=1) / [StackOverflow](http://lmgtfy.com/?q=stacksverflow.com&l=1)
@@ -100,5 +148,7 @@ A chaque erreur détectée lors de la compilation, du *packaging*, de la qualim�
 * La réponse est [42](https://en.wikipedia.org/wiki/42_(number)#The_Hitchhiker.27s_Guide_to_the_Galaxy)
 
 
-* S'il y a vraiment un bug (i.e. après avoir lu la documentation), ouvrez un ticket !
-* Contribuez, corrigez, ameliorez : appropriez-vous vos outils
+S'il y a vraiment un bug (i.e. après avoir lu la documentation), ouvrez un ticket !
+
+
+Contribuez, corrigez, ameliorez : appropriez-vous vos outils
