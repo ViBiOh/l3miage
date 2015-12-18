@@ -117,7 +117,7 @@ Pouvoir se dire « ce composant est stable »
 * Tester ce qui a du sens fonctionnel ou technique
 * Un cas possible = un test
     - pas de vérifications multiples
-    - pas de "scénario" alambiqués
+    - pas de "scénarios" alambiqués
 
 
 Test du lecteur d'entiers
