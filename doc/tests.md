@@ -375,7 +375,7 @@ Vérifier que les règles de gestion de l'application sont respectées
 Vérifier que le rendu final est conforme aux attentes
 
 
-[Cucumber](https://cucumber.io), [Fitnese](http://www.fitnesse.org), [Robot Framework](http://robotframework.org), etc.
+[Cucumber](https://cucumber.io), [Fitnesse](http://www.fitnesse.org), [Robot Framework](http://robotframework.org), etc.
 
 
 ## Conclusion
