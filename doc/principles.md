@@ -18,7 +18,7 @@ Très contractuel et procédurier : un cahier des charges initial, un cahier de 
 Souvent utilisé dans le cadre de "forfait" en SSII.
 
 
-//TODO INSERER UN SCHEMA
+![](/doc/img/cycle_en_v.svg)
 
 
 Crée un effet « tunnel » car chaque tâche dépend de la précédente, sans validation de l'utilisateur.
@@ -120,7 +120,7 @@ En méso-économie, personne n'a que faire d'un évènement. Même si un domaine
 Être bon communicant passe outils par de bons outils
 
 
-* [Slack](http://www.slack.com), RocketChat, HipChat, IRC
+* [Slack](http://www.slack.com), [Rocket.chat](https://rocket.chat), [appear.in](https://appear.in), IRC
 * Réseaux sociaux
 * Animer l'équipe et acquérir le *team-spirit*
 
@@ -167,10 +167,11 @@ Travailler en équipe implique de connaître quelques lois sociologiques ou psyc
 
 ## Dette technique
 
-* A chaque nouvelle fonctionnalité, on rend le code 
 
-* définitionTemps accumulé et ajouté à chaque nouvelle feature
-* Viser à la réduire ou à la contenir
+A chaque nouvelle fonctionnalité, on dégrade légèrement la qualité.
+
+
+Au fil du temps, la qualité va donc se dégrader. Il faut donc la contenir et incluant un travail constant de refactoring.
 
 
 ## Ne pas réinventer la roue
@@ -189,7 +190,7 @@ e.g. la stack ELK pour analyser vos logs : ElasticSearch Logstash Kibana
 > Pourquoi faire compliqué quand on peut faire simple ?
 
 
-* Il est parfois compliqué de faire simple en appliquant les *patterns* de programmation
+Il est parfois compliqué de faire simple en appliquant les *patterns* de programmation
 
 
 ## *Read The Fucking Manual* - RTFM
