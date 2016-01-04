@@ -6,10 +6,19 @@
 > Frederic Brooks
 
 
+L'informatique, et le développement de logiciels en particulier, sont bien souvent un laboratoire d'essais pour les méthodes de management et/ou de gestion de projet.
+
+
 ## Cycle V
 
 
-Très contractuel : un cahier des charges initial, un cahier de recette final.
+Très contractuel et procédurier : un cahier des charges initial, un cahier de recette final.
+
+
+Souvent utilisé dans le cadre de "forfait" en SSII.
+
+
+//TODO INSERER UN SCHEMA
 
 
 Crée un effet « tunnel » car chaque tâche dépend de la précédente, sans validation de l'utilisateur.
@@ -21,7 +30,16 @@ Crée un effet « tunnel » car chaque tâche dépend de la précédente, sans v
 Processus itératif où l'on présente fréquemment l'avancée du produit à l'utilisateur.
 
 
-Risque moins grand de dévier du besoin réel, possibilité de le réajuster en cours de développement.
+Risque bien moins grand de dévier du besoin réel, possibilité de le réajuster en cours de développement.
+
+
+Tout est *timeboxé*. Chaque cérémonie de la méthode Scrum a une durée qu'il faut respecter. On va à l'essentiel.
+
+
+Si vous entendez parlez de **Sprint**, de **burn-down chart**, de **daily standup**, vous êtes dans une équipe agile.
+
+
+... ou alors si vous voyez des montagnes de Post-it ® sur un des bureaux !
 
 
 La qualité vous fait peur ?
@@ -34,6 +52,7 @@ Tant mieux : on ne négocie pas avec ~~les terroristes~~ la qualité.
 
 ## Intégration continue
 
+
 L'objectif de l'entreprise est de réduire le *Time To Market* (T.T.M.) et donc pour la R&D le *Time To Ship*.
 
 
@@ -42,19 +61,34 @@ On livre toujours du code qu'on assume : exempt de bugs, performant...
 De qualité !
 
 
-Le workflow automatique et idéal est le suivant :
-
-1. une *pull-request* est créée sur une branche
-1. l'intégration continue exécute les tests unitaires et d'intégrations sur la branche ainsi que l'outil de qualimétrie et fourni un vote **technique** sur la modification
-1. la *pull-request* est acceptée (facteur **humain**)
-1. le code est fusionné avec le *master*
-1. l'intégration continue exécute les tests unitaires, les tests d'intégrations et l'outil de qualimétrie
-1. l'application est packagée puis déployée sur un environnement de qualification
-1. l'intégration continue exécute les tests fonctionnels, de performance et de sécurité
-1. l'application est déployée en production.
+Un *bon* *workflow* d'intégration continue (Continuous Integration) pourrait être...
 
 
-A chaque erreur détectée lors de la compilation, du *packaging*, de la qualimétrie ou des tests, l'intégration continue doit être en mesure d'identifier les nouveaux *commits* depuis le dernier succès et d'en avertir les parties prenantes.
+Le développeur crée une *pull-request* sur le projet.
+
+
+La CI effectue la compilation, les tests unitaires et d'intégrations sur la branche ainsi que l'analyse via l'outil de qualimétrie.
+
+
+L'équipe effectue la revue de code de la pull-request par au moins deux pairs : une revue technique et une revue fonctionnelle.
+
+
+Le développeur fusionne la branche sur le *master* après approbation de ses pairs et de la CI.
+
+
+La CI effectue la compilation, l'ensemble des tests statiques et l'analyse qualimétrique.
+
+
+Si aucun indicateur ne passe au rouge via la CI, l'application est packagée et déployée sur un environnement de qualification.
+
+
+La CI reprend alors en exécutant les tests fonctionnels et de performances.
+
+
+Le déploiment continu (Continuous Delivery) peut entrer en action ensuite afin de déployer l'application en production si tous les indicateurs précédents sont au vert.
+
+
+A chaque erreur détectée lors du processus, l'intégration continue doit être en mesure d'identifier les nouveaux *commits* depuis le dernier succès et d'en avertir les parties prenantes.
 
 
 ## Communication
@@ -69,11 +103,18 @@ Partager votre vision
 * environnement
 
 
-Faire de la veille, assister à des conférences, des *meetups*
+Faire de la veille, assister à des conférences, des *meetups*, des salons, ...
 
 
-Discuter des implémentations, technologies, actualités
-* méso-économie : personne n'a que faire d'un évènement.
+> Stay hungry, stay foolish.
+
+> Steve Jobs
+
+
+Discuter des implémentations, technologies, actualités.
+
+
+En méso-économie, personne n'a que faire d'un évènement. Même si un domaine ne vous intéresse pas, il vous impacte directement ou indirectement.
 
 
 Être bon communicant passe outils par de bons outils
@@ -90,16 +131,29 @@ Discuter des implémentations, technologies, actualités
 Travailler en équipe implique de connaître quelques lois sociologiques ou psychologiques.
 
 
-Loi de Dilbert - Principe de Peter
+## Principe de Peter
+
+> Tout employé tend à s'élever à son niveau d'incompétence.
 
 
-Loi de l'emmerdement maximal
+## Loi de Dilbert
+
+> Avec le temps, tous les postes d'une entreprise sont occupés par des incompétents.
 
 
-Règle des 5P
+## Loi de l'emmerdement maximal
+
+> Si quelque chose doit arriver, alors ça arrivera.
 
 
-CQQCOQP
+## Les cinq pourquoi
+
+> Pourquoi ? Pourquoi ? Pourquoi ? Pourquoi ? Pourquoi ?
+
+
+## CQQCOQP
+
+> Combien ? Qui ? Quand ? Comment ? Où ? Quoi ? Pourquoi ?
 
 
 ## Principe du *boy-scout*
@@ -127,11 +181,10 @@ Utiliser ce qui existe quand cela répond à votre besoin
 
 En combinant des outils, on peut en créer d'autres.
 
-e.g. la stack ELK : ElasticSearch Logstash Kibana
+e.g. la stack ELK pour analyser vos logs : ElasticSearch Logstash Kibana
 
 
 ## *Keep It Simple, Stupid* - KISS
-
 
 > Pourquoi faire compliqué quand on peut faire simple ?
 
