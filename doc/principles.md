@@ -106,9 +106,7 @@ Partager votre vision
 Faire de la veille, assister à des conférences, des *meetups*, des salons, ...
 
 
-> Stay hungry, stay foolish.
-
-> Steve Jobs
+> « Stay hungry, stay foolish. » - Steve Jobs
 
 
 Discuter des implémentations, technologies, actualités.
@@ -146,7 +144,7 @@ Travailler en équipe implique de connaître quelques lois sociologiques ou psyc
 > Si quelque chose doit arriver, alors ça arrivera.
 
 
-## Les cinq pourquoi
+## Les cinq « pourquoi »
 
 > Pourquoi ? Pourquoi ? Pourquoi ? Pourquoi ? Pourquoi ?
 
@@ -154,6 +152,11 @@ Travailler en équipe implique de connaître quelques lois sociologiques ou psyc
 ## CQQCOQP
 
 > Combien ? Qui ? Quand ? Comment ? Où ? Quoi ? Pourquoi ?
+
+
+## Loi de Pareto
+
+> Règle des 80 - 20
 
 
 ## Principe du *boy-scout*
@@ -168,10 +171,13 @@ Travailler en équipe implique de connaître quelques lois sociologiques ou psyc
 ## Dette technique
 
 
-A chaque nouvelle fonctionnalité, on dégrade légèrement la qualité.
+Pour chaque fonctionnalité, il faut assurer une cohérence entre les spécifications (la conception) et le code (l'implémentation) sous peine de créer un écart.
 
 
-Au fil du temps, la qualité va donc se dégrader. Il faut donc la contenir et incluant un travail constant de refactoring.
+Cet écart représente une dette que l'on supporte ensuite tout au long de la vie du logiciel.
+
+
+De plus, chaque ajout de fonctionnalité vient alourdir l'application, il faut donc veiller à refactorer au fil de l'eau pour ne pas accumuler de surcharge de travail.
 
 
 ## Ne pas réinventer la roue
