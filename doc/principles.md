@@ -139,7 +139,7 @@ Travailler en équipe implique de connaître quelques lois sociologiques ou psyc
 > Avec le temps, tous les postes d'une entreprise sont occupés par des incompétents.
 
 
-## Loi de l'emmerdement maximal
+## Loi de Murphy
 
 > Si quelque chose doit arriver, alors ça arrivera.
 
@@ -197,6 +197,11 @@ e.g. la stack ELK pour analyser vos logs : ElasticSearch Logstash Kibana
 
 
 Il est parfois compliqué de faire simple en appliquant les *patterns* de programmation
+
+
+## *Problem Exists Between Chair And Keyboard* - PEBKAC
+
+> Le plus grand virus informatique est l'interface clavier-chaise.
 
 
 ## *Read The Fucking Manual* - RTFM
