@@ -210,7 +210,7 @@ Il est parfois compliqué de faire simple en appliquant les *patterns* de progra
 * La réponse est bien souvent dans la documentation
 * La réponse est sur [Google](http://lmgtfy.com/?q=google.fr&l=1) / [StackOverflow](http://lmgtfy.com/?q=stacksverflow.com&l=1)
 * La réponse est dans les *issues* GitHub
-* La réponse est [42](https://en.wikipedia.org/wiki/42_(number))
+* La réponse est 42
 
 
 S'il y a vraiment un bug (i.e. après avoir lu la documentation), ouvrez un ticket !
