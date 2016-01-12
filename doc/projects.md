@@ -77,7 +77,7 @@ Repo git complet avec la documentation
 Synthèse du projet
 * lien entre la théorie et la pratique
 * organisation mise en place
-* problèmes rencontrées, solutions trouvées
+* problèmes rencontrés, solutions trouvées
 * points perfectibles, restes à faire, points non solutionnés
 * retours personnels le module
 
