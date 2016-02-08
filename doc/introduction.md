@@ -57,7 +57,7 @@ Maîtriser les enjeux, les problématiques :
 
 ### Solutionner
 
-> S'il n'y a pas de solutions, il n'y a pas de problèmes.
+> S'il n'y a pas de solution, il n'y a pas de problème.
 
 > Les Shadoks
 
