@@ -191,12 +191,18 @@ En combinant des outils, on peut en créer d'autres.
 e.g. la stack ELK pour analyser vos logs : ElasticSearch Logstash Kibana
 
 
+![](/doc/img/too_busy_to_improve.jpg)
+
+
 ## *Keep It Simple, Stupid* - KISS
 
 > Pourquoi faire compliqué quand on peut faire simple ?
 
 
 Il est parfois compliqué de faire simple en appliquant les *patterns* de programmation
+
+
+![](/doc/img/simplicity.jpeg)
 
 
 ## *Problem Exists Between Chair And Keyboard* - PEBKAC
