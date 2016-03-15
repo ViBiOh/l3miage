@@ -77,6 +77,11 @@ Traduire le besoin en solution (i.e. ingénierie)
 ![](/doc/img/cartoon.png)
 
 
+> N'ayez pas peur d'échouer
+
+![](/doc/img/fail.gif)
+
+
 > La perfection est atteinte, non pas lorsqu'il n'y a plus rien à ajouter, mais lorsqu'il n'y a plus rien à retirer.
 
 > Antoine de Saint-Exupéry
