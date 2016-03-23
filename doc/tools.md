@@ -37,6 +37,12 @@ Exploration de la *stack* d'appels
 * Intégré dans de nombreux outils : e.g. GitHub, Trello, Blog
 
 
+## Logs
+
+
+TODO
+
+
 ## Revue de code
 
 * méthode du canard en plastique
