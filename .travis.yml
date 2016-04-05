@@ -1,0 +1,15 @@
+language: node_js go
+sudo: required
+services:
+  - docker
+node_js:
+  - "5.9.1"
+go:
+  - 1.6
+install: make
+script:
+  - "make"
+  - "docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}"
+  - "docker push vibioh/genie-logiciel"
+notifications:
+  email: false
