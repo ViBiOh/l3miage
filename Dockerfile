@@ -6,3 +6,4 @@ ENTRYPOINT [ "/server" ]
 
 COPY server /
 COPY web/ /
+COPY doc/ /doc/
