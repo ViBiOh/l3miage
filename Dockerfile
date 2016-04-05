@@ -5,5 +5,5 @@ EXPOSE 1080
 ENTRYPOINT [ "/server" ]
 
 COPY server /
-COPY web/ /
-COPY doc/ /doc/
+COPY web/ /www/
+COPY doc/ /www/doc/
