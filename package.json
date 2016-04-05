@@ -9,8 +9,7 @@
     "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin ./web/plugin",
     "reveal:js": "cp -R ./node_modules/reveal.js/js ./web/js",
     "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin && npm run reveal:js",
-    "build": "npm run build",
-    "postinstall": "npm run build"
+    "postinstall": "npm run reveal"
   },
   "repository": {
     "type": "git",
