@@ -9,8 +9,8 @@
     "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin ./web/plugin",
     "reveal:js": "cp -R ./node_modules/reveal.js/js ./web/js",
     "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin && npm run reveal:js",
-    "postinstall": "npm run reveal",
-    "start": "node ./server/server.js"
+    "build": "npm run build",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/ViBiOh/md-genie-logiciel#readme",
   "dependencies": {
-    "express": "latest",
     "reveal.js": "git+https://github.com/hakimel/reveal.js.git"
   },
   "devDependencies": {}
