@@ -9,5 +9,5 @@ func main() {
 	http.Handle("/", http.FileServer(http.Dir("/")))
 
 	log.Print("Starting server on port " + port)
-	log.Fatal(http.ListenAndServe(":" + port, nil))
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
