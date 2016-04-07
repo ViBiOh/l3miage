@@ -6,7 +6,7 @@
 
 ### Install
 
-You need npm, go and make to in order to build it.
+You need npm, docker and make in order to build it.
 
 ```bash
 make
@@ -15,10 +15,10 @@ make
 ### Run
 
 ```bash
-./server
+docker run -d --name cours vibioh/md-genie-logiciel
 ```
 
-Browse [LocalHost](http://localhost:8080)
+Browse [LocalHost](http://localhost:1080)
 
 ## Java sample
 
