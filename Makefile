@@ -1,7 +1,4 @@
-default: back front docker
-
-back:
-	CGO_ENABLED=0 GOGC=off go build -installsuffix nocgo src/server.go
+default: front docker
 
 front:
 	npm install
