@@ -1,9 +1,5 @@
-FROM scratch
+FROM vibioh/http
 MAINTAINER Vincent Boutour <vincent.boutour@gmail.com>
 
-EXPOSE 1080
-ENTRYPOINT [ "/server" ]
-
-COPY server /
 COPY web/ /www/
 COPY doc/ /www/doc/
