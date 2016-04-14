@@ -1,5 +1,5 @@
 cours:
-  image: vibioh/genie-logiciel:latest
+  image: vibioh/genie-logiciel
   labels:
     traefik.frontend.value: 'cours.${DOMAIN}'
     traefik.frontend.passHostHeader: 'true'
