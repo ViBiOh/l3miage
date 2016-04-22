@@ -4,12 +4,15 @@
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
   "scripts": {
-    "reveal:css": "cp -R ./node_modules/reveal.js/css ./web/css",
-    "reveal:lib": "cp -R ./node_modules/reveal.js/lib ./web/lib",
-    "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin ./web/plugin",
-    "reveal:js": "cp -R ./node_modules/reveal.js/js ./web/js",
+    "clean": "rm -rf ./dist && mkdir ./dist",
+    "reveal:css": "cp -R ./node_modules/reveal.js/css ./dist/css",
+    "reveal:lib": "cp -R ./node_modules/reveal.js/lib ./dist/lib",
+    "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin ./dist/plugin",
+    "reveal:js": "cp -R ./node_modules/reveal.js/js ./dist/js",
     "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin && npm run reveal:js",
-    "postinstall": "npm run reveal"
+    "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html --collapse-boolean-attributes --collapse-whitespace --decode-entities --html-5 --minify-js=true --remove-attribute-quotes --remove-comments --remove-optional-tags --sort-attributes --sort-class-name --use-short-doctype ./web/index.html",
+    "minify": "npm run minify:html",
+    "postinstall": "npm run clean && npm run reveal && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -20,7 +23,7 @@
     "course",
     "quality",
     "genie",
-    "lociciel"
+    "logiciel"
   ],
   "author": "Vincent Boutour <vincent.boutour@gmail.com>",
   "license": "ISC",
@@ -31,5 +34,7 @@
   "dependencies": {
     "reveal.js": "git+https://github.com/hakimel/reveal.js.git"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "html-minifier": "latest"
+  }
 }
