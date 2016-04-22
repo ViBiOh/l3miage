@@ -1,5 +1,5 @@
 FROM vibioh/http
 MAINTAINER Vincent Boutour <vincent.boutour@gmail.com>
 
-COPY web/ /www/
+COPY dist/ /www/
 COPY doc/ /www/doc/
