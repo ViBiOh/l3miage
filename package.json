@@ -10,7 +10,7 @@
     "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin ./dist/plugin",
     "reveal:js": "cp -R ./node_modules/reveal.js/js ./dist/js",
     "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin && npm run reveal:js",
-    "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html --collapse-boolean-attributes --collapse-whitespace --decode-entities --html-5 --minify-js=true --remove-attribute-quotes --remove-comments --remove-optional-tags --sort-attributes --sort-class-name --use-short-doctype ./web/index.html",
+    "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./web/index.html",
     "minify": "npm run minify:html",
     "postinstall": "npm run clean && npm run reveal && npm run minify"
   },
