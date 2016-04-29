@@ -13,7 +13,7 @@
     "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./web/index.html",
     "minify:js": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/js/reveal.js -o ./dist/js/reveal.js --compress --mangle",
     "minify": "npm run minify:html && npm run minify:js",
-    "postinstall": "npm run clean && npm run reveal && npm run minify"
+    "build": "npm run clean && npm run reveal && npm run minify"
   },
   "repository": {
     "type": "git",
