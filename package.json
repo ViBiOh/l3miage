@@ -4,10 +4,10 @@
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf ./dist && mkdir -p ./dist/js",
+    "clean": "rm -rf ./dist && mkdir -p ./dist/js && mkdir -p ./dist/plugin",
     "reveal:css": "cp -R ./node_modules/reveal.js/css ./dist/css",
     "reveal:lib": "cp -R ./node_modules/reveal.js/lib ./dist/lib",
-    "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin ./dist/plugin",
+    "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin/markdown ./node_modules/reveal.js/plugin/highlight ./dist/plugin",
     "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin",
     "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./web/index.html",
     "minify:js": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output ./dist/js/reveal.js",
