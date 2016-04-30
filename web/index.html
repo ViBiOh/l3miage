@@ -6,9 +6,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Cours de Vincent Boutour</title>
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/night.css" id="theme">
-    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="./lib/css/zenburn.css">
     <style type="text/css">
       nav > ul {
         z-index: 8000;
@@ -55,8 +55,8 @@
     </div>
   </body>
 </html>
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.js"></script>
 <script>
   var printPdfRegex = /print-pdf/gi;
   var reserved = {
@@ -68,7 +68,7 @@
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = window.location.search.match(printPdfRegex) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    link.href = window.location.search.match(printPdfRegex) ? './css/print/pdf.css' : './css/print/paper.css';
     document.getElementsByTagName('head')[0].appendChild(link);
   })();
 
@@ -107,17 +107,17 @@
     transition: 'slide',
     dependencies: [
       {
-        src: 'lib/js/classList.js',
+        src: './lib/js/classList.js',
         async: true,
         condition: function() {
           return !document.body.classList;
         }
       }, {
-        src: 'plugin/markdown/marked.js'
+        src: './plugin/markdown/marked.js'
       }, {
-        src: 'plugin/markdown/markdown.js'
+        src: './plugin/markdown/markdown.js'
       }, {
-        src: 'plugin/highlight/highlight.js',
+        src: './plugin/highlight/highlight.js',
         async: true,
         callback: function() {
           hljs.initHighlightingOnLoad();
