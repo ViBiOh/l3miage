@@ -32,7 +32,7 @@ En mode `en ligne` simplement en l'entourant d'un guillement accentué **`**
 
     Ou en mode bloc en indentant
     l'ensemble avec un quadruple espace
-    ou une tabulation, ou baliser de 3 `
+    ou une tabulation, ou balisé de 3 `
 
 
 ## Ecriture de lien
