@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf ./dist && mkdir -p ./dist/js && mkdir -p ./dist/plugin",
+    "copy:robots": "cp ./web/robots.txt ./dist/",
     "reveal:css": "cp -R ./node_modules/reveal.js/css ./dist/css",
     "reveal:lib": "cp -R ./node_modules/reveal.js/lib ./dist/lib",
     "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin/print-pdf ./node_modules/reveal.js/plugin/markdown ./node_modules/reveal.js/plugin/highlight ./dist/plugin",
@@ -12,7 +13,7 @@
     "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./web/index.html",
     "minify:js": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output ./dist/js/reveal.js",
     "minify": "npm run minify:html && npm run minify:js",
-    "build": "npm run clean && npm run reveal && npm run minify"
+    "build": "npm run clean && npm run reveal && npm run minify && copy:robots"
   },
   "repository": {
     "type": "git",
