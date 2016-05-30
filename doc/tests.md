@@ -570,7 +570,7 @@ Modification du code
       return input;
     }
 
-    return Normalizer.normalize(input, Normalizer.Form.NFD).replaceAll("[̀́̂̈]+", "");
+    return Normalizer.normalize(input, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
   }
 ```
 
@@ -581,7 +581,7 @@ Refactoring
   public static String execute(final String input) {
     Assert.notNull(input);
 
-    return Normalizer.normalize(input, Normalizer.Form.NFD).replaceAll("[̀́̂̈]+", "");
+    return Normalizer.normalize(input, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
   }
 ```
 
