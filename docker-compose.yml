@@ -1,12 +1,20 @@
-cours:
-  image: vibioh/genie-logiciel
-  labels:
-    traefik.frontend.passHostHeader: 'true'
-    traefik.frontend.rule: 'Host: cours.${DOMAIN}'
-    traefik.port: '1080'
-  log_opt:
-    max-size: '50m'
-  restart: 'no'
-  read_only: true
-  cpu_shares: 256
-  mem_limit: 134217728
+version: '2'
+
+services:
+  cours:
+    image: vibioh/genie-logiciel
+    labels:
+      traefik.frontend.passHostHeader: 'true'
+      traefik.frontend.rule: 'Host: cours.${DOMAIN}'
+      traefik.port: '1080'
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    restart: 'no'
+    read_only: true
+
+networks:
+  default:
+    external:
+      name: swarm-net
