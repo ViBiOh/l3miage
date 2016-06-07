@@ -115,7 +115,7 @@ Discuter des implémentations, technologies, actualités.
 En méso-économie, personne n'a que faire d'un évènement. Même si un domaine ne vous intéresse pas, il vous impacte directement ou indirectement.
 
 
-Être bon communicant passe outils par de bons outils
+Être bon communicant passe par de bons outils
 
 
 * [Slack](http://www.slack.com), [Rocket.chat](https://rocket.chat), [appear.in](https://appear.in), IRC
