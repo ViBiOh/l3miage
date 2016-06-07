@@ -123,7 +123,7 @@ En méso-économie, personne n'a que faire d'un évènement. Même si un domaine
 * Animer l'équipe et acquérir le *team-spirit*
 
 
-## Sociologie
+## Lois du travail en équipe
 
 
 Travailler en équipe implique de connaître quelques lois sociologiques ou psychologiques.
