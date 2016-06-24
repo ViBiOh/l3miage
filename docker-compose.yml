@@ -13,3 +13,8 @@ services:
         max-size: '50m'
     restart: 'no'
     read_only: true
+
+networks:
+  default:
+    external:
+      name: traefik
