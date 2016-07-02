@@ -3,6 +3,7 @@ version: '2'
 services:
   cours:
     image: vibioh/genie-logiciel
+    command: --domain "fonts.googleapis.com fonts.gstatic.com"
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: cours.${DOMAIN}'
