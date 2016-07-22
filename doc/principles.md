@@ -134,7 +134,7 @@ Travailler en équipe implique de connaître quelques lois empiriques qui régis
 > Tout employé tend à s'élever à son niveau d'incompétence...
 
 
-## Principe de Peter #1
+## Principe de Peter #2
 
 > ... Avec le temps, tous les postes d'une entreprise sont occupés par des incompétents.
 
