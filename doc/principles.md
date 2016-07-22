@@ -126,17 +126,22 @@ En méso-économie, personne n'a que faire d'un évènement. Même si un domaine
 ## Lois du travail en équipe
 
 
-Travailler en équipe implique de connaître quelques lois sociologiques ou psychologiques.
+Travailler en équipe implique de connaître quelques lois empiriques qui régissent les organisations.
 
 
-## Principe de Peter
+## Principe de Peter #1
 
-> Tout employé tend à s'élever à son niveau d'incompétence.
+> Tout employé tend à s'élever à son niveau d'incompétence...
 
 
-## Loi de Dilbert
+## Principe de Peter #1
 
-> Avec le temps, tous les postes d'une entreprise sont occupés par des incompétents.
+> ... Avec le temps, tous les postes d'une entreprise sont occupés par des incompétents.
+
+
+## Principe de Dilbert
+
+> Les gens les moins compétents sont systématiquement affectés aux postes où ils risquent de causer le moins de dégâts : ceux de managers.
 
 
 ## Loi de Murphy
