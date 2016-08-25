@@ -23,6 +23,8 @@ readVariableIfRequired "PROJECT_NAME"
 export DOMAIN=${DOMAIN}
 
 docker-compose -p ${PROJECT_NAME} pull
+docker-compose -p ${PROJECT_NAME} stop
+docker-compose -p ${PROJECT_NAME} rm --all -f -v
 docker-compose -p ${PROJECT_NAME} up -d --force-recreate
 
 docker rmi `docker images --filter dangling=true -q 2>/dev/null` 2>/dev/null
