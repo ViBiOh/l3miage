@@ -18,7 +18,7 @@ Portable
 
 Taille d'image réduite
 
-Consommation plus légères des ressources
+Consommation plus légère des ressources
 
 
 La technologie des conteneurs est analogue à celle définie en logistique.
@@ -48,7 +48,7 @@ Un peu tout le monde
 
 **it** > Plus besoin de configurer l'application
 
-```docker run -d -p 80:3000 awesome_app:latest```
+```docker run -d -p 80:3000 awesome_app```
 
 
 Certains s'en servent pour lancer des applications avec une UI (Spotify, Chrome, etc...) en utilisant un serveur X11.
@@ -61,7 +61,7 @@ Certains s'en servent pour lancer des applications avec une UI (Spotify, Chrome,
 
 L'automatisation de la construction du livrable existe déjà mais...
 
-...on peut déployer plus facilement à chaud avec *docker*
+...on peut déployer plus facilement à chaud avec *docker* car conteneur plus léger
 
 
 Besoin d'une nouvelle instance sur le cluster ?
@@ -119,9 +119,9 @@ La virtualisation des resources permet de venir *brancher* celles que l'on souha
 
 Docker permet de lier les conteneurs entre eux sans exposer les ports publiquement.
 
-`docker run --name mysql mysql:latest`
+`docker run --name mysql mysql`
 
-`docker run --link mysql:db awesome_app:latest`
+`docker run --link mysql:db awesome_app`
 
 > **`awesome_app`** parlera à **`mysql`** via le port **3306** sur le nom **db** sans que celui-ci ne soit disponible à l'extérieur de Docker
 
@@ -130,7 +130,7 @@ Docker permet de lier les conteneurs entre eux sans exposer les ports publiqueme
 
 Un conteneur n'est accessible que sur les ports que l'on définit.
 
-`docker run -d -p 80:3000 awesome_app:latest`
+`docker run -d -p 80:3000 awesome_app`
 
 > **`awesome_app`** sera accessible depuis l'extérieur sur le port **3000**, qui est *mappé* sur le port 80 de l'hôte.
 
@@ -148,7 +148,7 @@ La bonne pratique est d'exécuter les *docker* avec un *filesystem* en *read-onl
 
 L'externalisation des données passe par le montage de volumes. On *mappe* un répertoire du *host* sur un répertoire du *docker*.
 
-`docker run -v /var/awesome_app/filesystem:/var/usr awesome_app:latest`
+`docker run -v /var/awesome_app/filesystem:/var/usr awesome_app`
 
 > Le contenu du dossier **`/var/awesome_app/filesystem`** sera accessible depuis le *docker* sous le chemin **`/var/usr`**
 
