@@ -464,7 +464,7 @@ public class Program implements CommandLineRunner {
 ## *Don't Repeat Yourself* - DRY
 
 
-En dehors de vos Vines, personne n'aime se répéter
+En dehors de vos GIF & Vines, personne n'aime se répéter
 
 
 Extraire toutes les constantes du code, aussi appelés *magic number*

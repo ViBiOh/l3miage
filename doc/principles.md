@@ -123,10 +123,10 @@ En méso-économie, personne n'a que faire d'un évènement. Même si un domaine
 * Animer l'équipe et acquérir le *team-spirit*
 
 
-## Lois du travail en équipe
+## Lois du travail en organisation
 
 
-Travailler en équipe implique de connaître quelques lois empiriques qui régissent les organisations.
+Travailler dans une organisation implique de connaître quelques lois empiriques qui les régissent.
 
 
 ## Principe de Peter #1

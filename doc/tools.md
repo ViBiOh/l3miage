@@ -40,7 +40,23 @@ Exploration de la *stack* d'appels
 ## Logs
 
 
-TODO
+Afficher des informations sur l'activité du produit
+
+
+Ecrire des enregistrements consistants, avec l'ensemble des informations nécessaires à la compréhension du comportement
+
+* date
+* niveau
+* identifiant utilisateur
+* message d'erreur / information
+* identifiant objet
+* données pertinentes
+
+
+Faire attention au multithreading, à l'asynchronisme, au volume de données, à la performance
+
+
+Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 
 
 ## Revue de code
@@ -58,12 +74,13 @@ TODO
 
 * [JIRA](https://www.atlassian.com/software/jira/)
 * [Trello](https://trello.com)
+* [Workflowy](https://workflowy.com)
 
 
 ## IDE
 
 * [vi/vim](http://www.vim.org) / [emacs](https://www.gnu.org/software/emacs/)
-* [SublimeText](http://www.sublimetext.com) / [Atom](https://atom.io) / [Notepad++](https://notepad-plus-plus.org/fr/)
+* [SublimeText](http://www.sublimetext.com) / [Atom](https://atom.io) / [Visual Studio Code](https://code.visualstudio.com/) / [Notepad++](https://notepad-plus-plus.org/fr/)
 * [IntelliJ](https://www.jetbrains.com/idea/) / [Eclipse](https://eclipse.org/) / [NetBeans](https://netbeans.org) / [VisualStudio](https://www.visualstudio.com)
 
 > Peu importe votre religion, il faut l'assumer et la maîtriser
@@ -71,5 +88,5 @@ TODO
 
 ## Déploiement
 
-* [Jenkins](https://jenkins-ci.org), [Bamboo](https://www.atlassian.com/software/bamboo/)
+* [Jenkins](https://jenkins-ci.org), [Bamboo](https://www.atlassian.com/software/bamboo/), [Travis](https://travis-ci.org/)
 * [Docker](https://www.docker.com), [Puppet](https://puppetlabs.com)

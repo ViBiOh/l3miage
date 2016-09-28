@@ -86,4 +86,4 @@ Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
 
 * [Un petit guide illustré](http://rogerdudler.github.io/git-guide/index.fr.html)
 * [La documentation officielle](http://git-scm.com/book/fr/v1)
-* [Successful Workflow](http://nvie.com/posts/a-successful-git-branching-model/)
+* [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/)

@@ -60,12 +60,12 @@ public class BadTest {
   }
 
   @Test
-  public void increment() {
+  public void test1() { // Que teste-on ici ?
     assertEquals(1, ++i);
   }
 
   @Test
-  public void decrement() {
+  public void test2() {
     assertEquals(0, --i); // Result depends on test suite
   }
 }
@@ -111,7 +111,7 @@ Aucune dépendance entre les tests :
 * de classes différentes
 
 
-Pouvoir se dire « ce composant est stable »
+Pouvoir se dire « ce composant (ou cette fonction) est stable et répond à notre besoin, le problème n'est pas là »
 
 
 * Tester ce qui a du sens fonctionnel ou technique
@@ -130,12 +130,12 @@ public class IntegerReaderTest {
   }
 
   @Test
-  public void read_match_null() throws Exception {
+  public void read_match_positive() throws Exception {
     assertEquals(Integer.valueOf(123), IntegerReader.read("123"));
   }
 
   @Test
-  public void read_matchNegative_null() throws Exception {
+  public void read_matchNegative_negative() throws Exception {
     assertEquals(Integer.valueOf(-123), IntegerReader.read("-123"));
   }
 }
@@ -302,15 +302,18 @@ Intégration problématique entre composants
 
 ```java
 public class DateHelper {
-  public static String now() {
+  public String now() {
     return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
   }
 }
 
 public class MyService {
+    @Autowired
+    private DateHelper dateHelper;
+
     public boolean isBefore(final Date value) throws ParseException {
         return new SimpleDateFormat("yyyy/MM/dd")
-            .parse(DateHelper.now()).before(value); // Mostly true
+            .parse(dateHelper.now()).before(value); // Mostly true
     }
 }
 ```
@@ -405,7 +408,7 @@ e.g. Effectuer une recherche dans le référentiel "Produit" prend une demi-seco
 Il existe des outils pour simuler la connexion simultanée de plusieurs utilisateurs : [Gatling](TODO), [Apache JMeter](TODO)
 
 
-Il ne faut pas chercher à bâtir une architecture qui réponde quoiqu'il advienne mais connaître les limites et analyser la courbe de réponse avec des outils de *profiling*
+Il ne faut pas chercher à bâtir une architecture qui réponde quoiqu'il advienne (c'est un problème de *scalabilité*) mais connaître les limites et analyser la courbe de réponse avec des outils de *profiling*
 
 
 Cela requiert, comme pour les tests d'intégration, des environnements capables de supporter la volumétrie et la charge.
@@ -442,7 +445,7 @@ Cela conduit bien souvent à vérifier que la *User eXpérience* est satisfaisan
 
 Attention, l'UX n'est pas synonyme d'UI ni d'ergonomie. C'est bien de l'« expérience utilisateur » que l'on parle.
 
-e.g. Uber vous propose une application sobre, mais la majeure partie de l'UX s'effectue dans la voiture.
+e.g. Uber ou BlaBlaCar vous proposent une application sobre, mais la majeure partie de l'UX s'effectue dans la voiture.
 
 
 # *Test Driven Development* - TDD
@@ -462,7 +465,7 @@ Tout ceci s'inclut dans un processus itératif afin d'éviter d'écrire trop de 
 e.g. Enlever les accents d'une chaîne de caractères
 
 
-> En cas de null, lever une exception
+> Si je n'ai pas de chaîne, lever une exception
 
 ```java
 public class TDDTest {
@@ -570,7 +573,8 @@ Modification du code
       return input;
     }
 
-    return Normalizer.normalize(input, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+    return Normalizer.normalize(input,
+      Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
   }
 ```
 
@@ -581,7 +585,8 @@ Refactoring
   public static String execute(final String input) {
     Assert.notNull(input);
 
-    return Normalizer.normalize(input, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+    return Normalizer.normalize(input,
+      Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
   }
 ```
 
