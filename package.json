@@ -11,11 +11,12 @@
     "reveal:css": "cp -R ./node_modules/reveal.js/css ./dist/css",
     "reveal:lib": "cp -R ./node_modules/reveal.js/lib ./dist/lib",
     "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin/print-pdf ./node_modules/reveal.js/plugin/markdown ./node_modules/reveal.js/plugin/highlight ./dist/plugin",
+    "mustache": "./mustache.js -t \"web/*.html\" -b `git log --pretty=format:'%h' -n 1` -p \"web/partials/*.html\" -c ./web/css/nav.css -o ./tmp",
     "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin",
-    "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./web/index.html",
+    "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./tmp/index.html",
     "minify:js": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output ./dist/js/reveal.js",
     "minify": "npm run minify:html && npm run minify:js",
-    "build": "npm run clean && npm run reveal && npm run minify && npm run copy"
+    "build": "npm run clean && npm run copy && npm run reveal && npm run mustache && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,11 @@
   },
   "devDependencies": {
     "uglify-js": "latest",
-    "html-minifier": "latest"
+    "html-minifier": "latest",
+    "glob": "latest",
+    "js-utils": "git+https://github.com/ViBiOh/js-utils.git",
+    "mkdirp": "latest",
+    "mustache": "latest",
+    "yargs": "latest"
   }
 }

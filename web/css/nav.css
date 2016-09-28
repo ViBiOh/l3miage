@@ -1,0 +1,22 @@
+nav > ul {
+  z-index: 8000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  margin: 0;
+  border: 0;
+}
+nav > ul > li {
+  display: inline-block;
+}
+nav > ul > li > a {
+  color: white;
+  text-decoration: none;
+}
+nav > ul > li > a::after {
+  content: " | ";
+}
+nav > ul > li:last-child > a::after {
+  content: "";
+}
