@@ -1,2 +1,5 @@
+# Allow crawling of all content
 User-agent: *
 Disallow:
+
+Sitemap: https://cours.vibioh.fr/sitemap.xml
