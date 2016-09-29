@@ -4,9 +4,9 @@ services:
 - docker
 node_js:
 - 6.6.0
-install: make
 script:
-- make
+- npm run build
+- docker build -t ${DOCKER_USER}/genie-logiciel .
 - docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
 - docker push ${DOCKER_USER}/genie-logiciel
 notifications:
