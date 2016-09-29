@@ -79,7 +79,7 @@ Traduire le besoin en solution (i.e. ingénierie)
 
 > N'ayez pas peur d'échouer
 
-![](/doc/img/fail.gif)
+![](/doc/img/fail.png)
 
 
 > La perfection est atteinte, non pas lorsqu'il n'y a plus rien à ajouter, mais lorsqu'il n'y a plus rien à retirer.
