@@ -4,23 +4,24 @@
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf ./dist && mkdir -p ./dist/js && mkdir -p ./dist/plugin",
+    "clean": "rm -rf ./dist && mkdir -p ./dist/plugin",
     "copy:robots": "cp ./web/robots.txt ./dist/",
     "copy:sitemap": "cp ./web/sitemap.xml ./dist/",
     "copy:google": "cp ./web/google7f804347eebc1e15.html ./dist/",
     "copy:md": "cp -R ./doc/ ./dist/doc",
     "copy": "npm run copy:robots && npm run copy:sitemap && npm run copy:md && npm run copy:google",
-    "reveal:css": "cp -R ./node_modules/reveal.js/css ./dist/css",
+    "reveal:css": "./node_modules/.bin/html-minifier --config-file ./html-minifier.json --input-dir ./node_modules/reveal.js/css --output-dir ./dist/css",
     "reveal:lib": "cp -R ./node_modules/reveal.js/lib ./dist/lib",
     "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin/print-pdf ./node_modules/reveal.js/plugin/markdown ./node_modules/reveal.js/plugin/highlight ./dist/plugin",
-    "mustache": "./mustache.js -t \"web/*.html\" -b `git log --pretty=format:'%h' -n 1` -p \"web/partials/*.html\" -c ./web/css/nav.css -o ./tmp",
     "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin",
+    "js:google": "curl -f https://www.google-analytics.com/analytics.js | ./node_modules/.bin/uglifyjs -c -mt > ./dist/analytics.js",
+    "js:perso": "cat ./node_modules/reveal.js/lib/js/head.min.js ./node_modules/reveal.js/js/reveal.js ./web/js/index.js ./web/js/googleAnalytics.js | ./node_modules/.bin/uglifyjs -c -mt --preamble //${npm_package_name}@${npm_package_version} > ./tmp/index.js",
+    "js": "npm run js:google && npm run js:perso",
+    "mustache": "./mustache.js -t \"web/*.html\" -b `git log --pretty=format:'%h' -n 1` -p \"web/partials/*.html\" -j ./tmp/index.js -c ./web/css/nav.css -o ./tmp",
     "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./tmp/index.html",
-    "minify:js-mark": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output ./dist/plugin/markdown/markdown.js",
-    "minify:js-reveal": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output ./dist/js/reveal.js",
-    "minify:js": "npm run minify:js-reveal && npm run minify:js-mark",
+    "minify:js": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output ./dist/plugin/markdown/markdown.js",
     "minify": "npm run minify:html && npm run minify:js",
-    "build": "npm run clean && npm run copy && npm run reveal && npm run mustache && npm run minify"
+    "build": "npm run clean && npm run copy && npm run reveal && npm run js && npm run mustache && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -43,12 +44,12 @@
     "reveal.js": "git+https://github.com/hakimel/reveal.js.git"
   },
   "devDependencies": {
-    "uglify-js": "latest",
-    "html-minifier": "latest",
     "glob": "latest",
+    "html-minifier": "latest",
     "js-utils": "git+https://github.com/ViBiOh/js-utils.git",
     "mkdirp": "latest",
     "mustache": "latest",
+    "uglify-js": "latest",
     "yargs": "latest"
   }
 }
