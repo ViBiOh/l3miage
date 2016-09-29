@@ -14,7 +14,9 @@
     "mustache": "./mustache.js -t \"web/*.html\" -b `git log --pretty=format:'%h' -n 1` -p \"web/partials/*.html\" -c ./web/css/nav.css -o ./tmp",
     "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin",
     "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./tmp/index.html",
-    "minify:js": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output ./dist/js/reveal.js",
+    "minify:js-mark": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output ./dist/plugin/markdown/markdown.js",
+    "minify:js-reveal": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output ./dist/js/reveal.js",
+    "minify:js": "npm run minify:js-reveal && npm run minify:js-mark",
     "minify": "npm run minify:html && npm run minify:js",
     "build": "npm run clean && npm run copy && npm run reveal && npm run mustache && npm run minify"
   },
