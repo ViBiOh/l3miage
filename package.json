@@ -4,7 +4,7 @@
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf ./tmp && mkdir -p ./dist/plugin",
+    "clean": "rm -rf ./dist && mkdir -p ./dist/plugin && mkdir -p ./tmp",
     "copy:robots": "cp ./web/robots.txt ./dist/",
     "copy:sitemap": "cp ./web/sitemap.xml ./dist/",
     "copy:google": "cp ./web/google7f804347eebc1e15.html ./dist/",
