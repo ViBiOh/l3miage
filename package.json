@@ -6,8 +6,9 @@
   "scripts": {
     "clean": "rm -rf ./dist && mkdir -p ./dist/js && mkdir -p ./dist/plugin",
     "copy:robots": "cp ./web/robots.txt ./dist/",
+    "copy:google": "cp ./web/google7f804347eebc1e15.html /dist/",
     "copy:md": "cp -R ./doc/ ./dist/doc",
-    "copy": "npm run copy:robots && npm run copy:md",
+    "copy": "npm run copy:robots && npm run copy:md && npm run copy:google",
     "reveal:css": "cp -R ./node_modules/reveal.js/css ./dist/css",
     "reveal:lib": "cp -R ./node_modules/reveal.js/lib ./dist/lib",
     "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin/print-pdf ./node_modules/reveal.js/plugin/markdown ./node_modules/reveal.js/plugin/highlight ./dist/plugin",
