@@ -144,6 +144,26 @@ Travailler dans une organisation implique de connaître quelques lois empiriques
 > Les gens les moins compétents sont systématiquement affectés aux postes où ils risquent de causer le moins de dégâts : ceux de managers.
 
 
+## Loi de la relativité d'Einstein
+
+> Une minute au dessus d'une poêle chaude semble durer des heures alors qu'une minute à côté d'une jolie fille semble durer une seconde, c'est ça la relativité.
+
+
+## Loi de Fraisse
+
+> Le temps est subjectif : ce qui est plaisant passe vite, ce qui est désagréable semble durer.
+
+
+## Loi de Parkinson
+
+> Le travail se dilate jusqu'à occuper tout le temps qui lui est dévolu.
+
+
+## Loi d'Illich
+
+> Après un certain temps de travail, la productivité décroît. La pause devient nécessaire.
+
+
 ## Loi de Murphy
 
 > Si quelque chose doit arriver, alors ça arrivera.
