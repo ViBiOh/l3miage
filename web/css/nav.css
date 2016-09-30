@@ -15,7 +15,7 @@ nav > ul > li > a {
   text-decoration: none;
 }
 nav > ul > li > a::after {
-  content: " | ";
+  content: "\00A0|\00A0";
 }
 nav > ul > li:last-child > a::after {
   content: "";
