@@ -1,44 +1,6 @@
 # Projets
 
 
-## Sujets *simples*
-
-
-Des jeux que vous connaissez bien, qui peuvent se faire vite...
-
-...mais là on veut faire bien.
-
-
-* Puissance 4
-* Pendu
-* Mastermind
-* Tic-tac-toe
-
-
-Aucun *framework* requis par défaut
-
-
-Application en console, ressemblant beaucoup à des projets universitaires.
-
-
-## Sujets *intéressants*
-
-
-Bâtir des services que l'on pourra ensuite assembler.
-
-
-Architecture client-serveur, plus proche du monde réel.
-
-
-Utilisation de *framework* recommandée pour ne pas tout refaire.
-
-
-* Carnets d'adresses
-* Questionnaire à choix multiples
-* Mailer (mailing-list)
-* ToDo-list
-
-
 ## Contraintes
 
 
@@ -51,7 +13,13 @@ Utilisation de git
 Utilisation de markdown
 
 
-Réalisation en Java
+Réalisation en Java, JavaScript ou Go
+
+
+Respect de l'Inversion of Control (via Spring, Play, CommonJS, AngularJS)
+
+
+Code testé unitairement
 
 
 Rédaction des besoins
@@ -65,7 +33,7 @@ Documentation complète
 Refactorer le code au fur et à mesure de l'apprentissage du cours.
 
 
-Ajout de fonctionnalité sur la fin, après analyse de votre code.
+Ajout d'une fonctionnalité Joker sur la fin, après analyse de votre code.
 
 
 ## Livrables
