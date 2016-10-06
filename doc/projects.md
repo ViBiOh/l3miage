@@ -19,6 +19,13 @@ Réalisation en Java, JavaScript ou Go
 Respect de l'*Inversion of Control* (e.g. Spring, Play, CommonJS, AngularJS)
 
 
+Utilisation d'un outil de gestion de dépendances
+* Maven
+* Gradle
+* npm
+* ...
+
+
 Code testé unitairement
 
 
