@@ -75,7 +75,7 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 * [JIRA](https://www.atlassian.com/software/jira/)
 * [Trello](https://trello.com)
 * [Workflowy](https://workflowy.com)
-# [IFTTT](https://ifttt.com)
+* [IFTTT](https://ifttt.com)
 
 
 ## IDE
