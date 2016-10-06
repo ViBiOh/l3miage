@@ -16,7 +16,7 @@ Utilisation de markdown
 Réalisation en Java, JavaScript ou Go
 
 
-Respect de l'Inversion of Control (via Spring, Play, CommonJS, AngularJS)
+Respect de l'*Inversion of Control* (e.g. Spring, Play, CommonJS, AngularJS)
 
 
 Code testé unitairement
@@ -24,7 +24,7 @@ Code testé unitairement
 
 Rédaction des besoins
 * besoins nominaux
-* critère d'acceptation
+* critère d'acceptation (i.e. cahier de recette)
 
 
 Documentation complète
@@ -33,7 +33,7 @@ Documentation complète
 Refactorer le code au fur et à mesure de l'apprentissage du cours.
 
 
-Ajout d'une fonctionnalité Joker sur la fin, après analyse de votre code.
+Ajout d'une fonctionnalité joker sur la fin, après analyse de votre code.
 
 
 ## Livrables
@@ -47,7 +47,7 @@ Synthèse du projet
 * organisation mise en place
 * problèmes rencontrés, solutions trouvées
 * points perfectibles, restes à faire, points non solutionnés
-* retours personnels le module
+* retours personnels sur le module
 
 
 ## Critères d'évaluation
@@ -62,9 +62,12 @@ Qualité des livrables
 Produit fonctionnel
 
 
+Présentation orale
+
+
 Bonus
-* intégration continue
-* processus de qualité (review, tests)
+* intégration continue / déploiement continu
+* processus de qualité (revue de code, tests *end-to-end*, utilisation de qualimétrie)
 * fonctionnalités bonus
 
 
