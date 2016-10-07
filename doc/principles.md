@@ -91,15 +91,6 @@ Le déploiment continu (Continuous Delivery) peut entrer en action ensuite afin 
 A chaque erreur détectée lors du processus, l'intégration continue doit être en mesure d'identifier les nouveaux *commits* depuis le dernier succès et d'en avertir les parties prenantes.
 
 
-## Feature Flipping
-
-Désactiver des fonctionnalités à la volée
-
-* en cas de problèmes
-* pour faire du [*A/B testing*](https://www.optimizely.com/ab-testing/)
-* pour gérer la montée en charge
-
-
 ## Communication
 
 > Seul on va plus vite, ensemble on va plus loin.

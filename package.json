@@ -10,7 +10,7 @@
     "copy:google": "cp ./web/google7f804347eebc1e15.html ./dist/",
     "copy:md": "cp -R ./doc/ ./dist/doc",
     "copy": "npm run copy:robots && npm run copy:sitemap && npm run copy:md && npm run copy:google",
-    "reveal:css": "./node_modules/.bin/lessc ./node_modules/reveal.js/css/reveal.css | ./node_modules/.bin/cleancss -o ./dist/css",
+    "reveal:css": "./node_modules/.bin/html-minifier --config-file ./html-minifier.json --input-dir ./node_modules/reveal.js/css --output-dir ./dist/css",
     "reveal:lib": "cp -R ./node_modules/reveal.js/lib ./dist/lib",
     "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin/print-pdf ./node_modules/reveal.js/plugin/markdown ./node_modules/reveal.js/plugin/highlight ./dist/plugin",
     "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin",
@@ -44,11 +44,9 @@
     "reveal.js": "git+https://github.com/hakimel/reveal.js.git"
   },
   "devDependencies": {
-    "clean-css": "latest",
     "glob": "latest",
     "html-minifier": "latest",
     "js-utils": "git+https://github.com/ViBiOh/js-utils.git",
-    "less": "^2.7.1",
     "mkdirp": "latest",
     "mustache": "latest",
     "uglify-js": "latest",

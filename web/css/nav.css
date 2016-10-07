@@ -20,36 +20,3 @@ nav > ul > li > a::after {
 nav > ul > li:last-child > a::after {
   content: "";
 }
-
-#toggleMenu {
-  display: none;
-}
-
-@media screen and (max-width: 640px) {
-  @toggleMenuHeight: 60px;
-  
-  nav {
-    position: fixed;
-    bottom: @toggleMenuHeight;
-    right: 0;
-    display: none;
-    z-index: 20;
-  }
-
-  nav.displayed {
-    display: block;
-  }
-  
-  #toggleMenu {
-    .darkBox;
-    .smallPadding;
-    position: fixed;
-    border: 0;
-    bottom: 0;
-    right: 0;
-    font-size: 2em;
-    text-align: center;
-    width: @toggleMenuHeight;
-    height: @toggleMenuHeight;
-  }
-}
