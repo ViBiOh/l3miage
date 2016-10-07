@@ -15,13 +15,14 @@
     "reveal:plugin": "cp -R ./node_modules/reveal.js/plugin/print-pdf ./node_modules/reveal.js/plugin/markdown ./node_modules/reveal.js/plugin/highlight ./dist/plugin",
     "reveal": "npm run reveal:css && npm run reveal:lib && npm run reveal:plugin",
     "js:google": "curl -f https://www.google-analytics.com/analytics.js | ./node_modules/.bin/uglifyjs -c -mt > ./dist/analytics.js",
-    "js:perso": "cat ./node_modules/reveal.js/lib/js/head.min.js ./node_modules/reveal.js/js/reveal.js ./web/js/index.js ./web/js/googleAnalytics.js | ./node_modules/.bin/uglifyjs -c -mt --preamble //${npm_package_name}@${npm_package_version} > ./tmp/index.js",
+    "js:perso": "cat ./node_modules/reveal.js/lib/js/head.min.js ./node_modules/reveal.js/js/reveal.js ./web/js/index.js ./web/js/nav.js ./web/js/googleAnalytics.js | ./node_modules/.bin/uglifyjs -c -mt --preamble //${npm_package_name}@${npm_package_version} > ./tmp/index.js",
     "js": "npm run js:google && npm run js:perso",
-    "mustache": "./mustache.js -t \"web/*.html\" -b `git log --pretty=format:'%h' -n 1` -p \"web/partials/*.html\" -j ./tmp/index.js -c ./web/css/nav.css -o ./tmp",
+    "style": "./node_modules/.bin/lessc ./web/css/style.less | ./node_modules/.bin/cleancss -o ./tmp/style.css",
+    "mustache": "./mustache.js -t \"web/*.html\" -b `git log --pretty=format:'%h' -n 1` -p \"web/partials/*.html\" -j ./tmp/index.js -c ./tmp/style.css -o ./tmp",
     "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./tmp/index.html",
     "minify:js": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output ./dist/plugin/markdown/markdown.js",
     "minify": "npm run minify:html && npm run minify:js",
-    "build": "npm run clean && npm run copy && npm run reveal && npm run js && npm run mustache && npm run minify"
+    "build": "npm run clean && npm run copy && npm run reveal && npm run js && npm run style && npm run mustache && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -47,6 +48,7 @@
     "glob": "latest",
     "html-minifier": "latest",
     "js-utils": "git+https://github.com/ViBiOh/js-utils.git",
+    "less": "latest",
     "mkdirp": "latest",
     "mustache": "latest",
     "uglify-js": "latest",
