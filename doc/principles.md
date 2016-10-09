@@ -61,31 +61,9 @@ On livre toujours du code qu'on assume : exempt de bugs, performant...
 De qualité !
 
 
-Un *bon* *workflow* d'intégration continue (Continuous Integration) pourrait être...
+> Workflow de *Continuous Delivery*
 
-
-Le développeur crée une *pull-request* sur le projet.
-
-
-La CI effectue la compilation, les tests unitaires et d'intégrations sur la branche ainsi que l'analyse via l'outil de qualimétrie.
-
-
-L'équipe effectue la revue de code de la pull-request par au moins deux pairs : une revue technique et une revue fonctionnelle.
-
-
-Le développeur fusionne la branche sur le *master* après approbation de ses pairs et de la CI.
-
-
-La CI effectue la compilation, l'ensemble des tests statiques et l'analyse qualimétrique.
-
-
-Si aucun indicateur ne passe au rouge via la CI, l'application est packagée et déployée sur un environnement de qualification.
-
-
-La CI reprend alors en exécutant les tests fonctionnels et de performances.
-
-
-Le déploiment continu (Continuous Delivery) peut entrer en action ensuite afin de déployer l'application en production si tous les indicateurs précédents sont au vert.
+![](/doc/img/continuous_delivery.svg)
 
 
 A chaque erreur détectée lors du processus, l'intégration continue doit être en mesure d'identifier les nouveaux *commits* depuis le dernier succès et d'en avertir les parties prenantes.
