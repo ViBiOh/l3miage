@@ -33,7 +33,7 @@ var config = (function() {
     });
   }
 
-  overrideConfig('search', /([^&?/]+)/gmi, 'markdown', 'introduction');
+  overrideConfig('search', /\?q=([^&?/]+)/gmi, 'markdown', 'introduction');
   overrideConfig('hash', /([0-9]+)$/gmi, 'pageNum', 0);
 
   return override;

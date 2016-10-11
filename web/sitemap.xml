@@ -5,47 +5,47 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?patterns/</loc>
+    <loc>https://cours.vibioh.fr/?q=patterns/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?tests/</loc>
+    <loc>https://cours.vibioh.fr/?q=tests/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?principles/</loc>
+    <loc>https://cours.vibioh.fr/?q=principles/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?principles/</loc>
+    <loc>https://cours.vibioh.fr/?q=principles/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?tools/</loc>
+    <loc>https://cours.vibioh.fr/?q=tools/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?projects/</loc>
+    <loc>https://cours.vibioh.fr/?q=projects/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?quick_git/</loc>
+    <loc>https://cours.vibioh.fr/?q=quick_git/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?quick_markdown/</loc>
+    <loc>https://cours.vibioh.fr/?q=quick_markdown/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?docker/</loc>
+    <loc>https://cours.vibioh.fr/?q=docker/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
