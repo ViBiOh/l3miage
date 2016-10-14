@@ -69,7 +69,24 @@ Qualité des livrables
 Produit fonctionnel
 
 
-Présentation orale
+Plusieurs présentations orales
+
+
+*Pitchs* technico-fonctionnels de 2-3 min
+
+* Synthèse d'un élément
+* Partage des connaissances
+
+
+Présentation globale du projet (~30min)
+
+* Description
+  * Technique
+  * Fonctionelle
+  * Organisationnelle
+* Démonstration
+* Recette
+* Débriefing projet
 
 
 Bonus
@@ -82,4 +99,16 @@ Bonus
 
 
 Groupe de 6
+
 * groupe hétérogène (plusieurs rôles)
+
+
+Organisation libre mais à expliquer
+
+* /!\ évaluation de groupe
+* /!\ notation individuelle basée sur la prestation orale
+
+
+Sujet libre
+
+* /!\ délais & ambition
