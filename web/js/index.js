@@ -1,35 +1,18 @@
-var printPdfRegex = /print-pdf/gi;
-var reserved = {
-  search: [printPdfRegex],
-  hash: []
-};
-
 (function() {
   var link = document.createElement('link');
   link.rel = 'stylesheet';
   link.type = 'text/css';
-  link.href = window.location.search.match(printPdfRegex) ? './css/print/pdf.css?v={{version}}' : './css/print/paper.css?v={{version}}';
+  link.href = './css/print/paper.css?v={{version}}';
   document.getElementsByTagName('head')[0].appendChild(link);
 })();
 
 var config = (function() {
   var override = {};
 
-  function isReserved(location, value) {
-    for (var i = 0, size = reserved[location].length; i < size; i++) {
-      if (value.match(reserved[location][0])) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   function overrideConfig(location, regex, property, defaultValue) {
     override[property] = defaultValue;
     window.location[location].replace(regex, function(match, group) {
-      if (!isReserved(location, group)) {
-        override[property] = group;
-      }
+      override[property] = group;
     });
   }
 
