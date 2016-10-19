@@ -503,7 +503,7 @@ Modification du code pour renvoyer 2
   if (number === 2) {
     return 2;
   }
-  return number
+  return 1;
 }
 ```
 
