@@ -499,7 +499,12 @@ it ('should return the second value', () => {
 Modification du code pour renvoyer 2
 
 ```javascript
-number => number === 2 ? 2 : number
+(number) => {
+  if (number === 2) {
+    return 2;
+  }
+  return number
+}
 ```
 
 
@@ -523,7 +528,12 @@ it ('should return fizz for 3', () => {
 Adapatation du code pour tester 3
 
 ```javascript
-number => number === 3 ? 'fizz' : number
+(number) => {
+  if (number % 3 === 0) {
+    return 'fizz';
+  }
+  return number;
+};
 ```
 
 
@@ -539,7 +549,12 @@ it ('should return fizz for 6', () => {
 Adapatation du code pour 6
 
 ```javascript
-number => number === 3 || number === 6 ? 'fizz' : number
+(number) => {
+  if (number === 3 || number === 6) {
+    return 'fizz';
+  }
+  return number;
+};
 ```
 
 
@@ -547,7 +562,12 @@ Refactoring possible ?
 
 
 ```javascript
-number => number % 3 === 0 ? 'fizz' : number
+(number) => {
+  if (number % 3 === 0) {
+    return 'fizz';
+  }
+  return number;
+};
 ```
 
 
