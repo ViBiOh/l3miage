@@ -462,132 +462,117 @@ On écrit d'abord le test qui vérifie notre besoin, et ensuite on écrit le cod
 Tout ceci s'inclut dans un processus itératif afin d'éviter d'écrire trop de choses non testées. On répond au test, puis on refactore.
 
 
-e.g. Enlever les accents d'une chaîne de caractères
+e.g. FizzBuzz
+
+Si le nombre est multiple de 3, afficher "fizz".
+
+Si le nombre est multiple de 5, afficher "buzz".
+
+Sinon aficher le nombre.
 
 
-> Si je n'ai pas de chaîne, lever une exception
+> Si je donne le chiffre 1, renvoyer 1
 
-```java
-public class TDDTest {
-  @Test(expected = IllegalArgumentException.class)
-  public void null_exception() {
-    TDD.execute(null);
-  }
-}
+```javascript
+it ('should return the same value', () => {
+  expect(fizzBuzz(1)).to.be.equal(1);
+});
 ```
 
 
 Le code correspondant est donc le suivant
 
-```java
-public class TDD {
-  public static String execute(final String input) {
-    Assert.notNull(input);
-    return null;
-  }
-}
+```javascript
+number => 1
 ```
 
 
-> Si ma chaîne est vide, ne rien faire
+> Si je donne le chiffre 2, renvoyer 2
 
-```java
-  @Test
-  public void empty_return() {
-    assertEquals("", TDD.execute(""));
-  }
+```javascript
+it ('should return the second value', () => {
+  expect(fizzBuzz(2)).to.be.equal(2);
+});
 ```
 
 
-Modification du code
+Modification du code pour renvoyer 2
 
-```java
-  public static String execute(final String input) {
-    Assert.notNull(input);
-
-    if (input.length() == 0) {
-      return input;
-    }
-    return null;
-  }
-```
-
-
-> Si ma chaîne ne contient pas de caractères, ne rien faire
-
-```java
-  @Test
-  public void spaces_return() {
-    assertEquals("  ", TDD.execute("  "));
-  }
-```
-
-
-Modification du code
-
-```java
-  public static String execute(final String input) {
-    Assert.notNull(input);
-
-    if (input.length() == 0 || "".equals(input.trim())) {
-      return input;
-    }
-    return null;
-  }
+```javascript
+number => number === 2 ? 2 : number
 ```
 
 
 Refactoring possible ?
 
 
-```java
-  public static String execute(final String input) {
-    Assert.notNull(input);
-
-    if (input.trim().length() == 0) {
-      return input;
-    }
-    return null;
-  }
+```javascript
+number => number
 ```
 
 
-> Si ma chaîne contient des caractères accentués, enlever les accents
+> Si je donne le chiffre 3, renvoyer 'fizz'
 
-```java
-  @Test
-  public void smallCase_return() {
-    assertEquals("A ce bon eleve a la maitrise inouie",
-                TDD.execute("À ce bon élève à la maîtrise inouïe"));
-  }
+```javascript
+it ('should return fizz for 3', () => {
+  expect(fizzBuzz(3)).to.be.equal('fizz');
+});
 ```
 
 
-Modification du code
+Adapatation du code pour tester 3
 
-```java
-  public static String execute(final String input) {
-    Assert.notNull(input);
-
-    if (input.trim().length() == 0) {
-      return input;
-    }
-
-    return Normalizer.normalize(input,
-      Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
-  }
+```javascript
+number => number === 3 ? 'fizz' : number
 ```
 
 
-Refactoring
+> Si je donne le chiffre 6, renvoyer 'fizz'
 
-```java
-  public static String execute(final String input) {
-    Assert.notNull(input);
+```javascript
+it ('should return fizz for 6', () => {
+  expect(fizzBuzz(6)).to.be.equal('fizz');
+});
+```
 
-    return Normalizer.normalize(input,
-      Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+
+Adapatation du code pour 6
+
+```javascript
+number => number === 3 || number === 6 ? 'fizz' : number
+```
+
+
+Refactoring possible ?
+
+
+```javascript
+number => number % 3 === 0 ? 'fizz' : number
+```
+
+
+Et ainsi de suite.
+
+
+Ecrire un test **rouge**.
+
+Corriger pour passer au **vert**.
+
+Refactorer en gardant le **vert**.
+
+
+```javascript
+number => {
+  if (number % 15 === 0) {
+    return 'fizzbuzz';
+  } else if (number % 3 === 0) {
+    return 'fizz';
+  } else if (number % 5 === 0) {
+    return 'buzz';
   }
+
+  return number;
+}
 ```
 
 
