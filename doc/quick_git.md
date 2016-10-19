@@ -37,6 +37,20 @@
 `git checkout -- .`
 
 
+### Mettre de côté ses modifications
+
+`git stash`
+
+Vérification
+
+`git stash list`
+
+
+### Remettre les modifications mises de côté
+
+`git stash pop`
+
+
 ## Valider localement ses modifications
 
 `git commit -m "commentaire de votre commit"`
@@ -82,6 +96,13 @@ Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
 `git pull nom-du-serveur-distant nom-de-la-branche`
 
 > git pull origin master
+
+
+### Récupérer les modifications d'une autre branche sur la sienne
+
+`git merge nom-de-la-branche-dont-on-veut-les-modifications`
+
+> git merge master
 
 
 # Références
