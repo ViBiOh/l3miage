@@ -1,0 +1,26 @@
+{
+  "name": "week1",
+  "version": "1.0.0",
+  "description": "Kata",
+  "scripts": {
+    "eslint": "./node_modules/.bin/eslint src/",
+    "pretest": "npm run eslint",
+    "test": "./node_modules/.bin/istanbul cover --report text ./node_modules/mocha/bin/_mocha --",
+    "start": "./node_modules/mocha/bin/_mocha -w"
+  },
+  "keywords": [
+    "kata",
+    "zenika"
+  ],
+  "author": "Vincent Boutour",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "latest",
+    "eslint": "latest",
+    "eslint-config-airbnb": "latest",
+    "eslint-config-airbnb-base": "latest",
+    "eslint-plugin-import": "latest",
+    "istanbul": "latest",
+    "mocha": "latest"
+  }
+}
