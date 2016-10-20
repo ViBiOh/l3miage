@@ -102,7 +102,7 @@ Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
 
 `git merge nom-de-la-branche-dont-on-veut-les-modifications`
 
-> git merge master
+> git merge --no-ff master
 
 
 # Références
