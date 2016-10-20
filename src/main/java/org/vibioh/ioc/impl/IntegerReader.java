@@ -7,14 +7,14 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class IntegerReader implements Reader<Integer> {
-  private Scanner in;
+    private Scanner in;
 
-  public IntegerReader(final InputStream input) {
-    this.in = new Scanner(input);
-  }
+    public IntegerReader(final InputStream input) {
+        this.in = new Scanner(input);
+    }
 
-  @Override
-  public Optional<Integer> read() {
-    return Optional.ofNullable(in.nextInt());
-  }
+    @Override
+    public Optional<Integer> read() {
+        return Optional.ofNullable(in.nextInt());
+    }
 }

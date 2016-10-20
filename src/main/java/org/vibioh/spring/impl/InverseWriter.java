@@ -11,12 +11,10 @@ import java.util.Optional;
 
 @Service
 public class InverseWriter implements Writer<Object> {
-  @Autowired
-  private OutputStream out;
+    @Autowired
+    private OutputStream out;
 
-  public void write(final Optional<Object> inverseValue) throws IOException {
-    if (inverseValue.isPresent()) {
-      out.write(("Inverse: " + inverseValue.get()).getBytes(StandardCharsets.UTF_8));
+    public void write(final Object inverseValue) throws IOException {
+        out.write(("Inverse: " + Optional.ofNullable(inverseValue).orElse("")).getBytes(StandardCharsets.UTF_8));
     }
-  }
 }

@@ -19,51 +19,51 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 public class ProcessImplTest {
-  @InjectMocks
-  private ProcessImpl<Integer> process;
+    @InjectMocks
+    private ProcessImpl<Integer> process;
 
-  @Mock
-  private Reader<Integer> reader;
-  @Mock
-  private Operation<Integer, Object> operation;
-  @Mock
-  private Writer<Object> writer;
+    @Mock
+    private Reader<Integer> reader;
+    @Mock
+    private Operation<Integer, Object> operation;
+    @Mock
+    private Writer<Object> writer;
 
-  @Before
-  public void setUp() throws Exception {
-    MockitoAnnotations.initMocks(this);
-  }
+    @Before
+    public void setUp() throws Exception {
+        MockitoAnnotations.initMocks(this);
+    }
 
-  @Test
-  public void nextInt_empty() throws IOException {
-    when(reader.read()).thenReturn(Optional.empty());
-    when(operation.compute(eq(Optional.empty()))).thenReturn(Optional.empty());
-    doThrow(new IOException()).when(writer).write(eq(Optional.empty()));
+    @Test
+    public void nextInt_empty() throws IOException {
+        when(reader.read()).thenReturn(Optional.empty());
+        when(operation.compute(eq(null))).thenReturn(Optional.empty());
+        doThrow(new IOException()).when(writer).write(eq(Optional.empty()));
 
-    final int result = process.execute();
+        final int result = process.execute();
 
-    assertEquals(1, result);
-  }
+        assertEquals(0, result);
+    }
 
-  @Test
-  public void nextInt_zero() throws IOException {
-    when(reader.read()).thenReturn(Optional.of(0));
-    when(operation.compute(eq(Optional.of(0)))).thenReturn(Optional.empty());
-    doThrow(new IOException()).when(writer).write(eq(Optional.empty()));
+    @Test
+    public void nextInt_zero() throws IOException {
+        when(reader.read()).thenReturn(Optional.of(0));
+        when(operation.compute(eq(0))).thenReturn(Optional.empty());
+        doThrow(new IOException()).when(writer).write(eq(Optional.empty()));
 
-    final int result = process.execute();
+        final int result = process.execute();
 
-    assertEquals(1, result);
-  }
+        assertEquals(0, result);
+    }
 
-  @Test
-  public void nextInt_value() throws IOException {
-    when(reader.read()).thenReturn(Optional.of(10));
-    when(operation.compute(eq(Optional.of(10)))).thenReturn(Optional.empty());
-    doNothing().when(writer).write(eq(Optional.empty()));
+    @Test
+    public void nextInt_value() throws IOException {
+        when(reader.read()).thenReturn(Optional.of(10));
+        when(operation.compute(eq(10))).thenReturn(Optional.empty());
+        doNothing().when(writer).write(eq(Optional.empty()));
 
-    final int result = process.execute();
+        final int result = process.execute();
 
-    assertEquals(0, result);
-  }
+        assertEquals(0, result);
+    }
 }

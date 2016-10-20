@@ -13,21 +13,21 @@ import java.util.logging.Level;
 @Component
 public class ProcessImpl<I> implements Process {
 
-  @Autowired
-  private Reader<I> reader;
-  @Autowired
-  private Operation<I, Object> operation;
-  @Autowired
-  private Writer<Object> writer;
+    @Autowired
+    private Reader<I> reader;
+    @Autowired
+    private Operation<I, Object> operation;
+    @Autowired
+    private Writer<Object> writer;
 
-  @Override
-  public int execute() {
-    try {
-      writer.write(operation.compute(reader.read()));
-      return 0;
-    } catch (final IOException e) {
-      getLogger().log(Level.SEVERE, "Something went wrong", e);
-      return 1;
+    @Override
+    public int execute() {
+        try {
+            writer.write(operation.compute(reader.read().orElse(null)).orElse(null));
+            return 0;
+        } catch (final IOException e) {
+            getLogger().log(Level.SEVERE, "Something went wrong", e);
+            return 1;
+        }
     }
-  }
 }

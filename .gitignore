@@ -21,6 +21,9 @@ Desktop.ini
 *.iml
 *.iws
 
+# Java
+target/
+
 # Node Package Manager
 node_modules/
 **/npm-debug.log

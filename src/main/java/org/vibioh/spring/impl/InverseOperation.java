@@ -7,8 +7,8 @@ import java.util.Optional;
 
 @Service
 public class InverseOperation implements Operation<Integer, Object> {
-  @Override
-  public Optional<Object> compute(final Optional<Integer> intValue) {
-    return intValue.map(value -> 1D / value);
-  }
+    @Override
+    public Optional<Object> compute(final Integer intValue) {
+        return Optional.ofNullable(intValue).map(value -> 1D / value);
+    }
 }
