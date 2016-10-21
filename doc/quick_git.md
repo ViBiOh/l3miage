@@ -100,7 +100,7 @@ Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
 
 ### Récupérer les modifications d'une autre branche sur la sienne
 
-`git merge nom-de-la-branche-dont-on-veut-les-modifications`
+`git merge --no-ff nom-de-la-branche-dont-on-veut-les-modifications`
 
 > git merge --no-ff master
 
