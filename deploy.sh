@@ -20,7 +20,6 @@ function docker-compose-deploy() {
 
   DOMAIN=${2}
   readVariableIfRequired "DOMAIN"
-
   export DOMAIN=${DOMAIN}
 
   docker-compose -p ${PROJECT_NAME} pull
@@ -34,11 +33,10 @@ function docker-compose-hot-deploy() {
 
   DOMAIN=${2}
   readVariableIfRequired "DOMAIN"
+  export DOMAIN=${DOMAIN}
 
   SERVICE_NAME=${3}
   readVariableIfRequired "SERVICE_NAME"
-
-  export DOMAIN=${DOMAIN}
 
   existingContainer=`docker-compose -p ${PROJECT_NAME} ps | grep ${SERVICE_NAME} | awk '{print $1}'`
 
@@ -64,6 +62,8 @@ readVariableIfRequired "PROJECT_URL"
 rm -rf ${PROJECT_NAME}
 git clone ${PROJECT_URL} ${PROJECT_NAME}
 cd ${PROJECT_NAME}
+
+export DOMAIN=${3}
 
 if [ `docker-compose -p ${PROJECT_NAME} ps | awk '{if (NR > 2) {print}}' | wc -l` -eq 0 ]; then
   echo "Deploying new instance"
