@@ -11,7 +11,11 @@ function readVariableIfRequired() {
 }
 
 function docker-clean() {
-  docker rmi `docker images --filter dangling=true -q 2>/dev/null` 2>/dev/null
+  imagesToClean=`docker images --filter dangling=true -q 2>/dev/null`
+
+  if [ ! -z "${imagesToClean}" ]; then
+    docker rmi ${imagesToClean} 
+  fi
 }
 
 function docker-compose-deploy() {
