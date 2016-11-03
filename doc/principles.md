@@ -153,7 +153,7 @@ Travailler dans une organisation implique de connaître quelques lois empiriques
 
 ## Loi de Murphy
 
-> Si quelque chose doit arriver, alors ça arrivera.
+> Si quelque chose peut arriver, alors ça arrivera.
 
 
 ## Les cinq « pourquoi »
