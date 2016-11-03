@@ -3,7 +3,7 @@ sudo: required
 services:
 - docker
 node_js:
-- 6.6.0
+- 6.7.0
 script:
 - npm run build
 - docker build -t ${DOCKER_USER}/genie-logiciel .
