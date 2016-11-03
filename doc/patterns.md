@@ -243,7 +243,8 @@ public class InverseWriter implements Writer<Object> {
     }
 
     public void write(final Object inverseValue) throws IOException {
-        out.write(("Inverse: " + String.valueOf(inverseValue)).getBytes(StandardCharsets.UTF_8));
+        out.write(("Inverse: " + String.valueOf(inverseValue))
+            .getBytes(StandardCharsets.UTF_8));
     }
 }
 ```
@@ -384,7 +385,8 @@ public class InverseWriter implements Writer<Object> {
     private OutputStream out;
 
     public void write(final Object inverseValue) throws IOException {
-        out.write(("Inverse: " + Optional.ofNullable(inverseValue).orElse("")).getBytes(StandardCharsets.UTF_8));
+        out.write(("Inverse: " + Optional.ofNullable(inverseValue).orElse(""))
+            .getBytes(StandardCharsets.UTF_8));
     }
 }
 ```
@@ -433,7 +435,6 @@ public class Program implements CommandLineRunner {
 
     @Bean
     public InputStream getInput() { return System.in; }
-
     @Bean
     public OutputStream getOuput() { return System.out; }
 
