@@ -6,10 +6,11 @@
 
 ### Install
 
-You need npm, docker and make in order to build it.
+You need npm in order to build /dist directory and Docker if you want to run inside a light HTTP Server.
 
 ```bash
-make
+npm run build
+docker build -t vibioh/md-genie-logiciel .
 ```
 
 ### Run
