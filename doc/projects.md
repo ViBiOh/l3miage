@@ -30,8 +30,8 @@ Code testé unitairement
 
 
 Rédaction des besoins
-* besoins nominaux
-* critère d'acceptation (i.e. cahier de recette)
+* *user story*
+* critère d'acceptation
 
 
 Documentation complète
