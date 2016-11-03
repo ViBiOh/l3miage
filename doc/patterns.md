@@ -427,16 +427,15 @@ Configuration de l'application et démarrage par auto-configuration
 public class Program implements CommandLineRunner {
     @Autowired
     private Process inverse;
+    @Bean
+    public InputStream getInput() { return System.in; }
+    @Bean
+    public OutputStream getOuput() { return System.out; }
 
     @Override
     public void run(final String... strings) throws Exception {
         inverse.execute();
     }
-
-    @Bean
-    public InputStream getInput() { return System.in; }
-    @Bean
-    public OutputStream getOuput() { return System.out; }
 
     public static void main(final String[] args) {
         SpringApplication.run(Program.class, args);
