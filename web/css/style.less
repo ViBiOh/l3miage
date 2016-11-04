@@ -59,11 +59,12 @@ nav > ul > li > a {
   
   nav {
     position: fixed;
-    top: @toggleMenuHeight;
-    right: 0;
+    top: @toggleMenuHeight + 20px;
+    right: 10px;
     display: none;
     z-index: 20;
     background-color: @dark;
+    border-radius: 10px;
   }
 
   nav.displayed {
