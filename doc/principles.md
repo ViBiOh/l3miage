@@ -214,7 +214,13 @@ e.g. la stack ELK pour analyser vos logs : ElasticSearch Logstash Kibana
 Il est parfois compliqué de faire simple en appliquant les *patterns* de programmation
 
 
-![](/doc/img/simplicity.jpeg)
+![](/doc/img/apple_product.jpeg)
+
+
+![](/doc/img/google_product.jpeg)
+
+
+![](/doc/img/corporate_product.jpeg)
 
 
 ## *Problem Exists Between Chair And Keyboard* - PEBKAC
