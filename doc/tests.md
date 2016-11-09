@@ -99,9 +99,18 @@ Il est créé dès qu'un bug a été détecté afin d'éviter qu'il ne revienne
 ## Test unitaire
 
 
+Objectif : faire des tests **`FIRST`**
+
+* **`F`** ast
+* **`I`** solate
+* **`R`** epeatable
+* **`S`** elf-validating
+* **`T`** imely
+
+
 Tester **un** seul composant et pas ses dépendances
 * maîtriser le contexte d'exécution
-* pas de dépendance au réseau / moment
+* pas de dépendance au système / réseau / moment
 
 
 Pouvoir rejouer chaque test unitairement et à tout moment
@@ -115,7 +124,7 @@ Pouvoir se dire « ce composant (ou cette fonction) est stable et répond à not
 
 
 * Tester ce qui a du sens fonctionnel ou technique
-* Un cas possible = un test
+* Un cas = un test
     - pas de vérifications multiples
     - pas de "scénarios" alambiqués
 
