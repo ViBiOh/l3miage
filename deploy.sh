@@ -39,18 +39,26 @@ function docker-compose-hot-deploy() {
   readVariableIfRequired "DOMAIN"
   export DOMAIN=${DOMAIN}
 
-  SERVICE_NAME=${3}
-  readVariableIfRequired "SERVICE_NAME"
-
-  existingContainer=`docker-compose -p ${PROJECT_NAME} ps | grep ${SERVICE_NAME} | awk '{print $1}'`
+  services=`docker-compose -p ${PROJECT_NAME} ps | awk '{if (NR > 2) {print $1}}'`
 
   docker-compose -p ${PROJECT_NAME} pull
-  docker-compose -p ${PROJECT_NAME} scale ${SERVICE_NAME}=2
+  matchPattern=${PROJECT_NAME}'_(.*?)_[0-9]+'
+
+  for service in ${services}; do
+    if [[ ${service} =~ ${matchPattern} ]]; then
+      docker-compose -p ${PROJECT_NAME} scale ${BASH_REMATCH[1]}=2
+    fi
+  done
+
+  docker-compose -p ${PROJECT_NAME} up -d
 
   echo "Waiting 5 seconds to start..."
   sleep 5
-  docker stop ${existingContainer}
-  docker rm -f -v ${existingContainer}
+
+  if [ ! -z "${services}" ]; then
+    docker stop ${services}
+    docker rm -f -v ${services}
+  fi
   
   docker-clean
 }
@@ -70,9 +78,9 @@ cd ${PROJECT_NAME}
 export DOMAIN=${3}
 
 if [ `docker-compose -p ${PROJECT_NAME} ps | awk '{if (NR > 2) {print}}' | wc -l` -eq 0 ]; then
-  echo "Deploying new instance"
+  echo "Deploying new stack"
   docker-compose-deploy ${PROJECT_NAME} ${3}
 else
-  echo "Hot deploying service ${4}"
-  docker-compose-hot-deploy ${PROJECT_NAME} ${3} ${4}
+  echo "Hot deploying stack"
+  docker-compose-hot-deploy ${PROJECT_NAME} ${3}
 fi

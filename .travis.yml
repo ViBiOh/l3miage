@@ -20,4 +20,4 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "bash -s" 2>/dev/null -- < ./deploy.sh cours https://github.com/ViBiOh/md-genie-logiciel.git vibioh.fr cours
+  script: ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} "bash -s" 2>/dev/null -- < ./deploy.sh cours https://github.com/ViBiOh/md-genie-logiciel.git vibioh.fr
