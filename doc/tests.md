@@ -304,6 +304,9 @@ S'assurer de la bonne intégration :
 * des composants avec leur dépendances
 
 
+[Par l'exemple](https://twitter.com/thepracticaldev/status/687672086152753152)
+
+
 e.g. Tester la bonne intégration des composants
 
 
