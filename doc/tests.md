@@ -495,7 +495,7 @@ it ('should return the same value', () => {
 Le code correspondant est donc le suivant
 
 ```javascript
-number => 1
+() => 1
 ```
 
 
@@ -541,7 +541,7 @@ Adapatation du code pour tester 3
 
 ```javascript
 (number) => {
-  if (number % 3 === 0) {
+  if (number === 3) {
     return 'fizz';
   }
   return number;
