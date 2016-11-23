@@ -186,3 +186,5 @@ Nous sommes à la fois la matière première de l'ère économique actuelle et a
 * [Effective Java](http://www.amazon.fr/dp/B00B8V09HY), *Joshua Bloch*
 * [Rework](http://www.amazon.fr/dp/B003ELY7PG), *Jason Fried & David Heinemeier Hansson*
 * [Linchpin](http://www.amazon.fr/dp/0749953357), *Seth Godin*
+* [Liberté & cie](http://amzn.eu/7xAo3m6), *Isaac Getz*
+* [La vérité sur ce qui nous motive / Drive en V.O.](http://amzn.eu/33hnA5B), *Daniel H. Pink*
