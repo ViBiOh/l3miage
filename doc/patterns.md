@@ -88,7 +88,7 @@ private static final Pattern INTEGER = Pattern.compile("^[+-]?[0-9]+$");
 
 public static Integer read(final String raw) {
     if (INTEGER.matcher(raw).matches()) {
-        return Integer.parseInt(raw);
+        return Integer.parseInt(raw, 10);
     }
     return null;
 }
