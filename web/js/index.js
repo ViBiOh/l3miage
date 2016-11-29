@@ -48,7 +48,7 @@ Reveal.addEventListener('ready', function() {
 });
 
 Reveal.initialize({
-  controls: false,
+  controls: true,
   progress: true,
   history: true,
   center: true,
