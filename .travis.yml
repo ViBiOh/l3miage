@@ -4,15 +4,20 @@ services:
 - docker
 node_js:
 - 6.7.0
-script:
-- npm run build
-- docker build -t ${DOCKER_USER}/genie-logiciel .
-- docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
-- docker push ${DOCKER_USER}/genie-logiciel
-notifications:
-  email: false
+cache:
+  directories:
+  - .node_modules/
 before_install:
 - openssl aes-256-cbc -K $encrypted_afb3f4a0fd37_key -iv $encrypted_afb3f4a0fd37_iv -in deploy_rsa.enc -out deploy_rsa -d
+script: |
+  npm run build &&
+  docker build -t ${DOCKER_USER}/genie-logiciel .
+after_success:
+  - if [ "${TRAVIS_BRANCH}" == "master" ]; then
+      docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} && docker push ${DOCKER_USER}/genie-logiciel
+    fi
+notifications:
+  email: false
 before_deploy:
 - eval "$(ssh-agent -s)"
 - chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
