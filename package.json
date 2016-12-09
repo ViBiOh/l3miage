@@ -45,6 +45,7 @@
     "reveal.js": "git+https://github.com/hakimel/reveal.js.git"
   },
   "devDependencies": {
+    "clean-css": "latest",
     "glob": "latest",
     "html-minifier": "latest",
     "js-utils": "git+https://github.com/ViBiOh/js-utils.git",
