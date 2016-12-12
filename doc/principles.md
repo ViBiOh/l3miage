@@ -113,7 +113,7 @@ En méso-économie, personne n'a que faire d'un évènement. Même si un domaine
 ## Lois du travail en organisation
 
 
-Travailler dans une organisation implique de connaître quelques lois empiriques qui les régissent.
+Travailler dans des organisations implique de connaître quelques lois empiriques qui les régissent.
 
 
 ## Principe de Peter #1
