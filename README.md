@@ -1,6 +1,6 @@
 # md-genie-logiciel
 
-[![Build Status](https://travis-ci.org/ViBiOh/md-genie-logiciel.svg?branch=master)](https://travis-ci.org/ViBiOh/md-genie-logiciel) [![](https://badge.imagelayers.io/vibioh/genie-logiciel:latest.svg)](https://imagelayers.io/?images=vibioh/genie-logiciel:latest 'Get your own badge on imagelayers.io')
+[![Build Status](https://travis-ci.org/ViBiOh/md-genie-logiciel.svg?branch=master)](https://travis-ci.org/ViBiOh/md-genie-logiciel) [![](https://images.microbadger.com/badges/image/vibioh/genie-logiciel.svg)](https://microbadger.com/images/vibioh/genie-logiciel "Get your own image badge on microbadger.com")
 
 ## Course
 
