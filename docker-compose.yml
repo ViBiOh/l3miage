@@ -6,7 +6,7 @@ services:
     command: -domain '*.google-analytics.com fonts.googleapis.com fonts.gstatic.com'
     labels:
       traefik.frontend.passHostHeader: 'true'
-      traefik.frontend.rule: 'Host: cours.${DOMAIN}'
+      traefik.frontend.rule: 'Host: cours.vibioh.fr, l3miage.fr'
       traefik.port: '1080'
     logging:
       driver: json-file
