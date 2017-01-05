@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  cours:
+  site:
     image: vibioh/genie-logiciel
     command: -domain '*.google-analytics.com fonts.googleapis.com fonts.gstatic.com'
     labels:
