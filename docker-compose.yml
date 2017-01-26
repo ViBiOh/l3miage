@@ -3,7 +3,9 @@ version: '2'
 services:
   site:
     image: vibioh/genie-logiciel
-    command: -domain '*.google-analytics.com fonts.googleapis.com fonts.gstatic.com'
+    command:
+    - csp
+    - default-src 'self' *.google-analytics.com fonts.googleapis.com fonts.gstatic.com
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: cours.vibioh.fr, l3miage.fr'
