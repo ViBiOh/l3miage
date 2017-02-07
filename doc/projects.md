@@ -85,7 +85,6 @@ Présentation globale du projet (~30min)
   * Fonctionelle
   * Organisationnelle
 * Démonstration
-* Recette
 * Débriefing projet
 
 
