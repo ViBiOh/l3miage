@@ -91,7 +91,6 @@ Présentation globale du projet (~30min)
 Bonus
 * intégration continue / déploiement continu
 * processus de qualité (revue de code, tests *end-to-end*, utilisation de qualimétrie)
-* fonctionnalités bonus
 
 
 ## Organisation
