@@ -417,7 +417,7 @@ e.g. Générer la fiche de paye PDF d'un salarié prend 1 seconde. Si vous l'imp
 e.g. Effectuer une recherche dans le référentiel "Produit" prend une demi-seconde. Ce temps est-il constant si vous importez le catalogue d'Amazon ?
 
 
-Il existe des outils pour simuler la connexion simultanée de plusieurs utilisateurs : [Gatling](TODO), [Apache JMeter](TODO)
+Il existe des outils pour simuler la connexion simultanée de plusieurs utilisateurs : [Gatling](http://gatling.io), [Apache JMeter](https://jmeter.apache.org/)
 
 
 Il ne faut pas chercher à bâtir une architecture qui réponde quoiqu'il advienne (c'est un problème de *scalabilité*) mais connaître les limites et analyser la courbe de réponse avec des outils de *profiling*
