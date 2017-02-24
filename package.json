@@ -1,5 +1,5 @@
 {
-  "name": "md-genie-logiciel",
+  "name": "genie-logiciel",
   "version": "1.0.0",
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
@@ -7,9 +7,9 @@
     "clean": "rm -rf ./dist && mkdir -p ./dist/plugin && mkdir -p ./tmp",
     "copy:robots": "cp ./web/robots.txt ./dist/",
     "copy:sitemap": "cp ./web/sitemap.xml ./dist/",
-    "copy:google": "cp ./web/google*.html ./dist/",
-    "copy:favicon": "cp ./web/favicon/* ./dist/",
-    "copy:md": "cp -R ./doc/ ./dist/doc",
+    "copy:google": "cp -v ./web/google*.html ./dist/",
+    "copy:favicon": "cp -v ./web/favicon/* ./dist/",
+    "copy:md": "cp -R -v ./doc/ ./dist/doc",
     "copy": "npm run copy:robots && npm run copy:sitemap && npm run copy:md && npm run copy:google && npm run copy:favicon",
     "reveal:css": "./cleancss.js -i \"./node_modules/reveal.js/css/**/*.css\" -o ./dist/css",
     "reveal:lib": "cp -R ./node_modules/reveal.js/lib ./dist/lib",
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ViBiOh/md-genie-logiciel.git"
+    "url": "git+https://github.com/ViBiOh/genie-logiciel.git"
   },
   "keywords": [
     "markdown",
@@ -36,12 +36,12 @@
     "genie",
     "logiciel"
   ],
-  "author": "Vincent Boutour <vincent.boutour@gmail.com>",
+  "author": "Vincent Boutour <bob@vibioh.fr>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ViBiOh/md-genie-logiciel/issues"
+    "url": "https://github.com/ViBiOh/genie-logiciel/issues"
   },
-  "homepage": "https://github.com/ViBiOh/md-genie-logiciel#readme",
+  "homepage": "https://github.com/ViBiOh/genie-logiciel#readme",
   "dependencies": {
     "reveal.js": "git+https://github.com/hakimel/reveal.js.git"
   },
