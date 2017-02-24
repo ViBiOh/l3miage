@@ -7,7 +7,7 @@
     "clean": "rm -rf ./dist && mkdir -p ./dist/plugin && mkdir -p ./tmp",
     "copy:robots": "cp ./web/robots.txt ./dist/",
     "copy:sitemap": "cp ./web/sitemap.xml ./dist/",
-    "copy:google": "cp ./web/google7f804347eebc1e15.html ./dist/",
+    "copy:google": "cp ./web/google*.html ./dist/",
     "copy:favicon": "cp ./web/favicon/* ./dist/",
     "copy:md": "cp -R ./doc/ ./dist/doc",
     "copy": "npm run copy:robots && npm run copy:sitemap && npm run copy:md && npm run copy:google && npm run copy:favicon",
