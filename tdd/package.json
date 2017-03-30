@@ -22,5 +22,10 @@
     "eslint-plugin-import": "latest",
     "istanbul": "latest",
     "mocha": "latest"
+  },
+  "ava": {
+    "files": [
+      "src/**/*.test.js"
+    ]
   }
 }
