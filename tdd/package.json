@@ -5,22 +5,26 @@
   "scripts": {
     "eslint": "./node_modules/.bin/eslint src/",
     "pretest": "npm run eslint",
-    "test": "./node_modules/.bin/istanbul cover --report text ./node_modules/mocha/bin/_mocha --",
-    "start": "./node_modules/mocha/bin/_mocha -w"
+    "test": "./node_modules/.bin/nyc --reporter html --reporter text --reporter lcov ./node_modules/.bin/ava",
+    "coverage": "./node_modules/.bin/codecov -f ./coverage/lcov.info"
   },
   "keywords": [
     "kata",
-    "zenika"
   ],
   "author": "Vincent Boutour",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "chai": "latest",
+    "ava": "latest",
+    "codecov": "latest",
     "eslint": "latest",
     "eslint-config-airbnb": "latest",
     "eslint-config-airbnb-base": "latest",
     "eslint-plugin-import": "latest",
-    "istanbul": "latest",
-    "mocha": "latest"
+    "nyc": "latest",
+  },
+  "ava": {
+    "files": [
+      "src/**/*.test.js"
+    ]
   }
 }
