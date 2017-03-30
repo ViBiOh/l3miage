@@ -21,5 +21,10 @@
     "eslint-config-airbnb-base": "latest",
     "eslint-plugin-import": "latest",
     "nyc": "latest",
+  },
+  "ava": {
+    "files": [
+      "src/**/*.test.js"
+    ]
   }
 }
