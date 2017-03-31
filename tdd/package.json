@@ -9,7 +9,7 @@
     "coverage": "./node_modules/.bin/codecov -f ./coverage/lcov.info"
   },
   "keywords": [
-    "kata",
+    "kata"
   ],
   "author": "Vincent Boutour",
   "license": "MIT",
@@ -20,7 +20,7 @@
     "eslint-config-airbnb": "latest",
     "eslint-config-airbnb-base": "latest",
     "eslint-plugin-import": "latest",
-    "nyc": "latest",
+    "nyc": "latest"
   },
   "ava": {
     "files": [
