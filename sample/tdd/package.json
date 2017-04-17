@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Kata",
   "scripts": {
-    "eslint": "./node_modules/.bin/eslint src/",
+    "eslint": "./node_modules/.bin/eslint --fix src/",
     "pretest": "npm run eslint",
     "test": "./node_modules/.bin/nyc --reporter html --reporter text --reporter lcov ./node_modules/.bin/ava",
     "coverage": "./node_modules/.bin/codecov -f ./coverage/lcov.info"
