@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://cours.vibioh.fr/sitemap.xml
+Sitemap: https://l3miage.fr/sitemap.xml

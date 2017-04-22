@@ -1,51 +1,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://cours.vibioh.fr/</loc>
+    <loc>https://l3miage.fr/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?q=patterns/</loc>
+    <loc>https://l3miage.fr/?q=patterns/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?q=tests/</loc>
+    <loc>https://l3miage.fr/?q=tests/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?q=principles/</loc>
+    <loc>https://l3miage.fr/?q=principles/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?q=principles/</loc>
+    <loc>https://l3miage.fr/?q=principles/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?q=tools/</loc>
+    <loc>https://l3miage.fr/?q=tools/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?q=projects/</loc>
+    <loc>https://l3miage.fr/?q=projects/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?q=quick_git/</loc>
+    <loc>https://l3miage.fr/?q=quick_git/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?q=quick_markdown/</loc>
+    <loc>https://l3miage.fr/?q=quick_markdown/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cours.vibioh.fr/?q=docker/</loc>
+    <loc>https://l3miage.fr/?q=docker/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
