@@ -8,7 +8,7 @@ services:
     - default-src 'self'; script-src 'self' 'unsafe-inline' www.google-analytics.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' www.google-analytics.com; font-src 'self' fonts.gstatic.com;
     labels:
       traefik.frontend.passHostHeader: 'true'
-      traefik.frontend.rule: 'Host: cours.vibioh.fr, l3miage.fr'
+      traefik.frontend.rule: 'Host: cours.vibioh.fr, l3miage.fr, www.l3miage.fr'
       traefik.port: '1080'
     logging:
       driver: json-file
