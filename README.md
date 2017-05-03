@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/ViBiOh/genie-logiciel.svg?branch=master)](https://travis-ci.org/ViBiOh/genie-logiciel)
 
+## Thanks
+
+[Twitter Emoji](https://github.com/twitter/twemoji) for favicon.
+
 ## Course
 
 ### Install
