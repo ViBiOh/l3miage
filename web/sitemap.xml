@@ -3,50 +3,54 @@
     <loc>https://l3miage.fr/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+    <description>Cours de Génie Logiciel - Introduction</description>
   </url>
   <url>
     <loc>https://l3miage.fr/?q=patterns/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+    <description>Cours de Génie Logiciel - Patterns</description>
   </url>
   <url>
     <loc>https://l3miage.fr/?q=tests/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+    <description>Cours de Génie Logiciel - Tests</description>
   </url>
   <url>
     <loc>https://l3miage.fr/?q=principles/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://l3miage.fr/?q=principles/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
+    <description>Cours de Génie Logiciel - Principes</description>
   </url>
   <url>
     <loc>https://l3miage.fr/?q=tools/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+    <description>Cours de Génie Logiciel - Outils</description>
   </url>
   <url>
     <loc>https://l3miage.fr/?q=projects/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+    <description>Cours de Génie Logiciel - Projet</description>
   </url>
   <url>
     <loc>https://l3miage.fr/?q=quick_git/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+    <description>Cours de Génie Logiciel - Git</description>
   </url>
   <url>
     <loc>https://l3miage.fr/?q=quick_markdown/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+    <description>Cours de Génie Logiciel - Markdown</description>
   </url>
   <url>
     <loc>https://l3miage.fr/?q=docker/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+    <description>Cours de Génie Logiciel - Docker</description>
   </url>
 </urlset>
