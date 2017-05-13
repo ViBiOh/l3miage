@@ -1,4 +1,4 @@
-# ![](/doc/img/docker_logo.png)
+# Docker
 
 
 ## Définition

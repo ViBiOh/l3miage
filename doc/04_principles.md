@@ -1,4 +1,4 @@
-# Principes & méthodes pratiques
+# Méthodologies & principes
 
 
 > Nine women can't make a baby in one month.

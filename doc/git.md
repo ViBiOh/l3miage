@@ -1,4 +1,4 @@
-# Petit précis sur Git
+# Git
 
 
 ## Cloner un repository existant
