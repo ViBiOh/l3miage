@@ -2,7 +2,7 @@
 
 [Vincent Boutour](https://vibioh.fr) - [@ViBiOh](https://twitter.com/ViBiOh)
 
-Consultant formateur chez [Zenika](http://www.zenika.com)
+*Front-end developer* chez [MeilleursAgents](http://www.meilleursagents.com)
 
 Master MIAGE Paris Descartes, 2011
 
