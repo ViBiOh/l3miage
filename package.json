@@ -53,7 +53,7 @@
     "js-index-builder": "git+https://github.com/ViBiOh/js-index-builder.git",
     "js-utils": "git+https://github.com/ViBiOh/js-utils.git",
     "less": "latest",
-    "uglify-js": "latest",
+    "uglify-es": "latest",
     "yargs": "latest"
   }
 }
