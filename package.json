@@ -50,8 +50,8 @@
     "clean-css-cli": "latest",
     "glob": "latest",
     "html-minifier": "latest",
-    "js-index-builder": "git+https://github.com/ViBiOh/js-index-builder.git",
-    "js-utils": "git+https://github.com/ViBiOh/js-utils.git",
+    "js-index-builder": "ViBiOh/js-index-builder",
+    "js-utils": "ViBiOh/js-utils",
     "less": "latest",
     "uglify-es": "latest",
     "yargs": "latest"
