@@ -9,7 +9,7 @@ services:
     labels:
       traefik.backend.healthcheck.path: '/health'
       traefik.frontend.passHostHeader: 'true'
-      traefik.frontend.rule: 'Host: cours.vibioh.fr, l3miage.fr, www.l3miage.fr'
+      traefik.frontend.rule: 'Host: l3miage.fr, www.l3miage.fr, genie.l3miage.fr'
       traefik.port: '1080'
     logging:
       driver: json-file
