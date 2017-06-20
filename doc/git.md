@@ -5,9 +5,9 @@
 
 `git clone user@url-de-votre-repo`
 
-> git clone git@github.com:ViBiOh/md-genie-logiciel.git
+> git clone git@github.com:ViBiOh/genie-logiciel.git
 
-> git clone https://github.com/ViBiOh/md-genie-logiciel.git
+> git clone https://github.com/ViBiOh/genie-logiciel.git
 
 
 ## Connaître l'état de la copie locale
@@ -46,7 +46,7 @@ Vérification
 `git stash list`
 
 
-### Remettre les modifications mises de côté
+### Réappliquer les modifications mises de côté
 
 `git stash pop`
 
@@ -58,7 +58,7 @@ Vérification
 > git commit -m "Initial commit. CR By John Doe"
 
 
-### Pour ajouter tous les fichiers et créer un commit en même temps
+### Pour ajouter tous les fichiers connus et créer un commit en même temps
 
 `git commit -am "commentaire de votre commit"`
 
@@ -100,9 +100,9 @@ Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
 
 ### Récupérer les modifications d'une autre branche sur la sienne
 
-`git merge --no-ff nom-de-la-branche-dont-on-veut-les-modifications`
+`git pull --rebase=false nom-de-la-branche-dont-on-veut-les-modifications`
 
-> git merge --no-ff master
+> git pull --rebase=false origin master
 
 
 # Références
