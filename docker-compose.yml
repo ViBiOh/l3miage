@@ -7,7 +7,6 @@ services:
     - -csp
     - default-src 'self'; script-src 'self' 'unsafe-inline' www.google-analytics.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' www.google-analytics.com; font-src 'self' fonts.gstatic.com;
     labels:
-      traefik.backend.healthcheck.path: '/health'
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: l3miage.fr, www.l3miage.fr, genie.l3miage.fr'
       traefik.port: '1080'
