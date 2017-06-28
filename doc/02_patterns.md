@@ -1,6 +1,11 @@
 # *Patterns* de programmation
 
 
+> There are only two hard things in Computer Science: cache invalidation and naming things
+
+> Phil Karlton
+
+
 Objectif : faire du code **`SOLID`**
 
 * **`S`** ingle Responsibility Principle
