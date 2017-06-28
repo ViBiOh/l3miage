@@ -112,7 +112,7 @@ new Promise((resolve, reject) => {
       promiseWriteFile(options.mustache, JSON.stringify(mustache, null, 2)),
       promiseWriteFile(options.sitemap, sitemapStructure(urls)),
     ])
-      .then(resolve)
+      .then(() => resolve('Success'))
       .catch(reject);
   });
 })

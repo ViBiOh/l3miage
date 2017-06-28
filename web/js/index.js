@@ -16,8 +16,8 @@ var config = (function() {
     });
   }
 
-  overrideConfig('search', /\?q=([^&?/]+)/gmi, 'markdown', 'introduction');
-  overrideConfig('hash', /([0-9]+)$/gmi, 'pageNum', 0);
+  overrideConfig('search', /\?q=([^&?/]+)/gim, 'markdown', 'introduction');
+  overrideConfig('hash', /([0-9]+)$/gim, 'pageNum', 0);
 
   return override;
 })();
@@ -54,20 +54,33 @@ Reveal.initialize({
   center: true,
   transition: 'slide',
   dependencies: [
-    { src: './plugin/markdown/marked.js'},
-    { src: './plugin/markdown/markdown.js'},
+    {
+      src: './plugin/markdown/marked.js',
+      callback: function() {
+        var renderer = new marked.Renderer();
+
+        renderer.image = function(href, title, text) {
+          console.log(href);
+          return '<img data-src="' + href + '" />';
+        };
+
+        marked.setOptions({ renderer: renderer });
+      },
+    },
+    { src: './plugin/markdown/markdown.js' },
     {
       src: './lib/js/classList.js',
       async: true,
       condition: function() {
         return !document.body.classList;
-      }
-    }, {
+      },
+    },
+    {
       src: './plugin/highlight/highlight.js',
       async: true,
       callback: function() {
         hljs.initHighlightingOnLoad();
-      }
+      },
     },
-  ]
+  ],
 });
