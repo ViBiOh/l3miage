@@ -60,7 +60,6 @@ Reveal.initialize({
         var renderer = new marked.Renderer();
 
         renderer.image = function(href, title, text) {
-          console.log(href);
           return '<img data-src="' + href + '" />';
         };
 
