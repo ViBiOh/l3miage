@@ -62,6 +62,9 @@ Reveal.initialize({
         renderer.image = function(href, title, text) {
           return '<img data-src="' + href + '" />';
         };
+        renderer.link = function(href, title, text) {
+          return '<a href="' + href + '" target="_blank" rel="noopener noreferrer">' + text + '</a>';
+        };
 
         marked.setOptions({ renderer: renderer });
       },
