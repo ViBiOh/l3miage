@@ -4,7 +4,6 @@ services:
   site:
     image: vibioh/genie-logiciel
     command:
-    - -redirect
     - -csp
     - default-src 'self'; script-src 'self' 'unsafe-inline' www.google-analytics.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' www.google-analytics.com; font-src 'self' fonts.gstatic.com;
     labels:
