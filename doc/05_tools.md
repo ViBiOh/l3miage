@@ -90,4 +90,4 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 ## Déploiement
 
 * [Jenkins](https://jenkins-ci.org), [Bamboo](https://www.atlassian.com/software/bamboo/), [Travis](https://travis-ci.org/)
-* [Docker](https://www.docker.com), [Puppet](https://puppetlabs.com)
+* [Docker](https://www.docker.com), [Puppet](https://puppetlabs.com), [Ansible](https://www.ansible.com)
