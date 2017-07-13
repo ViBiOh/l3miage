@@ -5,8 +5,6 @@
 
 `git clone user@url-de-votre-repo`
 
-> git clone git@github.com:ViBiOh/genie-logiciel.git
-
 > git clone https://github.com/ViBiOh/genie-logiciel.git
 
 
