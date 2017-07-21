@@ -181,6 +181,7 @@ Nous sommes à la fois la matière première de l'ère économique actuelle et a
 
 ## Littérature
 
+* [Speed in software development](https://www.targetprocess.com/articles/speed-in-software-development/)
 * [The Pragmatic Programmer](http://www.amazon.fr/dp/B003GCTQAE), *Andrew Hunt & David Thomas*
 * [Clean Code](http://www.amazon.fr/dp/B001GSTOAM), *Robert C. Martin*
 * [Effective Java](http://www.amazon.fr/dp/B00B8V09HY), *Joshua Bloch*
