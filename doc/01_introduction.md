@@ -181,7 +181,6 @@ Nous sommes à la fois la matière première de l'ère économique actuelle et a
 
 ## Littérature
 
-* [Speed in software development](https://www.targetprocess.com/articles/speed-in-software-development/)
 * [The Pragmatic Programmer](http://www.amazon.fr/dp/B003GCTQAE), *Andrew Hunt & David Thomas*
 * [Clean Code](http://www.amazon.fr/dp/B001GSTOAM), *Robert C. Martin*
 * [Effective Java](http://www.amazon.fr/dp/B00B8V09HY), *Joshua Bloch*
@@ -189,3 +188,9 @@ Nous sommes à la fois la matière première de l'ère économique actuelle et a
 * [Linchpin](http://www.amazon.fr/dp/0749953357), *Seth Godin*
 * [Liberté & cie](http://amzn.eu/7xAo3m6), *Isaac Getz*
 * [La vérité sur ce qui nous motive / Drive en V.O.](http://amzn.eu/33hnA5B), *Daniel H. Pink*
+
+
+## Liens divers
+
+* [Speed in software development](https://www.targetprocess.com/articles/speed-in-software-development/)
+* [GOTO 2015 - Space Shuttle](https://www.youtube.com/watch?v=AyrRoKN_kvg)
