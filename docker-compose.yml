@@ -4,6 +4,8 @@ services:
   site:
     image: vibioh/genie-logiciel
     command:
+    - -prometheusMetricsRemoteHost
+    - ^cours:1080$$
     - -csp
     - default-src 'self'; script-src 'self' 'unsafe-inline' www.google-analytics.com cdn.ravenjs.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' www.google-analytics.com; font-src 'self' fonts.gstatic.com;
     labels:
