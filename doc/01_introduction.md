@@ -194,3 +194,4 @@ Nous sommes à la fois la matière première de l'ère économique actuelle et a
 
 * [Speed in software development](https://www.targetprocess.com/articles/speed-in-software-development/)
 * [GOTO 2015 - Space Shuttle](https://www.youtube.com/watch?v=AyrRoKN_kvg)
+* [The future is ours](https://www.youtube.com/watch?v=rDiUVS_-4_Q)
