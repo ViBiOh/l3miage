@@ -10,10 +10,10 @@ Master MIAGE Paris Descartes, 2011
 ## Plan du module
 
 * Introduction
-* [*Patterns* de programmation](/?q=patterns)
-* [Tests](/?q=tests)
-* [Principes & Méthodes](/?q=principles)
-* [Outils](/?q=tools)
+* [*Patterns* de programmation](patterns.md)
+* [Tests](tests.md)
+* [Principes & Méthodes](principles.md)
+* [Outils](tools.md)
 
 
 ## Définition
