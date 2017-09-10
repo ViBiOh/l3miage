@@ -68,7 +68,7 @@ Reveal.initialize({
 
         renderer.link = function(href, title, text) {
           let usedHref = href;
-          if (/^[^\\]*\.md$/i) {
+          if (/^[^\\]*\.md$/i.test(href)) {
             usedHref =
               document.location.origin + "/?q=" + href.replace(/\.md$/i, "");
           }
