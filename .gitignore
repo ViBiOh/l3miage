@@ -7,6 +7,7 @@ node_modules/
 coverage/
 dist/
 tmp/
+package-lock.json
 
 # Project
 web/mustache.json
