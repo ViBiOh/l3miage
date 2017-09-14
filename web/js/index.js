@@ -2,7 +2,7 @@
   var link = document.createElement("link");
   link.rel = "stylesheet";
   link.type = "text/css";
-  link.href = "./css/print/paper.css?v={{version}}";
+  link.href = "/css/print/paper.css?v={{version}}";
   document.getElementsByTagName("head")[0].appendChild(link);
 })();
 
@@ -11,12 +11,13 @@ var config = (function() {
 
   function overrideConfig(location, regex, property, defaultValue) {
     override[property] = defaultValue;
+    console.log(window.location[location], regex);
     window.location[location].replace(regex, function(match, group) {
       override[property] = group;
     });
   }
 
-  overrideConfig("search", /\?q=([^&?/]+)/gim, "markdown", "introduction");
+  overrideConfig("pathname", /([^/]+)/gim, "markdown", "introduction");
   overrideConfig("hash", /([0-9]+)$/gim, "pageNum", 0);
 
   return override;
@@ -35,7 +36,7 @@ function loadMarkdown() {
   var section = document.createElement("section");
   section.setAttribute(
     "data-markdown",
-    "./doc/" + config.markdown + ".md?v={{version}}"
+    "/doc/" + config.markdown + ".md?v={{version}}"
   );
   section.setAttribute("data-separator", "\n\n\n");
   section.setAttribute("data-charset", "utf-8");
@@ -58,7 +59,7 @@ Reveal.initialize({
   transition: "slide",
   dependencies: [
     {
-      src: "./plugin/markdown/marked.js",
+      src: "/plugin/markdown/marked.js",
       callback: function() {
         var renderer = new marked.Renderer();
 
@@ -70,7 +71,7 @@ Reveal.initialize({
           let usedHref = href;
           if (/^[^\\]*\.md$/i.test(href)) {
             usedHref =
-              document.location.origin + "/?q=" + href.replace(/\.md$/i, "");
+              document.location.origin + "/" + href.replace(/\.md$/i, "");
           }
 
           return (
@@ -85,16 +86,15 @@ Reveal.initialize({
         marked.setOptions({ renderer: renderer });
       }
     },
-    { src: "./plugin/markdown/markdown.js" },
+    { src: "/plugin/markdown/markdown.js" },
     {
-      src: "./lib/js/classList.js",
-      async: true,
+      src: "/lib/js/classList.js",
       condition: function() {
         return !document.body.classList;
       }
     },
     {
-      src: "./plugin/highlight/highlight.js",
+      src: "/plugin/highlight/highlight.js",
       async: true,
       callback: function() {
         hljs.initHighlightingOnLoad();

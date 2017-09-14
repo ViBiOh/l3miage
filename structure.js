@@ -1,39 +1,39 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const glob = require('glob');
-const utils = require('js-utils');
+const fs = require("fs");
+const path = require("path");
+const glob = require("glob");
+const utils = require("js-utils");
 
-const UTF_8 = 'utf-8';
+const UTF_8 = "utf-8";
 
-const options = require('yargs')
+const options = require("yargs")
   .reset()
-  .options('docs', {
-    alias: 'd',
+  .options("docs", {
+    alias: "d",
     required: true,
-    type: 'String',
-    describe: 'Documents paths',
+    type: "String",
+    describe: "Documents paths"
   })
-  .options('json', {
-    alias: 'j',
+  .options("json", {
+    alias: "j",
     required: true,
-    type: 'String',
-    describe: 'mustache.json',
+    type: "String",
+    describe: "mustache.json"
   })
-  .options('sitemap', {
-    alias: 's',
+  .options("sitemap", {
+    alias: "s",
     required: true,
-    type: 'String',
-    describe: 'Sitemap output',
+    type: "String",
+    describe: "Sitemap output"
   })
-  .options('mustache', {
-    alias: 'm',
+  .options("mustache", {
+    alias: "m",
     required: true,
-    type: 'String',
-    describe: 'Mustache output',
+    type: "String",
+    describe: "Mustache output"
   })
-  .help('help')
+  .help("help")
   .strict().argv;
 
 const promiseReadFile = utils.asyncifyCallback(fs.readFile);
@@ -58,12 +58,19 @@ function displayError(error) {
   process.exit(1);
 }
 
-const requiredPromises = [promiseReadFile(options.json, UTF_8).then(c => JSON.parse(c))];
+const requiredPromises = [
+  promiseReadFile(options.json, UTF_8).then(c => JSON.parse(c))
+];
 
 function readDocs(doc) {
   return new Promise((resolve, reject) => {
     promiseReadFile(doc, UTF_8)
-      .then(content => resolve({ filename: /.*\/(?:[0-9]{2}_)?(.*?)\.md$/.exec(doc)[1], content }))
+      .then(content =>
+        resolve({
+          filename: /.*\/(?:[0-9]{2}_)?(.*?)\.md$/.exec(doc)[1],
+          content
+        })
+      )
       .catch(reject);
   });
 }
@@ -71,7 +78,9 @@ const docsPromise = new Promise((resolve, reject) => {
   glob(options.docs, {}, (error, docs) => {
     handleError(error, reject);
 
-    Promise.all(docs.map(readDocs)).then(resolve).catch(reject);
+    Promise.all(docs.map(readDocs))
+      .then(resolve)
+      .catch(reject);
   });
 });
 
@@ -100,19 +109,24 @@ new Promise((resolve, reject) => {
 
     mustache.docs = results[1].map(doc => ({
       name: doc.filename,
-      label: /#?(.*?)$/.exec(doc.content.split('\n')[0])[1].replace(/[*]/gim, '').trim(),
+      label: /#?(.*?)$/
+        .exec(doc.content.split("\n")[0])[1]
+        .replace(/[*]/gim, "")
+        .trim()
     }));
 
     const urls = [
       sitemapConverter(mustache.url),
-      ...results[1].map(doc => sitemapConverter(`${mustache.url}/?q=${doc.filename}/`)),
+      ...results[1].map(doc =>
+        sitemapConverter(`${mustache.url}/${doc.filename}/`)
+      )
     ];
 
     Promise.all([
       promiseWriteFile(options.mustache, JSON.stringify(mustache, null, 2)),
-      promiseWriteFile(options.sitemap, sitemapStructure(urls)),
+      promiseWriteFile(options.sitemap, sitemapStructure(urls))
     ])
-      .then(() => resolve('Success'))
+      .then(() => resolve("Success"))
       .catch(reject);
   });
 })
