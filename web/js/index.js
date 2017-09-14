@@ -11,7 +11,6 @@ var config = (function() {
 
   function overrideConfig(location, regex, property, defaultValue) {
     override[property] = defaultValue;
-    console.log(window.location[location], regex);
     window.location[location].replace(regex, function(match, group) {
       override[property] = group;
     });
