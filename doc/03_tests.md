@@ -435,12 +435,12 @@ Il existe d'autres tests à réaliser sur une application, plus marginaux, mais 
 Les tests ou audit de sécurité pratiquent notamment du *pen-testing* ou s'assurent que les normes de sécurité sont respectés
 
 
-La sécurité est aussi bien :
+La sécurité est un processus, c'est aussi bien :
 * physique (i.e. accès au datacenter)
 * logique (i.e. processus applicatif)
 * technique (i.e. utilisation des outils en dernière version)
 * informatique (i.e. chiffrement des données sensibles)
-* humaine (i.e. verrouillage des postes de travail)
+* humain (i.e. verrouillage des postes de travail)
 
 
 L'erreur est toujours humaine.
