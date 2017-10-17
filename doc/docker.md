@@ -11,7 +11,7 @@ Docker est une plateforme *open-source* utilisant la technologie des *conteneurs
 
 > Qu'est-ce qu'un conteneur ?
 
-Un système virtualisant les resources (i.e. *CPU / RAM / Network / File System*) mais pas les composants (i.e. *hardware*)
+Un système donnant accès aux resources (i.e. *CPU / RAM / Network / File System*) mais pas aux composants (i.e. *hardware*)
 
 
 Portable
