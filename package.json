@@ -22,7 +22,9 @@
     "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./tmp/index.html",
     "minify:js": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output ./dist/plugin/markdown/markdown.js",
     "minify": "npm run minify:html && npm run minify:js",
-    "build": "npm run clean && npm run copy && npm run reveal && npm run js && npm run style && npm run structure && npm run mustache && npm run minify"
+    "build": "npm run clean && npm run copy && npm run reveal && npm run js && npm run style && npm run structure && npm run mustache && npm run minify",
+    "install": "go get -u github.com/ViBiOh/viws",
+    "start": "viws -directory ${INIT_CWD}/dist -spa -csp \"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com;\""
   },
   "repository": {
     "type": "git",

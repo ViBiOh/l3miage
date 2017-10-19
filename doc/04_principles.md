@@ -131,6 +131,15 @@ Travailler dans des organisations implique de connaître quelques lois empirique
 > Les gens les moins compétents sont systématiquement affectés aux postes où ils risquent de causer le moins de dégâts : ceux de managers.
 
 
+## There ain't no such thing as a free lunch
+
+> Gratuit ne veut pas dire sans valeur
+
+> On n'a rien sans rien
+
+> "Free beer" vs "free speech"
+
+
 ## Loi de la relativité d'Einstein
 
 > Une minute au dessus d'une poêle chaude semble durer des heures alors qu'une minute à côté d'une jolie fille semble durer une seconde, c'est ça la relativité.

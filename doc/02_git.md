@@ -5,12 +5,15 @@
 
 `git clone user@url-de-votre-repo`
 
-> git clone https://github.com/ViBiOh/genie-logiciel.git
+> git clone git@github.com:ViBiOh/genie-logiciel.git
 
 
 ## Connaître l'état de la copie locale
 
 `git status`
+
+
+![](/doc/img/git_lifecycle.png)
 
 
 ## Ajouter un fichier au système de version
@@ -108,3 +111,5 @@ Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
 * [Un petit guide illustré](http://rogerdudler.github.io/git-guide/index.fr.html)
 * [La documentation officielle](http://git-scm.com/book/fr/v1)
 * [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/)
+* [Configuration](https://delicious-insights.com/fr/articles/configuration-git/)
+* [Configuration example](https://gist.github.com/tdd/470582)
