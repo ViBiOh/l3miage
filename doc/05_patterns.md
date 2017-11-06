@@ -15,6 +15,11 @@ Objectif : faire du code **`SOLID`**
 * **`D`** ependency Injection
 
 
+> Design depends largely on constraints.
+
+> Charles Eames
+
+
 ## Un cas simple
 
 > Toujours prendre un exemple stupide pour que tout le monde comprenne.
