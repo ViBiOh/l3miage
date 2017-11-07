@@ -96,7 +96,7 @@ Bonus
 ## Organisation
 
 
-Groupe de 6
+Groupe de 5
 
 * groupe hétérogène (plusieurs rôles)
 
