@@ -57,7 +57,7 @@ Maîtriser les enjeux, les problématiques :
 
 ### Solutionner
 
-> S'il n'y a pas de solution, il n'y a pas de problème.
+> « S'il n'y a pas de solution, il n'y a pas de problème. »
 
 > Les Shadoks
 
@@ -82,7 +82,7 @@ Traduire le besoin en solution (i.e. ingénierie)
 ![](/doc/img/fail.png)
 
 
-> La perfection est atteinte, non pas lorsqu'il n'y a plus rien à ajouter, mais lorsqu'il n'y a plus rien à retirer.
+> « La perfection est atteinte, non pas lorsqu'il n'y a plus rien à ajouter, mais lorsqu'il n'y a plus rien à retirer. »
 
 > Antoine de Saint-Exupéry
 
@@ -107,7 +107,7 @@ Automatisation omniprésente
 Déploiement à chaud
 
 
-> Vous voulez aller vite ? Alors prenez votre temps !
+> « Vous voulez aller vite ? Alors prenez votre temps ! »
 
 > Daniel Guillaume
 
