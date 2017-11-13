@@ -63,7 +63,9 @@ Reveal.initialize({
         var renderer = new marked.Renderer();
 
         renderer.image = function(href, title, text) {
-          return '<img data-src="' + href + '" alt="' + title + '" />';
+          return (
+            '<img data-src="' + href + '?v={{version}}" alt="' + title + '" />'
+          );
         };
 
         renderer.link = function(href, title, text) {
@@ -85,15 +87,15 @@ Reveal.initialize({
         marked.setOptions({ renderer: renderer });
       }
     },
-    { src: "/plugin/markdown/markdown.js" },
+    { src: "/plugin/markdown/markdown.js?v={{version}}" },
     {
-      src: "/lib/js/classList.js",
+      src: "/lib/js/classList.js?v={{version}}",
       condition: function() {
         return !document.body.classList;
       }
     },
     {
-      src: "/plugin/highlight/highlight.js",
+      src: "/plugin/highlight/highlight.js?v={{version}}",
       async: true,
       callback: function() {
         hljs.initHighlightingOnLoad();
