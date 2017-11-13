@@ -1,6 +1,12 @@
 # Git
 
 
+* Gestion de configuration
+* Fonctionnement *à la ligne*
+* Décentralisé, pas *forcément* besoin d'un serveur
+* Branches, *cherry-pick*, tag, fusion
+
+
 ## Cloner un repository existant
 
 `git clone user@url-de-votre-repo`

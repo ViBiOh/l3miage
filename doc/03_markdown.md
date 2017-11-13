@@ -1,6 +1,11 @@
 # Markdown
 
 
+* Rédaction de document *content-centric*
+* Aussi lisible brut que transformé (en HTML principalement)
+* Intégré dans de nombreux outils : e.g. GitHub, Trello, Blog
+
+
 ## Différents niveaux de titres
 
     # Titre de niveau 1
@@ -49,3 +54,4 @@ Le texte du lien doit se trouver entre crochets et l'url de votre lien dans des 
 * [Document GitHub](https://help.github.com/articles/markdown-basics/)
 * [Documentation officielle](http://commonmark.org/help/)
 * [Editeur avec *live preview*](http://dillinger.io)
+* [Rich Text Editor](https://react.vibioh.fr/rte)

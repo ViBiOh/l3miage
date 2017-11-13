@@ -22,21 +22,6 @@ Positionnement de points d'arrêts & pilotage de l'exécution
 Exploration de la *stack* d'appels
 
 
-## Git
-
-* Gestion de la configuration
-* Fonctionnement *à la ligne*
-* Décentralisé, pas *forcément* besoin d'un serveur
-* Branches, *cherry-pick*, tag, fusion
-
-
-## Markdown
-
-* Rédaction de documentation *content-centric*
-* Aussi lisible brut que transformé (en HTML principalement)
-* Intégré dans de nombreux outils : e.g. GitHub, Trello, Blog
-
-
 ## Logs
 
 

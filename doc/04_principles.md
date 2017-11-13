@@ -50,6 +50,41 @@ Tant mieux : on ne négocie pas avec ~~les terroristes~~ la qualité.
 [Devenir agile en 15 min](https://www.youtube.com/watch?v=3qMpB-UH9kA)
 
 
+## [Given-When-Then](https://en.wikipedia.org/wiki/Given-When-Then)
+
+
+**En tant que** client, **je veux** pouvoir consulter mon profil **afin de** vérifier l'exactitude de mes informations.
+
+
+Phrases courtes permettant de définir une fonctionnalité, un besoin, un bug, etc.
+
+
+Attention à correctement les organiser pour que cela reste maintenable et lisible.
+
+
+## Cahier des charges
+
+
+Cadrage & périmètre
+
+> Pourquoi et dans quelle mesure faisons nous ce produit/projet ?
+
+
+Expression fonctionnelle du besoin
+
+> Quelles sont toutes les règles que le produit/projet doit respecter ?
+
+
+Méthodes & contraintes
+
+> Comment allons nous travailler au sein de ce produit/projet ?
+
+
+Délais et parties prenantes
+
+> À qui et quand rendre compte ?
+
+
 ## Intégration continue
 
 
@@ -99,7 +134,7 @@ Faire de la veille, assister à des conférences, des *meetups*, des salons, ...
 Discuter des implémentations, technologies, actualités.
 
 
-En méso-économie, personne n'a que faire d'un évènement. Même si un domaine ne vous intéresse pas, il vous impacte directement ou indirectement.
+En méso-économie, on ne peut ignorer un évènement. Même si un domaine ne vous intéresse pas, il vous impactera directement ou indirectement.
 
 
 Être bon communicant passe par de bons outils
@@ -198,7 +233,12 @@ Pour chaque fonctionnalité, il faut assurer une cohérence entre les spécifica
 Cet écart représente une dette que l'on supporte ensuite tout au long de la vie du logiciel.
 
 
-De plus, chaque ajout de fonctionnalité vient alourdir l'application, il faut donc veiller à refactorer au fil de l'eau pour ne pas accumuler de surcharge de travail.
+De plus, chaque ajout de fonctionnalité vient alourdir l'application, il faut donc veiller à refactorer au fil de l'eau pour ne pas empiler du code.
+
+> e.g. Un `if/else` peut vite se transformer en enchaînement disgracieux : faire un `switch`
+
+
+Enfin, l'environnement évolue sans cesse, les modèles, les méthodes, les outils, etc. Il faut donc veiller à ne pas avoir des architectures trop vieilles, devenues inmaintenables.
 
 
 ## Ne pas réinventer la roue
