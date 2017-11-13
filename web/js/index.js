@@ -87,15 +87,15 @@ Reveal.initialize({
         marked.setOptions({ renderer: renderer });
       }
     },
-    { src: "/plugin/markdown/markdown.js?v={{version}}" },
+    { src: "/plugin/markdown/markdown.js" },
     {
-      src: "/lib/js/classList.js?v={{version}}",
+      src: "/lib/js/classList.js",
       condition: function() {
         return !document.body.classList;
       }
     },
     {
-      src: "/plugin/highlight/highlight.js?v={{version}}",
+      src: "/plugin/highlight/highlight.js",
       async: true,
       callback: function() {
         hljs.initHighlightingOnLoad();
