@@ -53,6 +53,9 @@ Tant mieux : on ne négocie pas avec ~~les terroristes~~ la qualité.
 ## [Given-When-Then](https://en.wikipedia.org/wiki/Given-When-Then)
 
 
+**Comme** je suis connecté, **quand** je vais sur mon profil, **je peux** vérifier l'exactitude de mes informations.
+
+
 **En tant que** client, **je veux** pouvoir consulter mon profil **afin de** vérifier l'exactitude de mes informations.
 
 
