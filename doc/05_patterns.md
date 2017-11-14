@@ -1,7 +1,7 @@
 # *Patterns* de programmation
 
 
-> There are only two hard things in Computer Science: cache invalidation and naming things
+> « There are only two hard things in Computer Science: cache invalidation and naming things »
 
 > Phil Karlton
 
@@ -15,14 +15,14 @@ Objectif : faire du code **`SOLID`**
 * **`D`** ependency Injection
 
 
-> Design depends largely on constraints.
+> « Design depends largely on constraints. »
 
 > Charles Eames
 
 
 ## Un cas simple
 
-> Toujours prendre un exemple stupide pour que tout le monde comprenne.
+> « Toujours prendre un exemple stupide pour que tout le monde comprenne. »
 
 > Daniel Guillaume
 
