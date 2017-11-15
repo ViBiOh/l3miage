@@ -50,7 +50,11 @@ function addMarkdownLinkListener() {
   document.querySelectorAll("[data-markdown-link]").forEach(function(element) {
     element.addEventListener("click", function(event) {
       event.preventDefault();
-      loadMarkdown(event.target.getAttribute("data-markdown-link"), 0);
+
+      const markdownFilename = event.target.getAttribute("data-markdown-link");
+      loadMarkdown(markdownFilename, 0);
+      window.history.pushState("state", "title", "/" + markdownFilename);
+
       toggleNav(true);
     });
   });
