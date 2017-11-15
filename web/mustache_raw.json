@@ -4,5 +4,12 @@
   "url": "https://l3miage.fr",
   "img": "https://l3miage.fr/doc/img/genie.png",
   "imgHeight": "288",
-  "imgWidth": "358"
+  "imgWidth": "358",
+  "breadcrumb": [
+    {
+      "url": "https://l3miage.fr/",
+      "name": "Cours de Vincent Boutour",
+      "position": 1
+    }
+  ]
 }

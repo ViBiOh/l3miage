@@ -2,7 +2,7 @@
   var link = document.createElement("link");
   link.rel = "stylesheet";
   link.type = "text/css";
-  link.href = "/css/print/paper.css?v={{version}}";
+  link.href = "/css/paper.css?v={{version}}";
   document.getElementsByTagName("head")[0].appendChild(link);
 })();
 
@@ -58,7 +58,7 @@ Reveal.initialize({
   transition: "slide",
   dependencies: [
     {
-      src: "/plugin/markdown/marked.js",
+      src: "/js/marked.js",
       callback: function() {
         var renderer = new marked.Renderer();
 
@@ -87,15 +87,15 @@ Reveal.initialize({
         marked.setOptions({ renderer: renderer });
       }
     },
-    { src: "/plugin/markdown/markdown.js" },
+    { src: "/js/markdown.js" },
     {
-      src: "/lib/js/classList.js",
+      src: "/js/classList.js",
       condition: function() {
         return !document.body.classList;
       }
     },
     {
-      src: "/plugin/highlight/highlight.js",
+      src: "/js/highlight.js",
       async: true,
       callback: function() {
         hljs.initHighlightingOnLoad();
