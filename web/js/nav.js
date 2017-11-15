@@ -1,5 +1,5 @@
 const toggleButton = document.getElementById("toggleMenu");
-const navElement = document.getElementsByTagName("nav")[0];
+const navElement = document.getElementsByClassName("menu")[0];
 const displayClass = "displayed";
 
 function toggleNav(forceHide) {
