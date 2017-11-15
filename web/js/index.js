@@ -51,6 +51,7 @@ function addMarkdownLinkListener() {
     element.addEventListener("click", function(event) {
       event.preventDefault();
       loadMarkdown(event.target.getAttribute("data-markdown-link"), 0);
+      toggleNav(true);
     });
   });
 }

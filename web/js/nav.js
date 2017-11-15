@@ -1,22 +1,23 @@
 const toggleButton = document.getElementById("toggleMenu");
 const navElement = document.getElementsByTagName("nav")[0];
+const displayClass = "displayed";
 
-function handleNav(target) {
+function toggleNav(forceHide) {
   const navClasses = navElement.classList;
-  if (!target || navClasses.contains("displayed")) {
-    navClasses.remove("displayed");
+
+  if (!forceHide || navClasses.contains(displayClass)) {
+    navClasses.remove(displayClass);
     toggleButton.innerHTML = "\u2261";
   } else {
-    navClasses.add("displayed");
+    navClasses.add(displayClass);
     toggleButton.innerHTML = "\u2715";
   }
 }
 
-function handleClick(event) {
-  if (navElement.contains(event.target)) {
-    return;
+function handleToggleMenu(event) {
+  if (!navElement.contains(event.target)) {
+    toggleNav(toggleButton.contains(event.target));
   }
-  handleNav(toggleButton.contains(event.target));
 }
 
-document.addEventListener("touchstart", handleClick);
+document.addEventListener("touchstart", handleToggleMenu);
