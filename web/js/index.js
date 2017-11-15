@@ -28,14 +28,14 @@ function removeAllChild(element) {
   }
 }
 
-function loadMarkdown() {
+function loadMarkdown(markdownFilename, pageNum) {
   var slides = document.getElementsByClassName("slides")[0];
   removeAllChild(slides);
 
   var section = document.createElement("section");
   section.setAttribute(
     "data-markdown",
-    "/doc/" + config.markdown + ".md?v={{version}}"
+    "/doc/" + markdownFilename + ".md?v={{version}}"
   );
   section.setAttribute("data-separator", "\n\n\n");
   section.setAttribute("data-charset", "utf-8");
@@ -43,11 +43,21 @@ function loadMarkdown() {
   slides.appendChild(section);
 
   RevealMarkdown.initialize();
-  Reveal.navigateTo(config.pageNum);
+  Reveal.navigateTo(pageNum);
+}
+
+function addMarkdownLinkListener() {
+  document.querySelectorAll("[data-markdown-link]").forEach(function(element) {
+    element.addEventListener("click", function(event) {
+      event.preventDefault();
+      loadMarkdown(event.target.getAttribute("data-markdown-link"), 0);
+    });
+  });
 }
 
 Reveal.addEventListener("ready", function() {
-  loadMarkdown();
+  addMarkdownLinkListener();
+  loadMarkdown(config.markdown, config.pageNum);
 });
 
 Reveal.initialize({

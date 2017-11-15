@@ -1,7 +1,9 @@
 <nav>
   <ul>
     {{#docs}}
-    <li><a href="/{{name}}">{{label}}</a></li>
+    <li>
+      <a href="/{{name}}" data-markdown-link="{{name}}">{{label}}</a>
+    </li>
     {{/docs}}
   </ul>
 </nav>
