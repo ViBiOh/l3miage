@@ -53,7 +53,7 @@ function addMarkdownLinkListener() {
 
       const markdownFilename = event.target.getAttribute("data-markdown-link");
       loadMarkdown(markdownFilename, 0);
-      window.history.pushState("state", "title", "/" + markdownFilename);
+      window.history.pushState("state", "title", "/" + markdownFilename + "/");
 
       toggleNav(true);
     });
