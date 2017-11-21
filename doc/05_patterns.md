@@ -33,9 +33,10 @@ Afficher l'inverse de l'entier saisi par l'utilisateur
 
 ```java
 public class Program {
-    public static void main(final String[] args) {
-        System.out.println("Inverse: " + (1D / new Scanner(System.in).nextInt()));
-    }
+  public static void main(final String[] args) {
+      System.out.println("Inverse: " + 
+          (1D / new Scanner(System.in).nextInt()));
+  }
 }
 ```
 
@@ -75,15 +76,15 @@ Lecture d'un entier
 
 ```java
 public class IntegerReader {
-    private Scanner in;
+  private Scanner in;
 
-    public IntegerReader(final InputStream input) {
-        this.in = new Scanner(input);
-    }
+  public IntegerReader(final InputStream input) {
+      this.in = new Scanner(input);
+  }
 
-    public int readInt() {
-        return in.nextInt();
-    }
+  public int readInt() {
+      return in.nextInt();
+  }
 }
 ```
 
@@ -94,13 +95,14 @@ Juste un proxy ? Justement, ajoutons une validation par *regex*
 ```class IntegerReader```
 
 ```java
-private static final Pattern INTEGER = Pattern.compile("^[+-]?[0-9]+$");
+private static final Pattern INTEGER =
+    Pattern.compile("^[+-]?[0-9]+$");
 
 public static Integer read(final String raw) {
-    if (INTEGER.matcher(raw).matches()) {
-        return Integer.parseInt(raw, 10);
-    }
-    return null;
+  if (INTEGER.matcher(raw).matches()) {
+      return Integer.parseInt(raw, 10);
+  }
+  return null;
 }
 ```
 
@@ -109,9 +111,9 @@ Calcul de l'inverse
 
 ```java
 public class InverseOperation {
-    public double compute(final int intValue) {
-        return 1D / intValue;
-    }
+  public double compute(final int intValue) {
+      return 1D / intValue;
+  }
 }
 ```
 
@@ -120,15 +122,16 @@ Affichage du résultat
 
 ```java
 public class InverseWriter {
-    private OutputStream out;
+  private OutputStream out;
 
-    public InverseWriter(final OutputStream out) {
-        this.out = out;
-    }
+  public InverseWriter(final OutputStream out) {
+      this.out = out;
+  }
 
-    public void write(final double inverseValue) throws IOException {
-        out.write(("Inverse: " + inverseValue).getBytes(StandardCharsets.UTF_8));
-    }
+  public void write(final double value) throws IOException {
+      out.write(("Inverse: " + value)
+          .getBytes(StandardCharsets.UTF_8));
+  }
 }
 ```
 
@@ -137,13 +140,13 @@ Orchestration
 
 ```java
 public class Program {
-    public static void main(final String[] args) throws IOException {
-        final IntegerReader integerReader = new IntegerReader(System.in);
-        final InverseOperation inverse = new InverseOperation();
-        final InverseWriter display = new InverseWriter(System.out);
+  public static void main(final String[] args) throws IOException {
+    final IntegerReader integerReader = new IntegerReader(System.in);
+    final InverseOperation inverse = new InverseOperation();
+    final InverseWriter display = new InverseWriter(System.out);
 
-        display.write(inverse.compute(integerReader.readInt()));
-    }
+    display.write(inverse.compute(integerReader.readInt()));
+  }
 }
 ```
 
