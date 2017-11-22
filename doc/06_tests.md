@@ -487,7 +487,7 @@ Sinon aficher le nombre.
 > Si je donne le chiffre 1, renvoyer 1
 
 ```javascript
-it ('should return the same value', () => {
+it('should return the same value', () => {
   expect(fizzBuzz(1)).to.be.equal(1);
 });
 ```
@@ -503,7 +503,7 @@ Le code correspondant est donc le suivant
 > Si je donne le chiffre 2, renvoyer 2
 
 ```javascript
-it ('should return the second value', () => {
+it('should return the second value', () => {
   expect(fizzBuzz(2)).to.be.equal(2);
 });
 ```
@@ -532,7 +532,7 @@ number => number
 > Si je donne le chiffre 3, renvoyer 'fizz'
 
 ```javascript
-it ('should return fizz for 3', () => {
+it('should return fizz for 3', () => {
   expect(fizzBuzz(3)).to.be.equal('fizz');
 });
 ```
@@ -553,7 +553,7 @@ Adapatation du code pour tester 3
 > Si je donne le chiffre 6, renvoyer 'fizz'
 
 ```javascript
-it ('should return fizz for 6', () => {
+it('should return fizz for 6', () => {
   expect(fizzBuzz(6)).to.be.equal('fizz');
 });
 ```
