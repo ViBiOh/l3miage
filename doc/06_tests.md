@@ -299,6 +299,7 @@ Chaque composant peut fonctionner parfaitement individuellement...
 
 
 S'assurer de la bonne intégration :
+
 * des composants entre eux
 * des versions entre elles (e.g. Mockito 2.*n* et PowerMock 1.6.*n* ne sont pas compatibles)
 * des composants avec leur dépendances
@@ -320,13 +321,13 @@ public class DateHelper {
 }
 
 public class MyService {
-    @Autowired
-    private DateHelper dateHelper;
+  @Autowired
+  private DateHelper dateHelper;
 
-    public boolean isBefore(final Date value) throws ParseException {
-        return new SimpleDateFormat("yyyy/MM/dd")
-            .parse(dateHelper.now()).before(value); // Mostly true
-    }
+  public boolean isBefore(final Date value) throws ParseException {
+    return new SimpleDateFormat("yyyy/MM/dd")
+      .parse(dateHelper.now()).before(value); // Mostly true
+  }
 }
 ```
 

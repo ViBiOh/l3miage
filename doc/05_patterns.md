@@ -33,9 +33,9 @@ Afficher l'inverse de l'entier saisi par l'utilisateur
 
 ```java
 public class Program {
-  public static void main(final String[] args) {
-      System.out.println("Inverse: " + 
-          (1D / new Scanner(System.in).nextInt()));
+  public static void main(String[] args) {
+    System.out.println("Inverse: " + 
+      (1D / new Scanner(System.in).nextInt()));
   }
 }
 ```
@@ -78,12 +78,12 @@ Lecture d'un entier
 public class IntegerReader {
   private Scanner in;
 
-  public IntegerReader(final InputStream input) {
-      this.in = new Scanner(input);
+  public IntegerReader(InputStream input) {
+    this.in = new Scanner(input);
   }
 
   public int readInt() {
-      return in.nextInt();
+    return in.nextInt();
   }
 }
 ```
@@ -95,12 +95,11 @@ Juste un proxy ? Justement, ajoutons une validation par *regex*
 ```class IntegerReader```
 
 ```java
-private static final Pattern INTEGER =
-    Pattern.compile("^[+-]?[0-9]+$");
+private static Pattern INTEGER = Pattern.compile("^[+-]?[0-9]+$");
 
-public static Integer read(final String raw) {
+public Integer read(String raw) {
   if (INTEGER.matcher(raw).matches()) {
-      return Integer.parseInt(raw, 10);
+    return Integer.parseInt(raw, 10);
   }
   return null;
 }
@@ -111,8 +110,8 @@ Calcul de l'inverse
 
 ```java
 public class InverseOperation {
-  public double compute(final int intValue) {
-      return 1D / intValue;
+  public double compute(int intValue) {
+    return 1D / intValue;
   }
 }
 ```
@@ -124,13 +123,12 @@ Affichage du résultat
 public class InverseWriter {
   private OutputStream out;
 
-  public InverseWriter(final OutputStream out) {
-      this.out = out;
+  public InverseWriter(OutputStream out) {
+    this.out = out;
   }
 
-  public void write(final double value) throws IOException {
-      out.write(("Inverse: " + value)
-          .getBytes(StandardCharsets.UTF_8));
+  public void write(double value) throws IOException {
+    out.write(("Inverse: " + value).getBytes(StandardCharsets.UTF_8));
   }
 }
 ```
@@ -140,10 +138,10 @@ Orchestration
 
 ```java
 public class Program {
-  public static void main(final String[] args) throws IOException {
-    final IntegerReader integerReader = new IntegerReader(System.in);
-    final InverseOperation inverse = new InverseOperation();
-    final InverseWriter display = new InverseWriter(System.out);
+  public static void main(String[] args) throws IOException {
+    IntegerReader integerReader = new IntegerReader(System.in);
+    InverseOperation inverse = new InverseOperation();
+    InverseWriter display = new InverseWriter(System.out);
 
     display.write(inverse.compute(integerReader.readInt()));
   }
@@ -178,24 +176,24 @@ Les comportements existent :
 
 ```java
 public interface Reader<T> {
-    Optional<T> read();
+  Optional<T> read();
 }
 
 public interface Operation<I, O> {
-    Optional<O> compute(I value);
+  Optional<O> compute(I value);
 }
 
 public interface Writer<T> {
-    void write(T value) throws IOException;
+  void write(T value) throws IOException;
 }
 
 public interface Process<I> {
-    Logger logger = Logger.getLogger(Process.class.getSimpleName());
+  Logger logger = Logger.getLogger(Process.class.getSimpleName());
 
-    Process execute();
-    Process setReader(final Reader<I> reader);
-    Process setOperation(final Operation<I, Object> operation);
-    Process setWriter(final Writer<Object> writer);
+  Process execute();
+  Process setReader(Reader<I> reader);
+  Process setOperation(Operation<I, Object> operation);
+  Process setWriter(Writer<Object> writer);
 }
 ```
 
@@ -207,16 +205,16 @@ Lecture d'un entier
 
 ```java
 public class IntegerReader implements Reader<Integer> {
-    private Scanner in;
+  private Scanner in;
 
-    public IntegerReader(final InputStream input) {
-        this.in = new Scanner(input);
-    }
+  public IntegerReader(InputStream input) {
+    this.in = new Scanner(input);
+  }
 
-    @Override
-    public Optional<Integer> read() {
-        return Optional.ofNullable(in.nextInt());
-    }
+  @Override
+  public Optional<Integer> read() {
+    return Optional.ofNullable(in.nextInt());
+  }
 }
 ```
 
@@ -225,10 +223,10 @@ Calcul de l'inverse
 
 ```java
 public class InverseOperation implements Operation<Integer, Double> {
-    @Override
-    public Optional<Double> compute(final Integer intValue) {
-        return Optional.ofNullable(intValue).map(value -> 1D / value);
-    }
+  @Override
+  public Optional<Double> compute(Integer intValue) {
+    return Optional.ofNullable(intValue).map(value -> 1D / value);
+  }
 }
 ```
 
@@ -237,10 +235,10 @@ Calcul du carré
 
 ```java
 public class SquareOperation implements Operation<Integer, Integer> {
-    @Override
-    public Optional<Integer> compute(final Integer intValue) {
-        return Optional.ofNullable(intValue).map(value -> value * value);
-    }
+  @Override
+  public Optional<Integer> compute(Integer intValue) {
+    return Optional.ofNullable(intValue).map(value -> value * value);
+  }
 }
 ```
 
@@ -249,16 +247,16 @@ Ecriture du résultat
 
 ```java
 public class InverseWriter implements Writer<Object> {
-    private OutputStream out;
+  private OutputStream out;
 
-    public InverseWriter(final OutputStream out) {
-        this.out = out;
-    }
+  public InverseWriter(OutputStream out) {
+      this.out = out;
+  }
 
-    public void write(final Object inverseValue) throws IOException {
-        out.write(("Inverse: " + String.valueOf(inverseValue))
-            .getBytes(StandardCharsets.UTF_8));
-    }
+  public void write(Object inverseValue) throws IOException {
+    out.write(("Inverse: " + String.valueOf(inverseValue))
+      .getBytes(StandardCharsets.UTF_8));
+  }
 }
 ```
 
@@ -267,21 +265,21 @@ Processus de traitement : lire - traiter - écrire
 
 ```java
 public class ProcessImpl<I> implements Process<I> {
-    private Reader<I> reader;
-    private Operation<I, Object> operation;
-    private Writer<Object> writer;
+  private Reader<I> reader;
+  private Operation<I, Object> operation;
+  private Writer<Object> writer;
 
-    @Override
-    public Process execute() {
-        try {
-            writer.write(operation.compute(reader.read().orElse(null)).orElse(null));
-        } catch (final IOException e) {
-            logger.log(Level.SEVERE, "Something went wrong", e);
-        }
-        return this;
+  @Override
+  public Process execute() {
+    try {
+      writer.write(operation.compute(reader.read().orElse(null)).orElse(null));
+    } catch (IOException e) {
+      logger.log(Level.SEVERE, "Something went wrong", e);
     }
-    
-    [...]
+    return this;
+  }
+
+  [...]
 }
 ```
 
@@ -289,25 +287,25 @@ public class ProcessImpl<I> implements Process<I> {
 Processus de traitement : des méthodes à générer
 
 ```java
-    [...]
+  [...]
 
-    @Override
-    public Process setReader(final Reader<I> reader) {
-        this.reader = reader;
-        return this;
-    }
+  @Override
+  public Process setReader(Reader<I> reader) {
+    this.reader = reader;
+    return this;
+  }
 
-    @Override
-    public Process setOperation(final Operation<I, Object> operation) {
-        this.operation = operation;
-        return this;
-    }
+  @Override
+  public Process setOperation(Operation<I, Object> operation) {
+    this.operation = operation;
+    return this;
+  }
 
-    @Override
-    public Process setWriter(final Writer<Object> writer) {
-        this.writer = writer;
-        return this;
-    }
+  @Override
+  public Process setWriter(Writer<Object> writer) {
+    this.writer = writer;
+    return this;
+  }
 ```
 
 
@@ -318,22 +316,22 @@ Orchestration
 
 ```java
 public class Program {
-    public static void main(final String[] args) {
-        final Reader<Integer> reader = new IntegerReader(System.in);
-        final Operation<Integer, Double> inverse = new InverseOperation();
-        final Writer<Object> inverseWriter = new InverseWriter(System.out);
-        final Operation<Integer, Integer> square = new SquareOperation();
-        final Writer<Object> squareWriter = new SquareWriter(System.out);
+  public static void main(String[] args) {
+    Reader<Integer> reader = new IntegerReader(System.in);
+    Operation<Integer, Double> inverse = new InverseOperation();
+    Writer<Object> inverseWriter = new InverseWriter(System.out);
+    Operation<Integer, Integer> square = new SquareOperation();
+    Writer<Object> squareWriter = new SquareWriter(System.out);
 
-        new ProcessImpl<Integer>()
-                .setReader(reader)
-                .setOperation(inverse)
-                .setWriter(inverseWriter)
-                .execute()
-                .setOperation(square)
-                .setWriter(squareWriter)
-                .execute();
-    }
+    new ProcessImpl<Integer>()
+          .setReader(reader)
+          .setOperation(inverse)
+          .setWriter(inverseWriter)
+          .execute()
+          .setOperation(square)
+          .setWriter(squareWriter)
+          .execute();
+  }
 }
 ```
 
@@ -361,10 +359,10 @@ Connaissance des dépendances entre classes
 ```java
 @Service
 public class InverseOperation implements Operation<Integer, Object> {
-    @Override
-    public Optional<Object> compute(final Integer intValue) {
-        return Optional.ofNullable(intValue).map(value -> 1D / value);
-    }
+  @Override
+  public Optional<Object> compute(Integer intValue) {
+    return Optional.ofNullable(intValue).map(value -> 1D / value);
+  }
 }
 ```
 
@@ -374,17 +372,17 @@ Injection de dépendances dans le constructeur
 ```java
 @Service
 public class IntegerReader implements Reader<Integer> {
-    private Scanner in;
+  private Scanner in;
 
-    @Autowired
-    public IntegerReader(final InputStream input) {
-        this.in = new Scanner(input);
-    }
+  @Autowired
+  public IntegerReader(InputStream input) {
+    this.in = new Scanner(input);
+  }
 
-    @Override
-    public Optional<Integer> read() {
-        return Optional.ofNullable(in.nextInt());
-    }
+  @Override
+  public Optional<Integer> read() {
+    return Optional.ofNullable(in.nextInt());
+  }
 }
 ```
 
@@ -394,13 +392,13 @@ Injection de dépendances automatique
 ```java
 @Service
 public class InverseWriter implements Writer<Object> {
-    @Autowired
-    private OutputStream out;
+  @Autowired
+  private OutputStream out;
 
-    public void write(final Object inverseValue) throws IOException {
-        out.write(("Inverse: " + Optional.ofNullable(inverseValue).orElse(""))
-            .getBytes(StandardCharsets.UTF_8));
-    }
+  public void write(Object inverseValue) throws IOException {
+    out.write(("Inverse: " + Optional.ofNullable(inverseValue).orElse(""))
+      .getBytes(StandardCharsets.UTF_8));
+  }
 }
 ```
 
@@ -410,23 +408,23 @@ Déclaration des comportements attendus
 ```java
 @Component
 public class ProcessImpl<I> implements Process {
-    @Autowired
-    private Reader<I> reader;
-    @Autowired
-    private Operation<I, Object> operation;
-    @Autowired
-    private Writer<Object> writer;
+  @Autowired
+  private Reader<I> reader;
+  @Autowired
+  private Operation<I, Object> operation;
+  @Autowired
+  private Writer<Object> writer;
 
-    @Override
-    public int execute() {
-        try {
-            writer.write(operation.compute(reader.read().orElse(null)).orElse(null));
-            return 0;
-        } catch (final IOException e) {
-            getLogger().log(Level.SEVERE, "Something went wrong", e);
-            return 1;
-        }
+  @Override
+  public int execute() {
+    try {
+      writer.write(operation.compute(reader.read().orElse(null)).orElse(null));
+      return 0;
+    } catch (IOException e) {
+      getLogger().log(Level.SEVERE, "Something went wrong", e);
+      return 1;
     }
+  }
 }
 ```
 
@@ -438,21 +436,21 @@ Configuration de l'application et démarrage par auto-configuration
 @EnableAutoConfiguration
 @ComponentScan("org.vibioh.spring")
 public class Program implements CommandLineRunner {
-    @Autowired
-    private Process inverse;
-    @Bean
-    public InputStream getInput() { return System.in; }
-    @Bean
-    public OutputStream getOuput() { return System.out; }
+  @Autowired
+  private Process inverse;
+  @Bean
+  public InputStream getInput() { return System.in; }
+  @Bean
+  public OutputStream getOuput() { return System.out; }
 
-    @Override
-    public void run(final String... strings) throws Exception {
-        inverse.execute();
-    }
+  @Override
+  public void run(String... strings) throws Exception {
+    inverse.execute();
+  }
 
-    public static void main(final String[] args) {
-        SpringApplication.run(Program.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(Program.class, args);
+  }
 }
 ```
 
@@ -477,15 +475,15 @@ Implémentation ne respectant pas le DRY
 
 ```java
 public class BadDry {
-    public static void main(final String[] args) {
-        if (args.length > 0 && !"8000".equals(args[0])) {
-            args[0] = "8000";
-        }
-        if (args.length > 1 && !"Emile".equals(args[1])) {
-            args[1] = "Emile";
-        }
-        Logger.getAnonymousLogger().info(Arrays.toString(args));
+  public static void main(String[] args) {
+    if (args.length > 0 && !"8000".equals(args[0])) {
+      args[0] = "8000";
     }
+    if (args.length > 1 && !"Emile".equals(args[1])) {
+      args[1] = "Emile";
+    }
+    Logger.getAnonymousLogger().info(Arrays.toString(args));
+  }
 }
 ```
 
@@ -494,22 +492,22 @@ Extraction des constantes et mutualisation du code
 
 ```java
 public class GoodDry {
-    private static String FIRST_VALUE = "8000";
-    private static String SECOND_VALUE = "Emile";
+  private static String FIRST_VALUE = "8000";
+  private static String SECOND_VALUE = "Emile";
 
-    public static void main(final String[] args) {
-        forceArgValue(FIRST_VALUE, args, 0);
-        forceArgValue(SECOND_VALUE, args, 1);
-        Logger.getAnonymousLogger().info(Arrays.toString(args));
-    }
+  public static void main(String[] args) {
+    forceArgValue(FIRST_VALUE, args, 0);
+    forceArgValue(SECOND_VALUE, args, 1);
+    Logger.getAnonymousLogger().info(Arrays.toString(args));
+  }
 
-    private static void forceArgValue(final String expectedValue,
-                                      final String[] array,
-                                      final int i) {
-        if (array.length > i && !expectedValue.equals(array[i])) {
-            array[i] = expectedValue;
-        }
+  private static void forceArgValue(String expectedValue,
+                                    String[] array,
+                                    int i) {
+    if (array.length > i && !expectedValue.equals(array[i])) {
+      array[i] = expectedValue;
     }
+  }
 }
 ```
 
@@ -518,20 +516,20 @@ Transformation de l'appel répété par une boucle
 
 ```java
 public class BestDry {
-    private static String[] EXPECTED_VALUES = {"8000", "Emile"};
+  private static String[] EXPECTED_VALUES = {"8000", "Emile"};
 
-    public static void main(final String[] args) {
-        forceArgValues(args);
-        Logger.getAnonymousLogger().info(Arrays.toString(args));
-    }
+  public static void main(String[] args) {
+    forceArgValues(args);
+    Logger.getAnonymousLogger().info(Arrays.toString(args));
+  }
 
-    private static void forceArgValues(final String[] array) {
-        for (int i = 0, size = array.length; i < size; ++i) {
-            if (!EXPECTED_VALUES[i].equals(array[i])) {
-                array[i] = EXPECTED_VALUES[i];
-            }
-        }
+  private static void forceArgValues(String[] array) {
+    for (int i = 0, size = array.length; i < size; ++i) {
+      if (!EXPECTED_VALUES[i].equals(array[i])) {
+        array[i] = EXPECTED_VALUES[i];
+      }
     }
+  }
 }
 ```
 
