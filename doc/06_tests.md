@@ -587,11 +587,11 @@ Refactoring possible ?
 Et ainsi de suite.
 
 
-Ecrire un test **rouge**.
+Ecrire un test 🔴.
 
-Corriger pour passer au **vert**.
+Corriger pour passer au ✅.
 
-Refactorer en gardant le **vert**.
+Refactorer en gardant le ✅.
 
 
 ```javascript
