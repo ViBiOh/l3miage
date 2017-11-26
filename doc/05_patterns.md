@@ -299,13 +299,11 @@ Processus de traitement : des méthodes à générer
     this.reader = reader;
     return this;
   }
-
   @Override
   public Process setOperation(Operation<I, Object> operation) {
     this.operation = operation;
     return this;
   }
-
   @Override
   public Process setWriter(Writer<Object> writer) {
     this.writer = writer;
@@ -328,8 +326,7 @@ class Program {
     Operation<Integer, Integer> square = new SquareOperation();
     Writer<Object> squareWriter = new SquareWriter(System.out);
 
-    new ProcessImpl<Integer>()
-          .setReader(reader)
+    new ProcessImpl<Integer>().setReader(reader)
           .setOperation(inverse).setWriter(inverseWriter)
           .execute()
           .setOperation(square).setWriter(squareWriter)
@@ -399,8 +396,10 @@ class InverseWriter implements Writer<Object> {
   private OutputStream out;
 
   public void write(Object value) throws IOException {
-    out.write(("Inverse: " + Optional.ofNullable(value).orElse(""))
-      .getBytes(StandardCharsets.UTF_8));
+    out.write(
+      ("Inverse: " + Optional.ofNullable(value).orElse(""))
+        .getBytes(StandardCharsets.UTF_8)
+    );
   }
 }
 ```
@@ -509,13 +508,11 @@ Extraction des constantes et mutualisation du code
 class GoodDry {
   private static String FIRST_VALUE = "8000";
   private static String SECOND_VALUE = "Emile";
-
   public static void main(String[] args) {
     forceArgValue(FIRST_VALUE, args, 0);
     forceArgValue(SECOND_VALUE, args, 1);
     Logger.getAnonymousLogger().info(Arrays.toString(args));
   }
-
   private static void forceArgValue(String expectedValue,
                                     String[] array, int i) {
     if (array.length > i && !expectedValue.equals(array[i])) {
@@ -531,12 +528,10 @@ Transformation de l'appel répété par une boucle
 ```java
 class BestDry {
   private static String[] EXPECTED_VALUES = {"8000", "Emile"};
-
   public static void main(String[] args) {
     forceArgValues(args);
     Logger.getAnonymousLogger().info(Arrays.toString(args));
   }
-
   private static void forceArgValues(String[] array) {
     for (int i = 0, size = array.length; i < size; ++i) {
       if (!EXPECTED_VALUES[i].equals(array[i])) {
