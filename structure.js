@@ -124,7 +124,7 @@ new Promise((resolve, reject) => {
 
     Promise.all([
       promiseWriteFile(options.mustache, JSON.stringify(mustache, null, 2)),
-      promiseWriteFile(options.sitemap, sitemapStructure(urls))
+      promiseWriteFile(options.sitemap, sitemapStructure(urls.join('\n')))
     ])
       .then(() => resolve("Success"))
       .catch(reject);
