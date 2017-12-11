@@ -53,17 +53,14 @@ Exemple d'un mauvais test
 ```java
 public class BadTest {
   private static int i;
-
   @BeforeClass
   public static void setUp() {
     i = 0;
   }
-
   @Test
   public void test1() { // Que teste-on ici ?
     assertEquals(1, ++i);
   }
-
   @Test
   public void test2() {
     assertEquals(0, --i); // Result depends on test suite
@@ -120,7 +117,9 @@ Aucune dépendance entre les tests :
 * de classes différentes
 
 
-Pouvoir se dire « ce composant (ou cette fonction) est stable et répond à notre besoin, le problème n'est pas là »
+Pouvoir se dire
+
+> « ce composant (ou cette fonction) est stable et répond à notre besoin, le problème n'est pas là »
 
 
 * Tester ce qui a du sens fonctionnel ou technique
@@ -137,12 +136,10 @@ public class IntegerReaderTest {
   public void read_null_exception() throws Exception {
     IntegerReader.read(null);
   }
-
   @Test
   public void read_match_positive() throws Exception {
     assertEquals(Integer.valueOf(123), IntegerReader.read("123"));
   }
-
   @Test
   public void read_matchNegative_negative() throws Exception {
     assertEquals(Integer.valueOf(-123), IntegerReader.read("-123"));
@@ -203,13 +200,11 @@ public class InputStreamStub extends InputStream {
 ```java
 public class IntegerReaderTest {
   private IntegerReader integerReader;
-
   @Test
   public void nextInt_123() {
     integerReader = new IntegerReader(new InputStreamStub(1));
     assertEquals(123, integerReader.readInt());
   }
-
   @Test
   public void nextInt_negative_123() {
     integerReader = new IntegerReader(new InputStreamStub(2));
@@ -246,7 +241,6 @@ Préparation du contexte d'exécution
 public class ProcessImplTest {
   @InjectMocks
   private ProcessImpl<Integer> process;
-
   @Mock
   private Reader<Integer> reader;
   @Mock
@@ -258,9 +252,6 @@ public class ProcessImplTest {
   public void setUp() throws Exception {
     MockitoAnnotations.initMocks(this);
   }
-
-  [...]
-
 }
 ```
 
@@ -269,18 +260,15 @@ Test à proprement parler
 
 ```java
 public class ProcessImplTest {
-
-  [...]
-
   @Test
   public void nextInt_empty() throws IOException {
     when(reader.read()).thenReturn(Optional.empty());
-    when(operation.compute(eq(Optional.empty()))).thenReturn(Optional.empty());
-    doThrow(new IOException()).when(writer).write(eq(Optional.empty()));
+    when(operation.compute(eq(Optional.empty())))
+      .thenReturn(Optional.empty());
+    doThrow(new IOException()).when(writer)
+      .write(eq(Optional.empty()));
 
-    final int result = process.execute();
-
-    assertEquals(1, result);
+    assertEquals(1, process.execute());
   }
 }
 ```
@@ -324,7 +312,7 @@ public class MyService {
   @Autowired
   private DateHelper dateHelper;
 
-  public boolean isBefore(final Date value) throws ParseException {
+  boolean isBefore(final Date value) throws ParseException {
     return new SimpleDateFormat("yyyy/MM/dd")
       .parse(dateHelper.now()).before(value); // Mostly true
   }
@@ -349,8 +337,10 @@ public class BadDAO {
 
   public Collection<String> list() {
     return jdbcTemplate
-      .queryForList("SELECT age FROM Person WHERE name = birthDate", String.class);
       // Seems annoying
+      .queryForList(
+          "SELECT age FROM Person WHERE name = birthDate"
+        , String.class);
   }
 }
 ```
@@ -391,7 +381,7 @@ Vérifier que les règles de gestion de l'application sont respectées
 Vérifier que le rendu final est conforme aux attentes
 
 
-[Cucumber](https://cucumber.io), [Fitnesse](http://www.fitnesse.org), [Robot Framework](http://robotframework.org), etc.
+[Cucumber](https://cucumber.io), [Fitnesse](http://www.fitnesse.org), [Robot Framework](http://robotframework.org), [NightwatchJS](http://nightwatchjs.org), etc.
 
 
 ## Conclusion
