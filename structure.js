@@ -1,39 +1,39 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
-const path = require("path");
-const glob = require("glob");
-const utils = require("js-utils");
+const fs = require('fs');
+const path = require('path');
+const glob = require('glob');
+const utils = require('js-utils');
 
-const UTF_8 = "utf-8";
+const UTF_8 = 'utf-8';
 
-const options = require("yargs")
+const options = require('yargs')
   .reset()
-  .options("docs", {
-    alias: "d",
+  .options('docs', {
+    alias: 'd',
     required: true,
-    type: "String",
-    describe: "Documents paths"
+    type: 'String',
+    describe: 'Documents paths'
   })
-  .options("json", {
-    alias: "j",
+  .options('json', {
+    alias: 'j',
     required: true,
-    type: "String",
-    describe: "mustache.json"
+    type: 'String',
+    describe: 'mustache.json'
   })
-  .options("sitemap", {
-    alias: "s",
+  .options('sitemap', {
+    alias: 's',
     required: true,
-    type: "String",
-    describe: "Sitemap output"
+    type: 'String',
+    describe: 'Sitemap output'
   })
-  .options("mustache", {
-    alias: "m",
+  .options('mustache', {
+    alias: 'm',
     required: true,
-    type: "String",
-    describe: "Mustache output"
+    type: 'String',
+    describe: 'Mustache output'
   })
-  .help("help")
+  .help('help')
   .strict().argv;
 
 const promiseReadFile = utils.asyncifyCallback(fs.readFile);
@@ -110,8 +110,8 @@ new Promise((resolve, reject) => {
     mustache.docs = results[1].map(doc => ({
       name: doc.filename,
       label: /#?(.*?)$/
-        .exec(doc.content.split("\n")[0])[1]
-        .replace(/[*]/gim, "")
+        .exec(doc.content.split('\n')[0])[1]
+        .replace(/[*]/gim, '')
         .trim()
     }));
 
@@ -126,7 +126,7 @@ new Promise((resolve, reject) => {
       promiseWriteFile(options.mustache, JSON.stringify(mustache, null, 2)),
       promiseWriteFile(options.sitemap, sitemapStructure(urls.join('\n')))
     ])
-      .then(() => resolve("Success"))
+      .then(() => resolve('Success'))
       .catch(reject);
   });
 })

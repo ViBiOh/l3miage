@@ -1,16 +1,16 @@
-const toggleButton = document.getElementById("toggleMenu");
-const navElement = document.getElementsByClassName("menu")[0];
-const displayClass = "displayed";
+const toggleButton = document.getElementById('toggleMenu');
+const navElement = document.getElementsByClassName('menu')[0];
+const displayClass = 'displayed';
 
 function toggleNav(forceHide) {
   const navClasses = navElement.classList;
 
   if (!forceHide || navClasses.contains(displayClass)) {
     navClasses.remove(displayClass);
-    toggleButton.innerHTML = "\u2261";
+    toggleButton.innerHTML = '\u2261';
   } else {
     navClasses.add(displayClass);
-    toggleButton.innerHTML = "\u2715";
+    toggleButton.innerHTML = '\u2715';
   }
 }
 
@@ -20,4 +20,4 @@ function handleToggleMenu(event) {
   }
 }
 
-document.addEventListener("touchstart", handleToggleMenu);
+document.addEventListener('touchstart', handleToggleMenu);

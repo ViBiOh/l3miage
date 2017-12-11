@@ -1,9 +1,9 @@
 (function() {
-  var link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.type = "text/css";
-  link.href = "/css/paper.css?v={{version}}";
-  document.getElementsByTagName("head")[0].appendChild(link);
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = '/css/paper.css?v={{version}}';
+  document.getElementsByTagName('head')[0].appendChild(link);
 })();
 
 var config = (function() {
@@ -16,8 +16,8 @@ var config = (function() {
     });
   }
 
-  overrideConfig("pathname", /([^/]+)/gim, "markdown", "introduction");
-  overrideConfig("hash", /([0-9]+)$/gim, "pageNum", 0);
+  overrideConfig('pathname', /([^/]+)/gim, 'markdown', 'introduction');
+  overrideConfig('hash', /([0-9]+)$/gim, 'pageNum', 0);
 
   return override;
 })();
@@ -29,16 +29,16 @@ function removeAllChild(element) {
 }
 
 function loadMarkdown(markdownFilename, pageNum) {
-  var slides = document.getElementsByClassName("slides")[0];
+  var slides = document.getElementsByClassName('slides')[0];
   removeAllChild(slides);
 
-  var section = document.createElement("section");
+  var section = document.createElement('section');
   section.setAttribute(
-    "data-markdown",
-    "/doc/" + markdownFilename + ".md?v={{version}}"
+    'data-markdown',
+    '/doc/' + markdownFilename + '.md?v={{version}}'
   );
-  section.setAttribute("data-separator", "\n\n\n");
-  section.setAttribute("data-charset", "utf-8");
+  section.setAttribute('data-separator', '\n\n\n');
+  section.setAttribute('data-charset', 'utf-8');
 
   slides.appendChild(section);
 
@@ -47,16 +47,16 @@ function loadMarkdown(markdownFilename, pageNum) {
 }
 
 function addMarkdownLinkListener() {
-  document.querySelectorAll("[data-markdown-link]").forEach(function(element) {
-    element.addEventListener("click", function(event) {
+  document.querySelectorAll('[data-markdown-link]').forEach(function(element) {
+    element.addEventListener('click', function(event) {
       event.preventDefault();
 
-      const markdownFilename = event.target.getAttribute("data-markdown-link");
+      const markdownFilename = event.target.getAttribute('data-markdown-link');
       loadMarkdown(markdownFilename, 0);
       window.history.pushState(
         {},
         markdownFilename,
-        "/" + markdownFilename + "/"
+        '/' + markdownFilename + '/'
       );
 
       toggleNav(true);
@@ -64,7 +64,7 @@ function addMarkdownLinkListener() {
   });
 }
 
-Reveal.addEventListener("ready", function() {
+Reveal.addEventListener('ready', function() {
   addMarkdownLinkListener();
   loadMarkdown(config.markdown, config.pageNum);
 });
@@ -74,10 +74,10 @@ Reveal.initialize({
   progress: true,
   history: true,
   center: true,
-  transition: "slide",
+  transition: 'slide',
   dependencies: [
     {
-      src: "/js/marked.js",
+      src: '/js/marked.js',
       callback: function() {
         var renderer = new marked.Renderer();
 
@@ -91,7 +91,7 @@ Reveal.initialize({
           let usedHref = href;
           if (/^[^\\]*\.md$/i.test(href)) {
             usedHref =
-              document.location.origin + "/" + href.replace(/\.md$/i, "");
+              document.location.origin + '/' + href.replace(/\.md$/i, '');
           }
 
           return (
@@ -106,15 +106,15 @@ Reveal.initialize({
         marked.setOptions({ renderer: renderer });
       }
     },
-    { src: "/js/markdown.js" },
+    { src: '/js/markdown.js' },
     {
-      src: "/js/classList.js",
+      src: '/js/classList.js',
       condition: function() {
         return !document.body.classList;
       }
     },
     {
-      src: "/js/highlight.js",
+      src: '/js/highlight.js',
       async: true,
       callback: function() {
         hljs.initHighlightingOnLoad();
