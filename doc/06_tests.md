@@ -179,11 +179,9 @@ public class InputStreamStub extends InputStream {
   private String[] VALUES = { "0", "123", "-123" };
   private int index;
   private int seq;
-
   public InputStreamStub(final int index) {
     this.index = index;
   }
-
   @Override
   public int read() throws IOException {
     if (seq < VALUES[index].length()) {
@@ -307,11 +305,9 @@ public class DateHelper {
     return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
   }
 }
-
 public class MyService {
   @Autowired
   private DateHelper dateHelper;
-
   boolean isBefore(final Date value) throws ParseException {
     return new SimpleDateFormat("yyyy/MM/dd")
       .parse(dateHelper.now()).before(value); // Mostly true
