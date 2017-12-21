@@ -195,3 +195,4 @@ Nous sommes à la fois la matière première de l'ère économique actuelle et a
 * [Speed in software development](https://www.targetprocess.com/articles/speed-in-software-development/)
 * [GOTO 2015 - Space Shuttle](https://www.youtube.com/watch?v=AyrRoKN_kvg)
 * [The future is ours](https://www.youtube.com/watch?v=rDiUVS_-4_Q)
+* [YAGNI Cargo](https://codeahoy.com/2017/08/19/yagni-cargo-cult-and-overengineering-the-planes-wont-land-just-because-you-built-a-runway-in-your-backyard/)
