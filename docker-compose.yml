@@ -7,6 +7,8 @@ services:
     - -spa
     - -csp
     - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'
+    - -headers
+    - X-UA-Compatible:IE=edge,chrome=1~content-language:fr
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: l3miage.fr, www.l3miage.fr'
