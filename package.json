@@ -22,7 +22,7 @@
     "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./tmp/index.html",
     "minify": "npm run minify:html",
     "build": "npm run clean && npm run copy && npm run reveal && npm run js && npm run style && npm run mustache && npm run minify",
-    "start": "viws -directory ${INIT_CWD}/dist -spa -csp \"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'\""
+    "start": "viws -directory ${INIT_CWD}/dist -csp \"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'\""
   },
   "repository": {
     "type": "git",

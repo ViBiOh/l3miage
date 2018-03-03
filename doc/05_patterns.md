@@ -27,7 +27,6 @@ Objectif : faire du code **`SOLID`**
 > Daniel Guillaume
 
 
-
 Afficher l'inverse de l'entier saisi par l'utilisateur
 
 
@@ -336,7 +335,6 @@ class Program {
 ```
 
 
-
 Quels sont les problèmes ?
 
 
@@ -482,7 +480,6 @@ En dehors de vos GIF & *feu Vines*, personne n'aime se répéter
 
 
 Extraire toutes les constantes du code, aussi appelés *magic number*
-
 
 
 Implémentation ne respectant pas le DRY
