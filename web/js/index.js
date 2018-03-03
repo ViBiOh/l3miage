@@ -6,69 +6,6 @@
   document.getElementsByTagName('head')[0].appendChild(link);
 })();
 
-var config = (function() {
-  var override = {};
-
-  function overrideConfig(location, regex, property, defaultValue) {
-    override[property] = defaultValue;
-    window.location[location].replace(regex, function(match, group) {
-      override[property] = group;
-    });
-  }
-
-  overrideConfig('pathname', /([^/]+)/gim, 'markdown', 'introduction');
-  overrideConfig('hash', /([0-9]+)$/gim, 'pageNum', 0);
-
-  return override;
-})();
-
-function removeAllChild(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-}
-
-function loadMarkdown(markdownFilename, pageNum) {
-  var slides = document.getElementsByClassName('slides')[0];
-  removeAllChild(slides);
-
-  var section = document.createElement('section');
-  section.setAttribute(
-    'data-markdown',
-    '/doc/' + markdownFilename + '.md?v={{version}}'
-  );
-  section.setAttribute('data-separator', '\n\n\n');
-  section.setAttribute('data-charset', 'utf-8');
-
-  slides.appendChild(section);
-
-  RevealMarkdown.initialize();
-  Reveal.navigateTo(pageNum);
-}
-
-function addMarkdownLinkListener() {
-  document.querySelectorAll('[data-markdown-link]').forEach(function(element) {
-    element.addEventListener('click', function(event) {
-      event.preventDefault();
-
-      const markdownFilename = event.target.getAttribute('data-markdown-link');
-      loadMarkdown(markdownFilename, 0);
-      window.history.pushState(
-        {},
-        markdownFilename,
-        '/' + markdownFilename + '/'
-      );
-
-      toggleNav(true);
-    });
-  });
-}
-
-Reveal.addEventListener('ready', function() {
-  addMarkdownLinkListener();
-  loadMarkdown(config.markdown, config.pageNum);
-});
-
 Reveal.initialize({
   controls: true,
   progress: true,

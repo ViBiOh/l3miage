@@ -7,15 +7,6 @@
 Master MIAGE Paris Descartes, 2011
 
 
-## Plan du module
-
-* Introduction
-* [*Patterns* de programmation](patterns.md)
-* [Tests](tests.md)
-* [Principes & Méthodes](principles.md)
-* [Outils](tools.md)
-
-
 ## Définition
 
 Qu'est-ce que le génie ?
