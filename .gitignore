@@ -11,3 +11,6 @@ package-lock.json
 
 # Project
 web/mustache.json
+
+# Golang
+vendor/
