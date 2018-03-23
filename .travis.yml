@@ -1,4 +1,4 @@
-matrix:
+jobs:
   include:
   - language: node_js
     sudo: required
