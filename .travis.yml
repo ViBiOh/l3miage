@@ -1,5 +1,7 @@
 jobs:
   include:
+  - stage: Build
+
   - language: node_js
     sudo: required
     services:
@@ -12,10 +14,6 @@ jobs:
       if [ "${TRAVIS_BRANCH}" == "master" ]; then
         docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} && docker push ${DOCKER_USER}/genie-logiciel
       fi
-    deploy:
-      provider: script
-      skip_cleanup: true
-      script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST https://dashboard-api.vibioh.fr/containers/cours/ --data-binary @docker-compose.yml"
 
   - language: go
     go: '1.10'
@@ -28,6 +26,14 @@ jobs:
 
         curl -s -X POST https://goreportcard.com/checks?repo=github.com/ViBiOh/httputils
       fi
+
+  - stage: Deploy
+    script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST https://dashboard-api.vibioh.fr/containers/cours/ --data-binary @docker-compose.yml"
+
+stages:
+  - Build
+  - name: Deploy
+    if: branch = master
 
 notifications:
   email: false
