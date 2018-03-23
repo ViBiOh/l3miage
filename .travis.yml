@@ -2,7 +2,7 @@ jobs:
   include:
   - stage: Build
 
-  - language: node_js
+    language: node_js
     sudo: required
     services:
     - docker
@@ -28,7 +28,11 @@ jobs:
       fi
 
   - stage: Deploy
-    script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST https://dashboard-api.vibioh.fr/containers/cours/ --data-binary @docker-compose.yml"
+    script: skip
+    deploy:
+      provider: script
+      skip_cleanup: true
+      script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST https://dashboard-api.vibioh.fr/containers/cours/ --data-binary @docker-compose.yml"
 
 stages:
   - Build
