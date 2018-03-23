@@ -15,7 +15,9 @@ jobs:
         docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} && docker push ${DOCKER_USER}/genie-logiciel
       fi
 
-  - language: go
+  - stage: Build
+
+    language: go
     go: '1.10'
     after_success: |
       bash <(curl -s https://codecov.io/bash)
@@ -28,6 +30,7 @@ jobs:
       fi
 
   - stage: Deploy
+
     script: skip
     deploy:
       provider: script
