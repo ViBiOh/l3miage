@@ -20,11 +20,12 @@ matrix:
   - language: go
     go: '1.10'
     after_success: |
-      ./bin/algolia -source dist/doc/genie.md -app "${ALGOLIA_APP}" -key "${ALGOLIA_KEY}" -index "${ALGOLIA_INDEX}"
-
       bash <(curl -s https://codecov.io/bash)
 
       if [ "${TRAVIS_BRANCH}" == "master" ]; then
+        ./concat_doc.sh
+        ./bin/algolia -source ./dist/doc/genie.md -app "${ALGOLIA_APP}" -key "${ALGOLIA_KEY}" -index "${ALGOLIA_INDEX}"
+
         curl -s -X POST https://goreportcard.com/checks?repo=github.com/ViBiOh/httputils
       fi
 
