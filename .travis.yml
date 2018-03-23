@@ -1,18 +1,30 @@
-language: node_js
-sudo: required
-services:
-- docker
-node_js: 8
-script: |
-  npm run build &&
-  docker build -t ${DOCKER_USER}/genie-logiciel .
-after_success: |
-  if [ "${TRAVIS_BRANCH}" == "master" ]; then
-    docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} && docker push ${DOCKER_USER}/genie-logiciel
-  fi
+matrix:
+  include:
+  - language: go
+    go: '1.10'
+    after_success: |
+      bash <(curl -s https://codecov.io/bash)
+
+      if [ "${TRAVIS_BRANCH}" == "master" ]; then
+        curl -s -X POST https://goreportcard.com/checks?repo=github.com/ViBiOh/httputils
+      fi
+
+  - language: node_js
+    sudo: required
+    services:
+    - docker
+    node_js: 8
+    script: |
+      npm run build &&
+      docker build -t ${DOCKER_USER}/genie-logiciel .
+    after_success: |
+      if [ "${TRAVIS_BRANCH}" == "master" ]; then
+        docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} && docker push ${DOCKER_USER}/genie-logiciel
+      fi
+    deploy:
+      provider: script
+      skip_cleanup: true
+      script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST https://dashboard-api.vibioh.fr/containers/cours/ --data-binary @docker-compose.yml"
+
 notifications:
   email: false
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST https://dashboard-api.vibioh.fr/containers/cours/ --data-binary @docker-compose.yml"
