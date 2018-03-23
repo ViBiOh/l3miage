@@ -14,3 +14,4 @@ web/mustache.json
 
 # Golang
 vendor/
+coverage.txt

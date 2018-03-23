@@ -5,3 +5,4 @@ tdd/
 
 # Golang
 vendor/
+coverage.txt
