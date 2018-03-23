@@ -1,14 +1,5 @@
 matrix:
   include:
-  - language: go
-    go: '1.10'
-    after_success: |
-      bash <(curl -s https://codecov.io/bash)
-
-      if [ "${TRAVIS_BRANCH}" == "master" ]; then
-        curl -s -X POST https://goreportcard.com/checks?repo=github.com/ViBiOh/httputils
-      fi
-
   - language: node_js
     sudo: required
     services:
@@ -25,6 +16,17 @@ matrix:
       provider: script
       skip_cleanup: true
       script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST https://dashboard-api.vibioh.fr/containers/cours/ --data-binary @docker-compose.yml"
+
+  - language: go
+    go: '1.10'
+    after_success: |
+      ./bin/algolia -source dist/doc/genie.md -app "${ALGOLIA_APP}" -key "${ALGOLIA_KEY}" -index "${ALGOLIA_INDEX}"
+
+      bash <(curl -s https://codecov.io/bash)
+
+      if [ "${TRAVIS_BRANCH}" == "master" ]; then
+        curl -s -X POST https://goreportcard.com/checks?repo=github.com/ViBiOh/httputils
+      fi
 
 notifications:
   email: false
