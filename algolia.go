@@ -128,7 +128,7 @@ func main() {
 	if _, err := index.SetSettings(algoliasearch.Map{
 		`searchableAttributes`: []string{`keywords`, `img`, `content`},
 	}); err != nil {
-		log.Fatalf(`Error while settings index: %v`, err)
+		log.Fatalf(`Error while setting index: %v`, err)
 	}
 
 	output, err := index.AddObjects(objects)
