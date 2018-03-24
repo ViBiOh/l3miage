@@ -12,7 +12,7 @@ jobs:
       docker build -t ${DOCKER_USER}/genie-logiciel .
     after_success: |
       if [ "${TRAVIS_BRANCH}" == "master" ]; then
-        docker login -u ${DOCKER_USER} -p ${DOCKER_PASS} && docker push ${DOCKER_USER}/genie-logiciel
+        echo $(DOCKER_PASS) | docker login -u $(DOCKER_USER) --password-stdin && docker push ${DOCKER_USER}/genie-logiciel
       fi
 
   - stage: Build
