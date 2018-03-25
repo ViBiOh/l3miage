@@ -5,9 +5,11 @@ services:
     image: vibioh/genie-logiciel
     command:
     - -csp
-    - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'
+    - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com
     - -headers
     - X-UA-Compatible:IE=edge,chrome=1~content-language:fr
+    - -env
+    - ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: l3miage.fr, www.l3miage.fr'
@@ -17,6 +19,10 @@ services:
       traefik.frontend.rateLimit.rateSet.first.period: '60s'
       traefik.frontend.rateLimit.rateSet.first.average: '100'
       traefik.frontend.rateLimit.rateSet.first.burst: '200'
+    environment:
+      ALGOLIA_APP: ${ALGOLIA_APP}
+      ALGOLIA_KEY: ${ALGOLIA_KEY}
+      ALGOLIA_INDEX: ${ALGOLIA_INDEX}
     logging:
       driver: json-file
       options:

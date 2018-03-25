@@ -31,11 +31,16 @@ jobs:
 
   - stage: Deploy
 
-    script: skip
+    script: |
+      sed \
+        -e "s|\${ALGOLIA_APP}|${ALGOLIA_APP}|g" \
+        -e "s|\${ALGOLIA_KEY}|${ALGOLIA_KEY}|g" \
+        -e "s|\${ALGOLIA_INDEX}|${ALGOLIA_INDEX}|g" \
+        docker-compose.yml > docker-compose-env.yml
     deploy:
       provider: script
       skip_cleanup: true
-      script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST https://dashboard-api.vibioh.fr/containers/cours/ --data-binary @docker-compose.yml"
+      script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST https://dashboard-api.vibioh.fr/containers/cours/ --data-binary @docker-compose-env.yml"
 
 stages:
   - Build

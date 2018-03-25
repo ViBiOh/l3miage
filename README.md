@@ -23,6 +23,11 @@ docker build -t vibioh/genie-logiciel .
 docker run -d vibioh/genie-logiciel
 ```
 
+```bash
+go get -u github.com/ViBiOh/viws
+npm start
+```
+
 Browse [LocalHost](http://localhost:1080)
 
 ## Java sample

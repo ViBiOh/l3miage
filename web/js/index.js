@@ -1,11 +1,3 @@
-(function() {
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.href = '/css/paper.css?v={{version}}';
-  document.getElementsByTagName('head')[0].appendChild(link);
-})();
-
 Reveal.initialize({
   controls: true,
   progress: true,
