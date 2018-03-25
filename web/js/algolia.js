@@ -36,7 +36,7 @@ function handleInput(index, input, results) {
  */
 function getResultClickHandler(hit) {
   return function() {
-    Reveal.slide(hit.h, hit.v)
+    document.location.href = hit.url;
   }
 }
 
@@ -50,11 +50,57 @@ function searchQuery(index, query, results) {
   index.search({ query, hitsPerPage: 5 }, function(err, output) {
     if (err) {
       console.error(err)
+      showMessage('(╯°□°）╯︵ ┻━┻', 'C\'est cassé !', 'algolia__results--error', results)
       return;
+    }
+
+    if (output.nbHits === 0) {
+      showMessage('¯\\_(ツ)_/¯', 'On a rien trouvé', 'algolia__results--not-found', results)
+      return
     }
 
     showResults(output.hits, results)
   });
+}
+
+/**
+ * Render message in results
+ * @param  {String} header       Header of message
+ * @param  {String} message      Content of message
+ * @param  {String} className    Class of message
+ * @param  {DOMEelement} results Container of results
+ */
+function showMessage(header, message, className, results) {
+  clearNode(results);
+
+  var result = generateResult(header, message)
+  result.className = className;
+
+  results.appendChild(result);
+  addActiveClass(results);
+}
+
+/**
+ * Generate result entry.
+ * @param  {String} header  Header of message
+ * @param  {String} message Content of message
+ * @return {DOMElement}     Result to append
+ */
+function generateResult(header, message) {
+  var content = document.createElement('span');
+  content.innerHTML = message;
+
+  var chapter = document.createElement('strong')
+  chapter.innerHTML = header
+
+  var headline = document.createElement('p')
+  headline.appendChild(chapter)
+
+  var li = document.createElement('li');
+  li.appendChild(headline);
+  li.appendChild(content);
+
+  return li;
 }
 
 /**
@@ -68,22 +114,10 @@ function showResults(hits, results) {
   for (var i = 0; i < hits.length; i++) {
     var hit = hits[i];
 
-    var content = document.createElement('span');
-    content.innerHTML = hit._highlightResult.content.value;
+    var result = generateResult(hit.chapter, hit._highlightResult.content.value)
+    result.addEventListener('click', getResultClickHandler(hit))
 
-    var chapter = document.createElement('strong')
-    chapter.innerHTML = hit.chapter
-
-    var headline = document.createElement('p')
-    headline.appendChild(chapter)
-
-    var li = document.createElement('li');
-    li.appendChild(headline);
-    li.appendChild(content);
-
-    li.addEventListener('click', getResultClickHandler(hit))
-
-    results.appendChild(li);
+    results.appendChild(result);
   }
 
   addActiveClass(results);
