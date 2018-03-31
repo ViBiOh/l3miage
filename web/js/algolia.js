@@ -132,7 +132,16 @@ function clearNode(element) {
     element.removeChild(element.lastChild);
   }
 
-  element.className = element.className.replace(' active', '');
+  element.classList.remove('active');
+}
+
+/**
+ * Clear input and release focus
+ * @param  {DOMElement} input Input text of query
+ */
+function clearInput(input) {
+  input.querySelector('input').value = '';
+  document.activeElement.blur();
 }
 
 /**
@@ -140,7 +149,47 @@ function clearNode(element) {
  * @param {DOMElement} element Element to active
  */
 function addActiveClass(element) {
-  element.className += ' active';
+  element.classList.add('active');
+}
+
+/**
+ * Navigate to results in given direction
+ * @param  {int} direction Direction 1, or -1 for reverse
+ */
+function navigateResults(direction) {
+  var selectedClass = 'selected';
+
+  var results = document.querySelectorAll('.algolia__results li');
+  for (var i = 0; i < results.length; i++) {
+    if (results[i].classList.contains(selectedClass)) {
+      var next = i + direction;
+      if (next >= 0 && next < results.length) {
+        results[i].classList.remove(selectedClass);
+        results[next].classList.add(selectedClass);
+      }
+
+      return
+    }
+  }
+
+  document.querySelector('.algolia__results li').classList.add(selectedClass);
+}
+
+/**
+ * Handle key in search bar.
+ * @param  {Event} e KeyboardEvent
+ */
+function handleResultKey(e) {
+  if (e.keyCode === 40) {
+    navigateResults(1);
+  } else if (e.keyCode === 38) {
+    navigateResults(-1);
+  } else if (e.keyCode === 13) {
+    var selected = document.querySelector('.algolia__results li.selected');
+    if (selected) {
+      selected.click();
+    }
+  }
 }
 
 fetch('/env')
@@ -156,7 +205,9 @@ fetch('/env')
 
     addActiveClass(searchBar);
 
+    searchBar.addEventListener('keyup', handleResultKey);
     Reveal.addEventListener('slidechanged', function() {
+      clearInput(searchBar)
       clearNode(results)
     });
   })

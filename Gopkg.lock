@@ -4,18 +4,18 @@
 [[projects]]
   branch = "master"
   name = "github.com/ViBiOh/httputils"
-  packages = ["tools"]
-  revision = "078cc8fe3aad887e848f52eeaeaae2bc44ef28cb"
+  packages = ["pkg/tools"]
+  revision = "fe606d9cdfe10039ae176d5ef70cc5c7015bb0a3"
 
 [[projects]]
   name = "github.com/algolia/algoliasearch-client-go"
   packages = ["algoliasearch"]
-  revision = "d861d05bc355caa2733913e3948a7b87e60a9ee9"
-  version = "2.21.3"
+  revision = "d4f058969a6b237f3966ee269f9397ffea967029"
+  version = "2.22.0"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "226305cfd5adf8b7b6d72da9e1dc12c4b688c54529f897ff148e976cdeb023ce"
+  inputs-digest = "7f81e7233dded140bebcded57a8eabe207cb324748aec5b5dedb5eb4028c4454"
   solver-name = "gps-cdcl"
   solver-version = 1

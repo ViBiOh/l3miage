@@ -56,8 +56,6 @@ nav {
 }
 
 .algolia__results {
-  background-color: white;
-  border-radius: 5px;
   display: none;
   list-style: none;
   margin: 0;
@@ -78,6 +76,18 @@ nav {
 }
 
 .algolia__results li {
+  background-color: white;
+}
+
+.algolia__results li:first-of-type {
+  border-radius: 5px 5px 0 0;
+}
+
+.algolia__results li:last-of-type {
+  border-radius: 0 0 5px 5px;
+}
+
+.algolia__results li {
   cursor: pointer;
   min-height: 1.5rem;
   padding: 0.5rem;
@@ -88,8 +98,11 @@ nav {
   background-color: yellowgreen;
 }
 
-.algolia__results li:hover {
+.algolia__results li:focus,
+.algolia__results li:hover,
+.algolia__results li.selected {
   background-color: whitesmoke;
+  outline: none;
 }
 
 .active {
