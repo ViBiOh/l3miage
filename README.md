@@ -24,7 +24,7 @@ docker run -d vibioh/genie-logiciel
 ```
 
 ```bash
-go get -u github.com/ViBiOh/viws
+go get -u github.com/ViBiOh/viws/cmd
 npm start
 ```
 
