@@ -28,3 +28,5 @@ bench:
 
 build:
 	CGO_ENABLED=0 go build -ldflags="-s -w" -installsuffix nocgo -o bin/algolia cmd/algolia.go
+
+.PHONY: go dev deps format lint tst bench build
