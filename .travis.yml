@@ -6,7 +6,7 @@ jobs:
     sudo: required
     services:
     - docker
-    node_js: 8
+    node_js: 10
     script: |
       npm run build &&
       docker build -t ${DOCKER_USER}/genie-logiciel .
