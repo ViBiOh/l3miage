@@ -10,8 +10,6 @@ services:
     - X-UA-Compatible:ie=edge~content-language:fr
     - -env
     - ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX
-    - -datadogService
-    - l3miage
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: l3miage.fr, www.l3miage.fr'
@@ -21,8 +19,6 @@ services:
       traefik.frontend.rateLimit.rateSet.first.period: '60s'
       traefik.frontend.rateLimit.rateSet.first.average: '100'
       traefik.frontend.rateLimit.rateSet.first.burst: '200'
-    external_links:
-    - monitoring_agent:dd-agent
     environment:
       ALGOLIA_APP: ${ALGOLIA_APP}
       ALGOLIA_KEY: ${ALGOLIA_KEY}
