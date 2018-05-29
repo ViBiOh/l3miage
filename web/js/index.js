@@ -17,18 +17,12 @@ Reveal.initialize({
         };
 
         renderer.link = function(href, title, text) {
-          let usedHref = href;
-          if (/^[^\\]*\.md$/i.test(href)) {
-            usedHref =
-              document.location.origin + '/' + href.replace(/\.md$/i, '');
-          }
-
           return (
             '<a href="' +
-            usedHref +
+            href +
             '" target="_blank" rel="noopener noreferrer">' +
             text +
-            "</a>"
+            '</a>'
           );
         };
 
