@@ -10,6 +10,8 @@ services:
     - X-UA-Compatible:ie=edge~content-language:fr
     - -env
     - ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX
+    - -tracingName
+    - cours
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: l3miage.fr, www.l3miage.fr'
