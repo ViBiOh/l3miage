@@ -58,7 +58,7 @@ func Flags(prefix string) map[string]*string {
 }
 
 // GetSearchObjects transform input reveal file to algolia object
-func (a *App) GetSearchObjects() ([]algoliasearch.Object, error) {
+func (a App) GetSearchObjects() ([]algoliasearch.Object, error) {
 	content, err := ioutil.ReadFile(a.source)
 	if err != nil {
 		return nil, fmt.Errorf(`Error while reading file: %v`, err)
