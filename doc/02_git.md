@@ -114,7 +114,7 @@ Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
 
 # Références
 
-* [Un petit guide illustré](http://rogerdudler.github.io/git-guide/index.fr.html)
+* [Un guide interactif et visuel](http://onlywei.github.io/explain-git-with-d3/#commit)
 * [La documentation officielle](http://git-scm.com/book/fr/v1)
 * [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/)
 * [Configuration](https://delicious-insights.com/fr/articles/configuration-git/)
