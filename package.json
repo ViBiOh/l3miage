@@ -17,7 +17,7 @@
     "reveal:js": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output ./dist/js/markdown.js && ./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/markdown/marked.js --compress --mangle --output ./dist/js/marked.js && ./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/highlight/highlight.js --compress --mangle --output ./dist/js/highlight.js && ./node_modules/.bin/uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output ./dist/js/reveal.js",
     "reveal": "npm run reveal:copy && npm run reveal:css && npm run reveal:js",
     "js": "cat ./web/js/*.js | ./node_modules/.bin/uglifyjs -c > ./tmp/index.js",
-    "style": "./node_modules/.bin/lessc ./web/css/style.less | ./node_modules/.bin/cleancss -O2 -o ./tmp/style.css",
+    "style": "cat ./web/css/style.css | ./node_modules/.bin/cleancss -O2 -o ./tmp/style.css",
     "mustache": "./node_modules/js-index-builder/index.js -t \"web/*.html\" -b `git log --pretty=format:'%h' -n 1` -p \"web/partials/*.html\" -j ./tmp/index.js -c ./tmp/style.css -o ./tmp",
     "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./tmp/index.html",
     "minify": "npm run minify:html",
@@ -50,7 +50,6 @@
     "html-minifier": "latest",
     "js-index-builder": "ViBiOh/js-index-builder",
     "js-utils": "ViBiOh/js-utils",
-    "less": "latest",
     "uglify-es": "latest",
     "yargs": "latest"
   }
