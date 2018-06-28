@@ -65,6 +65,9 @@ Phrases courtes permettant de définir une fonctionnalité, un besoin, un bug, e
 Attention à correctement les organiser pour que cela reste maintenable et lisible.
 
 
+> La carte n'est pas le territoire.
+
+
 ## Cahier des charges
 
 
