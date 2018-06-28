@@ -160,19 +160,24 @@ function navigateResults(direction) {
   var selectedClass = 'selected';
 
   var results = document.querySelectorAll('.algolia__results li');
-  for (var i = 0; i < results.length; i++) {
-    if (results[i].classList.contains(selectedClass)) {
-      var next = i + direction;
-      if (next >= 0 && next < results.length) {
-        results[i].classList.remove(selectedClass);
-        results[next].classList.add(selectedClass);
-      }
+  if (results) {
+    for (var i = 0; i < results.length; i++) {
+      if (results[i].classList.contains(selectedClass)) {
+        var next = i + direction;
+        if (next >= 0 && next < results.length) {
+          results[i].classList.remove(selectedClass);
+          results[next].classList.add(selectedClass);
+        }
 
-      return
+        return
+      }
     }
   }
 
-  document.querySelector('.algolia__results li').classList.add(selectedClass);
+  var result = document.querySelector('.algolia__results li');
+  if (result) {
+    result.classList.add(selectedClass);
+  }
 }
 
 /**

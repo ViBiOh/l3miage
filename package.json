@@ -22,7 +22,7 @@
     "minify:html": "./node_modules/.bin/html-minifier -o ./dist/index.html -c ./html-minifier.json ./tmp/index.html",
     "minify": "npm run minify:html",
     "build": "npm run clean && npm run copy && npm run reveal && npm run js && npm run style && npm run mustache && npm run minify",
-    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=SECRET ALGOLIA_INDEX=l3miage viws -tls=false -directory ${INIT_CWD}/dist -csp \"default-src 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX"
+    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage viws -tls=false -directory ${INIT_CWD}/dist -csp \"default-src 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX"
   },
   "repository": {
     "type": "git",
