@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/ViBiOh/genie-logiciel#readme",
   "dependencies": {
-    "reveal.js": "git+https://github.com/hakimel/reveal.js.git"
+    "reveal.js": "latest"
   },
   "devDependencies": {
     "clean-css-cli": "latest",
