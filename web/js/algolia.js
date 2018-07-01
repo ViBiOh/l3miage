@@ -202,19 +202,21 @@ fetch('/env')
     return response.json();
   })
   .then(function(config) {
-    var index = getIndex(config.ALGOLIA_APP, config.ALGOLIA_KEY, config.ALGOLIA_INDEX);
-    var searchBar = document.getElementById('search');
-    var results = document.getElementById('results');
+    if (config.ALGOLIA_APP && config.ALGOLIA_KEY && config.ALGOLIA_INDEX) {
+      var index = getIndex(config.ALGOLIA_APP, config.ALGOLIA_KEY, config.ALGOLIA_INDEX);
+      var searchBar = document.getElementById('search');
+      var results = document.getElementById('results');
 
-    handleInput(index, searchBar, results);
+      handleInput(index, searchBar, results);
 
-    addActiveClass(searchBar);
+      addActiveClass(searchBar);
 
-    searchBar.addEventListener('keyup', handleResultKey);
-    Reveal.addEventListener('slidechanged', function() {
-      clearInput(searchBar)
-      clearNode(results)
-    });
+      searchBar.addEventListener('keyup', handleResultKey);
+      Reveal.addEventListener('slidechanged', function() {
+        clearInput(searchBar)
+        clearNode(results)
+      });
+    }
   })
   .catch(function(e) {
     console.error(e)
