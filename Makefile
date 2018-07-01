@@ -1,8 +1,8 @@
-default: go
+default: dev
 
-go: deps dev
+dev: deps go
 
-dev: format lint tst bench build
+go: format lint tst bench build
 
 deps:
 	go get -u github.com/golang/dep/cmd/dep

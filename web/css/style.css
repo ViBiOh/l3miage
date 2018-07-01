@@ -20,6 +20,7 @@ body {
 
 .algolia {
   display: none;
+  font-family: "Open Sans", sans-serif;
   position: fixed;
   right: 0.5rem;
   top: 0.5rem;

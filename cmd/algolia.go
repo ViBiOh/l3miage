@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"path"
 	"regexp"
 
 	"github.com/ViBiOh/httputils/pkg/tools"
@@ -58,7 +59,7 @@ func Flags(prefix string) map[string]*string {
 }
 
 // GetSearchObjects transform input reveal file to algolia object
-func (a App) GetSearchObjects() ([]algoliasearch.Object, error) {
+func (a App) GetSearchObjects(name string) ([]algoliasearch.Object, error) {
 	content, err := ioutil.ReadFile(a.source)
 	if err != nil {
 		return nil, fmt.Errorf(`Error while reading file: %v`, err)
@@ -89,7 +90,7 @@ func (a App) GetSearchObjects() ([]algoliasearch.Object, error) {
 			}
 
 			objects = append(objects, algoliasearch.Object{
-				`url`:      fmt.Sprintf(`/#/%d/%d`, chapterNum, slideNum),
+				`url`:      path.Join(`/`, name, fmt.Sprintf(`/#/%d/%d`, chapterNum, slideNum)),
 				`h`:        chapterNum,
 				`v`:        slideNum,
 				`content`:  slide,
@@ -105,11 +106,12 @@ func (a App) GetSearchObjects() ([]algoliasearch.Object, error) {
 
 func main() {
 	algoliaConfig := Flags(``)
+	name := flag.String(`name`, ``, `Name prepended`)
 	flag.Parse()
 
 	algoliaApp := NewApp(algoliaConfig)
 
-	objects, err := algoliaApp.GetSearchObjects()
+	objects, err := algoliaApp.GetSearchObjects(*name)
 	if err != nil {
 		log.Fatalf(`Error while splitting source :%v`, err)
 	}
