@@ -13,7 +13,7 @@
     "copy:doc": "npm run copy:md && npm run copy:img",
     "copy": "npm run copy:robots && npm run copy:google && npm run copy:doc && npm run copy:favicon",
     "reveal:copy": "cp ./node_modules/reveal.js/lib/js/*.js ./dist/js",
-    "reveal:css": "cat ./node_modules/reveal.js/css/reveal.css | ./node_modules/.bin/cleancss -O2 -o ./dist/css/reveal.css && cat ./node_modules/reveal.js/css/theme/night.css | ./node_modules/.bin/cleancss -O2 -o ./dist/css/night.css && cat ./node_modules/reveal.js/lib/css/zenburn.css | ./node_modules/.bin/cleancss -O2 -o ./dist/css/zenburn.css && cat ./node_modules/reveal.js/css/print/paper.css | ./node_modules/.bin/cleancss -O2 -o ./dist/css/paper.css",
+    "reveal:css": "cat ./node_modules/reveal.js/css/reveal.css | ./node_modules/.bin/cleancss -O2 -o ./dist/css/reveal.css && cat ./node_modules/reveal.js/css/theme/night.css | grep -v -E \"^@import\" | grep -v -E \"font-family:.*?sans-serif\" | ./node_modules/.bin/cleancss -O2 -o ./dist/css/night.css && cat ./node_modules/reveal.js/lib/css/zenburn.css | ./node_modules/.bin/cleancss -O2 -o ./dist/css/zenburn.css && cat ./node_modules/reveal.js/css/print/paper.css | ./node_modules/.bin/cleancss -O2 -o ./dist/css/paper.css",
     "reveal:js": "./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output ./dist/js/markdown.js && ./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/markdown/marked.js --compress --mangle --output ./dist/js/marked.js && ./node_modules/.bin/uglifyjs ./node_modules/reveal.js/plugin/highlight/highlight.js --compress --mangle --output ./dist/js/highlight.js && ./node_modules/.bin/uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output ./dist/js/reveal.js",
     "reveal": "npm run reveal:copy && npm run reveal:css && npm run reveal:js",
     "js": "cat ./web/js/*.js | ./node_modules/.bin/uglifyjs -c > ./tmp/index.js",
@@ -23,7 +23,7 @@
     "minify": "npm run minify:html",
     "build": "npm run clean && npm run copy && npm run reveal && npm run js && npm run style && npm run mustache && npm run minify",
     "prestart": "go get github.com/ViBiOh/viws/cmd/viws",
-    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage viws -tls=false -directory ${INIT_CWD}/dist -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; connect-src 'self' *.algolia.net *.algolianet.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX"
+    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage viws -tls=false -directory ${INIT_CWD}/dist -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX"
   },
   "repository": {
     "type": "git",
