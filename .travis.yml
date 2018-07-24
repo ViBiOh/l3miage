@@ -37,11 +37,13 @@ jobs:
         -e "s|\${ALGOLIA_APP}|${ALGOLIA_APP}|g" \
         -e "s|\${ALGOLIA_KEY}|${ALGOLIA_READ_ONLY_KEY}|g" \
         -e "s|\${ALGOLIA_INDEX}|${ALGOLIA_INDEX}|g" \
+        -e "s|\${ROLLBAR_TOKEN}|${ROLLBAR_TOKEN}|g" \
+        -e "s|\${ROLLBAR_CLIENT_TOKEN}|${ROLLBAR_CLIENT_TOKEN}|g" \
         docker-compose.yml > docker-compose-env.yml
     deploy:
       provider: script
       skip_cleanup: true
-      script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST https://dashboard-api.vibioh.fr/deploy/cours/ --data-binary @docker-compose-env.yml"
+      script: "curl -H 'Authorization: GitHub ${GITHUB_OAUTH_TOKEN}' -X POST \"https://dashboard-api.vibioh.fr/deploy/cours/?rollbar_token=${ROLLBAR_TOKEN}&environment=prod&revision=`make version`&user=`make author | sed 's| |+|g'`\" --data-binary @docker-compose-env.yml"
 
 stages:
   - Build

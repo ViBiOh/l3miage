@@ -1,8 +1,17 @@
+VERSION ?= $(shell git log --pretty=format:'%h' -n 1)
+AUTHOR ?= $(shell git log --pretty=format:'%an' -n 1)
+
 default: dev
 
 dev: deps go
 
 go: format lint tst bench build
+
+version:
+	@echo -n $(VERSION)
+
+author:
+	@echo -n $(AUTHOR)
 
 deps:
 	go get -u github.com/golang/dep/cmd/dep
@@ -29,4 +38,4 @@ bench:
 build:
 	CGO_ENABLED=0 go build -ldflags="-s -w" -installsuffix nocgo -o bin/algolia cmd/algolia.go
 
-.PHONY: go dev deps format lint tst bench build
+.PHONY: dev go version author deps format lint tst bench build

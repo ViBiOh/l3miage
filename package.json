@@ -23,7 +23,7 @@
     "minify": "npm run minify:html",
     "build": "npm run clean && npm run copy && npm run reveal && npm run js && npm run style && npm run mustache && npm run minify",
     "prestart": "go get github.com/ViBiOh/viws/cmd/viws",
-    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage viws -tls=false -directory ${INIT_CWD}/dist -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX"
+    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage ROLLBAR_TOKEN=${ROLLBAR_TOKEN} ENVIRONMENT=dev viws -tls=false -directory ${INIT_CWD}/dist -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/ cdnjs.cloudflare.com/ajax/libs/rollbar.js/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com api.rollbar.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX,ROLLBAR_TOKEN,ENVIRONMENT"
   },
   "repository": {
     "type": "git",
