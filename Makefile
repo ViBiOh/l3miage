@@ -11,7 +11,7 @@ version:
 	@echo -n $(VERSION)
 
 author:
-	@perl -MURI::Escape -e 'print uri_escape($$ARGV[0]);' "$(AUTHOR)"
+	@python -c 'import sys; import urllib; print urllib.quote_plus(sys.argv[1])' "$(AUTHOR)"
 
 deps:
 	go get -u github.com/golang/dep/cmd/dep
