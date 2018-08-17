@@ -10,10 +10,10 @@ jobs:
     install: npm install --ignore-scripts
     script: |
       npm run build &&
-      docker build -t ${DOCKER_USER}/genie-logiciel .
+      docker build -t vibioh/genie-logiciel .
     after_success: |
       if [ "${TRAVIS_BRANCH}" == "master" ]; then
-        echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin && docker push ${DOCKER_USER}/genie-logiciel
+        echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && docker push vibioh/genie-logiciel
       fi
 
   - stage: Build
