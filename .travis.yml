@@ -2,19 +2,13 @@ jobs:
   include:
   - stage: Build
 
-    language: node_js
     sudo: required
     services:
     - docker
-    node_js: 10
-    install: npm install --ignore-scripts
-    script: |
-      npm run build &&
-      docker build -t vibioh/genie-logiciel .
+    script: docker build -t vibioh/genie-logiciel:${TRAVIS_COMMIT} .
     after_success: |
-      if [ "${TRAVIS_BRANCH}" == "master" ]; then
-        echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && docker push vibioh/genie-logiciel
-      fi
+      echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && \
+      docker push vibioh/genie-logiciel:${TRAVIS_COMMIT}
 
   - stage: Build
 
@@ -29,6 +23,17 @@ jobs:
 
         curl -s -X POST https://goreportcard.com/checks?repo=github.com/ViBiOh/httputils
       fi
+
+  - stage: Publish
+
+    sudo: required
+    services:
+    - docker
+    script: |
+      echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin
+      docker pull vibioh/genie-logiciel:${TRAVIS_COMMIT}
+      docker tag vibioh/genie-logiciel:${TRAVIS_COMMIT} vibioh/genie-logiciel:latest
+      docker push vibioh/genie-logiciel:latest
 
   - stage: Deploy
 
@@ -47,6 +52,8 @@ jobs:
 
 stages:
   - Build
+  - name: Publish
+    if: branch = master
   - name: Deploy
     if: branch = master
 
