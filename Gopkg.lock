@@ -3,19 +3,26 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:3766c3cdb69344b1f2a15e1a11c17d663180aef112dae66c1ff50547caba44b6"
   name = "github.com/ViBiOh/httputils"
   packages = ["pkg/tools"]
+  pruneopts = "UT"
   revision = "fe606d9cdfe10039ae176d5ef70cc5c7015bb0a3"
 
 [[projects]]
+  digest = "1:3a201fa48e67377006fd9b32d888eb035c3b8c4fa629cc02c7b89b20bde46ca4"
   name = "github.com/algolia/algoliasearch-client-go"
   packages = ["algoliasearch"]
+  pruneopts = "UT"
   revision = "d4f058969a6b237f3966ee269f9397ffea967029"
   version = "2.22.0"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7f81e7233dded140bebcded57a8eabe207cb324748aec5b5dedb5eb4028c4454"
+  input-imports = [
+    "github.com/ViBiOh/httputils/pkg/tools",
+    "github.com/algolia/algoliasearch-client-go/algoliasearch",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
