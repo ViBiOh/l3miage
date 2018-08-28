@@ -5,7 +5,7 @@ services:
     image: vibioh/genie-logiciel
     command:
     - -csp
-    - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/ cdnjs.cloudflare.com/ajax/libs/rollbar.js/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com api.rollbar.com
+    - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' fathom.vibioh.fr cdn.jsdelivr.net/algoliasearch/3/ cdnjs.cloudflare.com/ajax/libs/rollbar.js/; style-src 'self' 'unsafe-inline'; img-src 'self' fathom.vibioh.fr; connect-src 'self' *.algolia.net *.algolianet.com api.rollbar.com
     - -headers
     - X-UA-Compatible:ie=edge~content-language:fr
     - -env
