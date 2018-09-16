@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Kata",
   "scripts": {
-    "eslint": "./node_modules/.bin/eslint --fix src/",
+    "eslint": "eslint --fix src/",
     "pretest": "npm run eslint",
-    "test": "./node_modules/.bin/nyc --reporter html --reporter text --reporter lcov ./node_modules/.bin/ava",
-    "coverage": "./node_modules/.bin/codecov -f ./coverage/lcov.info"
+    "test": "nyc --reporter html --reporter text --reporter lcov ava",
+    "coverage": "codecov -f ./coverage/lcov.info"
   },
   "keywords": [
     "kata"
