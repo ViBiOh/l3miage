@@ -15,7 +15,7 @@ import (
 
 var (
 	// ErrIndexNotFound occurs when index is not found in List
-	ErrIndexNotFound = errors.New(`Index not found`)
+	ErrIndexNotFound = errors.New(`index not found`)
 
 	chapterTitleRegex = regexp.MustCompile(`#\s+(.*)`)
 	imgRegex          = regexp.MustCompile(`\[\]\((.*)\)`)
@@ -62,7 +62,7 @@ func Flags(prefix string) map[string]*string {
 func (a App) GetSearchObjects(name string) ([]algoliasearch.Object, error) {
 	content, err := ioutil.ReadFile(a.source)
 	if err != nil {
-		return nil, fmt.Errorf(`Error while reading file: %v`, err)
+		return nil, fmt.Errorf(`error while reading file: %v`, err)
 	}
 
 	objects := make([]algoliasearch.Object, 0)
