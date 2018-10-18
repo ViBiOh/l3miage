@@ -10,6 +10,6 @@ RUN npm ci \
  && mkdir -p /app \
  && cp -r dist/ /app/
 
-FROM vibioh/viws
+FROM vibioh/viws:light
 
 COPY --from=builder /app/dist/ /www/

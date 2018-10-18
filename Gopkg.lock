@@ -3,11 +3,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:28f1b4d6d61e3b6d1059841d8ae4dfcd594bcd7a5dd2e5d89d04dc1139cfd206"
+  digest = "1:98ce1624eab24b1049c9876d221ffafda9e065dc29413ef01b0db021374b3976"
   name = "github.com/ViBiOh/httputils"
-  packages = ["pkg/tools"]
+  packages = [
+    "pkg/logger",
+    "pkg/tools",
+  ]
   pruneopts = "UT"
-  revision = "b6d3cd35d8be695407c488c7142e582a1e626ebc"
+  revision = "349c1decfa782a83b808365e28be8f40f804c7e7"
 
 [[projects]]
   digest = "1:838c693b8a6ddcccf45e7c25db5998916cecc3ff4bdb81c4eaaf5a0d57b83025"
@@ -24,6 +27,7 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/ViBiOh/httputils/pkg/logger",
     "github.com/ViBiOh/httputils/pkg/tools",
     "github.com/algolia/algoliasearch-client-go/algoliasearch",
   ]

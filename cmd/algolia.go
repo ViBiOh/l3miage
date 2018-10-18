@@ -5,10 +5,10 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"path"
 	"regexp"
 
+	"github.com/ViBiOh/httputils/pkg/logger"
 	"github.com/ViBiOh/httputils/pkg/tools"
 	"github.com/algolia/algoliasearch-client-go/algoliasearch"
 )
@@ -113,16 +113,16 @@ func main() {
 
 	objects, err := algoliaApp.GetSearchObjects(*name)
 	if err != nil {
-		log.Fatalf(`Error while splitting source :%v`, err)
+		logger.Fatal(`error while splitting source :%v`, err)
 	}
 
 	if len(objects) == 0 {
-		log.Fatal(`No search object`)
+		logger.Fatal(`no search object`)
 	}
-	log.Printf(`%d objects found`, len(objects))
+	logger.Fatal(`%d objects found`, len(objects))
 
 	if _, err := algoliaApp.client.DeleteIndex(algoliaApp.indexName); err != nil {
-		log.Fatalf(`Error while deleting index: %v`, err)
+		logger.Fatal(`Error while deleting index: %v`, err)
 	}
 
 	index := algoliaApp.client.InitIndex(algoliaApp.indexName)
@@ -130,12 +130,12 @@ func main() {
 	if _, err := index.SetSettings(algoliasearch.Map{
 		`searchableAttributes`: []string{`keywords`, `img`, `content`},
 	}); err != nil {
-		log.Fatalf(`Error while setting index: %v`, err)
+		logger.Fatal(`error while setting index: %v`, err)
 	}
 
 	output, err := index.AddObjects(objects)
 	if err != nil {
-		log.Fatalf(`Error while adding objects to index: %v`, err)
+		logger.Fatal(`error while adding objects to index: %v`, err)
 	}
-	log.Printf(`%d objects added to %s index`, len(output.ObjectIDs), algoliaApp.indexName)
+	logger.Info(`%d objects added to %s index`, len(output.ObjectIDs), algoliaApp.indexName)
 }
