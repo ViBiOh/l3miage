@@ -1,13 +1,14 @@
 package main
 
 import (
-	"errors"
+	native_errors "errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
 	"path"
 	"regexp"
 
+	"github.com/ViBiOh/httputils/pkg/errors"
 	"github.com/ViBiOh/httputils/pkg/logger"
 	"github.com/ViBiOh/httputils/pkg/tools"
 	"github.com/algolia/algoliasearch-client-go/algoliasearch"
@@ -15,7 +16,7 @@ import (
 
 var (
 	// ErrIndexNotFound occurs when index is not found in List
-	ErrIndexNotFound = errors.New(`index not found`)
+	ErrIndexNotFound = native_errors.New(`index not found`)
 
 	chapterTitleRegex = regexp.MustCompile(`#\s+(.*)`)
 	imgRegex          = regexp.MustCompile(`\[\]\((.*)\)`)
@@ -62,7 +63,7 @@ func Flags(prefix string) map[string]*string {
 func (a App) GetSearchObjects(name string) ([]algoliasearch.Object, error) {
 	content, err := ioutil.ReadFile(a.source)
 	if err != nil {
-		return nil, fmt.Errorf(`error while reading file: %v`, err)
+		return nil, errors.WithStack(err)
 	}
 
 	objects := make([]algoliasearch.Object, 0)
@@ -113,7 +114,7 @@ func main() {
 
 	objects, err := algoliaApp.GetSearchObjects(*name)
 	if err != nil {
-		logger.Fatal(`error while splitting source :%v`, err)
+		logger.Fatal(`%+v`, err)
 	}
 
 	if len(objects) == 0 {
@@ -122,7 +123,7 @@ func main() {
 	logger.Fatal(`%d objects found`, len(objects))
 
 	if _, err := algoliaApp.client.DeleteIndex(algoliaApp.indexName); err != nil {
-		logger.Fatal(`Error while deleting index: %v`, err)
+		logger.Fatal(`%+v`, errors.WithStack(err))
 	}
 
 	index := algoliaApp.client.InitIndex(algoliaApp.indexName)
@@ -130,12 +131,12 @@ func main() {
 	if _, err := index.SetSettings(algoliasearch.Map{
 		`searchableAttributes`: []string{`keywords`, `img`, `content`},
 	}); err != nil {
-		logger.Fatal(`error while setting index: %v`, err)
+		logger.Fatal(`%+v`, errors.WithStack(err))
 	}
 
 	output, err := index.AddObjects(objects)
 	if err != nil {
-		logger.Fatal(`error while adding objects to index: %v`, err)
+		logger.Fatal(`%+v`, errors.WithStack(err))
 	}
 	logger.Info(`%d objects added to %s index`, len(output.ObjectIDs), algoliaApp.indexName)
 }
