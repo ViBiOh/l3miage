@@ -1,10 +1,10 @@
 # Génie logiciel
 
-[Vincent Boutour](https://vibioh.fr) - [@ViBiOh](https://twitter.com/ViBiOh)
+[Vincent Boutour](https://vibioh.fr) - [@ViBiOh](https://github.com/ViBiOh)
 
-*Front-end developer* chez [MeilleursAgents](http://www.meilleursagents.com)
+*Front-end developer & lead-dev* chez [MeilleursAgents](http://www.meilleursagents.com)
 
-Master MIAGE Paris Descartes, 2011
+Master MIAGE Paris Descartes, 2011 👴
 
 
 ## Définition
@@ -29,10 +29,16 @@ Qu'est-ce que le génie ?
 > Larousse
 
 
-## Objectifs
+## Objectifs du module
 
 
-### Comprendre le besoin
+* Le besoin
+* La solution
+* Le processus
+* L'écoute
+
+
+### Formaliser un besoin
 
 > Pas d'intérêt, pas d'action - locus standi
 
@@ -46,14 +52,14 @@ Maîtriser les enjeux, les problématiques :
 * sécurité
 
 
-### Solutionner
+### Trouver et implémenter la solution
 
 > « S'il n'y a pas de solution, il n'y a pas de problème. »
 
 > Les Shadoks
 
 
-Ecouter, comprendre et s'approprier le besoin.
+Écouter, comprendre et s'approprier le besoin.
 
 
 Traduire le besoin en solution (i.e. ingénierie)
@@ -81,7 +87,7 @@ Traduire le besoin en solution (i.e. ingénierie)
 ### Travailler avec efficience
 
 
-Maîtriser le processus de développement.
+Maîtriser votre processus de développement.
 
 
 * Découper la solution en tâches parrallélisables
@@ -96,6 +102,9 @@ Pour produire de la technologie, utiliser de la technologie.
 Automatisation omniprésente
 
 Déploiement à chaud
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0SM6t4F4CdY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
 > « Vous voulez aller vite ? Alors prenez votre temps ! »
