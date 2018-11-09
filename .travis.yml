@@ -5,7 +5,7 @@ jobs:
     sudo: required
     services:
     - docker
-    script: docker build -t vibioh/l3miage:`make version` .
+    script: docker build -t vibioh/l3miage:`make version` --build-arg VERSION=`make version` .
     after_success: |
       echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && \
       docker push vibioh/l3miage:`make version`
