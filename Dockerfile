@@ -1,5 +1,6 @@
 FROM node:10 as builder
 
+ARG VERSION
 ENV WORKDIR /usr/src/app
 
 WORKDIR ${WORKDIR}
@@ -10,9 +11,8 @@ RUN npm ci \
  && npm run build \
  && mkdir -p /app \
  && cp -r web/ /app/ \
- && sed -i -e "s|\{\{version\}\}|${VERSION}|g" /app/index.html \
- && sed -i -e "s|\{\{version\}\}|${VERSION}|g" /app/js/index.js \
- && sed -i -e "s|\{\{version\}\}|${VERSION}|g" /app/doc/genie.md
+ && sed -i -e "s|{{version}}|${VERSION}|g" /app/web/index.html \
+ && sed -i -e "s|{{version}}|${VERSION}|g" /app/web/js/index.js
 
 FROM vibioh/viws:light
 
