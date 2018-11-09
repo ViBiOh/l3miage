@@ -2,7 +2,7 @@ version: '2'
 
 services:
   site:
-    image: vibioh/genie-logiciel
+    image: vibioh/l3miage
     command:
     - -csp
     - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' fathom.vibioh.fr cdn.jsdelivr.net/algoliasearch/3/ cdnjs.cloudflare.com/ajax/libs/rollbar.js/; style-src 'self' 'unsafe-inline'; img-src 'self' fathom.vibioh.fr; connect-src 'self' *.algolia.net *.algolianet.com api.rollbar.com; child-src www.youtube.com

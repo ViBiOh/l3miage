@@ -1,5 +1,5 @@
 {
-  "name": "genie-logiciel",
+  "name": "l3miage",
   "version": "1.0.0",
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ViBiOh/genie-logiciel.git"
+    "url": "git+https://github.com/ViBiOh/l3miage.git"
   },
   "keywords": [
     "markdown",
@@ -26,9 +26,9 @@
   "author": "Vincent Boutour <bob@vibioh.fr>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ViBiOh/genie-logiciel/issues"
+    "url": "https://github.com/ViBiOh/l3miage/issues"
   },
-  "homepage": "https://github.com/ViBiOh/genie-logiciel#readme",
+  "homepage": "https://github.com/ViBiOh/l3miage#readme",
   "dependencies": {
     "reveal.js": "3.7.0"
   },

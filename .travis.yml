@@ -5,10 +5,10 @@ jobs:
     sudo: required
     services:
     - docker
-    script: docker build -t vibioh/genie-logiciel:${TRAVIS_COMMIT} .
+    script: docker build -t vibioh/l3miage:`make version` .
     after_success: |
       echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && \
-      docker push vibioh/genie-logiciel:${TRAVIS_COMMIT}
+      docker push vibioh/l3miage:`make version`
 
   - stage: Build
 
@@ -32,9 +32,9 @@ jobs:
     - docker
     script: |
       echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin
-      docker pull vibioh/genie-logiciel:${TRAVIS_COMMIT}
-      docker tag vibioh/genie-logiciel:${TRAVIS_COMMIT} vibioh/genie-logiciel:latest
-      docker push vibioh/genie-logiciel:latest
+      docker pull vibioh/l3miage:`make version`
+      docker tag vibioh/l3miage:`make version` vibioh/l3miage:latest
+      docker push vibioh/l3miage:latest
 
   - stage: Deploy
 
