@@ -12,7 +12,7 @@ help: Makefile
 $(APP_NAME): deps go
 
 ## go: Build app
-go: format lint tst bench build
+go: format lint build
 
 ## name: Output name of app
 name:
@@ -48,14 +48,6 @@ lint:
 	golint `go list ./... | grep -v vendor`
 	errcheck -ignoretests `go list ./... | grep -v vendor`
 	go vet ./...
-
-## tst: Test code of app with coverage
-tst:
-	script/coverage
-
-## bench: Benchmark code of app
-bench:
-	go test ./... -bench . -benchmem -run Benchmark.*
 
 ## build: Build binary of app
 build:

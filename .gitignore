@@ -3,14 +3,8 @@ target/
 
 # Node Package Manager
 node_modules/
-**/npm-debug.log
-coverage/
-dist/
-tmp/
-
-# Project
-web/mustache.json
+web/doc/genie.md
+web/vendor/
 
 # Golang
 vendor/
-coverage.txt

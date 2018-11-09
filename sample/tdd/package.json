@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "Kata",
   "scripts": {
-    "eslint": "eslint --fix src/",
-    "pretest": "npm run eslint",
-    "test": "nyc --reporter html --reporter text --reporter lcov ava",
-    "coverage": "codecov -f ./coverage/lcov.info"
+    "test": "ava -v"
   },
   "keywords": [
     "kata"
@@ -14,13 +11,7 @@
   "author": "Vincent Boutour",
   "license": "MIT",
   "devDependencies": {
-    "ava": "latest",
-    "codecov": "latest",
-    "eslint": "latest",
-    "eslint-config-airbnb": "latest",
-    "eslint-config-airbnb-base": "latest",
-    "eslint-plugin-import": "latest",
-    "nyc": "latest"
+    "ava": "latest"
   },
   "ava": {
     "files": [

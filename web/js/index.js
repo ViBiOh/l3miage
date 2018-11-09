@@ -6,7 +6,7 @@ Reveal.initialize({
   transition: 'slide',
   dependencies: [
     {
-      src: '/js/marked.js',
+      src: '/vendor/marked.js',
       callback: function() {
         var renderer = new marked.Renderer();
 
@@ -29,15 +29,15 @@ Reveal.initialize({
         marked.setOptions({ renderer: renderer });
       }
     },
-    { src: '/js/markdown.js' },
+    { src: '/vendor/markdown.js' },
     {
-      src: '/js/classList.js',
+      src: '/vendor/classList.js',
       condition: function() {
         return !document.body.classList;
       }
     },
     {
-      src: '/js/highlight.js',
+      src: '/vendor/highlight.js',
       async: true,
       callback: function() {
         hljs.initHighlightingOnLoad();
