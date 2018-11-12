@@ -18,7 +18,7 @@ Très contractuel et procédurier : un cahier des charges initial, un cahier de 
 Souvent utilisé dans le cadre de "forfait" en SSII.
 
 
-![](/doc/img/cycle_en_v.svg)
+![](img/cycle_en_v.svg)
 
 
 Crée un effet « tunnel » car chaque tâche dépend de la précédente, sans validation de l'utilisateur.
@@ -104,7 +104,7 @@ De qualité !
 
 > Workflow de *Continuous Delivery*
 
-![](/doc/img/continuous_delivery.svg)
+![](img/continuous_delivery.svg)
 
 
 A chaque erreur détectée lors du processus, l'intégration continue doit être en mesure d'identifier les nouveaux *commits* depuis le dernier succès et d'en avertir les parties prenantes.
@@ -258,7 +258,7 @@ En combinant des outils, on peut en créer d'autres.
 e.g. la stack ELK pour analyser vos logs : ElasticSearch Logstash Kibana
 
 
-![](/doc/img/too_busy_to_improve.jpg)
+![](img/too_busy_to_improve.jpg)
 
 
 ## *Keep It Simple, Stupid* - KISS
@@ -269,13 +269,13 @@ e.g. la stack ELK pour analyser vos logs : ElasticSearch Logstash Kibana
 Il est parfois compliqué de faire simple en appliquant les *patterns* de programmation
 
 
-![](/doc/img/apple_product.jpeg)
+![](img/apple_product.jpeg)
 
 
-![](/doc/img/google_product.jpeg)
+![](img/google_product.jpeg)
 
 
-![](/doc/img/corporate_product.jpeg)
+![](img/corporate_product.jpeg)
 
 
 ## *Problem Exists Between Chair And Keyboard* - PEBKAC

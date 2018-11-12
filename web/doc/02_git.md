@@ -19,7 +19,7 @@
 `git status`
 
 
-![](/doc/img/git_lifecycle.png)
+![](img/git_lifecycle.png)
 
 
 ## Ajouter un fichier au système de version

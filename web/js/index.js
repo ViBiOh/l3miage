@@ -12,7 +12,7 @@ Reveal.initialize({
 
         renderer.image = function(href, title, text) {
           return (
-            '<img data-src="' + href + '?v={{version}}" alt="' + title + '" />'
+            '<img data-src="/doc/' + href + '?v={{version}}" alt="' + title + '" />'
           );
         };
 

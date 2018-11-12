@@ -12,7 +12,7 @@ Master MIAGE Paris Descartes, 2011 👴
 Qu'est-ce que le génie ?
 
 
-![](/doc/img/genie.png)
+![](img/genie.png)
 
 > La personne qui exauce vos voeux ?
 
@@ -32,19 +32,23 @@ Qu'est-ce que le génie ?
 ## Objectifs du module
 
 
-* Le besoin
-* La solution
-* Le processus
-* L'écoute
+* Identifier un besoin
+* Implémenter une solution
+* Maîtriser le processus
+* É-COU-TER
 
 
 ### Formaliser un besoin
 
-> Pas d'intérêt, pas d'action - locus standi
+> « Pas d'intérêt, pas d'action »
+
+> [locus standi](https://fr.wikipedia.org/wiki/Intérêt_à_agir)
 
 
 Maîtriser les enjeux, les problématiques :
+
 * qualité
+* coût
 * délai, i.e. *Time To Market*
 * processus
 * performance
@@ -54,29 +58,28 @@ Maîtriser les enjeux, les problématiques :
 
 ### Trouver et implémenter la solution
 
-> « S'il n'y a pas de solution, il n'y a pas de problème. »
-
-> Les Shadoks
+![](img/shadok.jpg)
 
 
 Écouter, comprendre et s'approprier le besoin.
 
 
 Traduire le besoin en solution (i.e. ingénierie)
+
 * faisabilité technique
 * processus méthodologique
-* contrainte logistique
-* anticipation des points d'achoppement
+* contrainte (logistique, opérationelle, etc.)
+* anticipation des problèmes
 
 
 > The Project Cartoon
 
-![](/doc/img/cartoon.png)
+![](img/cartoon.png)
 
 
 > N'ayez pas peur d'échouer
 
-![](/doc/img/fail.png)
+![](img/fail.png)
 
 
 > « La perfection est atteinte, non pas lorsqu'il n'y a plus rien à ajouter, mais lorsqu'il n'y a plus rien à retirer. »
@@ -98,10 +101,9 @@ Maîtriser votre processus de développement.
 
 Pour produire de la technologie, utiliser de la technologie.
 
+* Automatiser les tâches récurrentes
 
-Automatisation omniprésente
-
-Déploiement à chaud
+* Déployer le plus souvent possible
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0SM6t4F4CdY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -115,10 +117,10 @@ Déploiement à chaud
 ### Résoudre [la triple contrainte](https://en.wikipedia.org/wiki/Project_management_triangle)
 
 
-![](/doc/img/triptique.jpg)
+![](img/triptique.jpg)
 
 
-On cherche donc à faire un « ***bon*** » produit.
+Le **génie logiciel** cherche à faire un « ***bon*** » produit.
 
 
 Conforme
@@ -151,7 +153,7 @@ Performant
 > Le produit s'exécute promptement sur la volumétrie cible.
 
 
-### Ecouter
+### Écouter
 
 
 Faire un produit n'est pas complexe en soi, c'est l'environnement dans lequel vous le faites qui joue en votre défaveur.
@@ -160,7 +162,7 @@ Faire un produit n'est pas complexe en soi, c'est l'environnement dans lequel vo
 L'informatique est une science qui va très vite, ce qui est *hype* aujourd'hui sera obsolète demain.
 
 
-L'utilisateur a soif de nouveauté, se trouve dans un environnement concurrentiel, et son besoin est sans cesse réajusté.
+L'utilisateur a soif de nouveautés, se trouve dans un environnement concurrentiel, et son besoin est sans cesse réajusté.
 
 
 Livraisons très fréquentes, voire constantes.
@@ -169,9 +171,6 @@ Livraisons très fréquentes, voire constantes.
 Prendre en compte les retours utilisateurs et... leur faire un retour !
 
 > Rewarded feedback
-
-
-Nous sommes à la fois la matière première de l'ère économique actuelle et aussi les artisans.
 
 
 > L’imagination est plus importante que le savoir.
@@ -184,10 +183,10 @@ Nous sommes à la fois la matière première de l'ère économique actuelle et a
 * [The Pragmatic Programmer](http://www.amazon.fr/dp/B003GCTQAE), *Andrew Hunt & David Thomas*
 * [Clean Code](http://www.amazon.fr/dp/B001GSTOAM), *Robert C. Martin*
 * [Effective Java](http://www.amazon.fr/dp/B00B8V09HY), *Joshua Bloch*
-* [Rework](http://www.amazon.fr/dp/B003ELY7PG), *Jason Fried & David Heinemeier Hansson*
+* [Rework](http://www.amazon.fr/dp/B003ELY7PG), *Jason Fried & David Heinemeier Hansson* ([TED](https://www.ted.com/talks/dan_pink_on_motivation))
 * [Linchpin](http://www.amazon.fr/dp/0749953357), *Seth Godin*
 * [Liberté & cie](http://amzn.eu/7xAo3m6), *Isaac Getz*
-* [La vérité sur ce qui nous motive / Drive en V.O.](http://amzn.eu/33hnA5B), *Daniel H. Pink*
+* [La vérité sur ce qui nous motive / Drive en V.O.](http://amzn.eu/33hnA5B), *Daniel H. Pink* ([TED](https://www.ted.com/talks/dan_pink_on_motivation))
 
 
 ## Liens divers
