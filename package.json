@@ -4,13 +4,13 @@
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
   "scripts": {
-    "reveal:copy": "cp ./node_modules/reveal.js/lib/js/*.js web/vendor/",
-    "reveal:css": "cat ./node_modules/reveal.js/css/reveal.css | cleancss -O2 -o web/vendor/reveal.css && cat ./node_modules/reveal.js/css/theme/night.css | grep -v -E \"^@import\" | grep -v -E \"font-family:.*?sans-serif\" | cleancss -O2 -o web/vendor/night.css && cat ./node_modules/reveal.js/lib/css/zenburn.css | cleancss -O2 -o web/vendor/zenburn.css && cat ./node_modules/reveal.js/css/print/paper.css | cleancss -O2 -o web/vendor/paper.css",
-    "reveal:js": "uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output web/vendor/markdown.js && uglifyjs ./node_modules/reveal.js/plugin/markdown/marked.js --compress --mangle --output web/vendor/marked.js && uglifyjs ./node_modules/reveal.js/plugin/highlight/highlight.js --compress --mangle --output web/vendor/highlight.js && uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output web/vendor/reveal.js",
-    "reveal": "mkdir -p web/vendor && npm run reveal:copy && npm run reveal:css && npm run reveal:js",
-    "build": "./concat_doc.sh",
+    "reveal:copy": "cp ./node_modules/reveal.js/lib/js/*.js www/vendor/",
+    "reveal:css": "cat ./node_modules/reveal.js/css/reveal.css | cleancss -O2 -o www/vendor/reveal.css && cat ./node_modules/reveal.js/css/theme/night.css | grep -v -E \"^@import\" | grep -v -E \"font-family:.*?sans-serif\" | cleancss -O2 -o www/vendor/night.css && cat ./node_modules/reveal.js/lib/css/zenburn.css | cleancss -O2 -o www/vendor/zenburn.css && cat ./node_modules/reveal.js/css/print/paper.css | cleancss -O2 -o www/vendor/paper.css",
+    "reveal:js": "uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output www/vendor/markdown.js && uglifyjs ./node_modules/reveal.js/plugin/markdown/marked.js --compress --mangle --output www/vendor/marked.js && uglifyjs ./node_modules/reveal.js/plugin/highlight/highlight.js --compress --mangle --output www/vendor/highlight.js && uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output www/vendor/reveal.js",
+    "reveal": "mkdir -p www/vendor && npm run reveal:copy && npm run reveal:css && npm run reveal:js",
+    "build": "script/doc.sh && script/ci.sh",
     "prestart": "go get github.com/ViBiOh/viws/cmd/viws-light",
-    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage ENVIRONMENT=dev viws-light -tls=false -directory ${INIT_CWD}/web/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com api.rollbar.com; child-src www.youtube.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX,ENVIRONMENT"
+    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage ENVIRONMENT=dev viws-light -tls=false -directory ${INIT_CWD}/www/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com api.rollbar.com; child-src www.youtube.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX,ENVIRONMENT"
   },
   "repository": {
     "type": "git",

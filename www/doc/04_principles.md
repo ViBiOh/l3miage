@@ -91,7 +91,9 @@ Délais et parties prenantes
 > À qui et quand rendre compte ?
 
 
-## Intégration continue
+## CI / CD
+
+> Continuous Integration / Continuous Delivery
 
 
 L'objectif de l'entreprise est de réduire le *Time To Market* (T.T.M.) et donc pour la R&D le *Time To Ship*.
@@ -157,77 +159,89 @@ En méso-économie, on ne peut ignorer un évènement. Même si un domaine ne vo
 Travailler dans des organisations implique de connaître quelques lois empiriques qui les régissent.
 
 
-## Principe de Peter #1
+### Principe de Peter #1
 
 > Tout employé tend à s'élever à son niveau d'incompétence...
 
 
-## Principe de Peter #2
+### Principe de Peter #2
 
 > ... Avec le temps, tous les postes d'une entreprise sont occupés par des incompétents.
 
 
-## Principe de Dilbert
+### Principe de Dilbert
 
 > Les gens les moins compétents sont systématiquement affectés aux postes où ils risquent de causer le moins de dégâts : ceux de managers.
 
 
-## There ain't no such thing as a free lunch
+### There ain't no such thing as a free lunch
 
-> Gratuit ne veut pas dire sans valeur
+Gratuit ne veut pas dire sans valeur
 
 > On n'a rien sans rien
 
 > "Free beer" vs "free speech"
 
 
-## Loi de la relativité d'Einstein
+### Loi de la relativité d'Einstein
 
 > Une minute au dessus d'une poêle chaude semble durer des heures alors qu'une minute à côté d'une jolie fille semble durer une seconde, c'est ça la relativité.
 
 
-## Loi de Fraisse
+### Loi de Fraisse
 
 > Le temps est subjectif : ce qui est plaisant passe vite, ce qui est désagréable semble durer.
 
 
-## Loi de Parkinson
+### Loi de Parkinson
 
 > Le travail se dilate jusqu'à occuper tout le temps qui lui est dévolu.
 
 
-## Loi d'Illich
+### Loi d'Illich
 
 > Après un certain temps de travail, la productivité décroît. La pause devient nécessaire.
 
 
-## Loi de Murphy
+### Loi de Murphy
 
 > Si quelque chose peut arriver, alors ça arrivera.
 
 
-## Les cinq « pourquoi »
+## Autres principes
+
+
+### Les cinq « pourquoi »
 
 > Pourquoi ? Pourquoi ? Pourquoi ? Pourquoi ? Pourquoi ?
 
 
-## CQQCOQP
+### CQQCOQP
 
 > Combien ? Qui ? Quand ? Comment ? Où ? Quoi ? Pourquoi ?
 
 
-## Loi de Pareto
+### Loi de Pareto
 
 > Règle des 80 - 20
 
 
-## Principe du *boy-scout*
+### Principe du *boy-scout*
 
 > *Leave the campground cleaner that you found it.*
 
 
 * Amélioration continue du logiciel
-* Pas de coupable, pensez en équipe et pas en individuel
+
+
+* Pas de coupable, pensez en équipe
+
+> No finger pointing, no public shaming
+
+
+### YAGNI
+
+> You Aren’t Gonna Need It
 
 
 ## Dette technique

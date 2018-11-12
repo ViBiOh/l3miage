@@ -37,7 +37,7 @@ function algoliaHandleInput(index, input, results) {
 function algoliaGetResultClickHandler(hit) {
   return function() {
     document.location.href = hit.url;
-  }
+  };
 }
 
 /**
@@ -49,17 +49,17 @@ function algoliaGetResultClickHandler(hit) {
 function algoliaSearchQuery(index, query, results) {
   index.search({ query, hitsPerPage: 5 }, function(err, output) {
     if (err) {
-      console.error(err)
-      algoliaShowMessage('(╯°□°）╯︵ ┻━┻', 'C\'est cassé !', 'algolia__results--error', results)
+      console.error(err);
+      algoliaShowMessage('(╯°□°）╯︵ ┻━┻', "C'est cassé !", 'algolia__results--error', results);
       return;
     }
 
     if (output.nbHits === 0) {
-      algoliaShowMessage('¯\\_(ツ)_/¯', 'On a rien trouvé', 'algolia__results--not-found', results)
-      return
+      algoliaShowMessage('¯\\_(ツ)_/¯', 'On a rien trouvé', 'algolia__results--not-found', results);
+      return;
     }
 
-    algoliaShowResults(output.hits, results)
+    algoliaShowResults(output.hits, results);
   });
 }
 
@@ -73,7 +73,7 @@ function algoliaSearchQuery(index, query, results) {
 function algoliaShowMessage(header, message, className, results) {
   algoliaClearNode(results);
 
-  var result = algoliaGenerateResult(header, message)
+  var result = algoliaGenerateResult(header, message);
   result.className = className;
 
   results.appendChild(result);
@@ -90,11 +90,11 @@ function algoliaGenerateResult(header, message) {
   var content = document.createElement('span');
   content.innerHTML = message;
 
-  var chapter = document.createElement('strong')
-  chapter.innerHTML = header
+  var chapter = document.createElement('strong');
+  chapter.innerHTML = header;
 
-  var headline = document.createElement('p')
-  headline.appendChild(chapter)
+  var headline = document.createElement('p');
+  headline.appendChild(chapter);
 
   var li = document.createElement('li');
   li.appendChild(headline);
@@ -114,8 +114,8 @@ function algoliaShowResults(hits, results) {
   for (var i = 0; i < hits.length; i++) {
     var hit = hits[i];
 
-    var result = algoliaGenerateResult(hit.chapter, hit._highlightResult.content.value)
-    result.addEventListener('click', algoliaGetResultClickHandler(hit))
+    var result = algoliaGenerateResult(hit.chapter, hit._highlightResult.content.value);
+    result.addEventListener('click', algoliaGetResultClickHandler(hit));
 
     results.appendChild(result);
   }
@@ -169,7 +169,7 @@ function algoliaNavigateResults(direction) {
           results[next].classList.add(selectedClass);
         }
 
-        return
+        return;
       }
     }
   }
@@ -198,29 +198,89 @@ function algoliaHandleResultKey(e) {
 }
 
 /**
- * Initialize algolia search.
- * @param  {String} app   App name
- * @param  {String} key   Search key
- * @param  {String} index Index name
+ * Insert algolia script into dom.
+ * @return {Promise} Promise resolved when script is loaded
  */
-function algoliaInit(app, key, index) {
-  if (!app || !key || !index) {
+function insertAlgoliaScript() {
+  return new Promise(resolve => {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js';
+    script.async = 'true';
+    script.onload = resolve;
+
+    document.querySelector('head').appendChild(script);
+  });
+}
+
+/**
+ * Insert algolia style into dom.
+ * @return {Promise} Promise resolved when style is loaded
+ */
+function insertAlgoliaStyle() {
+  return new Promise(resolve => {
+    var style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = '/css/algolia.css?v={{version}}';
+    style.onload = resolve;
+
+    document.querySelector('head').appendChild(style);
+  });
+}
+
+/**
+ * Insert search bar into the dom.
+ */
+function insertAlgoliaDOM() {
+  document.getElementById('body').insertAdjacentHTML(
+    'beforeend',
+    `
+    <div id="search" class="algolia">
+      <div class="algolia__input">
+        <svg viewBox="0 0 95 95" xmlns="http://www.w3.org/2000/svg" class="algolia__logo">
+          <title>Search by Algolia</title>
+          <path d="M0 12.37C0 5.54 5.532 0 12.367 0h69.31c6.831 0 12.368 5.533 12.368 12.37v69.331c0 6.832-5.532 12.371-12.367 12.371h-69.31C5.536 94.072 0 88.539 0 81.702V12.37zm48.125 11.405c-14.671 0-26.58 11.898-26.58 26.588 0 14.69 11.895 26.588 26.58 26.588 14.685 0 26.58-11.912 26.58-26.602S62.81 23.775 48.125 23.775zm0 45.307c-10.343 0-18.727-8.386-18.727-18.733 0-10.346 8.384-18.732 18.727-18.732 10.344 0 18.727 8.386 18.727 18.732 0 10.347-8.383 18.733-18.727 18.733zm0-33.6v13.955c0 .408.436.68.803.49L61.3 43.501a.548.548 0 0 0 .217-.762c-2.572-4.506-7.335-7.596-12.834-7.8a.549.549 0 0 0-.558.544zM30.76 25.246l-1.62-1.62a4.082 4.082 0 0 0-5.77 0l-1.933 1.933a4.085 4.085 0 0 0 0 5.773l1.606 1.606c.245.245.64.204.844-.068a30.572 30.572 0 0 1 3.116-3.662 29.723 29.723 0 0 1 3.689-3.131c.272-.19.3-.6.068-.83zm26.063-4.234v-3.226a4.078 4.078 0 0 0-4.083-4.084h-9.5a4.078 4.078 0 0 0-4.083 4.084v3.308c0 .368.354.626.708.531a29.562 29.562 0 0 1 8.275-1.157c2.722 0 5.403.367 7.989 1.075a.55.55 0 0 0 .694-.53z" fill="#FFF" fill-rule="evenodd"/>
+        </svg>
+        <input type="text" name="q" placeholder="Rechercher" class="algolia__search" />
+      </div>
+
+      <ol id="results" class="algolia__results"></ol>
+    </div>
+  `,
+  );
+}
+
+/**
+ * Initialize algolia search.
+ * @param  {String} app       App name
+ * @param  {String} key       Search key
+ * @param  {String} indexName Index name
+ */
+function algoliaInit(app, key, indexName) {
+  if (!app || !key || !indexName) {
     return;
   }
 
-  var index = algoliaGetIndex(app, key, index);
-  var searchBar = document.getElementById('search');
-  var results = document.getElementById('results');
+  return Promise.all([insertAlgoliaScript(), insertAlgoliaStyle()])
+    .then(function() {
+      insertAlgoliaDOM();
+      var index = algoliaGetIndex(app, key, indexName);
 
-  algoliaHandleInput(index, searchBar, results);
+      var searchBar = document.getElementById('search');
+      var results = document.getElementById('results');
 
-  algoliaAddActiveClass(searchBar);
+      if (searchBar && results) {
+        algoliaHandleInput(index, searchBar, results);
+        algoliaAddActiveClass(searchBar);
 
-  searchBar.addEventListener('keyup', algoliaHandleResultKey);
-  Reveal.addEventListener('slidechanged', function() {
-    algoliaClearInput(searchBar)
-    algoliaClearNode(results)
-  });
+        searchBar.addEventListener('keyup', algoliaHandleResultKey);
+        Reveal.addEventListener('slidechanged', function() {
+          algoliaClearInput(searchBar);
+          algoliaClearNode(results);
+        });
+      }
+    })
+    .catch(e => console.error(e));
 }
 
 fetch('/env')
@@ -228,8 +288,8 @@ fetch('/env')
     return response.json();
   })
   .then(function(config) {
-    algoliaInit(config.ALGOLIA_APP, config.ALGOLIA_KEY, config.ALGOLIA_INDEX);
+    return algoliaInit(config.ALGOLIA_APP, config.ALGOLIA_KEY, config.ALGOLIA_INDEX);
   })
   .catch(function(e) {
-    console.error(e)
+    console.error(e);
   });

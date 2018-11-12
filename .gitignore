@@ -3,8 +3,8 @@ target/
 
 # Node Package Manager
 node_modules/
-web/doc/genie.md
-web/vendor/
+www/doc/genie.md
+www/vendor/
 
 # Golang
 vendor/

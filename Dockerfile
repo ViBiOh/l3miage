@@ -10,10 +10,11 @@ RUN npm ci \
  && npm run reveal \
  && npm run build \
  && mkdir -p /app \
- && cp -r web/ /app/ \
- && sed -i -e "s|{{version}}|${VERSION}|g" /app/web/index.html \
- && sed -i -e "s|{{version}}|${VERSION}|g" /app/web/js/index.js
+ && cp -r www/ /app/ \
+ && sed -i -e "s|{{version}}|${VERSION}|g" /app/www/index.html \
+ && sed -i -e "s|{{version}}|${VERSION}|g" /app/www/js/index.js \
+ && sed -i -e "s|{{version}}|${VERSION}|g" /app/www/js/algolia.js
 
 FROM vibioh/viws:light
 
-COPY --from=builder /app/web/ /www/
+COPY --from=builder /app/www/ /www/

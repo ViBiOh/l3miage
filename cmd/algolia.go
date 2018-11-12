@@ -1,7 +1,7 @@
 package main
 
 import (
-	native_errors "errors"
+	nativeerrors "errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -16,7 +16,7 @@ import (
 
 var (
 	// ErrIndexNotFound occurs when index is not found in List
-	ErrIndexNotFound = native_errors.New(`index not found`)
+	ErrIndexNotFound = nativeerrors.New(`index not found`)
 
 	chapterTitleRegex = regexp.MustCompile(`#\s+(.*)`)
 	imgRegex          = regexp.MustCompile(`\[\]\((.*)\)`)
