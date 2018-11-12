@@ -3,7 +3,7 @@
 set -e
 
 if ! [ "${CI}" == "true" ]; then
-  return
+  exit
 fi
 
 set -u
