@@ -232,7 +232,7 @@ function insertAlgoliaStyle() {
  * Insert search bar into the dom.
  */
 function insertAlgoliaDOM() {
-  document.getElementById('body').insertAdjacentHTML(
+  document.querySelector('body').insertAdjacentHTML(
     'beforeend',
     `
     <div id="search" class="algolia">
@@ -280,7 +280,9 @@ function algoliaInit(app, key, indexName) {
         });
       }
     })
-    .catch(e => console.error(e));
+    .catch(function(e) {
+      console.error(e);
+    });
 }
 
 fetch('/env')
