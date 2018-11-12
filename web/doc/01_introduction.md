@@ -182,8 +182,7 @@ Prendre en compte les retours utilisateurs et... leur faire un retour !
 
 * [The Pragmatic Programmer](http://www.amazon.fr/dp/B003GCTQAE), *Andrew Hunt & David Thomas*
 * [Clean Code](http://www.amazon.fr/dp/B001GSTOAM), *Robert C. Martin*
-* [Effective Java](http://www.amazon.fr/dp/B00B8V09HY), *Joshua Bloch*
-* [Rework](http://www.amazon.fr/dp/B003ELY7PG), *Jason Fried & David Heinemeier Hansson* ([TED](https://www.ted.com/talks/dan_pink_on_motivation))
+* [Rework](http://www.amazon.fr/dp/B003ELY7PG), *Jason Fried & David Heinemeier Hansson* ([TED](https://www.ted.com/talks/jason_fried_why_work_doesn_t_happen_at_work))
 * [Linchpin](http://www.amazon.fr/dp/0749953357), *Seth Godin*
 * [Liberté & cie](http://amzn.eu/7xAo3m6), *Isaac Getz*
 * [La vérité sur ce qui nous motive / Drive en V.O.](http://amzn.eu/33hnA5B), *Daniel H. Pink* ([TED](https://www.ted.com/talks/dan_pink_on_motivation))
