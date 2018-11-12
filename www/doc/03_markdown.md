@@ -44,9 +44,10 @@ En mode `en ligne` simplement en l'entourant d'un guillement accentué **`**
 
 Le texte du lien doit se trouver entre crochets et l'url de votre lien dans des parenthèses juxtaposées. Si vous souhaitez insérer une image, c'est exactement la même syntaxe avec un point d'exclamation devant.
 
-`[Texte de votre lien](url_de_votre_lien)`
-
-`![](url_de_votre_image)`
+```
+[Texte de votre lien](url_de_votre_lien)`
+![](url_de_votre_image)
+```
 
 
 ## Références
@@ -54,4 +55,3 @@ Le texte du lien doit se trouver entre crochets et l'url de votre lien dans des 
 * [Document GitHub](https://help.github.com/articles/markdown-basics/)
 * [Documentation officielle](http://commonmark.org/help/)
 * [Editeur avec *live preview*](http://dillinger.io)
-* [Rich Text Editor](https://react.vibioh.fr/rte)
