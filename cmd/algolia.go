@@ -120,7 +120,7 @@ func main() {
 	if len(objects) == 0 {
 		logger.Fatal(`no search object`)
 	}
-	logger.Fatal(`%d objects found`, len(objects))
+	logger.Info(`%d objects found`, len(objects))
 
 	if _, err := algoliaApp.client.DeleteIndex(algoliaApp.indexName); err != nil {
 		logger.Fatal(`%+v`, errors.WithStack(err))
