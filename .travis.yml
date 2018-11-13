@@ -10,21 +10,6 @@ jobs:
       echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && \
       docker push vibioh/l3miage:`make version`
 
-  - stage: Build
-
-    language: go
-    go: '1.10'
-    script: make algolia
-    after_success: |
-      bash <(curl -s https://codecov.io/bash)
-
-      if [ "${TRAVIS_BRANCH}" == "master" ]; then
-        ./concat_doc.sh
-        ./bin/algolia -source ./dist/doc/genie.md -app "${ALGOLIA_APP}" -key "${ALGOLIA_KEY}" -index "${ALGOLIA_INDEX}"
-
-        curl -s -X POST https://goreportcard.com/checks?repo=github.com/ViBiOh/httputils
-      fi
-
   - stage: Publish
 
     sudo: required
@@ -35,6 +20,15 @@ jobs:
       docker pull vibioh/l3miage:`make version`
       docker tag vibioh/l3miage:`make version` vibioh/l3miage:latest
       docker push vibioh/l3miage:latest
+
+  - stage: Index
+
+    language: go
+    go: '1.10'
+    script: |
+      make algolia
+      ./script/concat_doc.sh
+      ./script/index.sh
 
   - stage: Deploy
 
@@ -54,6 +48,8 @@ jobs:
 stages:
   - Build
   - name: Publish
+    if: branch = master
+  - name: Index
     if: branch = master
   - name: Deploy
     if: branch = master
