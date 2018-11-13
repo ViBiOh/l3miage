@@ -27,7 +27,7 @@ jobs:
     go: '1.10'
     script: |
       make algolia
-      ./script/concat_doc.sh
+      ./script/doc.sh
       ./script/index.sh
 
   - stage: Deploy

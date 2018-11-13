@@ -8,10 +8,12 @@ fi
 
 set -u
 
-for file in www/js/*; do
+GIT_ROOT=`git rev-parse --show-cdup`
+
+for file in "${GIT_ROOT:-.}/www/js/"*; do
   cat "${file}" | ./node_modules/.bin/uglifyjs --compress --mangle -o "${file}"
 done
 
-for file in www/css/*; do
+for file in "${GIT_ROOT:-.}/www/css/"*; do
   cat "${file}" | ./node_modules/.bin/cleancss -O2 -o "${file}"
 done
