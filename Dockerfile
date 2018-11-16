@@ -2,6 +2,7 @@ FROM node:10 as builder
 
 ARG VERSION
 ENV WORKDIR /usr/src/app
+ENV CI true
 
 WORKDIR ${WORKDIR}
 COPY ./ ${WORKDIR}/
