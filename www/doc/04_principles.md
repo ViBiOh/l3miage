@@ -104,9 +104,9 @@ On livre toujours du code qu'on assume : exempt de bugs, performant...
 De qualité !
 
 
-> Workflow de *Continuous Delivery*
+![](img/ci_cd.jpg)
 
-![](img/continuous_delivery.svg)
+> [Crip's blog](https://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-continuous-deployment)
 
 
 A chaque erreur détectée lors du processus, l'intégration continue doit être en mesure d'identifier les nouveaux *commits* depuis le dernier succès et d'en avertir les parties prenantes.
@@ -117,7 +117,7 @@ A chaque erreur détectée lors du processus, l'intégration continue doit être
 Désactiver des fonctionnalités à la volée
 
 * en cas de problèmes
-* pour faire du [*A/B testing*](https://www.optimizely.com/ab-testing/)
+* pour faire du [*A/B testing*](https://en.wikipedia.org/wiki/A/B_testing)
 * pour gérer la montée en charge
 
 
@@ -149,7 +149,7 @@ En méso-économie, on ne peut ignorer un évènement. Même si un domaine ne vo
 
 
 * [Slack](http://www.slack.com), [Rocket.chat](https://rocket.chat), [appear.in](https://appear.in), IRC
-* Réseaux sociaux
+* Réseaux sociaux, [reddit](https://reddit.com), [HackerNews](https://news.ycombinator.com)
 * Animer l'équipe et acquérir le *team-spirit*
 
 
@@ -247,18 +247,24 @@ Gratuit ne veut pas dire sans valeur
 ## Dette technique
 
 
-Pour chaque fonctionnalité, il faut assurer une cohérence entre les spécifications (la conception) et le code (l'implémentation) sous peine de créer un écart.
+Analogie faite par Ward Cunningham qui applique le principe d'une dette financière au développement logiciel.
 
 
-Cet écart représente une dette que l'on supporte ensuite tout au long de la vie du logiciel.
+Le capital est votre base de code, les intérêts sont :
+* les bugs
+* les *quick and dirty*
+* l'obsolescence
 
 
-De plus, chaque ajout de fonctionnalité vient alourdir l'application, il faut donc veiller à refactorer au fil de l'eau pour ne pas empiler du code.
+Chaque ajout de fonctionnalité vient modifier l'application, il faut donc veiller à refactorer au fil de l'eau pour ne pas empiler du code.
 
 > e.g. Un `if/else` peut vite se transformer en enchaînement disgracieux : faire un `switch`
 
 
 Enfin, l'environnement évolue sans cesse, les modèles, les méthodes, les outils, etc. Il faut donc veiller à ne pas avoir des architectures trop vieilles, devenues inmaintenables.
+
+
+[Technical debt by Martin Flower](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html)
 
 
 ## Ne pas réinventer la roue
