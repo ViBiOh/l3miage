@@ -162,7 +162,7 @@ Composants intimement liés
 Testabilité complexe voire impossible
 
 
-## *[Inversion of Control](https://blog.imirhil.fr/linversion-de-controle-cest-bon-mangez-en.html)* - IoC
+## *[Inversion of Control](https://blog.imirhil.fr/2013/05/19/inversion-de-controle-cest-bon-mangez-en.html)* - IoC
 
 
 L'application a besoin de comportements, pas d'implémentations
@@ -194,7 +194,9 @@ public interface Writer<T> {
 
 ```java
 public interface Process<I> {
-  Logger logger = Logger.getLogger(Process.class.getSimpleName());
+  Logger logger = Logger.getLogger(
+    Process.class.getSimpleName()
+  );
 
   Process execute();
   Process setReader(Reader<I> reader);
@@ -278,9 +280,8 @@ class ProcessImpl<I> implements Process<I> {
   @Override
   public Process execute() {
     try {
-      writer.write(
-        operation.compute(reader.read().orElse(null)).orElse(null)
-      );
+      Integer input = reader.read().orElse(null);
+      writer.write(operation.compute(input).orElse(null));
     } catch (IOException e) {
       logger.log(Level.SEVERE, "Something went wrong", e);
     }
@@ -424,9 +425,8 @@ Utilisation des comportements
   @Override
   public int execute() {
     try {
-      writer.write(
-        operation.compute(reader.read().orElse(null)).orElse(null)
-      );
+      Integer input = reader.read().orElse(null);
+      writer.write(operation.compute(input).orElse(null));
       return 0;
     } catch (IOException e) {
       getLogger().log(Level.SEVERE, "Something went wrong", e);
