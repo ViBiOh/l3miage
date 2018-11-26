@@ -118,3 +118,4 @@ Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
 * [La documentation officielle](http://git-scm.com/book/fr/v1)
 * [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/)
 * [Configuration](https://delicious-insights.com/fr/articles/configuration-git/)
+* [Merge vs Rebase](https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa)
