@@ -11,7 +11,7 @@
 
 `git clone user@url-de-votre-repo`
 
-> git clone git@github.com:ViBiOh/l3miage.git
+> git clone https://github.com/ViBiOh/l3miage.git
 
 
 ## Connaître l'état de la copie locale
