@@ -3,7 +3,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:9e5171146522371dc5663ee5c1508a21e8d9abf16d05b06728399c451bdf6773"
+  digest = "1:9d25748024e917e70d751ca431aac9295325f17c7982e7fdc1bbc539c7e8d789"
   name = "github.com/ViBiOh/httputils"
   packages = [
     "pkg/errors",
@@ -11,18 +11,18 @@
     "pkg/tools",
   ]
   pruneopts = "UT"
-  revision = "56a96ad8671ec77441ad5cd779ca9ec7364a0ea9"
+  revision = "f34a4b0c6f552c687db14b15c1a88111f8c40419"
 
 [[projects]]
-  digest = "1:838c693b8a6ddcccf45e7c25db5998916cecc3ff4bdb81c4eaaf5a0d57b83025"
+  digest = "1:8e380c421170c601ad6fafca32715ed5510a5929cad1f3cb498470953e1b0231"
   name = "github.com/algolia/algoliasearch-client-go"
   packages = [
     "algoliasearch",
     "algoliasearch/call",
   ]
   pruneopts = "UT"
-  revision = "68149ecd478242b4323aa535fe0fadca0d98912e"
-  version = "2.25.0"
+  revision = "1c0b06b9e47a0110de105eeb0aa2fdeda6e4a422"
+  version = "2.27.0"
 
 [solve-meta]
   analyzer-name = "dep"
