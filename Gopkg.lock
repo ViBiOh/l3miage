@@ -11,7 +11,7 @@
     "pkg/tools",
   ]
   pruneopts = "UT"
-  revision = "f34a4b0c6f552c687db14b15c1a88111f8c40419"
+  revision = "44a35421da3fef11fef81a0d1b19640c1cafb21e"
 
 [[projects]]
   digest = "1:8e380c421170c601ad6fafca32715ed5510a5929cad1f3cb498470953e1b0231"
