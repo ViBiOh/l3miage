@@ -1,4 +1,4 @@
-FROM node:10 as builder
+FROM node:11 as builder
 
 ARG VERSION
 ENV WORKDIR /usr/src/app
