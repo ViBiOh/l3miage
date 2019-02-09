@@ -16,6 +16,6 @@ RUN npm ci \
  && sed -i -e "s|{{version}}|${VERSION}|g" /app/www/js/index.js \
  && sed -i -e "s|{{version}}|${VERSION}|g" /app/www/js/algolia.js
 
-FROM vibioh/viws:light
+FROM vibioh/viws
 
 COPY --from=builder /app/www/ /www/
