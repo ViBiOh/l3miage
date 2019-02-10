@@ -6,7 +6,7 @@ set -o pipefail
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 main() {
-  if ! [[ "${CI}" == "true" ]]; then
+  if ! [[ "${CI:-}" == "true" ]]; then
     exit
   fi
 
