@@ -24,7 +24,7 @@ jobs:
   - stage: Index
 
     language: go
-    go: '1.11'
+    go: '1.12'
     script: |
       make algolia
       ./script/doc.sh
