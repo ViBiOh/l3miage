@@ -10,7 +10,7 @@
     "reveal": "mkdir -p www/vendor && npm run reveal:copy && npm run reveal:css && npm run reveal:js",
     "build": "script/doc.sh && script/ci.sh",
     "prestart": "go get github.com/ViBiOh/viws/cmd/viws-light",
-    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage ENVIRONMENT=dev viws-light -tls=false -directory ${INIT_CWD}/www/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com api.rollbar.com; child-src www.youtube.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX,ENVIRONMENT"
+    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage viws-light -tls=false -directory ${INIT_CWD}/www/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com; child-src www.youtube.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX"
   },
   "repository": {
     "type": "git",

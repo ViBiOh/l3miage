@@ -5,11 +5,11 @@ services:
     image: vibioh/l3miage
     command:
     - -csp
-    - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' fathom.vibioh.fr cdn.jsdelivr.net/algoliasearch/3/ cdnjs.cloudflare.com/ajax/libs/rollbar.js/; style-src 'self' 'unsafe-inline'; img-src 'self' fathom.vibioh.fr; connect-src 'self' *.algolia.net *.algolianet.com api.rollbar.com; child-src www.youtube.com
+    - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' fathom.vibioh.fr cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; img-src 'self' fathom.vibioh.fr; connect-src 'self' *.algolia.net *.algolianet.com; child-src www.youtube.com
     - -headers
     - X-UA-Compatible:ie=edge~content-language:fr
     - -env
-    - ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX,ROLLBAR_TOKEN,ENVIRONMENT
+    - ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX
     labels:
       traefik.frontend.passHostHeader: 'true'
       traefik.frontend.rule: 'Host: l3miage.fr, www.l3miage.fr'
@@ -23,8 +23,6 @@ services:
       ALGOLIA_APP: ${ALGOLIA_APP}
       ALGOLIA_KEY: ${ALGOLIA_KEY}
       ALGOLIA_INDEX: ${ALGOLIA_INDEX}
-      ROLLBAR_TOKEN: ${ROLLBAR_CLIENT_TOKEN}
-      ENVIRONMENT: 'prod'
     logging:
       driver: json-file
       options:
