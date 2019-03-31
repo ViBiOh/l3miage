@@ -5,10 +5,10 @@ jobs:
     sudo: required
     services:
     - docker
-    script: docker build -t vibioh/l3miage:`make version` --build-arg VERSION=`make version` .
+    script: docker build -t vibioh/l3miage:$(make version) --build-arg VERSION=$(make version) .
     after_success: |
       echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && \
-      docker push vibioh/l3miage:`make version`
+      docker push vibioh/l3miage:$(make version)
 
   - stage: Publish
 
@@ -17,8 +17,8 @@ jobs:
     - docker
     script: |
       echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin
-      docker pull vibioh/l3miage:`make version`
-      docker tag vibioh/l3miage:`make version` vibioh/l3miage:latest
+      docker pull vibioh/l3miage:$(make version)
+      docker tag vibioh/l3miage:$(make version) vibioh/l3miage:latest
       docker push vibioh/l3miage:latest
 
   - stage: Index
@@ -43,7 +43,7 @@ jobs:
     deploy:
       provider: script
       skip_cleanup: true
-      script: 'curl -H "Authorization: GitHub ${GITHUB_OAUTH_TOKEN}" -X POST "https://dashboard-api.vibioh.fr/deploy/cours/?rollbar_token=${ROLLBAR_TOKEN}&user=`make author`&revision=`make version`&environment=prod" --data-binary @docker-compose-env.yml'
+      script: 'curl -H "Authorization: GitHub ${GITHUB_OAUTH_TOKEN}" -X POST "https://dashboard-api.vibioh.fr/deploy/cours/?rollbar_token=${ROLLBAR_TOKEN}&user=$(make author)&revision=$(make version)&environment=prod" --data-binary @docker-compose-env.yml'
 
 stages:
   - Build
