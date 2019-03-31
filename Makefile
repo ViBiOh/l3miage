@@ -3,7 +3,9 @@ SHELL = /bin/sh
 APP_NAME ?= algolia
 VERSION ?= $(shell git rev-parse --short HEAD)
 AUTHOR ?= $(shell git log --pretty=format:'%an' -n 1)
+
 PACKAGES ?= ./...
+APP_PACKAGES = $(shell go list -e $(PACKAGES) | grep -v vendor | grep -v node_modules)
 
 GOBIN=bin
 BINARY_PATH=$(GOBIN)/$(APP_NAME)
@@ -48,9 +50,9 @@ format:
 
 ## lint: Lint code of app
 lint:
-	golint `go list $(PACKAGES) | grep -v vendor`
-	errcheck -ignoretests `go list $(PACKAGES) | grep -v vendor`
-	go vet $(PACKAGES)
+	golint $(APP_PACKAGES)
+	errcheck -ignoretests $(APP_PACKAGES)
+	go vet $(APP_PACKAGES)
 
 ## build: Build binary of app
 build:
