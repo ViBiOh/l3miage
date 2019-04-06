@@ -1,20 +1,4 @@
 /**
- * Insert head script into dom.
- * @return {Promise} Promise resolved when script is loaded
- */
-function insertHeadScript() {
-  return new Promise(resolve => {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = '/vendor/head.min.js?v={{version}}';
-    script.async = 'true';
-    script.onload = resolve;
-
-    document.querySelector('head').appendChild(script);
-  });
-}
-
-/**
  * Insert reveal script into dom.
  * @return {Promise} Promise resolved when script is loaded
  */
@@ -30,7 +14,7 @@ function insertRevealScript() {
   });
 }
 
-Promise.all([insertHeadScript(), insertRevealScript()])
+Promise.all([insertRevealScript()])
   .then(function() {
     Reveal.initialize({
       controls: true,
