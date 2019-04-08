@@ -44,7 +44,7 @@ jobs:
     deploy:
       provider: script
       skip_cleanup: true
-      script: 'curl -X POST -u "${DEPLOY_CREDENTIALS}" "https://deploy.vibioh.fr/?project=cours&version=$(make version)" --data-binary @docker-compose-env.yml'
+      script: 'curl -X POST -u "${DEPLOY_CREDENTIALS}" "https://deploy.vibioh.fr/cours/$(make version)" --data-binary @docker-compose-env.yml'
 
 stages:
   - Build
