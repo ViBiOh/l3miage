@@ -11,18 +11,18 @@
     "pkg/tools",
   ]
   pruneopts = "UT"
-  revision = "864a7148bc82cda83652d30ce21a8c48909b5927"
+  revision = "002301d92a6a400d3dd251d112d42a496c54bbea"
 
 [[projects]]
-  digest = "1:8e380c421170c601ad6fafca32715ed5510a5929cad1f3cb498470953e1b0231"
+  digest = "1:1030decc22adce2f15a980fe55361b64a09c3ddd25b66e11ea4c343135573786"
   name = "github.com/algolia/algoliasearch-client-go"
   packages = [
     "algoliasearch",
     "algoliasearch/call",
   ]
   pruneopts = "UT"
-  revision = "1c0b06b9e47a0110de105eeb0aa2fdeda6e4a422"
-  version = "2.27.0"
+  revision = "b60482b18fd9396157cccb890039c660a6594ac8"
+  version = "v2.28.0"
 
 [solve-meta]
   analyzer-name = "dep"
