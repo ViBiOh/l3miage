@@ -16,7 +16,7 @@ import (
 
 var (
 	// ErrIndexNotFound occurs when index is not found in List
-	ErrIndexNotFound = nativeerrors.New(`index not found`)
+	ErrIndexNotFound = nativeerrors.New("index not found")
 
 	chapterTitleRegex = regexp.MustCompile(`#\s+(.*)`)
 	imgRegex          = regexp.MustCompile(`\[\]\((.*)\)`)
@@ -37,25 +37,25 @@ type App struct {
 // NewApp creates new App from Flags' config
 func NewApp(config map[string]*string) *App {
 	return &App{
-		client:    algoliasearch.NewClient(*config[`app`], *config[`key`]),
-		indexName: *config[`index`],
+		client:    algoliasearch.NewClient(*config["app"], *config["key"]),
+		indexName: *config["index"],
 
-		sep:         regexp.MustCompile(fmt.Sprintf(`(?m)%s`, *config[`sep`])),
-		verticalSep: regexp.MustCompile(fmt.Sprintf(`(?m)%s`, *config[`vsep`])),
-		source:      *config[`source`],
+		sep:         regexp.MustCompile(fmt.Sprintf("(?m)%s", *config["sep"])),
+		verticalSep: regexp.MustCompile(fmt.Sprintf("(?m)%s", *config["vsep"])),
+		source:      *config["source"],
 	}
 }
 
 // Flags adds flags for given prefix
 func Flags(prefix string) map[string]*string {
 	return map[string]*string{
-		`app`:   flag.String(tools.ToCamel(fmt.Sprintf(`%sApp`, prefix)), ``, `[algolia] App`),
-		`key`:   flag.String(tools.ToCamel(fmt.Sprintf(`%sKey`, prefix)), ``, `[algolia] Key`),
-		`index`: flag.String(tools.ToCamel(fmt.Sprintf(`%sIndex`, prefix)), ``, `[algolia] Index`),
+		"app":   flag.String(tools.ToCamel(fmt.Sprintf("%sApp", prefix)), "", "[algolia] App"),
+		"key":   flag.String(tools.ToCamel(fmt.Sprintf("%sKey", prefix)), "", "[algolia] Key"),
+		"index": flag.String(tools.ToCamel(fmt.Sprintf("%sIndex", prefix)), "", "[algolia] Index"),
 
-		`source`: flag.String(tools.ToCamel(fmt.Sprintf(`%sSource`, prefix)), ``, `[reveal] Markdown source`),
-		`sep`:    flag.String(tools.ToCamel(fmt.Sprintf(`%sSep`, prefix)), `^\n\n\n`, `[reveal] Separator`),
-		`vsep`:   flag.String(tools.ToCamel(fmt.Sprintf(`%sVerticalSep`, prefix)), `^\n\n`, `[reveal] Vertical separator`),
+		"source": flag.String(tools.ToCamel(fmt.Sprintf("%sSource", prefix)), "", "[reveal] Markdown source"),
+		"sep":    flag.String(tools.ToCamel(fmt.Sprintf("%sSep", prefix)), "^\n\n\n", "[reveal] Separator"),
+		"vsep":   flag.String(tools.ToCamel(fmt.Sprintf("%sVerticalSep", prefix)), "^\n\n", "[reveal] Vertical separator"),
 	}
 }
 
@@ -77,7 +77,7 @@ func (a App) GetSearchObjects(name string) ([]algoliasearch.Object, error) {
 		chapterName = chapterTitleRegex.FindStringSubmatch(chapter)[1]
 
 		for slideNum, slide := range a.verticalSep.Split(chapter, -1) {
-			slideImg = ``
+			slideImg = ""
 			if matches := imgRegex.FindStringSubmatch(slide); len(matches) > 1 {
 				slideImg = matches[1]
 			}
@@ -91,13 +91,13 @@ func (a App) GetSearchObjects(name string) ([]algoliasearch.Object, error) {
 			}
 
 			objects = append(objects, algoliasearch.Object{
-				`url`:      path.Join(`/`, name, fmt.Sprintf(`/#/%d/%d`, chapterNum, slideNum)),
-				`h`:        chapterNum,
-				`v`:        slideNum,
-				`content`:  slide,
-				`chapter`:  chapterName,
-				`keywords`: keywords,
-				`img`:      slideImg,
+				"url":      path.Join("/", name, fmt.Sprintf("/#/%d/%d", chapterNum, slideNum)),
+				"h":        chapterNum,
+				"v":        slideNum,
+				"content":  slide,
+				"chapter":  chapterName,
+				"keywords": keywords,
+				"img":      slideImg,
 			})
 		}
 	}
@@ -106,37 +106,37 @@ func (a App) GetSearchObjects(name string) ([]algoliasearch.Object, error) {
 }
 
 func main() {
-	algoliaConfig := Flags(``)
-	name := flag.String(`name`, ``, `Name prepended`)
+	algoliaConfig := Flags("")
+	name := flag.String("name", "", "Name prepended")
 	flag.Parse()
 
 	algoliaApp := NewApp(algoliaConfig)
 
 	objects, err := algoliaApp.GetSearchObjects(*name)
 	if err != nil {
-		logger.Fatal(`%+v`, err)
+		logger.Fatal("%+v", err)
 	}
 
 	if len(objects) == 0 {
-		logger.Fatal(`no search object`)
+		logger.Fatal("no search object")
 	}
-	logger.Info(`%d objects found`, len(objects))
+	logger.Info("%d objects found", len(objects))
 
 	if _, err := algoliaApp.client.DeleteIndex(algoliaApp.indexName); err != nil {
-		logger.Fatal(`%+v`, errors.WithStack(err))
+		logger.Fatal("%+v", errors.WithStack(err))
 	}
 
 	index := algoliaApp.client.InitIndex(algoliaApp.indexName)
 
 	if _, err := index.SetSettings(algoliasearch.Map{
-		`searchableAttributes`: []string{`keywords`, `img`, `content`},
+		"searchableAttributes": []string{"keywords", "img", "content"},
 	}); err != nil {
-		logger.Fatal(`%+v`, errors.WithStack(err))
+		logger.Fatal("%+v", errors.WithStack(err))
 	}
 
 	output, err := index.AddObjects(objects)
 	if err != nil {
-		logger.Fatal(`%+v`, errors.WithStack(err))
+		logger.Fatal("%+v", errors.WithStack(err))
 	}
-	logger.Info(`%d objects added to %s index`, len(output.ObjectIDs), algoliaApp.indexName)
+	logger.Info("%d objects added to %s index", len(output.ObjectIDs), algoliaApp.indexName)
 }
