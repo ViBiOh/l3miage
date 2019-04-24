@@ -595,10 +595,8 @@ number => {
 ```
 
 
-> « La théorie, c'est quand on sait tout et que rien ne fonctionne.
-
-> La pratique, c'est quand tout fonctionne et que personne ne sait pourquoi.
-
+> « La théorie, c'est quand on sait tout et que rien ne fonctionne.<br />
+> La pratique, c'est quand tout fonctionne et que personne ne sait pourquoi.<br />
 > Ici, nous avons réuni théorie et pratique : rien ne fonctionne... et personne ne sait pourquoi ! »
 
 > Albert Einstein
