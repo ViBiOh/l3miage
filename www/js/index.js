@@ -1,12 +1,12 @@
 /**
- * Insert reveal script into dom.
+ * Add a script to the dom.
  * @return {Promise} Promise resolved when script is loaded
  */
-function insertRevealScript() {
+async function addScript(src) {
   return new Promise(resolve => {
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = '/vendor/reveal.js?v={{version}}';
+    script.src = src;
     script.async = 'true';
     script.onload = resolve;
 
@@ -14,50 +14,53 @@ function insertRevealScript() {
   });
 }
 
-Promise.all([insertRevealScript()])
-  .then(function() {
+/**
+ * Insert reveal scripts into dom.
+ * @return {Promise} Promise resolved when script is loaded
+ */
+async function insertRevealScripts() {
+  await addScript('/vendor/reveal.js?v={{version}}');
+  await addScript('/vendor/marked.js?v={{version}}');
+  await addScript('/vendor/markdown.js?v={{version}}');
+}
+
+/**
+ * Get configured marked renderer.
+ * @return {marked.Renderer} Configured renderer
+ */
+function getMarkedRenderer() {
+  const renderer = new marked.Renderer();
+
+  renderer.image = (href, title, text) =>
+    `<img data-src="/doc/${href}?v={{version}}" alt="${title}" />`;
+  renderer.image = (href, title, text) =>
+    `'<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>'`;
+
+  return renderer;
+}
+
+insertRevealScripts()
+  .then(() =>
     Reveal.initialize({
       controls: true,
       progress: true,
       history: true,
       center: true,
       transition: 'slide',
+      markdown: {
+        renderer: getMarkedRenderer(),
+      },
       dependencies: [
         {
-          src: '/vendor/marked.js',
-          callback: function() {
-            var renderer = new marked.Renderer();
-
-            renderer.image = function(href, title, text) {
-              return '<img data-src="/doc/' + href + '?v={{version}}" alt="' + title + '" />';
-            };
-
-            renderer.link = function(href, title, text) {
-              return (
-                '<a href="' + href + '" target="_blank" rel="noopener noreferrer">' + text + '</a>'
-              );
-            };
-
-            marked.setOptions({ renderer: renderer });
-          },
-        },
-        { src: '/vendor/markdown.js' },
-        {
           src: '/vendor/classList.js',
-          condition: function() {
-            return !document.body.classList;
-          },
+          condition: () => !document.body.classList,
         },
         {
           src: '/vendor/highlight.js',
           async: true,
-          callback: function() {
-            hljs.initHighlightingOnLoad();
-          },
+          callback: () => hljs.initHighlightingOnLoad(),
         },
       ],
-    });
-  })
-  .catch(function(e) {
-    console.error(e);
-  });
+    }),
+  )
+  .catch(e => console.error(e));

@@ -16,9 +16,9 @@ function algoliaGetIndex(app, key, name) {
  * @param  {DOMElement} results Container of results
  */
 function algoliaHandleInput(index, input, results) {
-  var changeTimeout;
+  let changeTimeout;
 
-  input.addEventListener('input', function(e) {
+  input.addEventListener('input', e => {
     clearTimeout(changeTimeout);
 
     if (e.target.value) {
@@ -35,9 +35,7 @@ function algoliaHandleInput(index, input, results) {
  * @return {Function}   Function to pass to event listener
  */
 function algoliaGetResultClickHandler(hit) {
-  return function() {
-    document.location.href = hit.url;
-  };
+  return () => (document.location.href = hit.url);
 }
 
 /**
@@ -47,7 +45,7 @@ function algoliaGetResultClickHandler(hit) {
  * @param  {DOMElement} results Container of results
  */
 function algoliaSearchQuery(index, query, results) {
-  index.search({ query, hitsPerPage: 5 }, function(err, output) {
+  index.search({ query, hitsPerPage: 5 }, (err, output) => {
     if (err) {
       console.error(err);
       algoliaShowMessage('(╯°□°）╯︵ ┻━┻', "C'est cassé !", 'algolia__results--error', results);
@@ -73,7 +71,7 @@ function algoliaSearchQuery(index, query, results) {
 function algoliaShowMessage(header, message, className, results) {
   algoliaClearNode(results);
 
-  var result = algoliaGenerateResult(header, message);
+  const result = algoliaGenerateResult(header, message);
   result.className = className;
 
   results.appendChild(result);
@@ -87,16 +85,16 @@ function algoliaShowMessage(header, message, className, results) {
  * @return {DOMElement}     Result to append
  */
 function algoliaGenerateResult(header, message) {
-  var content = document.createElement('span');
+  const content = document.createElement('span');
   content.innerHTML = message;
 
-  var chapter = document.createElement('strong');
+  const chapter = document.createElement('strong');
   chapter.innerHTML = header;
 
-  var headline = document.createElement('p');
+  const headline = document.createElement('p');
   headline.appendChild(chapter);
 
-  var li = document.createElement('li');
+  const li = document.createElement('li');
   li.appendChild(headline);
   li.appendChild(content);
 
@@ -112,9 +110,9 @@ function algoliaShowResults(hits, results) {
   algoliaClearNode(results);
 
   for (var i = 0; i < hits.length; i++) {
-    var hit = hits[i];
+    const hit = hits[i];
 
-    var result = algoliaGenerateResult(hit.chapter, hit._highlightResult.content.value);
+    let result = algoliaGenerateResult(hit.chapter, hit._highlightResult.content.value);
     result.addEventListener('click', algoliaGetResultClickHandler(hit));
 
     results.appendChild(result);
@@ -256,33 +254,29 @@ function insertAlgoliaDOM() {
  * @param  {String} key       Search key
  * @param  {String} indexName Index name
  */
-function algoliaInit(app, key, indexName) {
+async function algoliaInit(app, key, indexName) {
   if (!app || !key || !indexName) {
     return;
   }
 
-  return Promise.all([insertAlgoliaScript(), insertAlgoliaStyle()])
-    .then(function() {
-      insertAlgoliaDOM();
-      var index = algoliaGetIndex(app, key, indexName);
+  await Promise.all([insertAlgoliaScript(), insertAlgoliaStyle()]);
 
-      var searchBar = document.getElementById('search');
-      var results = document.getElementById('results');
+  insertAlgoliaDOM();
+  var index = algoliaGetIndex(app, key, indexName);
 
-      if (searchBar && results) {
-        algoliaHandleInput(index, searchBar, results);
-        algoliaAddActiveClass(searchBar);
+  var searchBar = document.getElementById('search');
+  var results = document.getElementById('results');
 
-        searchBar.addEventListener('keyup', algoliaHandleResultKey);
-        Reveal.addEventListener('slidechanged', function() {
-          algoliaClearInput(searchBar);
-          algoliaClearNode(results);
-        });
-      }
-    })
-    .catch(function(e) {
-      console.error(e);
+  if (searchBar && results) {
+    algoliaHandleInput(index, searchBar, results);
+    algoliaAddActiveClass(searchBar);
+
+    searchBar.addEventListener('keyup', algoliaHandleResultKey);
+    Reveal.addEventListener('slidechanged', function() {
+      algoliaClearInput(searchBar);
+      algoliaClearNode(results);
     });
+  }
 }
 
 fetch('/env')
