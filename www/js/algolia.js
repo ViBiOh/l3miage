@@ -226,8 +226,6 @@ async function algoliaInit(app, key, indexName) {
     return;
   }
 
-  await addScript();
-
   await Promise.all([
     addScript('https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js'),
     addStyle('/css/algolia.css?v={{version}}'),
