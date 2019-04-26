@@ -109,7 +109,7 @@ function algoliaGenerateResult(header, message) {
 function algoliaShowResults(hits, results) {
   algoliaClearNode(results);
 
-  hots.forEach(hit => {
+  hits.forEach(hit => {
     let result = algoliaGenerateResult(hit.chapter, hit._highlightResult.content.value);
     result.addEventListener('click', algoliaGetResultClickHandler(hit));
 
