@@ -109,14 +109,12 @@ function algoliaGenerateResult(header, message) {
 function algoliaShowResults(hits, results) {
   algoliaClearNode(results);
 
-  for (var i = 0; i < hits.length; i++) {
-    const hit = hits[i];
-
+  hots.forEach(hit => {
     let result = algoliaGenerateResult(hit.chapter, hit._highlightResult.content.value);
     result.addEventListener('click', algoliaGetResultClickHandler(hit));
 
     results.appendChild(result);
-  }
+  });
 
   algoliaAddActiveClass(results);
 }
@@ -155,13 +153,13 @@ function algoliaAddActiveClass(element) {
  * @param  {int} direction Direction 1, or -1 for reverse
  */
 function algoliaNavigateResults(direction) {
-  var selectedClass = 'selected';
+  const selectedClass = 'selected';
 
-  var results = document.querySelectorAll('.algolia__results li');
+  const results = document.querySelectorAll('.algolia__results li');
   if (results) {
-    for (var i = 0; i < results.length; i++) {
+    for (let i = 0; i < results.length; i++) {
       if (results[i].classList.contains(selectedClass)) {
-        var next = i + direction;
+        const next = i + direction;
         if (next >= 0 && next < results.length) {
           results[i].classList.remove(selectedClass);
           results[next].classList.add(selectedClass);
@@ -172,7 +170,7 @@ function algoliaNavigateResults(direction) {
     }
   }
 
-  var result = document.querySelector('.algolia__results li');
+  const result = document.querySelector('.algolia__results li');
   if (result) {
     result.classList.add(selectedClass);
   }
@@ -188,42 +186,11 @@ function algoliaHandleResultKey(e) {
   } else if (e.keyCode === 38) {
     algoliaNavigateResults(-1);
   } else if (e.keyCode === 13) {
-    var selected = document.querySelector('.algolia__results li.selected');
+    const selected = document.querySelector('.algolia__results li.selected');
     if (selected) {
       selected.click();
     }
   }
-}
-
-/**
- * Insert algolia script into dom.
- * @return {Promise} Promise resolved when script is loaded
- */
-function insertAlgoliaScript() {
-  return new Promise(resolve => {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js';
-    script.async = 'true';
-    script.onload = resolve;
-
-    document.querySelector('head').appendChild(script);
-  });
-}
-
-/**
- * Insert algolia style into dom.
- * @return {Promise} Promise resolved when style is loaded
- */
-function insertAlgoliaStyle() {
-  return new Promise(resolve => {
-    var style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.href = '/css/algolia.css?v={{version}}';
-    style.onload = resolve;
-
-    document.querySelector('head').appendChild(style);
-  });
 }
 
 /**
@@ -259,33 +226,36 @@ async function algoliaInit(app, key, indexName) {
     return;
   }
 
-  await Promise.all([insertAlgoliaScript(), insertAlgoliaStyle()]);
+  await addScript();
+
+  await Promise.all([
+    addScript('https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js'),
+    addStyle('/css/algolia.css?v={{version}}'),
+  ]);
 
   insertAlgoliaDOM();
-  var index = algoliaGetIndex(app, key, indexName);
+  const index = algoliaGetIndex(app, key, indexName);
 
-  var searchBar = document.getElementById('search');
-  var results = document.getElementById('results');
+  const searchBar = document.getElementById('search');
+  const results = document.getElementById('results');
 
   if (searchBar && results) {
     algoliaHandleInput(index, searchBar, results);
     algoliaAddActiveClass(searchBar);
 
     searchBar.addEventListener('keyup', algoliaHandleResultKey);
-    Reveal.addEventListener('slidechanged', function() {
+    Reveal.addEventListener('slidechanged', () => {
       algoliaClearInput(searchBar);
       algoliaClearNode(results);
     });
   }
 }
 
-fetch('/env')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(config) {
-    return algoliaInit(config.ALGOLIA_APP, config.ALGOLIA_KEY, config.ALGOLIA_INDEX);
-  })
-  .catch(function(e) {
-    console.error(e);
-  });
+async function init() {
+  const response = await fetch('/env');
+  const config = await response.json();
+
+  algoliaInit(config.ALGOLIA_APP, config.ALGOLIA_KEY, config.ALGOLIA_INDEX);
+}
+
+init();
