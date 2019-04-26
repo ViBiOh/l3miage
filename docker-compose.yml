@@ -23,10 +23,6 @@ services:
       ALGOLIA_APP: ${ALGOLIA_APP}
       ALGOLIA_KEY: ${ALGOLIA_KEY}
       ALGOLIA_INDEX: ${ALGOLIA_INDEX}
-    logging:
-      driver: json-file
-      options:
-        max-size: '10m'
     restart: on-failure:5
     read_only: true
     cpu_shares: 128
