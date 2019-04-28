@@ -54,28 +54,28 @@ function getMarkedRenderer() {
   return renderer;
 }
 
-insertRevealScripts()
-  .then(() =>
-    Reveal.initialize({
-      controls: true,
-      progress: true,
-      history: true,
-      center: true,
-      transition: 'slide',
-      markdown: {
-        renderer: getMarkedRenderer(),
+(async () => {
+  await insertRevealScripts();
+
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide',
+    markdown: {
+      renderer: getMarkedRenderer(),
+    },
+    dependencies: [
+      {
+        src: '/vendor/classList.js',
+        condition: () => !document.body.classList,
       },
-      dependencies: [
-        {
-          src: '/vendor/classList.js',
-          condition: () => !document.body.classList,
-        },
-        {
-          src: '/vendor/highlight.js',
-          async: true,
-          callback: () => hljs.initHighlightingOnLoad(),
-        },
-      ],
-    }),
-  )
-  .catch(e => console.error(e));
+      {
+        src: '/vendor/highlight.js',
+        async: true,
+        callback: () => hljs.initHighlightingOnLoad(),
+      },
+    ],
+  });
+})();

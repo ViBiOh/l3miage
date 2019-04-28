@@ -222,10 +222,6 @@ function insertAlgoliaDOM() {
  * @param  {String} indexName Index name
  */
 async function algoliaInit(app, key, indexName) {
-  if (!app || !key || !indexName) {
-    return;
-  }
-
   await Promise.all([
     addScript('https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js'),
     addStyle('/css/algolia.css?v={{version}}'),
@@ -249,11 +245,13 @@ async function algoliaInit(app, key, indexName) {
   }
 }
 
-async function init() {
+(async () => {
   const response = await fetch('/env');
-  const config = await response.json();
+  const { app: ALGOLIA_APP, key: ALGOLIA_KEY, indexName: ALGOLIA_INDEX } = await response.json();
 
-  algoliaInit(config.ALGOLIA_APP, config.ALGOLIA_KEY, config.ALGOLIA_INDEX);
-}
+  if (!app || !key || !indexName) {
+    return;
+  }
 
-init();
+  algoliaInit(app, key, indexName);
+})();
