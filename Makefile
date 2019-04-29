@@ -10,6 +10,7 @@ APP_PACKAGES = $(shell go list -e $(PACKAGES) | grep -v vendor | grep -v node_mo
 GOBIN=bin
 BINARY_PATH=$(GOBIN)/$(APP_NAME)
 
+.PHONY: help
 help: Makefile
 	@sed -n 's|^##||p' $< | column -t -s ':' | sed -e 's|^| |'
 
@@ -17,25 +18,31 @@ help: Makefile
 $(APP_NAME): deps go
 
 ## go: Build app
+.PHONY: go
 go: format lint build
 
 ## name: Output name of app
+.PHONY: name
 name:
 	@echo -n $(APP_NAME)
 
 ## dist: Output build output path
+.PHONY: dist
 dist:
 	@echo -n $(BINARY_PATH)
 
 ## version: Output sha1 of last commit
+.PHONY: version
 version:
 	@echo -n $(VERSION)
 
 ## author: Output author's name of last commit
+.PHONY: author
 author:
 	@python -c 'import sys; import urllib; sys.stdout.write(urllib.quote_plus(sys.argv[1]))' "$(AUTHOR)"
 
 ## deps: Download dependencies
+.PHONY: deps
 deps:
 	go get github.com/golang/dep/cmd/dep
 	go get github.com/kisielk/errcheck
@@ -44,18 +51,19 @@ deps:
 	dep ensure
 
 ## format: Format code of app
+.PHONY: format
 format:
 	goimports -w **/*.go
 	gofmt -s -w **/*.go
 
 ## lint: Lint code of app
+.PHONY: lint
 lint:
 	golint $(APP_PACKAGES)
 	errcheck -ignoretests $(APP_PACKAGES)
 	go vet $(APP_PACKAGES)
 
 ## build: Build binary of app
+.PHONY: build
 build:
 	CGO_ENABLED=0 go build -ldflags="-s -w" -installsuffix nocgo -o $(BINARY_PATH) cmd/algolia.go
-
-.PHONY: help $(APP_NAME) go name dist version author deps format lint tst bench build
