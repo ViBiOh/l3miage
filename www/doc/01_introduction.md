@@ -191,6 +191,6 @@ Prendre en compte les retours utilisateurs et... leur faire un retour !
 ## Liens divers
 
 * [Speed in software development](https://www.targetprocess.com/articles/speed-in-software-development/)
+* [Software development](https://medium.freecodecamp.org/learn-the-fundamentals-of-a-good-developer-mindset-in-15-minutes-81321ab8a682)
 * [GOTO 2015 - Space Shuttle](https://www.youtube.com/watch?v=AyrRoKN_kvg)
-* [The future is ours](https://www.youtube.com/watch?v=rDiUVS_-4_Q)
 * [YAGNI Cargo](https://codeahoy.com/2017/08/19/yagni-cargo-cult-and-overengineering-the-planes-wont-land-just-because-you-built-a-runway-in-your-backyard/)
