@@ -2,18 +2,6 @@
 
 
 [[projects]]
-  branch = "master"
-  digest = "1:fb6d833128d7dc9e0ba3caaa85dee57bb8295dc496218bf3d7e80e4d4d3479ad"
-  name = "github.com/ViBiOh/httputils"
-  packages = [
-    "pkg/errors",
-    "pkg/logger",
-    "pkg/tools",
-  ]
-  pruneopts = "UT"
-  revision = "205ac7f9dd32f4060cefa8744aaf349126e6ad67"
-
-[[projects]]
   digest = "1:1030decc22adce2f15a980fe55361b64a09c3ddd25b66e11ea4c343135573786"
   name = "github.com/algolia/algoliasearch-client-go"
   packages = [
@@ -27,11 +15,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = [
-    "github.com/ViBiOh/httputils/pkg/errors",
-    "github.com/ViBiOh/httputils/pkg/logger",
-    "github.com/ViBiOh/httputils/pkg/tools",
-    "github.com/algolia/algoliasearch-client-go/algoliasearch",
-  ]
+  input-imports = ["github.com/algolia/algoliasearch-client-go/algoliasearch"]
   solver-name = "gps-cdcl"
   solver-version = 1
