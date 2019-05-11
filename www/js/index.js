@@ -49,7 +49,7 @@ function getMarkedRenderer() {
   renderer.image = (href, title, text) =>
     `<img data-src="/doc/${href}?v={{version}}" alt="${title}" />`;
   renderer.link = (href, title, text) =>
-    `'<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>'`;
+    `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`;
 
   return renderer;
 }
