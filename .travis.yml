@@ -5,21 +5,21 @@ jobs:
     sudo: required
     services:
     - docker
-    script: docker build -t vibioh/l3miage:$(make version) --build-arg VERSION=$(make version) .
-    after_success: |
-      echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && \
-      docker push vibioh/l3miage:$(make version)
+    script: docker build --build-arg "VERSION=$(make version)" -t vibioh/l3miage:$(make version) .
+    after_success:
+    - echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && \
+    - docker push vibioh/l3miage:$(make version)
 
   - stage: Publish
 
     sudo: required
     services:
     - docker
-    script: |
-      echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin
-      docker pull vibioh/l3miage:$(make version)
-      docker tag vibioh/l3miage:$(make version) vibioh/l3miage:latest
-      docker push vibioh/l3miage:latest
+    script:
+    - echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin
+    - docker pull vibioh/l3miage:$(make version)
+    - docker tag vibioh/l3miage:$(make version) vibioh/l3miage:latest
+    - docker push vibioh/l3miage:latest
 
   - stage: Index
 
@@ -27,10 +27,10 @@ jobs:
     go: '1.12'
     env:
     - GO111MODULE=on
-    script: |
-      make algolia
-      ./script/doc.sh
-      ./script/index.sh
+    script:
+    - make algolia
+    - ./script/doc.sh
+    - ./script/index.sh
 
   - stage: Deploy
 
