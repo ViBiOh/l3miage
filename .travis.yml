@@ -5,10 +5,10 @@ jobs:
     sudo: required
     services:
     - docker
-    script: docker build --build-arg "VERSION=$(make version)" -t vibioh/l3miage:$(make version) .
+    script: docker build --build-arg "VERSION=$(make version)" -t "vibioh/l3miage:$(make version)" .
     after_success:
-    - echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin && \
-    - docker push vibioh/l3miage:$(make version)
+    - echo "${DOCKER_PASS}" | docker login -u vibioh --password-stdin
+    - docker push "vibioh/l3miage:$(make version)"
 
   - stage: Publish
 
@@ -16,10 +16,10 @@ jobs:
     services:
     - docker
     script:
-    - echo ${DOCKER_PASS} | docker login -u vibioh --password-stdin
-    - docker pull vibioh/l3miage:$(make version)
-    - docker tag vibioh/l3miage:$(make version) vibioh/l3miage:latest
-    - docker push vibioh/l3miage:latest
+    - echo "${DOCKER_PASS}" | docker login -u vibioh --password-stdin
+    - docker pull "vibioh/l3miage:$(make version)"
+    - docker tag "vibioh/l3miage:$(make version)" "vibioh/l3miage:latest"
+    - docker push "vibioh/l3miage:latest"
 
   - stage: Index
 
@@ -46,7 +46,7 @@ jobs:
     deploy:
       provider: script
       skip_cleanup: true
-      script: bash script/deploy "https://deploy.vibioh.fr/cours/$(make version)" "@docker-compose-env.yml"
+      script: bash script/deploy cours "$(make version)" "@docker-compose-env.yml"
 
 stages:
   - Build
