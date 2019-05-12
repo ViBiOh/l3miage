@@ -1,9 +1,7 @@
 SHELL = /bin/sh
 
-APP_NAME ?= algolia
-
+APP_NAME = algolia
 PACKAGES ?= ./...
-APP_PACKAGES = $(shell go list -e $(PACKAGES) | grep -v node_modules)
 
 GOBIN=bin
 BINARY_PATH=$(GOBIN)/$(APP_NAME)
@@ -55,9 +53,9 @@ format:
 ## lint: Lint code of app
 .PHONY: lint
 lint:
-	golint $(APP_PACKAGES)
-	errcheck -ignoretests $(APP_PACKAGES)
-	go vet $(APP_PACKAGES)
+	golint $(PACKAGES)
+	errcheck -ignoretests $(PACKAGES)
+	go vet $(PACKAGES)
 
 ## build: Build binary of app
 .PHONY: build
