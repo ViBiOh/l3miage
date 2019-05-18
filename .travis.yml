@@ -28,7 +28,7 @@ jobs:
     env:
     - GO111MODULE=on
     script:
-    - make algolia
+    - make
     - ./script/doc.sh
     - ./script/index.sh
 
