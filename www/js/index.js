@@ -57,6 +57,12 @@ function getMarkedRenderer() {
 (async () => {
   await insertRevealScripts();
 
+  Reveal.addEventListener('ready', () => {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  });
+
   Reveal.initialize({
     controls: true,
     progress: true,
