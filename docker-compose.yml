@@ -11,14 +11,18 @@ services:
     - -env
     - ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX
     labels:
-      traefik.frontend.passHostHeader: 'true'
-      traefik.frontend.rule: 'Host: l3miage.fr, www.l3miage.fr'
-      traefik.protocol: 'http'
-      traefik.port: '1080'
-      traefik.frontend.rateLimit.extractorFunc: 'client.ip'
-      traefik.frontend.rateLimit.rateSet.first.period: '60s'
-      traefik.frontend.rateLimit.rateSet.first.average: '100'
-      traefik.frontend.rateLimit.rateSet.first.burst: '200'
+      traefik.http.routers.l3miage-http.rule: Host(`l3miage.fr`) || Host(`www.l3miage.fr`)
+      traefik.http.routers.l3miage-http.entrypoints: http
+      traefik.http.routers.l3miage-http.middlewares: redirect@file
+      traefik.http.routers.l3miage-https.rule: Host(`l3miage.fr`) || Host(`www.l3miage.fr`)
+      traefik.http.routers.l3miage-https.entrypoints: https
+      traefik.http.routers.l3miage-https.middlewares: compress@file
+      traefik.http.routers.l3miage-https.tls: true
+      traefik.http.routers.l3miage-https.tls.certResolver: default
+      traefik.http.services.l3miage-service.loadbalancer.passhostheader: true
+      traefik.http.services.l3miage-service.loadbalancer.server.port: '1080'
+      traefik.http.middlewares.l3miage-rate-limit.ratelimit.average: '10'
+      traefik.http.middlewares.l3miage-rate-limit.ratelimit.burst: '50'
     environment:
       ALGOLIA_APP: ${ALGOLIA_APP}
       ALGOLIA_KEY: ${ALGOLIA_KEY}
