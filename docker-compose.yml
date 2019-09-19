@@ -16,13 +16,11 @@ services:
       traefik.http.routers.l3miage-http.middlewares: redirect@file
       traefik.http.routers.l3miage-https.rule: Host(`l3miage.fr`) || Host(`www.l3miage.fr`)
       traefik.http.routers.l3miage-https.entrypoints: https
-      traefik.http.routers.l3miage-https.middlewares: compress@file
+      traefik.http.routers.l3miage-https.middlewares: compress@file, web-limit@file
       traefik.http.routers.l3miage-https.tls: true
       traefik.http.routers.l3miage-https.tls.certResolver: default
       traefik.http.services.l3miage-service.loadbalancer.passhostheader: true
       traefik.http.services.l3miage-service.loadbalancer.server.port: '1080'
-      traefik.http.middlewares.l3miage-rate-limit.ratelimit.average: '10'
-      traefik.http.middlewares.l3miage-rate-limit.ratelimit.burst: '50'
     environment:
       ALGOLIA_APP: ${ALGOLIA_APP}
       ALGOLIA_KEY: ${ALGOLIA_KEY}
