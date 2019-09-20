@@ -3,13 +3,6 @@ version: '2'
 services:
   site:
     image: vibioh/l3miage
-    command:
-    - -csp
-    - default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com; child-src www.youtube.com
-    - -headers
-    - X-UA-Compatible:ie=edge~content-language:fr
-    - -env
-    - ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX
     labels:
       traefik.http.routers.l3miage-http.rule: Host(`l3miage.fr`) || Host(`www.l3miage.fr`)
       traefik.http.routers.l3miage-http.entrypoints: http
@@ -25,6 +18,9 @@ services:
       ALGOLIA_APP: ${ALGOLIA_APP}
       ALGOLIA_KEY: ${ALGOLIA_KEY}
       ALGOLIA_INDEX: ${ALGOLIA_INDEX}
+      VIWS_CSP: default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com; child-src www.youtube.com
+      VIWS_HEADERS: X-UA-Compatible:ie=edge~content-language:fr
+      VIWS_ENV: ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX
     restart: on-failure:5
     read_only: true
     cpu_shares: 128
