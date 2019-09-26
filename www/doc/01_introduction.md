@@ -180,12 +180,12 @@ Prendre en compte les retours utilisateurs et... leur faire un retour !
 
 ## Littérature
 
-* [The Pragmatic Programmer](http://www.amazon.fr/dp/B003GCTQAE), *Andrew Hunt & David Thomas*
-* [Clean Code](http://www.amazon.fr/dp/B001GSTOAM), *Robert C. Martin*
-* [Rework](http://www.amazon.fr/dp/B003ELY7PG), *Jason Fried & David Heinemeier Hansson* ([TED](https://www.ted.com/talks/jason_fried_why_work_doesn_t_happen_at_work))
-* [Linchpin](http://www.amazon.fr/dp/0749953357), *Seth Godin*
-* [Liberté & cie](http://amzn.eu/7xAo3m6), *Isaac Getz*
-* [La vérité sur ce qui nous motive / Drive en V.O.](http://amzn.eu/33hnA5B), *Daniel H. Pink* ([TED](https://www.ted.com/talks/dan_pink_on_motivation))
+* [The Pragmatic Programmer](https://isbnsearch.org/isbn/9780201616224), *Andrew Hunt & David Thomas*
+* [Clean Code](https://isbnsearch.org/isbn/9780132350884), *Robert C. Martin*
+* [Rework](https://isbnsearch.org/isbn/0307463745), *Jason Fried & David Heinemeier Hansson* ([TED](https://www.ted.com/talks/jason_fried_why_work_doesn_t_happen_at_work))
+* [Linchpin](https://isbnsearch.org/isbn/9780749953355), *Seth Godin*
+* [Liberté & cie](https://isbnsearch.org/isbn/2081379511), *Isaac Getz*
+* [La vérité sur ce qui nous motive / Drive en V.O.](https://isbnsearch.org/isbn/208137952X), *Daniel H. Pink* ([TED](https://www.ted.com/talks/dan_pink_on_motivation))
 
 
 ## Liens divers
