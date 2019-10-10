@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 
 services:
   site:
@@ -12,11 +12,11 @@ services:
       traefik.http.routers.l3miage-https.middlewares: compress@file, web-limit@file
       traefik.http.routers.l3miage-https.tls: true
       traefik.http.routers.l3miage-https.tls.certresolver: default
-      traefik.http.services.l3miage-service.loadbalancer.server.port: '1080'
+      traefik.http.services.l3miage-service.loadbalancer.server.port: "1080"
     environment:
-      ALGOLIA_APP: ${ALGOLIA_APP}
-      ALGOLIA_KEY: ${ALGOLIA_KEY}
-      ALGOLIA_INDEX: ${ALGOLIA_INDEX}
+      ALGOLIA_APP: "${ALGOLIA_APP}"
+      ALGOLIA_KEY: "${ALGOLIA_KEY}"
+      ALGOLIA_INDEX: "${ALGOLIA_INDEX}"
       VIWS_CSP: default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com; child-src www.youtube.com
       VIWS_HEADERS: X-UA-Compatible:ie=edge~content-language:fr
       VIWS_ENV: ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX
