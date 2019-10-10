@@ -12,3 +12,8 @@ update_configs:
   update_schedule: "weekly"
   default_reviewers:
   - "ViBiOh"
+- package_manager: "java:maven"
+  directory: "/sample/java/"
+  update_schedule: "weekly"
+  default_reviewers:
+  - "ViBiOh"
