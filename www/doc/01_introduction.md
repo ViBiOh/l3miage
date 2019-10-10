@@ -2,7 +2,7 @@
 
 [Vincent Boutour](https://vibioh.fr) - [@ViBiOh](https://github.com/ViBiOh)
 
-*Front-end developer & lead-dev* chez [MeilleursAgents](https://www.meilleursagents.com)
+*Productivity Engineer* chez [MeilleursAgents](https://www.meilleursagents.com)
 
 Master MIAGE Paris Descartes, 2011 👴
 
