@@ -1,6 +1,7 @@
 # l3miage
 
 [![Build Status](https://travis-ci.org/ViBiOh/l3miage.svg?branch=master)](https://travis-ci.org/ViBiOh/l3miage)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=ViBiOh/l3miage)](https://dependabot.com)
 
 ## Thanks
 
