@@ -3,8 +3,8 @@ SHELL = /bin/sh
 APP_NAME = algolia
 PACKAGES ?= ./...
 
-GOBIN=bin
-BINARY_PATH=$(GOBIN)/$(APP_NAME)
+OUTPUR_DIR=bin
+BINARY_PATH=$(OUTPUR_DIR)/$(APP_NAME)
 
 .DEFAULT_GOAL := app
 
