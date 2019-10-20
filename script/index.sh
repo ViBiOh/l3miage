@@ -15,4 +15,4 @@ main() {
   ./bin/algolia -source "${GIT_ROOT:-.}/www/doc/genie.md" -app "${ALGOLIA_APP}" -key "${ALGOLIA_KEY}" -index "${ALGOLIA_INDEX}"
 }
 
-main "${@}"
+main "${@:-}"
