@@ -29,8 +29,8 @@ jobs:
     - GO111MODULE=on
     script:
     - make
-    - ./script/doc.sh
-    - ./script/index.sh
+    - ./script/doc
+    - ./script/index
 
   - stage: Deploy
 
