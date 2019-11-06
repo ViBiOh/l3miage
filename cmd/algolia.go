@@ -125,13 +125,13 @@ func main() {
 
 	objects, err := algoliaApp.GetSearchObjects(*name)
 	if err != nil {
-		log.Fatalf("%#v", err)
+		log.Fatalf("%s", err)
 	}
 
 	if *debug {
 		output, err := json.MarshalIndent(objects, "", "  ")
 		if err != nil {
-			log.Fatalf("%#v", err)
+			log.Fatalf("%s", err)
 		}
 
 		log.Printf("%s\n", output)
@@ -149,12 +149,12 @@ func main() {
 	if _, err := index.SetSettings(algoliasearch.Map{
 		"searchableAttributes": []string{"keywords", "img", "content"},
 	}); err != nil {
-		log.Fatalf("%#v", err)
+		log.Fatalf("%s", err)
 	}
 
 	output, err := index.AddObjects(objects)
 	if err != nil {
-		log.Fatalf("%#v", err)
+		log.Fatalf("%s", err)
 	}
 	log.Printf("%d objects added to %s index\n", len(output.ObjectIDs), algoliaApp.indexName)
 }
