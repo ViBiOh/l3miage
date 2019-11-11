@@ -8,8 +8,11 @@ COPY . .
 
 RUN npm ci \
  && npm run reveal \
- && npm run build \
- && sed -i -e "s|{{version}}|${APP_VERSION}|g" /usr/src/app/www/index.html \
+ && npm run build \ \
+ && git diff -- *.go \
+ && git diff --quiet -- *.go
+
+RUN sed -i -e "s|{{version}}|${APP_VERSION}|g" /usr/src/app/www/index.html \
  && sed -i -e "s|{{version}}|${APP_VERSION}|g" /usr/src/app/www/js/index.js \
  && sed -i -e "s|{{version}}|${APP_VERSION}|g" /usr/src/app/www/js/algolia.js
 
