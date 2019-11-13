@@ -5,8 +5,7 @@ set -o nounset -o pipefail -o errexit
 main() {
   GIT_ROOT=$(git rev-parse --show-cdup)
 
-  curl -q \
-       -sS \
+  curl -sSqL --max-time 10 \
        -X DELETE \
        -H "X-Algolia-API-Key: ${ALGOLIA_KEY}" \
        -H "X-Algolia-Application-Id: ${ALGOLIA_APP}" \
