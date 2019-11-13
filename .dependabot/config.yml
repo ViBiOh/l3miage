@@ -7,13 +7,19 @@ update_configs:
   update_schedule: "weekly"
   default_reviewers:
   - "ViBiOh"
+  default_assignees:
+  - "ViBiOh"
 - package_manager: "javascript"
   directory: "/sample/tdd/"
   update_schedule: "weekly"
   default_reviewers:
   - "ViBiOh"
+  default_assignees:
+  - "ViBiOh"
 - package_manager: "java:maven"
   directory: "/sample/java/"
   update_schedule: "weekly"
   default_reviewers:
+  - "ViBiOh"
+  default_assignees:
   - "ViBiOh"
