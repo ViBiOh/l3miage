@@ -38,7 +38,7 @@ jobs:
     language: minimal
     script:
     - curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "deploy" "env_replace"
-    - scripts/env_replace "docker-compose.yml" "docker-compose-env.yml"
+    - scripts/env_replace "docker-compose.yml" > "docker-compose-env.yml"
     - scripts/deploy "cours" "@docker-compose-env.yml"
 
 stages:
