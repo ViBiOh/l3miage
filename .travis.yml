@@ -36,17 +36,10 @@ jobs:
   - stage: Deploy
 
     language: minimal
-    script: |
-      sed \
-        -e "s|\${ALGOLIA_APP}|${ALGOLIA_APP}|g" \
-        -e "s|\${ALGOLIA_KEY}|${ALGOLIA_READ_ONLY_KEY}|g" \
-        -e "s|\${ALGOLIA_INDEX}|${ALGOLIA_INDEX}|g" \
-        -e "s|\${ROLLBAR_TOKEN}|${ROLLBAR_TOKEN}|g" \
-        -e "s|\${ROLLBAR_CLIENT_TOKEN}|${ROLLBAR_CLIENT_TOKEN}|g" \
-        -e "s|\\\$|\$\$|g" \
-        docker-compose.yml > docker-compose-env.yml
-      curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "deploy"
-      scripts/deploy "cours" "@docker-compose-env.yml"
+    script:
+    - curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "deploy" "env_replace"
+    - scripts/env_replace "docker-compose.yml" "docker-compose-env.yml"
+    - scripts/deploy "cours" "@docker-compose-env.yml"
 
 stages:
   - Build
