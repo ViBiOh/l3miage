@@ -4,10 +4,10 @@ services:
   site:
     image: vibioh/l3miage
     labels:
-      traefik.http.routers.l3miage-http.rule: Host(`l3miage.fr`) || Host(`www.l3miage.fr`)
+      traefik.http.routers.l3miage-http.rule: Host("l3miage.fr") || Host("www.l3miage.fr")
       traefik.http.routers.l3miage-http.entrypoints: http
       traefik.http.routers.l3miage-http.middlewares: redirect@file
-      traefik.http.routers.l3miage-https.rule: Host(`l3miage.fr`) || Host(`www.l3miage.fr`)
+      traefik.http.routers.l3miage-https.rule: Host("l3miage.fr") || Host("www.l3miage.fr")
       traefik.http.routers.l3miage-https.entrypoints: https
       traefik.http.routers.l3miage-https.middlewares: compress@file, web-limit@file
       traefik.http.routers.l3miage-https.tls: true
