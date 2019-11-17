@@ -39,6 +39,7 @@ jobs:
     script:
     - curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "deploy" "env_replace"
     - scripts/env_replace "docker-compose.yml" ALGOLIA_APP ALGOLIA_READ_ONLY_KEY ALGOLIA_INDEX > "docker-compose-env.yml"
+    - cat docker-compose-env.yml
     - scripts/deploy "cours" "@docker-compose-env.yml"
 
 stages:
