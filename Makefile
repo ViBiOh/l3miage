@@ -20,11 +20,11 @@ help: Makefile
 
 ## app: Build app with dependencies download
 .PHONY: app
-app: deps go
+app: init go
 
 ## go: Build app
 .PHONY: go
-go: format lint build
+go: format style build
 
 ## name: Output name of app
 .PHONY: name
@@ -60,9 +60,9 @@ format:
 	goimports -w **/*.go
 	gofmt -s -w **/*.go
 
-## lint: Lint code of app
-.PHONY: lint
-lint:
+## style: Style code of app
+.PHONY: style
+style:
 	golint $(PACKAGES)
 	errcheck -ignoretests $(PACKAGES)
 	go vet $(PACKAGES)
