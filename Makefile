@@ -1,5 +1,10 @@
 SHELL = /bin/bash
 
+ifneq ("$(wildcard .env)","")
+	include .env
+	export
+endif
+
 APP_NAME = algolia
 PACKAGES ?= ./...
 
@@ -41,9 +46,10 @@ version:
 author:
 	@python -c 'import sys; import urllib; sys.stdout.write(urllib.quote_plus(sys.argv[1]))' "$(shell git log --pretty=format:'%an' -n 1)"
 
-## deps: Download dependencies
-.PHONY: deps
-deps:
+## init: Download dependencies
+.PHONY: init
+init:
+	@curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "git_hooks"
 	go get github.com/kisielk/errcheck
 	go get golang.org/x/lint/golint
 	go get golang.org/x/tools/cmd/goimports
