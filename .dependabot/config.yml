@@ -13,8 +13,8 @@ update_configs:
       - "ViBiOh"
     automerged_updates:
       - match:
-        dependency_type: "all"
-        update_type: "all"
+          dependency_type: "all"
+          update_type: "all"
   - package_manager: "javascript"
     directory: "/sample/tdd/"
     update_schedule: "weekly"
@@ -24,8 +24,8 @@ update_configs:
       - "ViBiOh"
     automerged_updates:
       - match:
-        dependency_type: "all"
-        update_type: "all"
+          dependency_type: "all"
+          update_type: "all"
   - package_manager: "java:maven"
     directory: "/sample/java/"
     update_schedule: "weekly"
@@ -35,5 +35,5 @@ update_configs:
       - "ViBiOh"
     automerged_updates:
       - match:
-        dependency_type: "all"
-        update_type: "all"
+          dependency_type: "all"
+          update_type: "all"
