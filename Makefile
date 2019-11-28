@@ -53,6 +53,7 @@ init:
 	go get github.com/kisielk/errcheck
 	go get golang.org/x/lint/golint
 	go get golang.org/x/tools/cmd/goimports
+	go mod tidy
 
 ## format: Format code of app
 .PHONY: format
