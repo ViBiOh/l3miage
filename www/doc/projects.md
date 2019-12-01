@@ -13,6 +13,14 @@ Utilisation de git
 Utilisation de markdown
 
 
+Rédaction des besoins
+* *user story*
+* critère d'acceptation
+
+
+Code testé unitairement
+
+
 Réalisation en Java, JavaScript ou Go
 
 
@@ -24,14 +32,6 @@ Utilisation d'un outil de gestion de dépendances
 * Gradle
 * npm
 * ...
-
-
-Code testé unitairement
-
-
-Rédaction des besoins
-* *user story*
-* critère d'acceptation
 
 
 Documentation complète
@@ -46,7 +46,7 @@ Ajout d'une fonctionnalité joker sur la fin, après analyse de votre code.
 ## Livrables
 
 
-Repo git complet avec la documentation
+Repo git complet avec la documentation (éviter le wiki)
 
 
 Synthèse du projet
@@ -55,6 +55,10 @@ Synthèse du projet
 * problèmes rencontrés, solutions trouvées
 * points perfectibles, restes à faire, points non solutionnés
 * retours personnels sur le module
+
+
+Synthèse rédigée en markdown ou PDF
+Intégrée dans le repo git
 
 
 ## Critères d'évaluation
@@ -69,16 +73,16 @@ Qualité des livrables
 Produit fonctionnel
 
 
-Plusieurs présentations orales
+Plusieurs présentations orales (optionnelles)
 
 
-*Pitchs* technico-fonctionnels de 2-3 min
+*Pitchs* technico-fonctionnels de 2-3 min (optionels)
 
 * Synthèse d'un élément
 * Partage des connaissances
 
 
-Présentation globale du projet (~30min)
+Présentation globale du projet (30min)
 
 * Description
   * Technique
@@ -103,10 +107,10 @@ Groupe de 5
 
 Organisation libre mais à expliquer
 
-* /!\ évaluation de groupe
-* /!\ notation individuelle basée sur la prestation orale
+* ⚠️ évaluation de groupe
+* ⚠️ notation individuelle basée sur la prestation orale
 
 
 Sujet libre
 
-* /!\ délais & ambition
+* ⚠️ délais & ambition
