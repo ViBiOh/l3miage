@@ -77,6 +77,9 @@ Vérification
 `git push`
 
 
+![](img/git_remote.png)
+
+
 ### En précisant la destination, la branche
 
 `git push nom-du-serveur-distant nom-de-la-branche`
