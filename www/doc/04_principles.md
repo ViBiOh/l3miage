@@ -148,7 +148,7 @@ En méso-économie, on ne peut ignorer un évènement. Même si un domaine ne vo
 Être bon communicant passe par de bons outils
 
 
-* [Slack](http://www.slack.com), [Rocket.chat](https://rocket.chat), [appear.in](https://appear.in), IRC
+* [Slack](http://www.slack.com), [Rocket.chat](https://rocket.chat), IRC
 * Réseaux sociaux, [reddit](https://reddit.com), [HackerNews](https://news.ycombinator.com)
 * Animer l'équipe et acquérir le *team-spirit*
 
@@ -273,10 +273,12 @@ Enfin, l'environnement évolue sans cesse, les modèles, les méthodes, les outi
 Utiliser ce qui existe quand cela répond à votre besoin
 
 
-En combinant des outils, on peut en créer d'autres.
+En combinant des outils, on peut en créer d'autres. Philosophie unix.
 
 e.g. la stack ELK pour analyser vos logs : ElasticSearch Logstash Kibana
 
+
+> Eviter le "too busy to improve"
 
 ![](img/too_busy_to_improve.jpg)
 

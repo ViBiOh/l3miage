@@ -33,7 +33,7 @@ Afficher l'inverse de l'entier saisi par l'utilisateur
 ```java
 class Program {
   public static void main(String[] args) {
-    System.out.println("Inverse: " + 
+    System.out.println("Inverse: " +
       (1D / new Scanner(System.in).nextInt()));
   }
 }
@@ -162,7 +162,7 @@ Composants intimement liés
 Testabilité complexe voire impossible
 
 
-## *[Inversion of Control](https://blog.imirhil.fr/2013/05/19/inversion-de-controle-cest-bon-mangez-en.html)* - IoC
+## [Inversion of Control](https://blog.imirhil.fr/2013/05/19/inversion-de-controle-cest-bon-mangez-en.html) - IoC
 
 
 L'application a besoin de comportements, pas d'implémentations

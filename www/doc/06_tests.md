@@ -291,7 +291,7 @@ S'assurer de la bonne intégration :
 * des composants avec leur dépendances
 
 
-[Par l'exemple](https://twitter.com/thepracticaldev/status/687672086152753152)
+![](img/integration_test.gif)
 
 
 e.g. Tester la bonne intégration des composants
@@ -325,18 +325,15 @@ Intégration problématique avec une dépendance
 @Repository
 public class BadDAO {
   private JdbcTemplate jdbcTemplate;
-
   @Autowired
   public void init(final DataSource dataSource) {
     this.jdbcTemplate = new JdbcTemplate(dataSource);
   }
-
   public Collection<String> list() {
     return jdbcTemplate
-      // Seems annoying
       .queryForList(
           "SELECT age FROM Person WHERE name = birthDate"
-        , String.class);
+        , String.class); // Seems annoying
   }
 }
 ```
@@ -377,7 +374,12 @@ Vérifier que les règles de gestion de l'application sont respectées
 Vérifier que le rendu final est conforme aux attentes
 
 
-[Cucumber](https://cucumber.io), [Fitnesse](http://www.fitnesse.org), [Robot Framework](http://robotframework.org), [NightwatchJS](http://nightwatchjs.org), etc.
+Outils
+
+[Cucumber](https://cucumber.io), [Fitnesse](http://www.fitnesse.org), [Robot Framework](http://robotframework.org), [NightwatchJS](http://nightwatchjs.org), [CyPress](https://www.cypress.io/), etc.
+
+
+[Exemple](https://talks.vibioh.fr/indus_e2e/#/2/15)
 
 
 ## Conclusion

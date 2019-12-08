@@ -50,9 +50,17 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 * *pull-request*
 
 
+## Documentation
+
+* [devhints](https://devhints.io/)
+* [tldr](https://tldr.sh/)
+* [dash](https://kapeli.com/dash)
+
+
 ## Qualimétrie
 
 * [SonarQube](http://www.sonarqube.org), CodeSmell, Linter
+* [LGTM](https://lgtm.com/)
 
 
 ## Organisation
@@ -66,8 +74,8 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 ## IDE
 
 * [vi/vim](http://www.vim.org) / [emacs](https://www.gnu.org/software/emacs/)
-* [SublimeText](http://www.sublimetext.com) / [Atom](https://atom.io) / [Visual Studio Code](https://code.visualstudio.com/) / [Notepad++](https://notepad-plus-plus.org/fr/)
-* [IntelliJ](https://www.jetbrains.com/idea/) / [Eclipse](https://eclipse.org/) / [NetBeans](https://netbeans.org) / [VisualStudio](https://www.visualstudio.com)
+* [SublimeText](http://www.sublimetext.com) / [Visual Studio Code](https://code.visualstudio.com/) / [Notepad++](https://notepad-plus-plus.org/fr/)
+* [IntelliJ](https://www.jetbrains.com/idea/) / [Eclipse](https://eclipse.org/) / [VisualStudio](https://www.visualstudio.com)
 
 > Peu importe votre religion, il faut l'assumer et la maîtriser
 
@@ -75,4 +83,4 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 ## Déploiement
 
 * [Jenkins](https://jenkins-ci.org), [Bamboo](https://www.atlassian.com/software/bamboo/), [Travis](https://travis-ci.org/)
-* [Docker](https://www.docker.com), [Puppet](https://puppetlabs.com), [Ansible](https://www.ansible.com)
+* [Docker](https://www.docker.com), [Ansible](https://www.ansible.com), [Terraform](https://www.terraform.io)

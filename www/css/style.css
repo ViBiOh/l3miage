@@ -19,3 +19,8 @@ nav {
 .reveal section h3 {
   font-size: 3rem;
 }
+
+.reveal section img {
+  background: transparent;
+  border: 0;
+}
