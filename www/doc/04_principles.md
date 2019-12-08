@@ -18,7 +18,7 @@ Très contractuel et procédurier : un cahier des charges initial, un cahier de 
 Souvent utilisé dans le cadre de "forfait" en SSII.
 
 
-![](img/cycle_en_v.svg)
+![](img/cycle_en_v.png)
 
 
 Crée un effet « tunnel » car chaque tâche dépend de la précédente, sans validation de l'utilisateur.
