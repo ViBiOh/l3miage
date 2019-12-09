@@ -58,6 +58,16 @@
 `git reset HEAD -- [nom_de_votre_fichier]`
 
 
+### Créer une branche à partir de la branche courante
+
+`git checkout -b features/awesome`
+
+
+### Changer de branche
+
+`git checkout master`
+
+
 ### Mettre de côté ses modifications
 
 `git stash`
