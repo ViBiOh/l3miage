@@ -46,8 +46,13 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 
 ## Revue de code
 
-* méthode du canard en plastique
 * *pull-request*
+* *pair-programming*
+
+
+* méthode du canard en plastique
+
+![](img/canard.jpeg)
 
 
 ## Documentation
