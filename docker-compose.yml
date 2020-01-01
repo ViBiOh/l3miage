@@ -4,7 +4,7 @@ version: "2"
 
 services:
   site:
-    image: vibioh/l3miage
+    image: ${DOCKER_USER}/l3miage
     labels:
       traefik.http.routers.l3miage-http.rule: Host(`l3miage.fr`) || Host(`www.l3miage.fr`)
       traefik.http.routers.l3miage-http.entrypoints: http
