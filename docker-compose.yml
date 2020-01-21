@@ -9,9 +9,12 @@ services:
       traefik.http.routers.l3miage-http.rule: Host(`l3miage.fr`) || Host(`www.l3miage.fr`)
       traefik.http.routers.l3miage-http.entrypoints: http
       traefik.http.routers.l3miage-http.middlewares: redirect@file
+      traefik.http.middlewares.l3miage-wwwredirect.redirectregex.regex: ^https?://www.l3miage.fr(.*)
+      traefik.http.middlewares.l3miage-wwwredirect.redirectregex.replacement: https://l3miage.fr${1}
+      traefik.http.middlewares.l3miage-wwwredirect.redirectregex.permanent: true
       traefik.http.routers.l3miage-https.rule: Host(`l3miage.fr`) || Host(`www.l3miage.fr`)
       traefik.http.routers.l3miage-https.entrypoints: https
-      traefik.http.routers.l3miage-https.middlewares: compress@file, web-limit@file
+      traefik.http.routers.l3miage-https.middlewares: compress@file, web-limit@file, l3miage-wwwredirect
       traefik.http.routers.l3miage-https.tls: true
       traefik.http.routers.l3miage-https.tls.certresolver: default
       traefik.http.services.l3miage-service.loadbalancer.server.port: "1080"
