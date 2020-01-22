@@ -8,8 +8,7 @@ endif
 APP_NAME = algolia
 PACKAGES ?= ./...
 
-OUTPUR_DIR=bin
-BINARY_PATH=$(OUTPUR_DIR)/$(APP_NAME)
+MAIN_BINARY = bin/$(APP_NAME)
 
 .DEFAULT_GOAL := app
 
@@ -34,7 +33,7 @@ name:
 ## dist: Output build output path
 .PHONY: dist
 dist:
-	@echo -n $(BINARY_PATH)
+	@echo -n $(MAIN_BINARY)
 
 ## version: Output sha1 of last commit
 .PHONY: version
@@ -71,4 +70,4 @@ style:
 ## build: Build binary of app
 .PHONY: build
 build:
-	CGO_ENABLED=0 go build -ldflags="-s -w" -installsuffix nocgo -o $(BINARY_PATH) cmd/algolia.go
+	CGO_ENABLED=0 go build -ldflags="-s -w" -installsuffix nocgo -o $(MAIN_BINARY) cmd/algolia.go
