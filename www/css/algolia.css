@@ -55,6 +55,10 @@
 
 .algolia__results li {
   background-color: white;
+  cursor: pointer;
+  min-height: 1.5rem;
+  padding: 0.5rem;
+  width: 100%;
 }
 
 .algolia__results li:first-of-type {
@@ -63,13 +67,6 @@
 
 .algolia__results li:last-of-type {
   border-radius: 0 0 5px 5px;
-}
-
-.algolia__results li {
-  cursor: pointer;
-  min-height: 1.5rem;
-  padding: 0.5rem;
-  width: 100%;
 }
 
 .algolia__results li em {
