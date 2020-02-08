@@ -87,5 +87,5 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 
 ## Déploiement
 
-* [Jenkins](https://jenkins-ci.org), [Bamboo](https://www.atlassian.com/software/bamboo/), [Travis](https://travis-ci.org/)
+* [Jenkins](https://jenkins-ci.org), [Bamboo](https://www.atlassian.com/software/bamboo/), [Travis](https://travis-ci.com/)
 * [Docker](https://www.docker.com), [Ansible](https://www.ansible.com), [Terraform](https://www.terraform.io)
