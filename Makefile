@@ -30,20 +30,10 @@ go: format style build
 name:
 	@echo -n $(APP_NAME)
 
-## dist: Output build output path
-.PHONY: dist
-dist:
-	@echo -n $(MAIN_BINARY)
-
 ## version: Output sha1 of last commit
 .PHONY: version
 version:
 	@echo -n $(shell git rev-parse --short HEAD)
-
-## author: Output author's name of last commit
-.PHONY: author
-author:
-	@python -c 'import sys; import urllib; sys.stdout.write(urllib.quote_plus(sys.argv[1]))' "$(shell git log --pretty=format:'%an' -n 1)"
 
 ## init: Download dependencies
 .PHONY: init

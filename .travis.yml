@@ -3,14 +3,29 @@
 jobs:
   include:
     - stage: Build
-
-      language: minimal
+      language: go
+      go: 1.13
       services:
         - docker
-      script: docker build --build-arg "APP_VERSION=$(make version)" -t "${DOCKER_USER}/l3miage:$(make version)" .
-      after_success:
+      before_install:
+        - nvm install 13
+        - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+        - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+        - sudo apt-get update
+        - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+        - echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
+        - sudo systemctl restart docker
+      script:
+        - npm ci
+        - npm run reveal
+        - npm run build
+        - git diff -- *.go && git diff --quiet -- *.go
+        - sed -i -e "s|{{version}}|$(make version)|g" www/index.html
+        - sed -i -e "s|{{version}}|$(make version)|g" www/js/index.js
+        - sed -i -e "s|{{version}}|$(make version)|g" www/js/algolia.js
+        - curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "release"
         - echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
-        - docker push "${DOCKER_USER}/l3miage:$(make version)"
+        - DOCKER_IMAGE="${DOCKER_USER}/l3miage" IMAGE_VERSION="$(make version)" ./scripts/release build
 
     - stage: Publish
 
@@ -23,28 +38,16 @@ jobs:
 
       language: go
       go: 1.13
-      env:
-        - GO111MODULE=on
       script:
         - make
         - ./script/doc
         - ./script/index
-
-    - stage: Deploy
-
-      language: minimal
-      script:
-        - curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "deploy" "env_replace"
-        - scripts/env_replace "docker-compose.yml" DOCKER_USER ALGOLIA_APP ALGOLIA_READ_ONLY_KEY ALGOLIA_INDEX | sed "s|\\\$|\$\$|g" > "docker-compose-env.yml"
-        - scripts/deploy "cours" "@docker-compose-env.yml"
 
 stages:
   - Build
   - name: Publish
     if: branch = master && type = push
   - name: Index
-    if: branch = master && type = push
-  - name: Deploy
     if: branch = master && type = push
 
 notifications:
