@@ -3,12 +3,11 @@
 jobs:
   include:
     - stage: Build
-      language: go
-      go: 1.13
+      language: node_js
+      node_js: 13
       services:
         - docker
       before_install:
-        - nvm install 13
         - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
         - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
         - sudo apt-get update
@@ -16,7 +15,6 @@ jobs:
         - echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
         - sudo systemctl restart docker
       script:
-        - npm ci
         - npm run reveal
         - npm run build
         - git diff -- *.go && git diff --quiet -- *.go
@@ -25,7 +23,7 @@ jobs:
         - sed -i -e "s|{{version}}|$(make version)|g" www/js/algolia.js
         - curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "release"
         - echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
-        - DOCKER_IMAGE="${DOCKER_USER}/l3miage" IMAGE_VERSION="$(make version)" ./scripts/release build
+        - DOCKER_IMAGE="${DOCKER_USER}/l3miage" IMAGE_VERSION="$(make version)" ./scripts/release docker
 
     - stage: Publish
 
