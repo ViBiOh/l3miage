@@ -17,7 +17,7 @@ jobs:
       script:
         - npm run reveal
         - npm run build
-        - git diff -- *.go && git diff --quiet -- *.go
+        - git --no-pager diff -- ':(exclude)www/js' ':(exclude)www/css' && git diff --quiet -- ':(exclude)www/js' ':(exclude)www/css'
         - sed -i -e "s|{{version}}|$(make version)|g" www/index.html
         - sed -i -e "s|{{version}}|$(make version)|g" www/js/index.js
         - sed -i -e "s|{{version}}|$(make version)|g" www/js/algolia.js
