@@ -8,22 +8,20 @@ endif
 APP_NAME = algolia
 PACKAGES ?= ./...
 
-MAIN_BINARY = bin/$(APP_NAME)
-
 .DEFAULT_GOAL := app
 
 ## help: Display list of commands
 .PHONY: help
 help: Makefile
-	@sed -n 's|^##||p' $< | column -t -s ':' | sed -e 's|^| |'
+	@sed -n 's|^##||p' $< | column -t -s ':' | sort
 
-## app: Build app with dependencies download
+## app: Build whole app
 .PHONY: app
-app: init go
+app: init dev
 
-## go: Build app
-.PHONY: go
-go: format style build
+## dev: Build app
+.PHONY: dev
+dev: format style build
 
 ## name: Output name of app
 .PHONY: name
@@ -35,7 +33,7 @@ name:
 version:
 	@echo -n $(shell git rev-parse --short HEAD)
 
-## init: Download dependencies
+## init: Bootstrap your application. e.g. fetch some data files, make some API calls, request user input etc...
 .PHONY: init
 init:
 	@curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "git_hooks"
@@ -44,20 +42,20 @@ init:
 	go get golang.org/x/tools/cmd/goimports
 	go mod tidy
 
-## format: Format code of app
+## format: Format code. e.g Prettier (js), format (golang)
 .PHONY: format
 format:
 	goimports -w **/*.go
 	gofmt -s -w **/*.go
 
-## style: Style code of app
+## style: Check lint, code styling rules. e.g. pylint, phpcs, eslint, style (java) etc ...
 .PHONY: style
 style:
 	golint $(PACKAGES)
 	errcheck -ignoretests $(PACKAGES)
 	go vet $(PACKAGES)
 
-## build: Build binary of app
+## build: Build the application.
 .PHONY: build
 build:
-	CGO_ENABLED=0 go build -ldflags="-s -w" -installsuffix nocgo -o $(MAIN_BINARY) cmd/algolia.go
+	CGO_ENABLED=0 go build -ldflags="-s -w" -installsuffix nocgo -o bin/$(APP_NAME) cmd/algolia.go
