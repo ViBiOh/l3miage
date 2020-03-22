@@ -7,7 +7,7 @@ ENV VIWS_SPA true
 
 ARG TARGETOS
 ARG TARGETARCH
-ADD https://github.com/ViBiOh/revealgolia/releases/download/v1.1.0/revealgolia_${TARGETOS}_${TARGETARCH} /revealgolia
+COPY revealgolia_${TARGETOS}_${TARGETARCH} /revealgolia
 
 ARG VERSION
 ENV VERSION=${VERSION}
