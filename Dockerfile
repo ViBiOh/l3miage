@@ -5,6 +5,10 @@ ENV VIWS_ENV ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX
 ENV VIWS_HEADERS X-UA-Compatible:ie=edge~content-language:fr
 ENV VIWS_SPA true
 
+ARG TARGETOS
+ARG TARGETARCH
+ADD https://github.com/ViBiOh/revealgolia/releases/download/v1.1.0/revealgolia_${TARGETOS}_${TARGETARCH} /revealgolia
+
 ARG VERSION
 ENV VERSION=${VERSION}
 COPY www/ /www/
