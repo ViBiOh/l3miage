@@ -8,6 +8,3 @@ target/
 node_modules/
 www/doc/genie.md
 www/vendor/
-
-# Golang
-bin/

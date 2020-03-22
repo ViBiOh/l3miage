@@ -32,20 +32,9 @@ jobs:
         - curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "docker_promote"
         - scripts/docker_promote "${DOCKER_USER}/l3miage" "$(make version)"
 
-    - stage: Index
-
-      language: go
-      go: 1.14
-      script:
-        - make
-        - ./script/doc
-        - ./script/index
-
 stages:
   - Build
   - name: Publish
-    if: branch = master && type = push
-  - name: Index
     if: branch = master && type = push
 
 notifications:
