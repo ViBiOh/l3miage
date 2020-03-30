@@ -264,6 +264,9 @@ Chaque ajout de fonctionnalité vient modifier l'application, il faut donc veill
 Enfin, l'environnement évolue sans cesse, les modèles, les méthodes, les outils, etc. Il faut donc veiller à ne pas avoir des architectures trop vieilles, devenues inmaintenables.
 
 
+[Dette technique et entropie du logiciel](https://www.youtube.com/watch?v=VKe9EE4MUxk)
+
+
 [Technical debt by Martin Fowler](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html)
 
 
