@@ -1,0 +1,47 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: l3miage-redirect
+spec:
+  redirectRegex:
+    regex: ^https?://(?:www|genie).l3miage.fr(.*)
+    replacement: https://l3miage.fr${1}
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: l3miage-http
+spec:
+  entryPoints:
+    - http
+  routes:
+    - match: Host(`l3miage.fr`) || Host(`www.l3miage.fr`) || Host(`genie.l3miage.fr`)
+      kind: Rule
+      middlewares:
+        - name: redirect
+        - name: l3miage-redirect
+      services:
+        - name: l3miage
+          port: 80
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: l3miage-https
+spec:
+  entryPoints:
+    - https
+  routes:
+    - match: Host(`l3miage.fr`) || Host(`www.l3miage.fr`) || Host(`genie.l3miage.fr`)
+      kind: Rule
+      middlewares:
+        - name: l3miage-redirect
+        - name: ratelimit
+      services:
+        - name: l3miage
+          port: 80
+  tls:
+    certResolver: default

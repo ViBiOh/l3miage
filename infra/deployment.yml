@@ -1,0 +1,50 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: l3miage
+spec:
+  selector:
+    matchLabels:
+      name: l3miage
+  template:
+    metadata:
+      labels:
+        name: l3miage
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/scheme: http
+        prometheus.io/port: "1080"
+    spec:
+      containers:
+        - name: l3miage
+          image: vibioh/l3miage
+          envFrom:
+            - secretRef:
+                name: l3miage
+          ports:
+            - name: http
+              containerPort: 1080
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+          resources:
+            requests:
+              memory: 24M
+            limits:
+              memory: 64M
+      initContainers:
+        - name: l3miage-indexer
+          image: vibioh/l3miage
+          envFrom:
+            - secretRef:
+                name: l3miage-indexer
+          command:
+            - /revealgolia
+            - -source
+            - /www/doc/genie.md
