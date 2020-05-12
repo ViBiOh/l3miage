@@ -3,6 +3,10 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: l3miage-redirect
+  labels:
+    app.kubernetes.io/name: l3miage
+    app.kubernetes.io/instance: l3miage
+    app.kubernetes.io/managed-by: kubectl
 spec:
   redirectRegex:
     regex: ^https?://(?:www|genie).l3miage.fr(.*)
@@ -13,6 +17,10 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: l3miage-http
+  labels:
+    app.kubernetes.io/name: l3miage
+    app.kubernetes.io/instance: l3miage
+    app.kubernetes.io/managed-by: kubectl
 spec:
   entryPoints:
     - http
@@ -31,6 +39,10 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: l3miage-https
+  labels:
+    app.kubernetes.io/name: l3miage
+    app.kubernetes.io/instance: l3miage
+    app.kubernetes.io/managed-by: kubectl
 spec:
   entryPoints:
     - https

@@ -3,6 +3,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: l3miage
+  labels:
+    app.kubernetes.io/name: l3miage
+    app.kubernetes.io/instance: l3miage
+    app.kubernetes.io/managed-by: kubectl
 spec:
   selector:
     matchLabels:
