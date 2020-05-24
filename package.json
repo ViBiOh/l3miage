@@ -4,10 +4,9 @@
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
   "scripts": {
-    "reveal:copy": "cp ./node_modules/reveal.js/lib/js/*.js www/vendor/",
-    "reveal:css": "cat ./node_modules/reveal.js/css/reveal.css | cleancss -O2 -o www/vendor/reveal.css && cat ./node_modules/reveal.js/css/theme/night.css | grep -v -E \"^@import\" | grep -v -E \"font-family:.*?sans-serif\" | cleancss -O2 -o www/vendor/night.css && cat ./node_modules/reveal.js/lib/css/zenburn.css | cleancss -O2 -o www/vendor/zenburn.css && cat ./node_modules/reveal.js/css/print/paper.css | cleancss -O2 -o www/vendor/paper.css",
-    "reveal:js": "uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output www/vendor/markdown.js && uglifyjs ./node_modules/reveal.js/plugin/markdown/marked.js --compress --mangle --output www/vendor/marked.js && uglifyjs ./node_modules/reveal.js/plugin/highlight/highlight.js --compress --mangle --output www/vendor/highlight.js && uglifyjs ./node_modules/reveal.js/js/reveal.js --compress --mangle --output www/vendor/reveal.js",
-    "reveal": "mkdir -p www/vendor && npm run reveal:copy && npm run reveal:css && npm run reveal:js",
+    "reveal:css": "cat ./node_modules/reveal.js/dist/reveal.css | cleancss -O2 -o www/vendor/reveal.css && cat ./node_modules/reveal.js/dist/theme/night.css | grep -v -E \"^@import\" | grep -v -E \"font-family:.*?sans-serif\" | cleancss -O2 -o www/vendor/night.css && cat ./node_modules/reveal.js/plugin/highlight/zenburn.css | cleancss -O2 -o www/vendor/zenburn.css",
+    "reveal:js": "uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output www/vendor/markdown.js && uglifyjs ./node_modules/reveal.js/plugin/highlight/highlight.js --compress --mangle --output www/vendor/highlight.js && uglifyjs ./node_modules/reveal.js/dist/reveal.js --compress --mangle --output www/vendor/reveal.js",
+    "reveal": "mkdir -p www/vendor && npm run reveal:css && npm run reveal:js",
     "build": "script/doc && script/ci",
     "prestart": "go get github.com/ViBiOh/viws/cmd/viws-light",
     "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage viws-light -directory ${INIT_CWD}/www/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com; child-src www.youtube.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX"

@@ -3,7 +3,7 @@
  * @return {Promise} Promise resolved when script is loaded
  */
 async function addScript(src) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = src;
@@ -19,7 +19,7 @@ async function addScript(src) {
  * @return {Promise} Promise resolved when style is loaded
  */
 async function addStyle(src) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const style = document.createElement('link');
     style.rel = 'stylesheet';
     style.href = src;
@@ -35,8 +35,8 @@ async function addStyle(src) {
  */
 async function insertRevealScripts() {
   await addScript('/vendor/reveal.js?v={{version}}');
-  await addScript('/vendor/marked.js?v={{version}}');
   await addScript('/vendor/markdown.js?v={{version}}');
+  await addScript('/vendor/highlight.js?v={{version}}');
 }
 
 /**
@@ -44,7 +44,7 @@ async function insertRevealScripts() {
  * @return {marked.Renderer} Configured renderer
  */
 function getMarkedRenderer() {
-  const renderer = new marked.Renderer();
+  const renderer = new (RevealMarkdown().marked).Renderer();
 
   renderer.image = (href, title, text) =>
     `<img data-src="/doc/${href}?v={{version}}" alt="${title}" />`;
@@ -58,7 +58,9 @@ function getMarkedRenderer() {
   await insertRevealScripts();
 
   Reveal.addEventListener('ready', () => {
+    const hljs = RevealHighlight();
     document.querySelectorAll('pre code').forEach((block) => {
+      console.log(block);
       hljs.highlightBlock(block);
     });
   });
@@ -72,14 +74,6 @@ function getMarkedRenderer() {
     markdown: {
       renderer: getMarkedRenderer(),
     },
-    dependencies: [
-      {
-        src: '/vendor/classList.js',
-        condition: () => !document.body.classList,
-      },
-      {
-        src: '/vendor/highlight.js',
-      },
-    ],
+    plugins: [RevealMarkdown, RevealHighlight],
   });
 })();
