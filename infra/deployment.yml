@@ -54,3 +54,10 @@ spec:
             - /revealgolia
             - -source
             - /www/doc/genie.md
+          resources:
+            requests:
+              memory: 64M
+              cpu: 200m
+            limits:
+              memory: 64M
+              cpu: 200m
