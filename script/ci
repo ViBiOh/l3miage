@@ -3,7 +3,7 @@
 set -o nounset -o pipefail -o errexit
 
 main() {
-  if ! [[ "${CI:-}" == "true" ]]; then
+  if ! [[ ${CI:-} == "true" ]]; then
     exit
   fi
 

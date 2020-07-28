@@ -44,7 +44,7 @@ async function insertRevealScripts() {
  * @return {marked.Renderer} Configured renderer
  */
 function getMarkedRenderer() {
-  const renderer = new (RevealMarkdown().marked).Renderer();
+  const renderer = new (RevealMarkdown().marked.Renderer)();
 
   renderer.image = (href, title, text) =>
     `<img data-src="/doc/${href}?v={{version}}" alt="${title}" />`;

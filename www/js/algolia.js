@@ -18,11 +18,17 @@ function algoliaGetIndex(app, key, name) {
 function algoliaHandleInput(index, input, results) {
   let changeTimeout;
 
-  input.addEventListener('input', e => {
+  input.addEventListener('input', (e) => {
     clearTimeout(changeTimeout);
 
     if (e.target.value) {
-      changeTimeout = setTimeout(algoliaSearchQuery, 300, index, e.target.value, results);
+      changeTimeout = setTimeout(
+        algoliaSearchQuery,
+        300,
+        index,
+        e.target.value,
+        results,
+      );
     } else {
       algoliaClearNode(results);
     }
@@ -48,12 +54,22 @@ function algoliaSearchQuery(index, query, results) {
   index.search({ query, hitsPerPage: 5 }, (err, output) => {
     if (err) {
       console.error(err);
-      algoliaShowMessage('(╯°□°）╯︵ ┻━┻', "C'est cassé !", 'algolia__results--error', results);
+      algoliaShowMessage(
+        '(╯°□°）╯︵ ┻━┻',
+        "C'est cassé !",
+        'algolia__results--error',
+        results,
+      );
       return;
     }
 
     if (output.nbHits === 0) {
-      algoliaShowMessage('¯\\_(ツ)_/¯', 'On a rien trouvé', 'algolia__results--not-found', results);
+      algoliaShowMessage(
+        '¯\\_(ツ)_/¯',
+        'On a rien trouvé',
+        'algolia__results--not-found',
+        results,
+      );
       return;
     }
 
@@ -109,8 +125,11 @@ function algoliaGenerateResult(header, message) {
 function algoliaShowResults(hits, results) {
   algoliaClearNode(results);
 
-  hits.forEach(hit => {
-    let result = algoliaGenerateResult(hit.chapter, hit._highlightResult.content.value);
+  hits.forEach((hit) => {
+    let result = algoliaGenerateResult(
+      hit.chapter,
+      hit._highlightResult.content.value,
+    );
     result.addEventListener('click', algoliaGetResultClickHandler(hit));
 
     results.appendChild(result);
@@ -223,7 +242,9 @@ function insertAlgoliaDOM() {
  */
 async function algoliaInit(app, key, indexName) {
   await Promise.all([
-    addScript('https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js'),
+    addScript(
+      'https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js',
+    ),
     addStyle('/css/algolia.css?v={{version}}'),
   ]);
 
@@ -247,7 +268,11 @@ async function algoliaInit(app, key, indexName) {
 
 (async () => {
   const response = await fetch('/env');
-  const { ALGOLIA_APP: app, ALGOLIA_KEY: key, ALGOLIA_INDEX: indexName } = await response.json();
+  const {
+    ALGOLIA_APP: app,
+    ALGOLIA_KEY: key,
+    ALGOLIA_INDEX: indexName,
+  } = await response.json();
 
   if (!app || !key || !indexName) {
     return;
