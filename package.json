@@ -15,13 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/ViBiOh/l3miage.git"
   },
-  "keywords": [
-    "markdown",
-    "course",
-    "quality",
-    "genie",
-    "logiciel"
-  ],
+  "keywords": ["markdown", "course", "quality", "genie", "logiciel"],
   "author": "Vincent Boutour <bob@vibioh.fr>",
   "license": "MIT",
   "bugs": {

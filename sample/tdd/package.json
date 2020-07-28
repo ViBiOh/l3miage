@@ -5,17 +5,13 @@
   "scripts": {
     "test": "ava -v"
   },
-  "keywords": [
-    "kata"
-  ],
+  "keywords": ["kata"],
   "author": "Vincent Boutour",
   "license": "MIT",
   "devDependencies": {
     "ava": "3.10.1"
   },
   "ava": {
-    "files": [
-      "src/**/*.test.js"
-    ]
+    "files": ["src/**/*.test.js"]
   }
 }

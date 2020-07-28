@@ -1,178 +1,133 @@
 # Méthodologies & principes
 
-
 > « Nine women can't make a baby in one month. »
 
 > Frederic Brooks
 
-
 L'informatique, et le développement de logiciels en particulier, sont bien souvent un laboratoire d'essais pour les méthodes de management et/ou de gestion de projet.
-
 
 ## Cycle V
 
-
 Très contractuel et procédurier : un cahier des charges initial, un cahier de recette final.
-
 
 Souvent utilisé dans le cadre de "forfait" en SSII.
 
-
 ![](img/cycle_en_v.png)
-
 
 Crée un effet « tunnel » car chaque tâche dépend de la précédente, sans validation de l'utilisateur.
 
-
 ## Agile - Scrum
-
 
 Processus itératif où l'on présente fréquemment l'avancée du produit à l'utilisateur.
 
-
 Risque bien moins grand de dévier du besoin réel, possibilité de le réajuster en cours de développement.
 
-
-Tout est *timeboxé*. Chaque cérémonie de la méthode Scrum a une durée qu'il faut respecter. On va à l'essentiel.
-
+Tout est _timeboxé_. Chaque cérémonie de la méthode Scrum a une durée qu'il faut respecter. On va à l'essentiel.
 
 Si vous entendez parlez de **Sprint**, de **burn-down chart**, de **daily standup**, vous êtes dans une équipe agile.
 
-
 ... ou alors si vous voyez des montagnes de Post-it ® sur un des bureaux !
-
 
 La qualité vous fait peur ?
 
 Tant mieux : on ne négocie pas avec ~~les terroristes~~ la qualité.
 
-
 [Devenir agile en 15 min](https://www.youtube.com/watch?v=3qMpB-UH9kA)
-
 
 ## [Given-When-Then](https://en.wikipedia.org/wiki/Given-When-Then)
 
-
 **Comme** je suis connecté, **quand** je vais sur mon profil, **je peux** vérifier l'exactitude de mes informations.
-
 
 **En tant que** client, **je veux** pouvoir consulter mon profil **afin de** vérifier l'exactitude de mes informations.
 
-
 Phrases courtes permettant de définir une fonctionnalité, un besoin, un bug, etc.
-
 
 Attention à correctement les organiser pour que cela reste maintenable et lisible.
 
-
 > La carte n'est pas le territoire.
 
-
 ## Cahier des charges
-
 
 Cadrage & périmètre
 
 > Pourquoi et dans quelle mesure faisons nous ce produit/projet ?
 
-
 Expression fonctionnelle du besoin
 
 > Quelles sont toutes les règles que le produit/projet doit respecter ?
-
 
 Méthodes & contraintes
 
 > Comment allons nous travailler au sein de ce produit/projet ?
 
-
 Délais et parties prenantes
 
 > À qui et quand rendre compte ?
-
 
 ## CI / CD
 
 > Continuous Integration / Continuous Delivery
 
-
-L'objectif de l'entreprise est de réduire le *Time To Market* (T.T.M.) et donc pour la R&D le *Time To Ship*.
-
+L'objectif de l'entreprise est de réduire le _Time To Market_ (T.T.M.) et donc pour la R&D le _Time To Ship_.
 
 On livre toujours du code qu'on assume : exempt de bugs, performant...
 
 De qualité !
 
-
 ![](img/ci_cd.jpg)
 
 > [Crip's blog](https://blog.crisp.se/2013/02/05/yassalsundman/continuous-delivery-vs-continuous-deployment)
 
-
-A chaque erreur détectée lors du processus, l'intégration continue doit être en mesure d'identifier les nouveaux *commits* depuis le dernier succès et d'en avertir les parties prenantes.
-
+A chaque erreur détectée lors du processus, l'intégration continue doit être en mesure d'identifier les nouveaux _commits_ depuis le dernier succès et d'en avertir les parties prenantes.
 
 ## Feature Flipping
 
 Désactiver des fonctionnalités à la volée
 
-* en cas de problèmes
-* pour faire du [*A/B testing*](https://en.wikipedia.org/wiki/A/B_testing)
-* pour gérer la montée en charge
-
+- en cas de problèmes
+- pour faire du [_A/B testing_](https://en.wikipedia.org/wiki/A/B_testing)
+- pour gérer la montée en charge
 
 ## Communication
 
 > Seul on va plus vite, ensemble on va plus loin.
 
-
 Partager votre vision
-* projet
-* produit
-* équipe
-* environnement
 
+- projet
+- produit
+- équipe
+- environnement
 
-Faire de la veille, assister à des conférences, des *meetups*, des salons, ...
-
+Faire de la veille, assister à des conférences, des _meetups_, des salons, ...
 
 > « Stay hungry, stay foolish. » - Steve Jobs
 
-
 Discuter des implémentations, technologies, actualités.
-
 
 En méso-économie, on ne peut ignorer un évènement. Même si un domaine ne vous intéresse pas, il vous impactera directement ou indirectement.
 
-
 Être bon communicant passe par de bons outils
 
-
-* [Slack](http://www.slack.com), [Rocket.chat](https://rocket.chat), IRC
-* Réseaux sociaux, [reddit](https://reddit.com), [HackerNews](https://news.ycombinator.com)
-* Animer l'équipe et acquérir le *team-spirit*
-
+- [Slack](http://www.slack.com), [Rocket.chat](https://rocket.chat), IRC
+- Réseaux sociaux, [reddit](https://reddit.com), [HackerNews](https://news.ycombinator.com)
+- Animer l'équipe et acquérir le _team-spirit_
 
 ## Lois du travail en organisation
 
-
 Travailler dans des organisations implique de connaître quelques lois empiriques qui les régissent.
-
 
 ### Principe de Peter #1
 
 > Tout employé tend à s'élever à son niveau d'incompétence...
 
-
 ### Principe de Peter #2
 
 > ... Avec le temps, tous les postes d'une entreprise sont occupés par des incompétents.
 
-
 ### Principe de Dilbert
 
 > Les gens les moins compétents sont systématiquement affectés aux postes où ils risquent de causer le moins de dégâts : ceux de managers.
-
 
 ### There ain't no such thing as a free lunch
 
@@ -182,142 +137,109 @@ Gratuit ne veut pas dire sans valeur
 
 > "Free beer" vs "free speech"
 
-
 ### Loi de la relativité d'Einstein
 
 > Une minute au dessus d'une poêle chaude semble durer des heures alors qu'une minute à côté d'une jolie fille semble durer une seconde, c'est ça la relativité.
-
 
 ### Loi de Fraisse
 
 > Le temps est subjectif : ce qui est plaisant passe vite, ce qui est désagréable semble durer.
 
-
 ### Loi de Parkinson
 
 > Le travail se dilate jusqu'à occuper tout le temps qui lui est dévolu.
-
 
 ### Loi d'Illich
 
 > Après un certain temps de travail, la productivité décroît. La pause devient nécessaire.
 
-
 ### Loi de Murphy
 
 > Si quelque chose peut arriver, alors ça arrivera.
 
-
 ## Autres principes
-
 
 ### Les cinq « pourquoi »
 
 > Pourquoi ? Pourquoi ? Pourquoi ? Pourquoi ? Pourquoi ?
 
-
 ### CQQCOQP
 
 > Combien ? Qui ? Quand ? Comment ? Où ? Quoi ? Pourquoi ?
-
 
 ### Loi de Pareto
 
 > Règle des 80 - 20
 
+### Principe du _boy-scout_
 
-### Principe du *boy-scout*
+> _Leave the campground cleaner that you found it._
 
-> *Leave the campground cleaner that you found it.*
-
-
-* Amélioration continue du logiciel
-
+- Amélioration continue du logiciel
 
 * Pas de coupable, pensez en équipe
 
 > No finger pointing, no public shaming
 
-
 ### YAGNI
 
 > You Aren’t Gonna Need It
 
-
 ## Dette technique
-
 
 Analogie faite par Ward Cunningham qui applique le principe d'une dette financière au développement logiciel.
 
-
 Le capital est votre base de code, les intérêts sont :
-* les bugs
-* les *quick and dirty*
-* l'obsolescence
 
+- les bugs
+- les _quick and dirty_
+- l'obsolescence
 
 Chaque ajout de fonctionnalité vient modifier l'application, il faut donc veiller à refactorer au fil de l'eau pour ne pas empiler du code.
 
 > e.g. Un `if/else` peut vite se transformer en enchaînement disgracieux : faire un `switch`
 
-
 Enfin, l'environnement évolue sans cesse, les modèles, les méthodes, les outils, etc. Il faut donc veiller à ne pas avoir des architectures trop vieilles, devenues inmaintenables.
-
 
 [Dette technique et entropie du logiciel](https://www.youtube.com/watch?v=VKe9EE4MUxk)
 
-
 [Technical debt by Martin Fowler](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html)
-
 
 ## Ne pas réinventer la roue
 
-
 Utiliser ce qui existe quand cela répond à votre besoin
-
 
 En combinant des outils, on peut en créer d'autres. Philosophie unix.
 
 e.g. la stack ELK pour analyser vos logs : ElasticSearch Logstash Kibana
 
-
 > Eviter le "too busy to improve"
 
 ![](img/too_busy_to_improve.jpg)
 
-
-## *Keep It Simple, Stupid* - KISS
+## _Keep It Simple, Stupid_ - KISS
 
 > Pourquoi faire compliqué quand on peut faire simple ?
 
-
-Il est parfois compliqué de faire simple en appliquant les *patterns* de programmation
-
+Il est parfois compliqué de faire simple en appliquant les _patterns_ de programmation
 
 ![](img/apple_product.jpeg)
 
-
 ![](img/google_product.jpeg)
-
 
 ![](img/corporate_product.jpeg)
 
-
-## *Problem Exists Between Chair And Keyboard* - PEBKAC
+## _Problem Exists Between Chair And Keyboard_ - PEBKAC
 
 > Le plus grand virus informatique est l'interface clavier-chaise.
 
+## _Read The Fucking Manual_ - RTFM
 
-## *Read The Fucking Manual* - RTFM
-
-
-* La réponse est bien souvent dans la documentation
-* La réponse est sur [Google](http://lmgtfy.com/?q=google.fr&l=1) / [StackOverflow](http://lmgtfy.com/?q=stacksverflow.com&l=1)
-* La réponse est dans les *issues* GitHub
-* La réponse est 42
-
+- La réponse est bien souvent dans la documentation
+- La réponse est sur [Google](http://lmgtfy.com/?q=google.fr&l=1) / [StackOverflow](http://lmgtfy.com/?q=stacksverflow.com&l=1)
+- La réponse est dans les _issues_ GitHub
+- La réponse est 42
 
 S'il y a vraiment un bug (i.e. après avoir lu la documentation), ouvrez un ticket !
-
 
 Contribuez, corrigez, ameliorez : appropriez-vous vos outils

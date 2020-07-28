@@ -1,24 +1,20 @@
-# *Patterns* de programmation
-
+# _Patterns_ de programmation
 
 > « There are only two hard things in Computer Science: cache invalidation and naming things »
 
 > Phil Karlton
 
-
 Objectif : faire du code **`SOLID`**
 
-* **`S`** ingle Responsibility Principle
-* **`O`** pen / Close
-* **`L`** iskov Substitution Principle
-* **`I`** nterface segregation
-* **`D`** ependency Injection
-
+- **`S`** ingle Responsibility Principle
+- **`O`** pen / Close
+- **`L`** iskov Substitution Principle
+- **`I`** nterface segregation
+- **`D`** ependency Injection
 
 > « Design depends largely on constraints. »
 
 > Charles Eames
-
 
 ## Un cas simple
 
@@ -26,9 +22,7 @@ Objectif : faire du code **`SOLID`**
 
 > Daniel Guillaume
 
-
 Afficher l'inverse de l'entier saisi par l'utilisateur
-
 
 ```java
 class Program {
@@ -39,37 +33,29 @@ class Program {
 }
 ```
 
-
 Quels sont les problèmes ?
 
-
 Combien d'actions sont réalisées ?
-
 
 La classe fait ~~trois ?~~ ~~cinq ?~~ trop de choses :
 
 1. Lecture
-    1. au clavier
-    1. d'un entier
+   1. au clavier
+   1. d'un entier
 1. Calcul de l'inverse de l'entier
 1. Affichage
-    1. à l'écran
-    1. du résultat
-
+   1. à l'écran
+   1. du résultat
 
 Aucune réutilisabilité
 
-
 Multiples raisons d'évolution
 
+## _Single Responsibility Principle_ - SRP
 
-## *Single Responsibility Principle* - SRP
-
-
-Eviter les [*god objects*](https://en.wikipedia.org/wiki/God_object)
+Eviter les [_god objects_](https://en.wikipedia.org/wiki/God_object)
 
 Principe de « diviser pour mieux régner »
-
 
 Lecture d'un entier
 
@@ -87,11 +73,9 @@ class IntegerReader {
 }
 ```
 
+Juste un proxy ? Justement, ajoutons une validation par _regex_
 
-Juste un proxy ? Justement, ajoutons une validation par *regex*
-
-
-```class IntegerReader```
+`class IntegerReader`
 
 ```java
 private static Pattern INT = Pattern.compile("^[+-]?[0-9]+$");
@@ -104,7 +88,6 @@ public Integer read(String raw) {
 }
 ```
 
-
 Calcul de l'inverse
 
 ```java
@@ -114,7 +97,6 @@ class InverseOperation {
   }
 }
 ```
-
 
 Affichage du résultat
 
@@ -134,7 +116,6 @@ class InverseWriter {
 }
 ```
 
-
 Orchestration
 
 ```java
@@ -149,29 +130,22 @@ class Program {
 }
 ```
 
-
 Quels sont les problèmes ?
-
 
 Nombreuses instanciations, avec des arguments
 
-
 Composants intimement liés
-
 
 Testabilité complexe voire impossible
 
-
 ## [Inversion of Control](https://blog.imirhil.fr/2013/05/19/inversion-de-controle-cest-bon-mangez-en.html) - IoC
-
 
 L'application a besoin de comportements, pas d'implémentations
 
-
 Les comportements existent :
-* sous la forme de *singletons*
-* n'ont pas à être instanciés
 
+- sous la forme de _singletons_
+- n'ont pas à être instanciés
 
 ### Définition des comportements
 
@@ -189,7 +163,6 @@ public interface Writer<T> {
 }
 ```
 
-
 ### Orchestration
 
 ```java
@@ -205,9 +178,7 @@ public interface Process<I> {
 }
 ```
 
-
 ### Implémentation des comportements
-
 
 Lecture d'un entier
 
@@ -226,7 +197,6 @@ class IntegerReader implements Reader<Integer> {
 }
 ```
 
-
 Calcul de l'inverse
 
 ```java
@@ -238,7 +208,6 @@ class InverseOperation implements Operation<Integer, Double> {
 }
 ```
 
-
 Calcul du carré
 
 ```java
@@ -249,7 +218,6 @@ class SquareOperation implements Operation<Integer, Integer> {
   }
 }
 ```
-
 
 Ecriture du résultat
 
@@ -267,7 +235,6 @@ class InverseWriter implements Writer<Object> {
   }
 }
 ```
-
 
 Processus de traitement : lire - traiter - écrire
 
@@ -290,7 +257,6 @@ class ProcessImpl<I> implements Process<I> {
 }
 ```
 
-
 Processus de traitement : des méthodes à générer
 
 ```java
@@ -311,9 +277,7 @@ Processus de traitement : des méthodes à générer
   }
 ```
 
-
 ### Exécution
-
 
 Orchestration
 
@@ -335,23 +299,18 @@ class Program {
 }
 ```
 
-
 Quels sont les problèmes ?
 
-
-Déclaration des *getters/setters* fastidieuse
-
+Déclaration des _getters/setters_ fastidieuse
 
 Toujours des instanciations avec arguments, mais externalisées
 
-
 Connaissance des dépendances entre classes
-* l'ordre est important
-* l'arbre également
 
+- l'ordre est important
+- l'arbre également
 
 ### Injection de dépendances
-
 
 **Service** de calcul d'une inverse
 
@@ -364,7 +323,6 @@ class InverseOperation implements Operation<Integer, Object> {
   }
 }
 ```
-
 
 Injection de dépendances dans le constructeur
 
@@ -385,7 +343,6 @@ class IntegerReader implements Reader<Integer> {
 }
 ```
 
-
 Injection de dépendances automatique
 
 ```java
@@ -403,7 +360,6 @@ class InverseWriter implements Writer<Object> {
 }
 ```
 
-
 Déclaration des comportements attendus
 
 ```java
@@ -417,7 +373,6 @@ class ProcessImpl<I> implements Process {
   private Writer<Object> writer;
 }
 ```
-
 
 Utilisation des comportements
 
@@ -434,7 +389,6 @@ Utilisation des comportements
     }
   }
 ```
-
 
 Configuration de l'application
 
@@ -457,7 +411,6 @@ class Program implements CommandLineRunner {
 }
 ```
 
-
 Démarrage par auto-configuration
 
 ```
@@ -466,21 +419,15 @@ Démarrage par auto-configuration
   }
 ```
 
-
-## *Liskov Substitution Principle* - LSP
-
+## _Liskov Substitution Principle_ - LSP
 
 > Chaque sous-classe doit avoir le même comportement que la classe mère
 
+## _Don't Repeat Yourself_ - DRY
 
-## *Don't Repeat Yourself* - DRY
+En dehors de vos GIF & _feu Vines_, personne n'aime se répéter
 
-
-En dehors de vos GIF & *feu Vines*, personne n'aime se répéter
-
-
-Extraire toutes les constantes du code, aussi appelés *magic number*
-
+Extraire toutes les constantes du code, aussi appelés _magic number_
 
 Implémentation ne respectant pas le DRY
 
@@ -497,7 +444,6 @@ class BadDry {
   }
 }
 ```
-
 
 Extraction des constantes et mutualisation du code
 
@@ -519,7 +465,6 @@ class GoodDry {
 }
 ```
 
-
 Transformation de l'appel répété par une boucle
 
 ```java
@@ -539,39 +484,32 @@ class BestDry {
 }
 ```
 
-
-## *Internationalization* - i18n
-
+## _Internationalization_ - i18n
 
 > Ne pas se rendre dépendant d'une coutume
 
-
 Affichage particuliers
-* des libellés (l10n - *Localization*)
-* des nombres (e.g. 1,000 ~= 1 000)
-* des dates (e.g. 1/5/2015 ~= 5/1/15 )
-* des devises (e.g. $ 9.99 ~= 9,99 €)
-* des couleurs (e.g. daltoniens)
 
+- des libellés (l10n - _Localization_)
+- des nombres (e.g. 1,000 ~= 1 000)
+- des dates (e.g. 1/5/2015 ~= 5/1/15 )
+- des devises (e.g. \$ 9.99 ~= 9,99 €)
+- des couleurs (e.g. daltoniens)
 
 Pas que de l'affichage :
-* quid des fuseaux horaires ?
-* lois spécifiques d'un pays ?
 
+- quid des fuseaux horaires ?
+- lois spécifiques d'un pays ?
 
-Ne pas le prévoir, c'est s'attendre à beaucoup de *refactoring*
+Ne pas le prévoir, c'est s'attendre à beaucoup de _refactoring_
 
-
-L'ajout d'une *Locale* doit rester simple
+L'ajout d'une _Locale_ doit rester simple
 
 Mettre toutes les règles dans un fichier
 
-
-## *Law of Demeter* - LoD
-
+## _Law of Demeter_ - LoD
 
 > Ne parlez qu'aux gens que vous connaissez
-
 
 Eviter l'effet tunnel de l'appel de composants
 
@@ -582,13 +520,10 @@ promotion
   .getLocale(); // Récupération des informations de i18n
 ```
 
-
 Que faire en cas d'évolutions de la classe `Etudiant` ?
 
-e.g. Ce n'est plus une liste mais une *map* clé/valeur
-
+e.g. Ce n'est plus une liste mais une _map_ clé/valeur
 
 Comment gérer les `null-check` ? Les exceptions ?
-
 
 Fournir des méthodes qui vont, de proche en proche, récupérer l'information souhaitée
