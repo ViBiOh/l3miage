@@ -26,7 +26,7 @@ jobs:
         - chmod +x revealgolia_linux_arm
         - curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.2.0/revealgolia_linux_arm64"
         - chmod +x revealgolia_linux_arm64
-        - curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "release"
+        - curl -q -sSL --max-time 30 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "release"
         - echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
         - DOCKER_IMAGE="${DOCKER_USER}/l3miage" IMAGE_VERSION="$(make version)" ./scripts/release docker
 
@@ -34,7 +34,7 @@ jobs:
 
       language: minimal
       script:
-        - curl -q -sSL --max-time 10 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "docker_promote"
+        - curl -q -sSL --max-time 30 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "docker_promote"
         - scripts/docker_promote "${DOCKER_USER}/l3miage" "$(make version)"
 
 stages:
