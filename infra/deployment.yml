@@ -23,6 +23,9 @@ spec:
       containers:
         - name: l3miage
           image: vibioh/l3miage
+          env:
+            - name: VIWS_LOGGER_JSON
+              value: 'true'
           envFrom:
             - secretRef:
                 name: l3miage
