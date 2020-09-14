@@ -20,11 +20,11 @@ jobs:
         - sed -i -e "s|{{version}}|$(make version)|g" www/index.html
         - sed -i -e "s|{{version}}|$(make version)|g" www/js/index.js
         - sed -i -e "s|{{version}}|$(make version)|g" www/js/algolia.js
-        - curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.3.0/revealgolia_linux_amd64"
+        - curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.3.1/revealgolia_linux_amd64"
         - chmod +x revealgolia_linux_amd64
-        - curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.3.0/revealgolia_linux_arm"
+        - curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.3.1/revealgolia_linux_arm"
         - chmod +x revealgolia_linux_arm
-        - curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.3.0/revealgolia_linux_arm64"
+        - curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.3.1/revealgolia_linux_arm64"
         - chmod +x revealgolia_linux_arm64
         - curl -q -sSL --max-time 30 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "release"
         - echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
