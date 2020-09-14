@@ -50,6 +50,9 @@ spec:
       initContainers:
         - name: l3miage-indexer
           image: vibioh/l3miage
+          env:
+            - name: REVEALGOLIA_LOGGER_JSON
+              value: 'true'
           envFrom:
             - secretRef:
                 name: l3miage-indexer
