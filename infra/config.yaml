@@ -1,0 +1,31 @@
+---
+nameOverride: l3miage
+
+image:
+  repository: vibioh/l3miage
+
+init:
+  enabled: true
+  repository: vibioh/l3miage
+  env:
+    REVEALGOLIA_LOGGER_JSON: true
+  secretRef: l3miage-indexer
+  command:
+    - /revealgolia
+    - -source
+    - /www/doc/genie.md
+
+config:
+  VIWS_LOGGER_JSON: 'true'
+
+secretRef: l3miage
+
+ingress:
+  enabled: true
+  hosts:
+    - l3miage.fr
+    - www.l3miage.fr
+    - genie.l3miage.fr
+  redirect:
+    regex: ^https?://(?:www|genie).l3miage.fr(.*)
+    replacement: https://l3miage.fr${1}
