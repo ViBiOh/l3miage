@@ -2,7 +2,7 @@
 
 [Vincent Boutour](https://vibioh.fr) - [@ViBiOh](https://github.com/ViBiOh)
 
-*Productivity Engineer* chez [MeilleursAgents](https://www.meilleursagents.com)
+*Senior Software Engineer* chez [BlaBlaCar](https://www.blablacar.fr)
 
 Master MIAGE Paris Descartes, 2011 👴
 
