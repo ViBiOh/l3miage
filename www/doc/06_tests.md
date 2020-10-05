@@ -409,7 +409,7 @@ e.g. Effectuer une recherche dans le référentiel "Produit" prend une demi-seco
 Il existe des outils pour simuler la connexion simultanée de plusieurs utilisateurs : [Gatling](http://gatling.io), [Apache JMeter](https://jmeter.apache.org/)
 
 
-Il ne faut pas chercher à bâtir une architecture qui réponde quoiqu'il advienne (c'est un problème de *scalabilité*) mais connaître les limites et analyser la courbe de réponse avec des outils de *profiling*
+Il ne faut pas chercher à bâtir une architecture qui réponde quoiqu'il advienne (c'est un problème de *scalabilité* ) mais connaître les limites et analyser la courbe de réponse avec des outils de *profiling*
 
 
 Cela requiert, comme pour les tests d'intégration, des environnements capables de supporter la volumétrie et la charge.
@@ -446,7 +446,7 @@ Cela conduit bien souvent à vérifier que la *User eXpérience* est satisfaisan
 
 Attention, l'UX n'est pas synonyme d'UI ni d'ergonomie. C'est bien de l'« expérience utilisateur » que l'on parle.
 
-e.g. Uber ou BlaBlaCar vous proposent une application sobre, mais la majeure partie de l'UX s'effectue dans la voiture.
+e.g. Uber ou BlaBlaCar vous proposent une application, mais la majeure partie de l'UX s'effectue dans la voiture.
 
 
 # *Test Driven Development* - TDD
@@ -586,12 +586,13 @@ Refactorer en gardant le ✅.
 number => {
   if (number % 15 === 0) {
     return 'fizzbuzz';
-  } else if (number % 3 === 0) {
+  }
+  if (number % 3 === 0) {
     return 'fizz';
-  } else if (number % 5 === 0) {
+  }
+  if (number % 5 === 0) {
     return 'buzz';
   }
-
   return number;
 }
 ```

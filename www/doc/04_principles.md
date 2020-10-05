@@ -236,7 +236,9 @@ Gratuit ne veut pas dire sans valeur
 
 * Pas de coupable, pensez en équipe
 
-> No finger pointing, no public shaming
+> No finger pointing
+
+> No name, no blame, no shame
 
 
 ### YAGNI
