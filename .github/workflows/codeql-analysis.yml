@@ -35,7 +35,7 @@ jobs:
           languages: ${{ matrix.language }}
 
       - name: Autobuild
-        run: npm install && npm run reveal npm run build
+        run: npm install && npm run reveal && npm run build
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v1
