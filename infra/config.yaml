@@ -5,16 +5,16 @@ metadata:
   name: l3miage
   namespace: default
 spec:
-  interval: 10m
+  interval: 120m
   chart:
     spec:
       chart: app
-      version: '0.0.20'
+      version: "0.0.20"
       sourceRef:
         kind: HelmRepository
         name: vibioh
         namespace: flux-system
-      interval: 10m
+      interval: 120m
 
   values:
     nameOverride: l3miage
@@ -37,7 +37,7 @@ spec:
         - /www/doc/genie.md
 
     config:
-      VIWS_LOGGER_JSON: 'true'
+      VIWS_LOGGER_JSON: "true"
 
     secrets:
       ALGOLIA_APP: AgB4gklcq6+FkUaGIp/Mlj6e+JMYnsmqJDiGuwfFm51+MlMTD5ZarMa/GQRIFHMxqmKpmHGDrh9l3iMvJozOFZUaxa9jbu9X2cXVNec/wcbwoLZSgQEefubYzbloouJfvzezDSSUCZH4ws4hlhUowzoEQrvkwaE1n//rsv7M2ZxpgTAZdrWR7kyJC6dXk6m/mHK5POJzEJus7HkDG03u6ioTF8jZTewNFxfme4CfUYB4fuij7gfvrkh56ZWW27wZrufE+x2pa+Ie8HROcRKeUb9nKWRfIFvMVrE0pWMzYADOA8PDIaGao7o+7CLQoGhOwX1gu2BauT/c47eUrotGp9wk0BOI5EvdW80NhT8sWkbfnE8ubUBoIwqjyb/PBWhpMfasGcrbHBrAlfMTz8kR1KmPE0u9Y4XJ0I9oEEEZlFB8fJRPzuzATs10RmIGX1ZonG5MTVUtUe+ZfcdymQEOprZGG4kNpDUTYtsJqVi9zueHl/h1rKgkMXNh8/OVwx/EftVoK35B01s6eu1bM3dBG5zdIM+5I8AJM5YGCb44bl1pzoxBDMSkY/Pj5d0GcB9AE7D4K76Is8t7cgkp63RQYNyTBEs1dQ4ITYUtuOolAsxKoJ4MPTZDSHRIrlHRiHGZSaem8BiuOKBI/W6Oh7BU93Ftve2dKunJMD3aPBPNZUyFScxNWUxEEyok7RXJT7zWpl79a0ibwIbd/k5q
