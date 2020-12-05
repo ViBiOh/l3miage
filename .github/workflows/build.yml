@@ -33,11 +33,11 @@ jobs:
           sed -i -e "s|{{version}}|$(make version)|g" www/index.html
           sed -i -e "s|{{version}}|$(make version)|g" www/js/index.js
           sed -i -e "s|{{version}}|$(make version)|g" www/js/algolia.js
-          curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.0/revealgolia_linux_amd64"
+          curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.1/revealgolia_linux_amd64"
           chmod +x revealgolia_linux_amd64
-          curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.0/revealgolia_linux_arm"
+          curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.1/revealgolia_linux_arm"
           chmod +x revealgolia_linux_arm
-          curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.0/revealgolia_linux_arm64"
+          curl -q -sSL --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.1/revealgolia_linux_arm64"
           chmod +x revealgolia_linux_arm64
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
