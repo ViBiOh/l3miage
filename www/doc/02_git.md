@@ -18,7 +18,13 @@
 
 `git clone url-de-votre-repo`
 
+
+via HTTP, pour du public mais pas idéal pour travailler.
+
 > git clone https://github.com/ViBiOh/l3miage.git
+
+
+via SSH, pour du public et privé, plus sécure.
 
 > git clone git@github.com:ViBiOh/l3miage.git
 
@@ -35,8 +41,6 @@
 
 `git add nom_de_votre_fichier`
 
-> git add README.md
-
 
 ### En mode interactif pour ajouter seulement ceux souhaités
 
@@ -52,20 +56,36 @@
 
 `git checkout -- [nom_de_votre_fichier]`
 
+ou la nouvelle version
+
+`git restore [nom_de_votre_fichier]`
+
 
 ### Annuler les modifications déjà ajoutées
 
 `git reset HEAD -- [nom_de_votre_fichier]`
+
+ou la nouvelle version
+
+`git restore --staged [nom_de_votre_fichier]`
 
 
 ### Créer une branche à partir de la branche courante
 
 `git checkout -b features/awesome`
 
+ou la nouvelle version
+
+`git switch --create features/awesome`
+
 
 ### Changer de branche
 
 `git checkout master`
+
+ou la nouvelle version
+
+`git switch features/awesome`
 
 
 ### Mettre de côté ses modifications
@@ -82,7 +102,15 @@
 
 `git commit -m "commentaire de votre commit"`
 
-> git commit -m "Initial commit. CR By John Doe"
+
+## Voir l'historique des commits
+
+`git log`
+
+
+## Voir le détail d'un commit
+
+`git show commit-sha1`
 
 
 ## Pousser ses modifications sur le serveur
@@ -123,9 +151,13 @@ Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
 
 ### Récupérer les modifications d'une autre branche sur la sienne
 
-`git pull --rebase=false nom-de-la-branche-dont-on-veut-les-modifications`
+Par "en dessous"
 
-> git pull --rebase=false origin master
+`git pull --rebase nom-de-la-branche-dont-on-veut-les-modifications`
+
+Par "au dessus"
+
+`git pull --rebase=false nom-de-la-branche-dont-on-veut-les-modifications`
 
 
 # Références
