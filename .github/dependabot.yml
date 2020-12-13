@@ -1,28 +1,26 @@
----
 version: 2
-
 updates:
-  - package-ecosystem: npm
-    directory: /
-    schedule:
-      interval: weekly
-      day: sunday
-    commit-message:
-      prefix: chore
-      include: scope
-  - package-ecosystem: npm
-    directory: /sample/tdd/
-    schedule:
-      interval: weekly
-      day: sunday
-    commit-message:
-      prefix: chore
-      include: scope
-  - package-ecosystem: maven
-    directory: /sample/java/
-    schedule:
-      interval: weekly
-      day: sunday
-    commit-message:
-      prefix: chore
-      include: scope
+- package-ecosystem: npm
+  directory: /
+  schedule:
+    interval: weekly
+    day: sunday
+  commit-message:
+    prefix: chore
+    include: scope
+- package-ecosystem: npm
+  directory: /sample/tdd/
+  schedule:
+    interval: weekly
+    day: sunday
+  commit-message:
+    prefix: chore
+    include: scope
+- package-ecosystem: maven
+  directory: /sample/java/
+  schedule:
+    interval: weekly
+    day: sunday
+  commit-message:
+    prefix: chore
+    include: scope
