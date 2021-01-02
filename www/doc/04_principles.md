@@ -50,6 +50,32 @@ Tant mieux : on ne négocie pas avec ~~les terroristes~~ la qualité.
 [Devenir agile en 15 min](https://www.youtube.com/watch?v=3qMpB-UH9kA)
 
 
+## Méthode Kanban
+
+
+Ne pas "trop" prévoir, car, par définition, une prévision est incertaine.
+
+
+![](img/kanban.jpg)
+
+
+"Flux tiré" par la demande, on lit le tableau de droite à gauche.
+
+
+Limiter l'encours afin de favoriser la vélocité.
+
+> « Stop starting, start finishing. »
+
+
+C'est un premier pas vers le _lean manufacturing_
+
+
+Références :
+
+- [Trello](https://trello.com)
+- [La méthode Kanban, L'approche en flux pour l'entreprise agile](https://isbnsearch.org/isbn/9782100781058)
+
+
 ## [Given-When-Then](https://en.wikipedia.org/wiki/Given-When-Then)
 
 
@@ -136,7 +162,7 @@ Partager votre vision
 Faire de la veille, assister à des conférences, des *meetups*, des salons, ...
 
 
-> « Stay hungry, stay foolish. » - Steve Jobs
+> [« Stay hungry, stay foolish. »](https://youtu.be/UF8uR6Z6KLc) - Steve Jobs
 
 
 Discuter des implémentations, technologies, actualités.
@@ -148,7 +174,8 @@ En méso-économie, on ne peut ignorer un évènement. Même si un domaine ne vo
 Être bon communicant passe par de bons outils
 
 
-* [Slack](http://www.slack.com), [Rocket.chat](https://rocket.chat), IRC
+* [Notion.so](https://www.notion.so), WiKi, Readme, etc.
+* [Slack](http://www.slack.com), [Zulip](https://zulip.com), [Discord](https://discordapp.com), IRC
 * Réseaux sociaux, [reddit](https://reddit.com), [HackerNews](https://news.ycombinator.com)
 * Animer l'équipe et acquérir le *team-spirit*
 
@@ -181,11 +208,6 @@ Gratuit ne veut pas dire sans valeur
 > On n'a rien sans rien
 
 > "Free beer" vs "free speech"
-
-
-### Loi de la relativité d'Einstein
-
-> Une minute au dessus d'une poêle chaude semble durer des heures alors qu'une minute à côté d'une jolie fille semble durer une seconde, c'est ça la relativité.
 
 
 ### Loi de Fraisse
