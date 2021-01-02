@@ -2,10 +2,10 @@ name: Build
 on:
   push:
     branches:
-      - master
+    - master
   pull_request:
     branches:
-      - master
+    - master
 env:
   SCRIPTS_NO_INTERACTIVE: 'true'
 defaults:
@@ -17,48 +17,47 @@ jobs:
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: '15'
-      - run: |
-          npm ci
-          npm run reveal
-          npm run build
-          git --no-pager diff -- ':(exclude)www/js' ':(exclude)www/css' && git diff --quiet -- ':(exclude)www/js' ':(exclude)www/css'
-          sed -i -e "s|{{version}}|$(make version)|g" www/index.html
-          sed -i -e "s|{{version}}|$(make version)|g" www/js/index.js
-          sed -i -e "s|{{version}}|$(make version)|g" www/js/algolia.js
-          curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.2/revealgolia_linux_amd64"
-          chmod +x revealgolia_linux_amd64
-          curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.2/revealgolia_linux_arm"
-          chmod +x revealgolia_linux_arm
-          curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.2/revealgolia_linux_arm64"
-          chmod +x revealgolia_linux_arm64
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASS }}
-      - name: Docker
-        run: |
-          curl --disable --silent --show-error --location --max-time 30 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "release"
-          DOCKER_IMAGE="${{ secrets.DOCKER_USER }}/$(make name)" IMAGE_VERSION="$(make version)" ./scripts/release docker
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '15'
+    - run: |
+        npm ci
+        npm run reveal
+        npm run build
+        git --no-pager diff -- ':(exclude)www/js' ':(exclude)www/css' && git diff --quiet -- ':(exclude)www/js' ':(exclude)www/css'
+        sed -i -e "s|{{version}}|$(make version)|g" www/index.html
+        sed -i -e "s|{{version}}|$(make version)|g" www/js/index.js
+        sed -i -e "s|{{version}}|$(make version)|g" www/js/algolia.js
+        curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.2/revealgolia_linux_amd64"
+        chmod +x revealgolia_linux_amd64
+        curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.2/revealgolia_linux_arm"
+        chmod +x revealgolia_linux_arm
+        curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/v1.4.2/revealgolia_linux_arm64"
+        chmod +x revealgolia_linux_arm64
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASS }}
+    - name: Docker
+      run: |
+        curl --disable --silent --show-error --location --max-time 30 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "release"
+        DOCKER_IMAGE="${{ secrets.DOCKER_USER }}/$(make name)" IMAGE_VERSION="$(make version)" ./scripts/release docker
   publish:
     name: Publish
-    if:
-      github.event_name == 'push' && github.ref == 'refs/heads/master' && !contains(toJSON(github.event.commits.*.message),
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master' && !contains(toJSON(github.event.commits.*.message),
       '[skip-ci]')
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/checkout@v2
-      - name: Publish
-        env:
-          DOCKER_USER: ${{ secrets.DOCKER_USER }}
-          DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-        run: |
-          curl --disable --silent --show-error --location --max-time 30 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "docker_promote"
-          scripts/docker_promote "${{ secrets.DOCKER_USER }}/$(make name)" "$(make version)"
+    - uses: actions/checkout@v2
+    - name: Publish
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+      run: |
+        curl --disable --silent --show-error --location --max-time 30 "https://raw.githubusercontent.com/ViBiOh/scripts/master/bootstrap" | bash -s "docker_promote"
+        scripts/docker_promote "${{ secrets.DOCKER_USER }}/$(make name)" "$(make version)"
