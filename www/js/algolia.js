@@ -175,24 +175,23 @@ function algoliaNavigateResults(direction) {
   const selectedClass = 'selected';
 
   const results = document.querySelectorAll('.algolia__results li');
-  if (results) {
-    for (let i = 0; i < results.length; i++) {
-      if (results[i].classList.contains(selectedClass)) {
-        const next = i + direction;
-        if (next >= 0 && next < results.length) {
-          results[i].classList.remove(selectedClass);
-          results[next].classList.add(selectedClass);
-        }
+  if (!results) {
+    return;
+  }
 
-        return;
+  for (let i = 0; i < results.length; i++) {
+    if (results[i].classList.contains(selectedClass)) {
+      const next = i + direction;
+      if (next >= 0 && next < results.length) {
+        results[i].classList.remove(selectedClass);
+        results[next].classList.add(selectedClass);
       }
+
+      return;
     }
   }
 
-  const result = document.querySelector('.algolia__results li');
-  if (result) {
-    result.classList.add(selectedClass);
-  }
+  results[0].classList.add(selectedClass);
 }
 
 /**
