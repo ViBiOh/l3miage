@@ -81,7 +81,7 @@ ou la nouvelle version
 
 ### Changer de branche
 
-`git checkout master`
+`git checkout main`
 
 ou la nouvelle version
 
@@ -125,16 +125,16 @@ ou la nouvelle version
 
 `git push nom-du-serveur-distant nom-de-la-branche`
 
-> git push origin master
+> git push origin main
 
 
 ### En précisant la destination, la branche, la référence locale
 
 `git push nom-du-serveur-distant référence-du-commit:nom-de-la-branche`
 
-> git push origin HEAD:master
+> git push origin HEAD:main
 
-Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
+Ne pas oublier le **HEAD** car `git push origin :main` supprime la branche
 
 
 ## Récupérer les modifications du serveur
@@ -146,7 +146,7 @@ Ne pas oublier le **HEAD** car `git push origin :master` supprime la branche
 
 `git pull nom-du-serveur-distant nom-de-la-branche`
 
-> git pull origin master
+> git pull origin main
 
 
 ### Récupérer les modifications d'une autre branche sur la sienne
