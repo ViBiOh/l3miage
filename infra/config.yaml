@@ -17,10 +17,10 @@ spec:
   values:
     nameOverride: l3miage
     image:
-      repository: vibioh/l3miage:latest # {"$imagepolicy": "default:l3miage"}
+      repository: vibioh/l3miage:202102131831 # {"$imagepolicy": "default:l3miage"}
     init:
       enabled: true
-      repository: vibioh/l3miage:latest # {"$imagepolicy": "default:l3miage"}
+      repository: vibioh/l3miage:202102131831 # {"$imagepolicy": "default:l3miage"}
       env:
         REVEALGOLIA_LOGGER_JSON: true
       secrets:
