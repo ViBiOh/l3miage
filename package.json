@@ -32,7 +32,7 @@
     "reveal.js": "4.1.0"
   },
   "devDependencies": {
-    "clean-css-cli": "4.3.0",
+    "clean-css-cli": "5.1.0",
     "uglify-es": "3.3.9"
   }
 }
