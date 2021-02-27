@@ -24,10 +24,10 @@ spec:
   values:
     nameOverride: l3miage
     image:
-      repository: vibioh/l3miage:202102212020 # {"$imagepolicy": "default:l3miage"}
+      repository: vibioh/l3miage:202102212020 # {"$imagepolicy": "default:flux-l3miage-web"}
     init:
       enabled: true
-      repository: vibioh/l3miage:202102212020 # {"$imagepolicy": "default:l3miage"}
+      repository: vibioh/l3miage:202102212020 # {"$imagepolicy": "default:flux-l3miage-web"}
       env:
         REVEALGOLIA_LOGGER_JSON: true
       secrets:
@@ -35,9 +35,9 @@ spec:
         REVEALGOLIA_INDEX: AgANoiPAdI7ApGMV4p3xiy5vNN/BlaHs4dZ3CuMo+/Z4TIDU5yQ7PZiaiQ6a2S5t5c6BHmDWNC4doazJtuvWyTjGddgpdXOWtfJEguowaQX5QfvIjXp4zyGoe3BF1jgrexJKBhtAaydrcfUgBYAcU9dTdc+zxyXKJTzAZElnnDQM32rQ9B9sMUqd/UqQ0a8dep4DLZdpmZKmoXbIOxxysqgaHF662zXAZAhGLSe2c2cVKjAE6Z4ztKjE591d7GusnVKu6QZwPtGJO7ALJwWy4T2SMgcxJKuNiZ0d7j3p2hlxrnCjsq9IYiFoH6qER7knyGRDif/etneeajHF7jx870C1RIsCHOPuSv2tTb6xCiWE7bC3ceILCOrhwBsxEIsSddIG65s6K7l2sZqz3/7dGakmcwh33z2k2/kgQi9Jn6wPfT41cgxcw2sLn8zo16ng1gyx/p+sy/oCcbkIukxpwDfEinfriXi9Vq0ZKHcLGmIWX6jxx/x14LQtEOTZYRVQYx5rGOyBLVwPXMKkAVOsXZFdSVw0/65E+426SRihGsXW9fiUyMEp1PgC1+T525GgkMZlRkMwxN3oWw8grSC+fyWcg1oryS0TV2GlOwuOAEMPo9othCVGq2EotkEPD0HBXOqeTx/35sYgT0CkE7vOkD5jxIOddMssYQpEXMs8WuGoNqURpH0t1vRdiX0RpV9vMKIanKHBHsGv
         REVEALGOLIA_KEY: AgBmHk3SToOSppt7Bu5J1E5MXcTk2lgowWDlL+XWmCqLQqq8LKhmwNV307rAVibzRUQL099gV9NDbcPtHa0Rb9cgHPi7BNHlvyVZZseho9k+Ubwy149q0bBUcjPxQqOGdAS7zNeWM06wypIvPjVPZfY8hiVUKM8Jgtm2+OKQns43fa1KFwGj5dpPpbtH23UhXb9qr3g1CXD6/bUANJaE92Zz/gB4HlGdFkjmKLc7nkJGwOMbmbzTLpqxYVO/lhjaW0JJqDDLP8oPYo45ra7c/U+mB7/La8et3jOVKumx6/jDqRBbgzTV+mAAuTfDLR/+5oJR4t3d5ZJdrc4VeCoD3eQQZaXR0d5R0p60qtoo3mHYZJ6MkNRff31CuWIK+omNIbv6WAluU8QHNLjlKDbXVfh1acT8G/3IT5bShlJdCnCo6h/UyK4gf6BgVaXgr1AnTiMhavP9wdlQ2g9q4SrOaE6pzu16pmbG555JaIrMd41cykt0l5Na4YpwAaanpVXZAZ6MG/nwcsJh6GEV1sFKOJLuVJ9uAWlDPwxnBhh0rV9pUGC0Q1nYmakFopXQ8a/52GS/b63XBoTBsuH8Jv/2AtkwIQpZ5JmavkuXy+20mOEoboHI7vfHw4WJ87AFzuFZG+WnnGxJHHJlOvRuSG8aqL4Gqaz4RLoyKKWfdws20+HjHBBemKGIRk6Yskx+KTMo+CrHkfbQCFTjf75tUINwSAAL0DVGKen7kNjgCrPltNN9yg==
       command:
-      - /revealgolia
-      - -source
-      - /www/doc/genie.md
+        - /revealgolia
+        - -source
+        - /www/doc/genie.md
     config:
       VIWS_LOGGER_JSON: 'true'
     secrets:
@@ -47,9 +47,9 @@ spec:
     ingress:
       enabled: true
       hosts:
-      - l3miage.fr
-      - www.l3miage.fr
-      - genie.l3miage.fr
+        - l3miage.fr
+        - www.l3miage.fr
+        - genie.l3miage.fr
       redirect:
         regex: ^https?://(?:www|genie).l3miage.fr(.*)
         replacement: https://l3miage.fr${1}
