@@ -24,10 +24,10 @@ spec:
   values:
     nameOverride: l3miage
     image:
-      repository: vibioh/l3miage:202102212020 # {"$imagepolicy": "default:flux-l3miage-web"}
+      repository: vibioh/l3miage:202102271711 # {"$imagepolicy": "default:flux-l3miage-web"}
     init:
       enabled: true
-      repository: vibioh/l3miage:202102212020 # {"$imagepolicy": "default:flux-l3miage-web"}
+      repository: vibioh/l3miage:202102271711 # {"$imagepolicy": "default:flux-l3miage-web"}
       env:
         REVEALGOLIA_LOGGER_JSON: true
       secrets:
