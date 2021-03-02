@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: app
-      version: '0.0.47'
+      version: '0.0.48'
       sourceRef:
         kind: HelmRepository
         name: vibioh
@@ -25,10 +25,12 @@ spec:
   values:
     nameOverride: l3miage
     image:
-      repository: vibioh/l3miage:202103020805 # {"$imagepolicy": "default:flux-l3miage-web"}
+      name: vibioh/l3miage
+      tag: 202103020805 # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     init:
       enabled: true
-      repository: vibioh/l3miage:202103020805 # {"$imagepolicy": "default:flux-l3miage-web"}
+      name: vibioh/l3miage
+      tag: 202103020805 # {"$imagepolicy": "default:flux-l3miage-web:tag"}
       env:
         REVEALGOLIA_LOGGER_JSON: true
       secrets:
