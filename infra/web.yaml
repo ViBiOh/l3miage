@@ -25,11 +25,11 @@ spec:
     nameOverride: l3miage
     image:
       name: vibioh/l3miage
-      tag: "202104111747" # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: "202104121152" # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     init:
       enabled: true
       name: vibioh/l3miage
-      tag: "202104111747" # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: "202104121152" # {"$imagepolicy": "default:flux-l3miage-web:tag"}
       env:
         REVEALGOLIA_LOGGER_JSON: true
       secrets:
