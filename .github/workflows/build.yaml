@@ -53,7 +53,7 @@ jobs:
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-          REVEALGOLIA_VERSION: v1.4.2
+          REVEALGOLIA_VERSION: v1.4.5
         run: |
           curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/${REVEALGOLIA_VERSION}/revealgolia_linux_amd64"
           chmod +x revealgolia_linux_amd64
