@@ -25,7 +25,7 @@ spec:
     nameOverride: l3miage-algolia
     image:
       name: vibioh/l3miage
-      tag: '202106081642' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: '202106091755' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     command:
     - /revealgolia
     - -source
