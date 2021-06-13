@@ -25,7 +25,7 @@ spec:
     nameOverride: l3miage
     image:
       name: vibioh/l3miage
-      tag: '202106130721' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: '202106131411' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     config:
       VIWS_LOGGER_JSON: 'true'
       VIWS_PROMETHEUS_GZIP: 'false'
@@ -37,9 +37,9 @@ spec:
     ingress:
       enabled: true
       hosts:
-        - l3miage.fr
-        - www.l3miage.fr
-        - genie.l3miage.fr
+      - l3miage.fr
+      - www.l3miage.fr
+      - genie.l3miage.fr
       redirect:
         regex: ^https?://(?:www|genie).l3miage.fr(.*)
         replacement: https://l3miage.fr${1}
