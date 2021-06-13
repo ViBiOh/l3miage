@@ -29,6 +29,7 @@ spec:
     config:
       VIWS_LOGGER_JSON: 'true'
       VIWS_PROMETHEUS_GZIP: 'false'
+      VIWS_GZIP: 'false'
     secrets:
       ALGOLIA_APP: AgB4gklcq6+FkUaGIp/Mlj6e+JMYnsmqJDiGuwfFm51+MlMTD5ZarMa/GQRIFHMxqmKpmHGDrh9l3iMvJozOFZUaxa9jbu9X2cXVNec/wcbwoLZSgQEefubYzbloouJfvzezDSSUCZH4ws4hlhUowzoEQrvkwaE1n//rsv7M2ZxpgTAZdrWR7kyJC6dXk6m/mHK5POJzEJus7HkDG03u6ioTF8jZTewNFxfme4CfUYB4fuij7gfvrkh56ZWW27wZrufE+x2pa+Ie8HROcRKeUb9nKWRfIFvMVrE0pWMzYADOA8PDIaGao7o+7CLQoGhOwX1gu2BauT/c47eUrotGp9wk0BOI5EvdW80NhT8sWkbfnE8ubUBoIwqjyb/PBWhpMfasGcrbHBrAlfMTz8kR1KmPE0u9Y4XJ0I9oEEEZlFB8fJRPzuzATs10RmIGX1ZonG5MTVUtUe+ZfcdymQEOprZGG4kNpDUTYtsJqVi9zueHl/h1rKgkMXNh8/OVwx/EftVoK35B01s6eu1bM3dBG5zdIM+5I8AJM5YGCb44bl1pzoxBDMSkY/Pj5d0GcB9AE7D4K76Is8t7cgkp63RQYNyTBEs1dQ4ITYUtuOolAsxKoJ4MPTZDSHRIrlHRiHGZSaem8BiuOKBI/W6Oh7BU93Ftve2dKunJMD3aPBPNZUyFScxNWUxEEyok7RXJT7zWpl79a0ibwIbd/k5q
       ALGOLIA_INDEX: AgAbYKp9SIqr1TQZ6sC/5lTbE10dKR3L1py9Pa4aNxD4hZqdDYGqellyeldTunQNciAtaPk6jzq4DvULssyoihgiUc63/50I8GnYgIyjPdVfvXSHmDLJoSNZ0W1r8hYYoGsgW8AKRNgTn2nvLtyYfcap+7pjP0/pRvvfzjSQfwgqx13rKdEaTW9d755O/dyagViqW5cSxOxihJxhYPhsELYs2ROHzbqp+kYcFeRNdWZOJI5RXeK8DZRzJ/tQq6Tgj4dORbL/poEZ1sAZYfmbv9H173pLrpulB7QLjZcSVHv5E3w0i82hDjwQAOLnG1pv49cwwkOcDzJV2Y1Rt43zmebpmOBbjT61Urr0pnSMurnqGXV6KAFC1mnhN6p3tpRGK79jxtr0qrkOK+UmdiMs8clokBITAIvpqCisdmyFDG6UyYQtoePKYiAx9Pof3DuJlk8HJ4AS7s5tvvmpknQMWo95Whf6Z7RLF47tI4lTK0XopUOuv6jG69lmy+XGGCOZnLbDjqXMhy6cQOfEYffoPP+hLMB7AloRazWTOzreqAigXh7wxdDv3QvMzjkKK/N8eYWefwsBj18tNaoUKNegGepC4NG3jSmdVXtbTT1D0SZoqWVQQRB2KtguNcH7ggMZfFFxJWJ9iPctJxjbLW/LplWqEvMDC1OHPaBuhY93e3XOj3ldod4N1nowJoFC3eKjfwCX0hIQnLxT
@@ -36,9 +37,9 @@ spec:
     ingress:
       enabled: true
       hosts:
-      - l3miage.fr
-      - www.l3miage.fr
-      - genie.l3miage.fr
+        - l3miage.fr
+        - www.l3miage.fr
+        - genie.l3miage.fr
       redirect:
         regex: ^https?://(?:www|genie).l3miage.fr(.*)
         replacement: https://l3miage.fr${1}
