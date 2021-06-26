@@ -25,7 +25,7 @@ spec:
     nameOverride: l3miage
     image:
       name: vibioh/l3miage
-      tag: '202106251701' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: '202106261134' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     config:
       VIWS_LOGGER_JSON: 'true'
       VIWS_PROMETHEUS_GZIP: 'false'
