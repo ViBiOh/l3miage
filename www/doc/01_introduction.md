@@ -2,7 +2,7 @@
 
 [Vincent Boutour](https://vibioh.fr) - [@ViBiOh](https://github.com/ViBiOh)
 
-*Senior Software Engineer* chez [BlaBlaCar](https://www.blablacar.fr)
+*Golang Backend Developer* chez [Molotov](https://www.molotov.tv)
 
 Master MIAGE Paris Descartes, 2011 👴
 
