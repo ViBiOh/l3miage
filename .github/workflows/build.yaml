@@ -10,7 +10,7 @@ on:
       - main
 
 env:
-  SCRIPTS_NO_INTERACTIVE: "true"
+  SCRIPTS_NO_INTERACTIVE: 'true'
 
 defaults:
   run:
@@ -26,7 +26,7 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: '16'
       - name: Build
         run: |
           npm ci
@@ -52,7 +52,7 @@ jobs:
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-          REVEALGOLIA_VERSION: v1.4.5
+          REVEALGOLIA_VERSION: v1.4.7
         run: |
           curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/${REVEALGOLIA_VERSION}/revealgolia_linux_amd64"
           chmod +x revealgolia_linux_amd64
