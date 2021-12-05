@@ -21,16 +21,15 @@ Rédaction des besoins
 Code testé unitairement
 
 
-Réalisation en Java, JavaScript ou Go
+Réalisation en Java
 
 
-Respect de l'*Inversion of Control* (e.g. Spring, Play, CommonJS)
+Respect de l'*Inversion of Control* (e.g. Spring, Play, etc.)
 
 
 Utilisation d'un outil de gestion de dépendances
 * Maven
 * Gradle
-* npm
 * ...
 
 
@@ -100,7 +99,7 @@ Bonus
 ## Organisation
 
 
-Groupe de 5
+Groupe de 4-5
 
 * groupe hétérogène (plusieurs rôles)
 
