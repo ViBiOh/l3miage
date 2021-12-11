@@ -14,21 +14,6 @@
 `git init`
 
 
-## Cloner un repository existant
-
-`git clone url-de-votre-repo`
-
-
-via HTTP, pour du public mais pas idéal pour travailler.
-
-> git clone https://github.com/ViBiOh/l3miage.git
-
-
-via SSH, pour du public et privé, plus sécure.
-
-> git clone git@github.com:ViBiOh/l3miage.git
-
-
 ## Connaître l'état de la copie locale
 
 `git status`
@@ -39,7 +24,7 @@ via SSH, pour du public et privé, plus sécure.
 
 ## Ajouter un fichier au système de version
 
-`git add nom_de_votre_fichier`
+`git add <nom_du_fichier>`
 
 
 ### En mode interactif pour ajouter seulement ceux souhaités
@@ -54,38 +39,30 @@ via SSH, pour du public et privé, plus sécure.
 
 ### Annuler les modifications locales
 
-`git checkout -- [nom_de_votre_fichier]`
+`git checkout -- <nom_du_fichier>`
 
-ou la nouvelle version
-
-`git restore [nom_de_votre_fichier]`
+`git restore <nom_du_fichier>`
 
 
 ### Annuler les modifications déjà ajoutées
 
-`git reset HEAD -- [nom_de_votre_fichier]`
+`git reset HEAD -- <nom_du_fichier>`
 
-ou la nouvelle version
-
-`git restore --staged [nom_de_votre_fichier]`
+`git restore --staged <nom_du_fichier>`
 
 
 ### Créer une branche à partir de la branche courante
 
-`git checkout -b features/awesome`
+`git checkout -b <nom_de_la_branche>`
 
-ou la nouvelle version
-
-`git switch --create features/awesome`
+`git switch --create <nom_de_la_branche>`
 
 
 ### Changer de branche
 
-`git checkout main`
+`git checkout <nom_de_la_branche>`
 
-ou la nouvelle version
-
-`git switch features/awesome`
+`git switch <nom_de_la_branche>`
 
 
 ### Mettre de côté ses modifications
@@ -110,7 +87,17 @@ ou la nouvelle version
 
 ## Voir le détail d'un commit
 
-`git show commit-sha1`
+`git show <commit-sha1>`
+
+
+## Créer une clé SSH
+
+`ssh-keygen -t ed25519 -a 100 -C "$(whoami)@$(hostname)" -f "${HOME}/.ssh/id_ed25519"`
+
+
+## Ajouter un remote
+
+`git remote add origin "git@github.com:ViBiOh/l3miage.git"`
 
 
 ## Pousser ses modifications sur le serveur
@@ -123,16 +110,16 @@ ou la nouvelle version
 
 ### En précisant la destination, la branche
 
-`git push nom-du-serveur-distant nom-de-la-branche`
+`git push <nom_du_remote> <nom_de_la_branche>`
 
 > git push origin main
 
 
 ### En précisant la destination, la branche, la référence locale
 
-`git push nom-du-serveur-distant référence-du-commit:nom-de-la-branche`
+`git push <nom_du_remote> référence-du-commit:nom_de_la_branche`
 
-> git push origin HEAD:main
+> `git push origin HEAD:main`
 
 Ne pas oublier le **HEAD** car `git push origin :main` supprime la branche
 
@@ -144,7 +131,7 @@ Ne pas oublier le **HEAD** car `git push origin :main` supprime la branche
 
 ### En précisant la source, la branche
 
-`git pull nom-du-serveur-distant nom-de-la-branche`
+`git pull <nom_du_remote> <nom_de_la_branche>`
 
 > git pull origin main
 
@@ -153,17 +140,32 @@ Ne pas oublier le **HEAD** car `git push origin :main` supprime la branche
 
 Par "en dessous"
 
-`git pull --rebase nom-de-la-branche-dont-on-veut-les-modifications`
+`git pull --rebase <nom_de_la_branche_dont_on_veut_les_modification>`
 
 Par "au dessus"
 
-`git pull --rebase=false nom-de-la-branche-dont-on-veut-les-modifications`
+`git pull --rebase=false <nom_de_la_branche_dont_on_veut_les_modification>`
+
+
+## Cloner un repository existant
+
+`git clone url-de-votre-repo`
+
+
+via HTTP, pour du public mais pas idéal pour travailler.
+
+> `git clone "https://github.com/ViBiOh/l3miage.git"`
+
+
+via SSH, pour du public et privé, plus sûr.
+
+> `git clone "git@github.com:ViBiOh/l3miage.git"`
 
 
 # Références
 
 * [Un guide interactif et visuel](http://git-school.github.io/visualizing-git/#free)
 * [La documentation officielle](http://git-scm.com/book/fr/v1)
-* [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/)
+* [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or [GitGubFlow](https://docs.github.com/en/get-started/quickstart/github-flow)
 * [Configuration](https://delicious-insights.com/fr/articles/configuration-git/)
 * [Merge vs Rebase](https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa)
