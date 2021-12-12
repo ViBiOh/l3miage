@@ -140,32 +140,32 @@ Ne pas oublier le **HEAD** car `git push origin :main` supprime la branche
 
 Par "en dessous"
 
-`git pull --rebase <nom_de_la_branche_dont_on_veut_les_modification>`
+`git pull --rebase <nom_de_la_branche_source>`
 
 Par "au dessus"
 
-`git pull --rebase=false <nom_de_la_branche_dont_on_veut_les_modification>`
+`git pull --rebase=false <nom_de_la_branche_source>`
 
 
 ## Cloner un repository existant
 
-`git clone url-de-votre-repo`
+`git clone <url_du_repo>`
 
 
 via HTTP, pour du public mais pas idéal pour travailler.
 
-> `git clone "https://github.com/ViBiOh/l3miage.git"`
+> `git clone https://github.com/ViBiOh/l3miage.git`
 
 
 via SSH, pour du public et privé, plus sûr.
 
-> `git clone "git@github.com:ViBiOh/l3miage.git"`
+> `git clone git@github.com:ViBiOh/l3miage.git`
 
 
 # Références
 
 * [Un guide interactif et visuel](http://git-school.github.io/visualizing-git/#free)
 * [La documentation officielle](http://git-scm.com/book/fr/v1)
-* [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or [GitGubFlow](https://docs.github.com/en/get-started/quickstart/github-flow)
+* [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow)
 * [Configuration](https://delicious-insights.com/fr/articles/configuration-git/)
 * [Merge vs Rebase](https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa)
