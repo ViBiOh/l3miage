@@ -117,7 +117,7 @@
 
 ### En précisant la destination, la branche, la référence locale
 
-`git push <nom_du_remote> référence-du-commit:nom_de_la_branche`
+`git push <nom_du_remote> <commit_ref>:<nom_de_la_branche>`
 
 > `git push origin HEAD:main`
 
@@ -154,12 +154,14 @@ Par "au dessus"
 
 via HTTP, pour du public mais pas idéal pour travailler.
 
-> `git clone https://github.com/ViBiOh/l3miage.git`
+> git clone
+> http://github.com/ViBiOh/l3miage.git
 
 
 via SSH, pour du public et privé, plus sûr.
 
-> `git clone git@github.com:ViBiOh/l3miage.git`
+> git clone
+> git@github.com:ViBiOh/l3miage.git
 
 
 # Références
