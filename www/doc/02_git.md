@@ -92,12 +92,13 @@
 
 ## Créer une clé SSH
 
-`ssh-keygen -t ed25519 -a 100 -C "$(whoami)@$(hostname)" -f "${HOME}/.ssh/id_ed25519"`
+> ssh-keygen -t ed25519 -a 100 -C "$(whoami)@$(hostname)" -f "${HOME}/.ssh/id_ed25519"
 
 
 ## Ajouter un remote
 
-`git remote add origin "git@github.com:ViBiOh/l3miage.git"`
+> git remote add origin
+> git@github.com:ViBiOh/l3miage.git
 
 
 ## Pousser ses modifications sur le serveur
