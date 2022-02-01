@@ -25,7 +25,7 @@ Le marqueur `_` peut se substituer au marqueur `*`
 ## Liste à puces automatiques
 
 * Une * devant chaque puce
-* permet une indention automatique
+* permet une indentation automatique
 * et un double espace
   * ou une tabulation
   * permet des sous-listes
