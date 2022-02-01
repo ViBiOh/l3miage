@@ -33,7 +33,7 @@ Le marqueur `_` peut se substituer au marqueur `*`
 
 ## Ecriture de code ou de texte non-formaté
 
-En mode `en ligne` simplement en l'entourant d'un guillement accentué **`**
+En mode `en ligne` simplement en l'entourant d'un guillemet accentué **`**
 
     Ou en mode bloc en indentant
     l'ensemble avec un quadruple espace
