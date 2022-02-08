@@ -469,7 +469,7 @@ Si le nombre est multiple de 3, afficher "fizz".
 
 Si le nombre est multiple de 5, afficher "buzz".
 
-Sinon aficher le nombre.
+Sinon afficher le nombre.
 
 
 > Si je donne le chiffre 1, renvoyer 1
