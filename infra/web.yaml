@@ -37,9 +37,9 @@ spec:
     ingress:
       enabled: true
       hosts:
-      - l3miage.fr
-      - www.l3miage.fr
-      - genie.l3miage.fr
+        - l3miage.fr
+        - www.l3miage.fr
+        - genie.l3miage.fr
       redirect:
         regex: ^https?://(?:www|genie).l3miage.fr(.*)
         replacement: https://l3miage.fr${1}
@@ -48,3 +48,7 @@ spec:
       url: https://l3miage.fr
     pprof:
       enabled: true
+  encryptedData:
+    ALGOLIA_APP: AgCK2w1tD121lN62TCmOhfM3kINDqb9tv9TkYrtWg1BRU/r++I7nTAqlx6d3cr1kvxKvJ0Ps/PHNoU0uy/zBkmkBwsnBk4kaJl+SGzZy/PDd95v9hzWmL53vGvUyqbOiVoPrGDbAH7Dfu+gw7s6tJ+fjiBxzNJwUMqdPZ6vpG9JdP90j/phLeSNx61uAzUSzTCCG6AO2hTHFt8zW/uRir/KklMKYxtp4p8gmK79+9No2RkbBSBhLRH/9klDxkdRL7ALadSHHFnQjLGowxA3yvAA1x6v/FYh0IIAPavvZtro4XGo1zTh338K/wAn4PsvcAJ2oWjb60wKxzHVZ/jKlgVhiB6xYPPURdRRH0HnDAtt4cQlIxeoc32OE9RwusyvyemvVdSQQc0kKuQe6k5Ht+24qs5EZr9aHL1/h3B0IStrq5aT6GlIYy9amlT9DcY79GyraqOVPbdTCa/M4YoO8fvkslNUxZQ025sxGWLY+RXulymyqXngkEEBu4bsU1RI5aLKyOMBZCzyObR5NzjWq2dASTtf6W15Zn2Z2KYPrm2fTFmSvSbjAU127NUwgS8l9D1p7kz/s5XSDe9p9DVIV081gCZ0NLTV/DlokL+qwKZIDQywnHbYtqhiU2B8HXaDwBhOxlMYv3Ur4dmu2MaXwGP1J/uR84RrYMgzTXf3PRuMXjCp/gCDqs2l37D3zfVENonu7iiaYqRbVegA7
+    ALGOLIA_INDEX: AgBzEpy5lyVAlXAAwQs04r8cWT41SviORJpOaDwq2V0UaykM526wOENdECUzjHWz0Wl3xbQaqzhzQEhAIdu9Cc/knIq/rviEDhNy/vVzx2aSzUdDhKbBObkfxqoR5QqwrwwF4q+68L+tY+AH8KLLXb+Cm5KC2KqcS+352WyGFUydi1vzEumVBRzOr6IpPk4oqaqkaUWspo/DsIRShoD3ucztunfolo8DvVYldmt0jTEVVnp7LPVJEUXyftENRZl6aco/sRhiBDJCKMyH2iC6WzuZV2/UXDIrWKoa2hC+KWUQ87zh7stnKXL14xw8bzCAIkw3IO16Wsm9oc3biIXwXzyKbjtyOCleptu0hu6MLFarZP1cLEiI2z0USkbQw9Q5jlauVOUHHZc+RWAUWcgYxzu+eBMqgSfMnx3Uyqhj1JSt2U9r3jkQ5ojlG2CG/clCqzIcOs+2E7CufIapl/b+VB4JGbemsjKzyJOy2/Ufn1G9g6745dS4GJ8yGkxRT+SoqfQ+WYucbpsoo6AkD3y1dfD7X4pdfsyUJ6SkYEcerNL3BR4d1gE+4m9vJVDyP3W6z3fpJhoN9Zwu2173MMnrrQSuvinkJo/uD7+uZe+Z8fCsCjYwhsK/iclV/ODLXtLBHYFA9r8AJAN43Xs5q2EDXGa9bLM+c4Pyqpe2AhgEDA6qo42CecbwZJh1PZ5kEwLw1VDK3lBrpRu7
+    ALGOLIA_KEY: AgBGLLBVZEHCOE3XG3XiAkIXk2083nWgJwDfCiJ31PYCFSS3Ceam5gV0l4xRg0lsVX7xC4YnsPPtWHNHinAbBV7RLx1BU1/LcuX1OypzZ0dzlr7J6jTtdKH4VFXDHnW9xY3D1uyUZk3Dwq0aw75wqI3HHnKxHPiBGdnofGurLN2cQwkZHVO0Zkg9f4OLH8Fhh+f7mdTFG9BKpLfFyJJVPZxcwYycdOhaZu9wgITVBbdtzwNhPPV8MHzW8a8a2sdCXDAGup1HwS44pU+pPk1xVXFQYqp91Lb5rZM/Sr9ZiUAT7TmgiD+Xk7ketvKCliVodEFT3vqzATFxc31kU+IrlPNohj3/AFCwv7ohQYmXldxmvwhdgtdhhL8gaWTsOjWY6zvDhIiqfm0wo1RFhW7AcmR4IUd1JLCSNqMWQW2deeb1B1vHQav0BceaKkgSkFA5OTTCvndYhX8ikssNpQU2ebMcYmfvlr65MMq1S0vx64dsz91qMUIxfRcDqZvK9xAD3CuXZAdOavTt1Leg0TKnLdkwPkZC3WbQKpzLGBSzqlEs09+Bew+YidrK8tMwoF612Pg1a54lf/dHFPRWMQntu9jsp8q5cBhxjdqOMWEwFlct13oBvwgtQchhIhy9mfEut/XFw1rb9u25nNqdXx8OZjCBPIJaGfI4bA9WtJLmYnDL9L3ZIG3k3nJ4ddZikL6DnPZpk1a/mPY842kt2+ohMt/5x5t9SG4/lQKKXDqOouWBHQ==
