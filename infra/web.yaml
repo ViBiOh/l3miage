@@ -43,8 +43,5 @@ spec:
       redirect:
         regex: ^https?://(?:www|genie).l3miage.fr(.*)
         replacement: https://l3miage.fr${1}
-    canary:
-      enabled: true
-      url: https://l3miage.fr
     pprof:
       enabled: true
