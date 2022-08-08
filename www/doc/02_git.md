@@ -87,7 +87,7 @@
 
 ## Voir le détail d'un commit
 
-`git show <commit-sha1>`
+`git show <commit-sha>`
 
 
 ## Créer une clé SSH
