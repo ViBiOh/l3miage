@@ -46,9 +46,9 @@ async function insertRevealScripts() {
 function getMarkedRenderer() {
   const renderer = new (RevealMarkdown().marked.Renderer)();
 
-  renderer.image = (href, title, text) =>
+  renderer.image = (href, title) =>
     `<img data-src="/doc/${href}?v={{version}}" alt="${title}" />`;
-  renderer.link = (href, title, text) => `<a href="${href}">${text}</a>`;
+  renderer.link = (href, _, text) => `<a href="${href}">${text}</a>`;
 
   return renderer;
 }
