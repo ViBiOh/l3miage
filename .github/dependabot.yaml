@@ -10,27 +10,21 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
-      time: '06:00'
-      day: sunday
+      interval: daily
     commit-message:
       prefix: chore
       include: scope
   - package-ecosystem: npm
     directory: /sample/tdd/
     schedule:
-      interval: weekly
-      time: '06:00'
-      day: sunday
+      interval: daily
     commit-message:
       prefix: chore
       include: scope
   - package-ecosystem: maven
     directory: /sample/java/
     schedule:
-      interval: weekly
-      time: '06:00'
-      day: sunday
+      interval: daily
     commit-message:
       prefix: chore
       include: scope
