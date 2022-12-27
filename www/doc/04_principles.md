@@ -220,6 +220,13 @@ Gratuit ne veut pas dire sans valeur
 > Le travail se dilate jusqu'à occuper tout le temps qui lui est dévolu.
 
 
+### Loi de Brooks
+
+> Ajouter des personnes à un projet en retard, accroît son retard.
+
+`n(n-1)/2` channels de communication
+
+
 ### Loi d'Illich
 
 > Après un certain temps de travail, la productivité décroît. La pause devient nécessaire.
