@@ -11,7 +11,7 @@
   "author": "Vincent Boutour",
   "license": "MIT",
   "devDependencies": {
-    "ava": "5.1.1"
+    "ava": "5.2.0"
   },
   "ava": {
     "files": [
