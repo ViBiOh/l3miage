@@ -42,4 +42,4 @@ jobs:
       - name: Build
         run: npm install && npm run reveal && npm run build
       - name: CodeQL
-        uses: github/codeql-action/analyze@v1
+        uses: github/codeql-action/analyze@v2
