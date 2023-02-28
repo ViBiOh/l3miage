@@ -27,7 +27,7 @@ spec:
       k8s-cleaner: 'true'
     image:
       name: vibioh/l3miage
-      tag: '202302270846' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: '202302280914' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     command:
       - /revealgolia
       - -source
