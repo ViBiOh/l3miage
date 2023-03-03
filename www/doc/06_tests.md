@@ -288,7 +288,7 @@ S'assurer de la bonne intégration :
 
 * des composants entre eux
 * des versions entre elles (e.g. Mockito 2.*n* et PowerMock 1.6.*n* ne sont pas compatibles)
-* des composants avec leur dépendances
+* des composants avec leur dépendances tierces (base de données, cache, messaging, API, etc.)
 
 
 ![](img/integration_test.gif)
@@ -385,10 +385,10 @@ Outils
 ## Conclusion
 
 
-Dans un monde idéal, on réalise les trois types de tests précédents. Dans un registre plus pragmatique, on réalise les tests unitaires et fonctionnels.
+Dans un monde idéal, on réalise les trois types de tests précédents. Dans un registre plus pragmatique, on réalise les tests unitaires, fonctionnels et une fraction choisie des tests d'intégrations.
 
 
-Les tests d'intégration sont complexes et nécessitent une stratégie afin d'être mis en place. Mise en place qui peut se révéler (trop) coûteuse pour le projet.
+Les tests d'intégration complets sont complexes à mettre en œuvre. Mise en œuvre qui peut se révéler (trop) coûteuse pour le projet.
 
 
 ## Charge / Performance
