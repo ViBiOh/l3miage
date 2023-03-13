@@ -168,7 +168,8 @@ via SSH, pour du public et privé, plus sûr.
 # Références
 
 * [Un guide interactif et visuel](http://git-school.github.io/visualizing-git/#free)
-* [La documentation officielle](http://git-scm.com/book/fr/v1)
+* [La documentation officielle](http://git-scm.com)
 * [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow)
 * [Configuration](https://delicious-insights.com/fr/articles/configuration-git/)
 * [Merge vs Rebase](https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa)
+* [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) or [GitMoji](https://gitmoji.dev)
