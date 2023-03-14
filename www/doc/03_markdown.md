@@ -53,6 +53,6 @@ Le texte du lien doit se trouver entre crochets et l'url de votre lien dans des 
 ## Références
 
 * [Document GitHub](https://help.github.com/articles/markdown-basics/)
-* [Documentation officielle](http://commonmark.org/help/)
-* [Editeur avec *live preview*](http://dillinger.io)
+* [Documentation officielle](https://commonmark.org/help/)
+* [Editeur avec *live preview*](https://dillinger.io)
 * [Diagramme en pseudo-markdown](https://mermaid-js.github.io/mermaid/#/)

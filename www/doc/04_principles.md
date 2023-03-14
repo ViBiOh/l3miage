@@ -175,7 +175,7 @@ En méso-économie, on ne peut ignorer un évènement. Même si un domaine ne vo
 
 
 * [Notion.so](https://www.notion.so), WiKi, Readme, etc.
-* [Slack](http://www.slack.com), [Zulip](https://zulip.com), [Discord](https://discordapp.com), IRC
+* [Slack](https://www.slack.com), [Zulip](https://zulip.com), [Discord](https://discordapp.com), IRC
 * Réseaux sociaux, [reddit](https://reddit.com), [HackerNews](https://news.ycombinator.com)
 * Animer l'équipe et acquérir le *team-spirit*
 
@@ -343,7 +343,7 @@ Il est parfois compliqué de faire simple en appliquant les *patterns* de progra
 
 
 * La réponse est bien souvent dans la documentation
-* La réponse est sur [Google](http://lmgtfy.com/?q=google.fr&l=1) / [StackOverflow](http://lmgtfy.com/?q=stacksverflow.com&l=1)
+* La réponse est sur [Google](https://lmgtfy.com/?q=google.fr&l=1) / [StackOverflow](https://lmgtfy.com/?q=stacksverflow.com&l=1)
 * La réponse est dans les *issues* GitHub
 * La réponse est 42
 

@@ -230,7 +230,7 @@ Simuler le comportement d'une dépendance sans l'appeler et sans l'écrire
 Préciser l'entrée à laquelle on réagit et la sortie que l'on produit en conséquence
 
 
-[Mockito](http://mockito.org) voire [PowerMock](https://github.com/jayway/powermock) (pour *mocker* les classes statiques)
+[Mockito](https://mockito.org) voire [PowerMock](https://github.com/jayway/powermock) (pour *mocker* les classes statiques)
 
 
 Préparation du contexte d'exécution
@@ -376,7 +376,7 @@ Vérifier que le rendu final est conforme aux attentes
 
 Outils
 
-[Cucumber](https://cucumber.io), [Fitnesse](http://www.fitnesse.org), [Robot Framework](http://robotframework.org), [NightwatchJS](http://nightwatchjs.org), [CyPress](https://www.cypress.io/), etc.
+[Cucumber](https://cucumber.io), [Fitnesse](https://www.fitnesse.org), [Robot Framework](https://robotframework.org), [NightwatchJS](https://nightwatchjs.org), [CyPress](https://www.cypress.io/), etc.
 
 
 [Exemple](https://talks.vibioh.fr/indus_e2e/#/2/15)
@@ -406,7 +406,7 @@ e.g. Générer la fiche de paye PDF d'un salarié prend 1 seconde. Si vous l'imp
 e.g. Effectuer une recherche dans le référentiel "Produit" prend une demi-seconde. Ce temps est-il constant si vous importez le catalogue d'Amazon ?
 
 
-Il existe des outils pour simuler la connexion simultanée de plusieurs utilisateurs : [Gatling](http://gatling.io), [Apache JMeter](https://jmeter.apache.org/)
+Il existe des outils pour simuler la connexion simultanée de plusieurs utilisateurs : [Gatling](https://gatling.io), [Apache JMeter](https://jmeter.apache.org/)
 
 
 Il ne faut pas chercher à bâtir une architecture qui réponde quoiqu'il advienne (c'est un problème de *scalabilité* ) mais connaître les limites et analyser la courbe de réponse avec des outils de *profiling*

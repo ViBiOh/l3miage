@@ -156,7 +156,7 @@ Par "au dessus"
 via HTTP, pour du public mais pas idéal pour travailler.
 
 > git clone
-> http://github.com/ViBiOh/l3miage.git
+> https://github.com/ViBiOh/l3miage.git
 
 
 via SSH, pour du public et privé, plus sûr.
@@ -167,9 +167,9 @@ via SSH, pour du public et privé, plus sûr.
 
 # Références
 
-* [Un guide interactif et visuel](http://git-school.github.io/visualizing-git/#free)
-* [La documentation officielle](http://git-scm.com)
-* [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/) or [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow)
+* [Un guide interactif et visuel](https://git-school.github.io/visualizing-git/#free)
+* [La documentation officielle](https://git-scm.com)
+* [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) or [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow)
 * [Configuration](https://delicious-insights.com/fr/articles/configuration-git/)
 * [Merge vs Rebase](https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa)
 * [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) or [GitMoji](https://gitmoji.dev)
