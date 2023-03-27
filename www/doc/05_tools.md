@@ -79,7 +79,7 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 ## IDE
 
 * [vi/vim](https://www.vim.org) / [emacs](https://www.gnu.org/software/emacs/)
-* [SublimeText](https://www.sublimetext.com) / [Visual Studio Code](https://code.visualstudio.com/) / [Notepad++](https://notepad-plus-plus.org/fr/)
+* [SublimeText](https://www.sublimetext.com) / [Visual Studio Code](https://code.visualstudio.com/) / [Notepad++](https://notepad-plus-plus.org/)
 * [IntelliJ](https://www.jetbrains.com/idea/) / [Eclipse](https://eclipse.org/) / [VisualStudio](https://www.visualstudio.com)
 
 > Peu importe votre religion, il faut l'assumer et la maîtriser
