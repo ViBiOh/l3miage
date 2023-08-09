@@ -1,40 +1,76 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
 metadata:
   name: l3miage-algolia
   namespace: default
 spec:
-  interval: 120m
-  chart:
+  encryptedData:
+    REVEALGOLIA_KEY: AgCjMlMLbpp8c8bawET8LZ0zeBxdZ8ge5KsAPOLElMzK5sqqp6YuGesJfFodlMqmMv9oHHCogLBJNxjUVCBpfy3cCTVStFoOQF35RLygn0njEOk818KAbzJYj6nt+M2HVoGK5h/76fv7ui+GOZBFF2kVhwXivSbchMq3zWAcNSKTXgTsgG9isI1SiM9/3Q6FIJb4QgAt8Jq37N7M5yU1UFtJw8VHjwW57IF+DlcOIRARe4wvkqfxM6d83wzwN2hwQpeY3MPqdZ4/IpNqntRHSaD7t/eBq1WKKznkh5d20CB/TkTafNZxcYiWZ4r0GIaa7E4I9b21+ZEYjWVDPENo7IL+3TF3SxHC5FWLnPVdjkLaEsdArAME0LAiewT3Ujt8GKY3UW1+HsfzbG4MKHNgSF2qOqVMjQ81AWpFJ1WomfUEZ6TMu2Lu74g1yyC9/r5+NMf/02wTWSputAYLu+GafGZQ+gPud47Qi7urhUfU6IKE+w8Ld69YLGNMMcpO7NYM5lGYlB92bFBICw4wkQp7ThUW+qZJJbBUlrMP43n8RRP5S0ddn0MdSuM0m+MPAcQkErAdZLMuiNosxrCf1Tzy13yNzUUjvyWSzTbwL5Pxry0lBaI1lTKBU7pwJQE0TZmmhFO29itslk6v/5IaXIZv/dl5x2FzmxviqrrHq1wEVQ+ddIZC8NJE+S7DbaX1vaYMYpU/aLzggBIdtd0BjpGWcBZAZJJS7D6ktCalhVMcvrlC0Q==
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: l3miage-algolia
+  namespace: default
+  labels:
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/version: latest
+    k8s-cleaner: 'true'
+spec:
+  backoffLimit: 3
+  template:
     spec:
-      chart: job
-      version: '0.0.18'
-      sourceRef:
-        kind: HelmRepository
-        name: vibioh
-      interval: 120m
-  install:
-    crds: Skip
-  maxHistory: 3
-  upgrade:
-    remediation:
-      retries: 3
-  rollback:
-    cleanupOnFail: true
-  values:
-    nameOverride: l3miage-algolia
-    extraLabels:
-      k8s-cleaner: 'true'
-    image:
-      name: vibioh/l3miage
-      tag: '202307310821' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
-    command:
-      - /revealgolia
-      - -source
-      - /www/doc/genie.md
-    config:
-      REVEALGOLIA_LOGGER_JSON: true
-    secrets:
-      REVEALGOLIA_APP: AgB5Nc54hPZXLS11boLyqFVOkGfuJM9lXEkoDn0QMz+vN80ME/6wbDlw/2Fo4Xb1xfpy95CgeWREzgihtCwLt0YDu18Ys27Hi14a+ZexV4wj5kTr+2CoY7996ctfeht9neuEvAyajlmlKgGqEdkmZyeXS3IyzUgEGCngUN6Gbpp3hGJbcTVss2BO5pyDt5p8LyTgaVRVC99G3jhP9PQPra2ocOZ7KSxf/pYEx0HQhWQ0gv2H4f/BPEMVMjLM033e7p7+OboKGC937ErTezcXGlfNSn2RV+5NnX8mLsnPJ45jMKrvg8BqYzME5epp4LzsJ6JclmGKmHvR8lkFBF02XlzlNOx3RrLZUZCtRMXqsOnjQjeOA4eTFAMEZnVyN4shBkrtx6RrlpcepZTI8l5g+Q7uoTmXrmS6vjdoig1kNM+AJK1FXBIuPXi4fdZJhHsmAEy2XxMgJ8JkiKHcZ4H6M/t7gotGCj5ztB7QZTbhLoVSQXVmXbHXcykKPpG4ffr7FCccPu3PmT0YyfQ5rwR6WWNsGqPS0t3sQq6u9oftKkxChmWPlAJFsWW0vx1SbcWUYO4DV0KgoTJSAA3NPlT6W/gpbdBmOGvcgeWadDw8HlM7gmHjKLNs4M9SV8kTIlfbEQk4AEmbyfkRiwSmwsDldUrjmyKVCJiin/t9HVO2i3Tu+WW9Mfy6B1PWKgDvk8yf3JLtv4clpVH1FFHH
-      REVEALGOLIA_INDEX: AgCgEotAbsKT/CM7U5GjKjs7DQgRVlXeu7WMC5ocnHizI57k6xZyt3zZ/A5VJRlJ2AjvJlpHiaTA/VGhvQ6/O5uzvifA/r/C+85C3JLUyWWpUUZXSdFMDj3VW/TE5v0xCXnVPvPIxtXa4vOJuwZEkcLLxlpct6hr7L7UyHzV0VK0IGGioeIgkyHySO9hTLlc6Y+3It/1hd/iSw4USLYKAkm3B6lIl3H9yXSUWrzcxfCGj0SiLyk14j239AkG++0o50GsMaN4rj6G4/FJiTZa7Df98m69D2FRtEINR2UWJ5bv1C2UK1j8SXh8Hw3BrV90nMZBdQLJNiB+1qnGsXpyDGSvbhEeowUvyKalhdUdtjUqaZed26kImd47OhllrLCdBOfKRZ/iJCi8Z3FOOtwNd4lQs3Tpldd9r/5z1635O78WSqp376VpAN2pKpPEBgrSBjxLc0iOKKnhs3njL/pwZ8M4w4rOZ99/lHc+0+iLbdG2OjHehkWxzLhbf2Iw020/O0pdTjKWGzF9Avw8zT0Z7vJzUz3/5x7rNsoHMnB3pgGQS0TgXaHp065EzTVIrVSepcE90DYkqE/hMb9x2Uk3ehkFLiTrosEBoUDKDdkcOhxlAcaXvzgLiI1kNtDHvX8NOJs4xuqWsFwV5SLl1ewBiXE38fHVPzn2nBjbrV9lrURF6C0psY5foLOju2WejGlyFATxjDFpJs6J
-      REVEALGOLIA_KEY: AgCjMlMLbpp8c8bawET8LZ0zeBxdZ8ge5KsAPOLElMzK5sqqp6YuGesJfFodlMqmMv9oHHCogLBJNxjUVCBpfy3cCTVStFoOQF35RLygn0njEOk818KAbzJYj6nt+M2HVoGK5h/76fv7ui+GOZBFF2kVhwXivSbchMq3zWAcNSKTXgTsgG9isI1SiM9/3Q6FIJb4QgAt8Jq37N7M5yU1UFtJw8VHjwW57IF+DlcOIRARe4wvkqfxM6d83wzwN2hwQpeY3MPqdZ4/IpNqntRHSaD7t/eBq1WKKznkh5d20CB/TkTafNZxcYiWZ4r0GIaa7E4I9b21+ZEYjWVDPENo7IL+3TF3SxHC5FWLnPVdjkLaEsdArAME0LAiewT3Ujt8GKY3UW1+HsfzbG4MKHNgSF2qOqVMjQ81AWpFJ1WomfUEZ6TMu2Lu74g1yyC9/r5+NMf/02wTWSputAYLu+GafGZQ+gPud47Qi7urhUfU6IKE+w8Ld69YLGNMMcpO7NYM5lGYlB92bFBICw4wkQp7ThUW+qZJJbBUlrMP43n8RRP5S0ddn0MdSuM0m+MPAcQkErAdZLMuiNosxrCf1Tzy13yNzUUjvyWSzTbwL5Pxry0lBaI1lTKBU7pwJQE0TZmmhFO29itslk6v/5IaXIZv/dl5x2FzmxviqrrHq1wEVQ+ddIZC8NJE+S7DbaX1vaYMYpU/aLzggBIdtd0BjpGWcBZAZJJS7D6ktCalhVMcvrlC0Q==
+      automountServiceAccountToken: false
+
+      imagePullSecrets:
+        - name: dockerhub
+
+      restartPolicy: OnFailure
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+
+      containers:
+        - name: algolia
+
+          image: vibioh/l3miage:202307310821 # {"$imagepolicy": "default:flux-l3miage-web"}
+          imagePullPolicy: Always
+
+          command:
+            - /revealgolia
+            - -source
+            - /www/doc/genie.md
+
+          envFrom:
+            - secretRef:
+                name: l3miage-algolia
+          env:
+            - name: REVEALGOLIA_LOGGER_JSON
+              value: 'true'
+            - name: REVEALGOLIA_APP
+              valueFrom:
+                secretKeyRef:
+                  name: l3miage
+                  key: ALGOLIA_APP
+            - name: REVEALGOLIA_INDEX
+              valueFrom:
+                secretKeyRef:
+                  name: l3miage
+                  key: ALGOLIA_INDEX
+
+          resources:
+            limits:
+              memory: 64Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
