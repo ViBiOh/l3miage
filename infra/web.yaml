@@ -25,7 +25,7 @@ spec:
     nameOverride: l3miage
     image:
       name: vibioh/l3miage
-      tag: '202308192213' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: '202308202336' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     config:
       GOMAXPROCS: '1'
       OTEL_SERVICE_NAME: l3miage
