@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/ViBiOh/l3miage#readme",
   "dependencies": {
-    "reveal.js": "4.6.1"
+    "reveal.js": "5.0.0"
   },
   "devDependencies": {
     "clean-css-cli": "5.6.2",
