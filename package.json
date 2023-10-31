@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "reveal:css": "cat ./node_modules/reveal.js/dist/reveal.css | cleancss -O2 -o www/vendor/reveal.css && cat ./node_modules/reveal.js/dist/theme/night.css | grep -v -E \"^@import\" | grep -v -E \"font-family:.*?sans-serif\" | cleancss -O2 -o www/vendor/night.css && cat ./node_modules/reveal.js/plugin/highlight/zenburn.css | cleancss -O2 -o www/vendor/zenburn.css",
-    "reveal:js": "uglifyjs ./node_modules/reveal.js/plugin/markdown/markdown.js --compress --mangle --output www/vendor/markdown.js && uglifyjs ./node_modules/reveal.js/plugin/highlight/highlight.js --compress --mangle --output www/vendor/highlight.js && uglifyjs ./node_modules/reveal.js/dist/reveal.js --compress --mangle --output www/vendor/reveal.js",
+    "reveal:js": "cp ./node_modules/reveal.js/plugin/markdown/markdown.js www/vendor/markdown.js && cp ./node_modules/reveal.js/plugin/highlight/highlight.js www/vendor/highlight.js && cp ./node_modules/reveal.js/dist/reveal.js www/vendor/reveal.js",
     "reveal": "mkdir -p www/vendor && npm run reveal:css && npm run reveal:js",
     "build": "script/doc && script/ci",
     "prestart": "go install github.com/ViBiOh/viws/cmd/viws-light@latest",
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/ViBiOh/l3miage#readme",
   "dependencies": {
-    "reveal.js": "5.0.0"
+    "reveal.js": "5.0.1"
   },
   "devDependencies": {
     "clean-css-cli": "5.6.2",
