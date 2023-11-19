@@ -2,8 +2,6 @@
 
 [Vincent Boutour](https://vibioh.fr) - [@ViBiOh](https://github.com/ViBiOh)
 
-*Golang Backend Developer* chez [Molotov](https://www.molotov.tv)
-
 Master MIAGE Paris Descartes, 2011 👴
 
 
