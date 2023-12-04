@@ -4,6 +4,8 @@
 
 Master MIAGE Paris Descartes, 2011 👴
 
+Senior Software Engineer, [DataDog 🐶](https://www.datadoghq.com)
+
 
 ## Définition
 
