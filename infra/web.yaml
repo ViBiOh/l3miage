@@ -28,6 +28,7 @@ spec:
       tag: '202312050814' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     config:
       GOMAXPROCS: '1'
+      OTEL_RESOURCE_ATTRIBUTES: env=production
       OTEL_SERVICE_NAME: l3miage
       VIWS_GZIP: 'false'
       VIWS_LOGGER_JSON: 'true'
