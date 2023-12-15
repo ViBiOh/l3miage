@@ -73,7 +73,7 @@ jobs:
           curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/${REVEALGOLIA_VERSION}/revealgolia_linux_arm64"
           chmod +x revealgolia_linux_arm64
           curl --disable --silent --show-error --location --max-time 30 "https://raw.githubusercontent.com/ViBiOh/scripts/main/bootstrap" | bash -s -- "-c" "release"
-          DOCKER_IMAGE="${{ secrets.DOCKER_USER }}/$(make name)" IMAGE_VERSION="$(make version)" ./scripts/release docker
+          DOCKER_IMAGE="${{ secrets.DOCKER_USER }}/$(make name)" IMAGE_VERSION="$(make version)" GIT_SHA="$(make version-full)" ./scripts/release docker
 
   sonarcloud:
     name: SonarCloud
