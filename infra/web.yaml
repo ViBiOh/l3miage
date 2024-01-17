@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: app
-      version: '0.0.94'
+      version: '0.1.2'
       sourceRef:
         kind: HelmRepository
         name: vibioh
@@ -26,10 +26,29 @@ spec:
     image:
       name: vibioh/l3miage
       tag: '202401011121' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+    labels:
+      tags.datadoghq.com/env: 'production'
+      tags.datadoghq.com/service: 'l3miage'
+      tags.datadoghq.com/version: '202401011121' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+    env:
+      - name: GOMAXPROCS
+        valueFrom:
+          resourceFieldRef:
+            resource: limits.cpu
+      - name: GOMEMLIMIT
+        valueFrom:
+          resourceFieldRef:
+            resource: limits.memory
+      - name: VERSION
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.labels['tags.datadoghq.com/version']
+      - name: OTEL_SERVICE_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.labels['tags.datadoghq.com/service']
     config:
-      GOMAXPROCS: '1'
       OTEL_RESOURCE_ATTRIBUTES: env=production,git.repository_url=github.com/ViBiOh/l3miage
-      OTEL_SERVICE_NAME: l3miage
       VIWS_GZIP: 'false'
       VIWS_LOGGER_JSON: 'true'
       VIWS_TELEMETRY_URL: datadog.observability:4317
