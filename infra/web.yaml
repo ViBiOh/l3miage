@@ -58,3 +58,5 @@ spec:
       ALGOLIA_KEY: 'AgAmdPNX3ODeOPUARN5lL/JkWgJtSa5TfEmbHwI80istiqc0J/SFf3bCL/T/xMzl8xo3wfUFladxAMQwHLn4Q5rxkuDrxEB6yB1JZH+e4d65CRdlh+kxANL/qc+/gsVvYjX0HTPIeVbanYNuPH9+WYz1yS4syUhQy36GPBIkxL3IF0ItCmyHSwtloGxuhOJsQZ/AlkiSK4R+l8VVruY5Rt3wCxaz/SkeXDCaHcQUNQIDqfhunroS/xoggXPNuzalKkLOM3N48AsSxMQuosENsQdRx2bVYE7w40Hvht+Gdqj+ugxorqK33pjCDFQA/kJKqNIxqgKer+V+8kGelCcxpqKTeBAlTzzqS3OpL95ZfzDUNZRMDXsuB40hQxrjeV9fsePJO7qHK2IciskJ639lhppjYHf8b4STGe1Na/vRnhbvcEAxPju4WLeCHBbhyG3ytT58HqAK4Pb4Q6dXjguAGTl/2HQlxvcPJi22xi7BpahqHGIcvIImeRxiFowzetavG8Nwb7gEX9DUh6ndhGPO4z14pZF5y981T6Je8YNfZypW53JivbZVOIuqn3SiIPjoU8ysuRJpjP45nKVWVsNVDr57zG8gFqYTJxc+fZ3lQeHKtzdxj2y0cMMJmRyNs8WxoR71H7qI9l8BuG7AX+6XMGuqgoKqoOmwlchb+QvMtWrEXQS7PhqfZ4QIKhaHkGI9JIO8en+lmhDxgjSb6gT1xGJtt05AiUK3X96Ss+eZBMZdGA=='
     pprof:
       enabled: true
+    autoscaling:
+      enabled: false
