@@ -50,7 +50,7 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 * *pair-programming*
 
 
-* méthode du canard en plastique
+* [méthode du canard en plastique](https://en.wikipedia.org/wiki/Rubber_duck_debugging)
 
 ![](img/canard.jpeg)
 
