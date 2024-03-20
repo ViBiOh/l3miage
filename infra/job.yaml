@@ -29,7 +29,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: algolia
-          image: vibioh/l3miage:202403202102 # {"$imagepolicy": "default:flux-l3miage-web"}
+          image: vibioh/l3miage:202403202128 # {"$imagepolicy": "default:flux-l3miage-web"}
           imagePullPolicy: Always
           command:
             - /revealgolia
