@@ -25,11 +25,11 @@ spec:
     nameOverride: l3miage
     image:
       name: vibioh/l3miage
-      tag: '202403212337' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: '202403220919' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     labels:
       tags.datadoghq.com/env: 'production'
       tags.datadoghq.com/service: 'l3miage'
-      tags.datadoghq.com/version: '202403212337' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tags.datadoghq.com/version: '202403220919' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     env:
       - name: GOMAXPROCS
         valueFrom:
