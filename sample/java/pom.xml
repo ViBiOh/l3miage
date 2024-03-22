@@ -14,7 +14,7 @@
         <java.version>1.8</java.version>
 
         <!-- Dependencies -->
-        <spring-boot.version>3.2.3</spring-boot.version>
+        <spring-boot.version>3.2.4</spring-boot.version>
         <apache-commons.version>3.14.0</apache-commons.version>
 
         <!-- Test -->
