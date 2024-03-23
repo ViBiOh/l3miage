@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 
 public class ProcessImpl<I> implements Process<I> {
+    private Logger logger = Logger.getLogger(Process.class.getSimpleName());
+
     private Reader<I> reader;
     private Operation<I, Object> operation;
     private Writer<Object> writer;

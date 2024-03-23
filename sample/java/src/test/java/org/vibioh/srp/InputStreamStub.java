@@ -9,6 +9,8 @@ public class InputStreamStub extends InputStream {
     private int seq;
 
     public InputStreamStub(final int index) {
+        super():
+
         this.index = index;
     }
 

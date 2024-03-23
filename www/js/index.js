@@ -59,7 +59,6 @@ function getMarkedRenderer() {
   Reveal.addEventListener('ready', () => {
     const hljs = RevealHighlight();
     document.querySelectorAll('pre code').forEach((block) => {
-      console.log(block);
       hljs.highlightBlock(block);
     });
   });
