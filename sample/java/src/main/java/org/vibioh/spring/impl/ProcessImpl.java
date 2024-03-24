@@ -12,6 +12,7 @@ import java.util.logging.Level;
 
 @Component
 public class ProcessImpl<I> implements Process {
+    private static Logger logger = Logger.getLogger(Process.class.getSimpleName());
 
     @Autowired
     private Reader<I> reader;
