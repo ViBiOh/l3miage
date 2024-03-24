@@ -102,7 +102,7 @@ Objectif : faire des tests **`FIRST`**
 * **`I`** solate
 * **`R`** epeatable
 * **`S`** elf-validating
-* **`T`** imely
+* **`T`** imely ou **T** horough
 
 
 Tester **un** seul composant et pas ses dépendances
