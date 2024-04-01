@@ -194,10 +194,6 @@ public interface Writer<T> {
 
 ```java
 public interface Process<I> {
-  Logger logger = Logger.getLogger(
-    Process.class.getSimpleName()
-  );
-
   Process execute();
   Process setReader(Reader<I> reader);
   Process setOperation(Operation<I, Object> operation);
@@ -373,7 +369,6 @@ Injection de dépendances dans le constructeur
 class IntegerReader implements Reader<Integer> {
   private Scanner in;
 
-  @Autowired
   public IntegerReader(InputStream input) {
     this.in = new Scanner(input);
   }
@@ -391,7 +386,7 @@ Injection de dépendances automatique
 ```java
 @Service
 class InverseWriter implements Writer<Object> {
-  @Autowired
+  @Autowired // Deprecated, prefer a constructor
   private OutputStream out;
 
   public void write(Object value) throws IOException {
@@ -460,7 +455,7 @@ class Program implements CommandLineRunner {
 
 Démarrage par auto-configuration
 
-```
+```java
   public static void main(String[] args) {
     SpringApplication.run(Program.class, args);
   }
