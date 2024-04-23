@@ -36,3 +36,25 @@ version-date:
 .PHONY: init
 init:
 	@curl --disable --silent --show-error --location --max-time 30 "https://raw.githubusercontent.com/ViBiOh/scripts/main/bootstrap.sh" | bash -s -- "-c" "git_hooks"
+	npm install --ignore-scripts
+
+## build: Build the application.
+.PHONY: build
+build:
+	npm run reveal
+	npm run build
+
+## run: Locally run the application, e.g. node index.js, python -m myapp, go run myapp etc ...
+.PHONY: run
+run:
+	npm start
+
+## run-airgap: Locally run the application, e.g. node index.js, python -m myapp, go run myapp etc ...
+.PHONY: run-airgap
+run-airgap:
+	npm run start-airgap
+
+## config: Create local configuration
+.PHONY: config
+config:
+	@cp .env.example .env

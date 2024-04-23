@@ -9,7 +9,8 @@
     "reveal": "mkdir -p www/vendor && npm run reveal:css && npm run reveal:js",
     "build": "script/doc && script/ci",
     "prestart": "go install github.com/ViBiOh/viws/cmd/viws-light@latest",
-    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage viws-light -directory ./www/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net/algoliasearch/3/ www.datadoghq-browser-agent.com/eu1/v5/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com browser-intake-datadoghq.eu/api/v2/; child-src www.youtube.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX"
+    "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage viws-light -directory ./www/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net/algoliasearch/3/ www.datadoghq-browser-agent.com/eu1/v5/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com browser-intake-datadoghq.eu/api/v2/; child-src www.youtube.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX",
+    "start-airgap": "\"${HOME}/code/viws/bin/viws-light\" -directory ./www/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self'\""
   },
   "repository": {
     "type": "git",
