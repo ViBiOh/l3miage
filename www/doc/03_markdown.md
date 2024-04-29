@@ -17,7 +17,7 @@
 
 * Ce `*texte*` est en *italique*
 * Ce `**texte**` là est en **gras**
-* Ce `***texte***`est en ***gras italique***
+* Ce `***texte***` est en ***gras italique***
 
 Le marqueur `_` peut se substituer au marqueur `*`
 
