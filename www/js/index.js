@@ -74,4 +74,6 @@ function getMarkedRenderer() {
     },
     plugins: [RevealMarkdown, RevealHighlight],
   });
+
+  addScript('/js/algolia.js?v={{version}}');
 })();
