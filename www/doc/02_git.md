@@ -79,6 +79,8 @@
 
 `git commit -m "commentaire de votre commit"`
 
+Ecrire un [bon message de commit](https://cbea.ms/git-commit/)
+
 
 ## Voir l'historique des commits
 
