@@ -250,6 +250,13 @@ Gratuit ne veut pas dire sans valeur
 > Combien ? Qui ? Quand ? Comment ? Où ? Quoi ? Pourquoi ?
 
 
+### Loi de Moore et de Wirth
+
+> La puissance des ordinateurs double tous les 18 mois.
+
+> Les programmes ralentissent plus vite que le matériel n'accélère.
+
+
 ### Loi de Pareto
 
 > Règle des 80 - 20
