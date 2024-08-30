@@ -15,7 +15,7 @@
 
         <!-- Dependencies -->
         <spring-boot.version>3.3.3</spring-boot.version>
-        <apache-commons.version>3.16.0</apache-commons.version>
+        <apache-commons.version>3.17.0</apache-commons.version>
 
         <!-- Test -->
         <junit.version>4.13.2</junit.version>
