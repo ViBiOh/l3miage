@@ -1,5 +1,5 @@
 const test = require('ava');
-const fizzBuzz = require('../src/fizzBuzz.js');
+const fizzBuzz = require('../src/fizzBuzz.js').simple;
 
 test('should return the first value', (t) => {
   t.is(fizzBuzz(1), 1);
