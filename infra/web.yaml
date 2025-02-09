@@ -1,4 +1,3 @@
----
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
@@ -7,7 +6,6 @@ metadata:
 spec:
   encryptedData:
     REVEALGOLIA_KEY: AgCjMlMLbpp8c8bawET8LZ0zeBxdZ8ge5KsAPOLElMzK5sqqp6YuGesJfFodlMqmMv9oHHCogLBJNxjUVCBpfy3cCTVStFoOQF35RLygn0njEOk818KAbzJYj6nt+M2HVoGK5h/76fv7ui+GOZBFF2kVhwXivSbchMq3zWAcNSKTXgTsgG9isI1SiM9/3Q6FIJb4QgAt8Jq37N7M5yU1UFtJw8VHjwW57IF+DlcOIRARe4wvkqfxM6d83wzwN2hwQpeY3MPqdZ4/IpNqntRHSaD7t/eBq1WKKznkh5d20CB/TkTafNZxcYiWZ4r0GIaa7E4I9b21+ZEYjWVDPENo7IL+3TF3SxHC5FWLnPVdjkLaEsdArAME0LAiewT3Ujt8GKY3UW1+HsfzbG4MKHNgSF2qOqVMjQ81AWpFJ1WomfUEZ6TMu2Lu74g1yyC9/r5+NMf/02wTWSputAYLu+GafGZQ+gPud47Qi7urhUfU6IKE+w8Ld69YLGNMMcpO7NYM5lGYlB92bFBICw4wkQp7ThUW+qZJJbBUlrMP43n8RRP5S0ddn0MdSuM0m+MPAcQkErAdZLMuiNosxrCf1Tzy13yNzUUjvyWSzTbwL5Pxry0lBaI1lTKBU7pwJQE0TZmmhFO29itslk6v/5IaXIZv/dl5x2FzmxviqrrHq1wEVQ+ddIZC8NJE+S7DbaX1vaYMYpU/aLzggBIdtd0BjpGWcBZAZJJS7D6ktCalhVMcvrlC0Q==
-
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -36,11 +34,11 @@ spec:
     nameOverride: l3miage
     image:
       name: vibioh/l3miage
-      tag: '202501240906' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: '202502091725' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     labels:
       tags.datadoghq.com/env: 'production'
       tags.datadoghq.com/service: 'l3miage'
-      tags.datadoghq.com/version: '202501240906' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tags.datadoghq.com/version: '202502091725' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     env:
       - name: GOMAXPROCS
         valueFrom:
@@ -82,10 +80,9 @@ spec:
       redirect:
         regex: ^https?://www.l3miage.fr(.*)
         replacement: https://l3miage.fr${1}
-
     initContainers:
       - name: algolia
-        image: vibioh/l3miage:202501240906 # {"$imagepolicy": "default:flux-l3miage-web"}
+        image: vibioh/l3miage:202502091725 # {"$imagepolicy": "default:flux-l3miage-web"}
         imagePullPolicy: Always
         command:
           - /revealgolia
