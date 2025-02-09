@@ -33,7 +33,7 @@ Le marqueur `_` peut se substituer au marqueur `*`
 
 ## Ecriture de code ou de texte non-formaté
 
-En mode `en ligne` simplement en l'entourant d'un guillemet accentué **`**
+En mode `en ligne` simplement en l'entourant d'une apostrophe arrière **`**
 
     Ou en mode bloc en indentant
     l'ensemble avec un quadruple espace
@@ -42,10 +42,18 @@ En mode `en ligne` simplement en l'entourant d'un guillemet accentué **`**
 
 ## Ecriture de lien
 
-Le texte du lien doit se trouver entre crochets et l'url de votre lien dans des parenthèses juxtaposées. Si vous souhaitez insérer une image, c'est exactement la même syntaxe avec un point d'exclamation devant.
+Le texte du lien doit se trouver entre crochets et l'URL de votre lien dans des parenthèses juxtaposées.
 
 ```
 [Texte de votre lien](url_de_votre_lien)
+```
+
+
+## Insertion d'images
+
+Une image est un lien externe, c'est la même syntaxe que l'URL mais avec un point d'exclamation devant.
+
+```
 ![](url_de_votre_image)
 ```
 

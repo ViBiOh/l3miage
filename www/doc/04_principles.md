@@ -15,7 +15,7 @@ L'informatique, et le développement de logiciels en particulier, sont bien souv
 Très contractuel et procédurier : un cahier des charges initial, un cahier de recette final.
 
 
-Souvent utilisé dans le cadre de "forfait" en SSII.
+Souvent utilisé dans le cadre de "forfait" en ESN (ex SSII).
 
 
 ![](img/cycle_en_v.png)
@@ -36,7 +36,7 @@ Risque bien moins grand de dévier du besoin réel, possibilité de le réajuste
 Tout est *timeboxé*. Chaque cérémonie de la méthode Scrum a une durée qu'il faut respecter. On va à l'essentiel.
 
 
-Si vous entendez parlez de **Sprint**, de **burn-down chart**, de **daily standup**, vous êtes dans une équipe agile.
+Si vous entendez parlez de **Sprint**, de **burn-down chart**, de **daily standup**, vous êtes dans une équipe agile Scrum.
 
 
 ... ou alors si vous voyez des montagnes de Post-it ® sur un des bureaux !
