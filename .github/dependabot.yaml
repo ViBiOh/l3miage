@@ -8,6 +8,8 @@ updates:
     commit-message:
       prefix: ci
       include: scope
+    assignees:
+      - ViBiOh
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -15,6 +17,8 @@ updates:
     commit-message:
       prefix: chore
       include: scope
+    assignees:
+      - ViBiOh
   - package-ecosystem: npm
     directory: /sample/tdd/
     schedule:
@@ -22,6 +26,8 @@ updates:
     commit-message:
       prefix: chore
       include: scope
+    assignees:
+      - ViBiOh
   - package-ecosystem: maven
     directory: /sample/java/
     schedule:
@@ -29,3 +35,5 @@ updates:
     commit-message:
       prefix: chore
       include: scope
+    assignees:
+      - ViBiOh
