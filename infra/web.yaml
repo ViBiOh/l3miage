@@ -34,11 +34,11 @@ spec:
     nameOverride: l3miage
     image:
       name: vibioh/l3miage
-      tag: '202502240803' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: '202503021329' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     labels:
       tags.datadoghq.com/env: 'production'
       tags.datadoghq.com/service: 'l3miage'
-      tags.datadoghq.com/version: '202502240803' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tags.datadoghq.com/version: '202503021329' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     env:
       - name: GOMAXPROCS
         valueFrom:
@@ -82,7 +82,7 @@ spec:
         replacement: https://l3miage.fr${1}
     initContainers:
       - name: algolia
-        image: vibioh/l3miage:202502240803 # {"$imagepolicy": "default:flux-l3miage-web"}
+        image: vibioh/l3miage:202503021329 # {"$imagepolicy": "default:flux-l3miage-web"}
         imagePullPolicy: Always
         command:
           - /revealgolia
