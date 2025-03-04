@@ -59,13 +59,13 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 
 * [devhints](https://devhints.io/)
 * [tldr](https://tldr.sh/)
-* [dash](https://kapeli.com/dash)
+* Votre IA favorite
 
 
 ## Qualimétrie
 
-* [SonarQube](https://www.sonarqube.org), CodeSmell, Linter
-* [LGTM](https://lgtm.com/)
+* [SonarQube](https://www.sonarqube.org)
+* CodeSmell, Linter
 
 
 ## Organisation
@@ -87,5 +87,5 @@ Exploiter vos logs avec des systèmes de monitoring, d'alarmes et d'analyses
 
 ## Déploiement
 
-* [Jenkins](https://jenkins-ci.org), [Bamboo](https://www.atlassian.com/software/bamboo/), [Travis](https://travis-ci.com/)
-* [Docker](https://www.docker.com), [Ansible](https://www.ansible.com), [Terraform](https://www.terraform.io)
+* [Jenkins](https://jenkins-ci.org), [CircleCI](https://circleci.com/), [GitHub Actions](https://github.com/features/actions)
+* [Kubernetes](https://kubernetes.io/), [Ansible](https://www.ansible.com), [Terraform](https://www.terraform.io)
