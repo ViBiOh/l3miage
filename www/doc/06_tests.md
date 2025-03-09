@@ -379,7 +379,7 @@ Outils
 [Cucumber](https://cucumber.io), [Fitnesse](https://www.fitnesse.org), [Robot Framework](https://robotframework.org), [NightwatchJS](https://nightwatchjs.org), [CyPress](https://www.cypress.io/), etc.
 
 
-[Exemple](https://talks.vibioh.fr/indus_e2e/#/2/15)
+[Exemple](https://raw.githubusercontent.com/ViBiOh/talks/refs/heads/main/www/doc/indus_e2e/e2e.gif)
 
 
 ## Conclusion
