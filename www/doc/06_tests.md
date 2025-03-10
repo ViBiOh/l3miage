@@ -598,6 +598,19 @@ number => {
 ```
 
 
+Une autre solution possible
+
+```javascript
+number =>
+    [
+      number,
+      'fizz',
+      'buzz',
+      'fizzbuzz',
+    ][3 & (19142723 >> (2 * (number % 15)))]
+```
+
+
 > « La théorie, c'est quand on sait tout et que rien ne fonctionne.<br />
 > La pratique, c'est quand tout fonctionne et que personne ne sait pourquoi.<br />
 > Ici, nous avons réuni théorie et pratique : rien ne fonctionne... et personne ne sait pourquoi ! »
