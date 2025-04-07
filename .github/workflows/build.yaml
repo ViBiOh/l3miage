@@ -56,8 +56,8 @@ jobs:
           DOCKER_REGISTRY: ${{ vars.DOCKER_REGISTRY }}
           DOCKER_NAMESPACE: ${{ vars.DOCKER_NAMESPACE }}
           SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
-        run: |
           REVEALGOLIA_VERSION: v1.4.12
+        run: |
           curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/${REVEALGOLIA_VERSION}/revealgolia_linux_amd64"
           chmod +x revealgolia_linux_amd64
           curl --disable --silent --show-error --location --max-time 30 -O "https://github.com/ViBiOh/revealgolia/releases/download/${REVEALGOLIA_VERSION}/revealgolia_linux_arm"
