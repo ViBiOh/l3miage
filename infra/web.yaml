@@ -40,10 +40,6 @@ spec:
       tags.datadoghq.com/service: 'l3miage'
       tags.datadoghq.com/version: '202508140803' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     env:
-      - name: GOMAXPROCS
-        valueFrom:
-          resourceFieldRef:
-            resource: limits.cpu
       - name: GOMEMLIMIT
         valueFrom:
           resourceFieldRef:
