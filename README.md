@@ -22,7 +22,7 @@ npm run build
 npm start
 ```
 
-Browse [Localhost](http://localhost:1080).
+Browse [127.0.0.1](http://127.0.0.1:1080).
 
 ## Java sample
 
