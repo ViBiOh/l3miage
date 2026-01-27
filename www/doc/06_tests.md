@@ -526,7 +526,7 @@ it('should return fizz for 3', () => {
 ```
 
 
-Adapatation du code pour tester 3
+Adaptation du code pour tester 3
 
 ```javascript
 (number) => {
@@ -547,7 +547,7 @@ it('should return fizz for 6', () => {
 ```
 
 
-Adapatation du code pour 6
+Adaptation du code pour 6
 
 ```javascript
 (number) => {

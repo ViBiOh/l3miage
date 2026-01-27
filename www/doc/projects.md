@@ -85,7 +85,7 @@ Présentation globale du projet (30min)
 
 * Description
   * Technique
-  * Fonctionelle
+  * Fonctionnelle
   * Organisationnelle
 * Démonstration
 * Débriefing projet

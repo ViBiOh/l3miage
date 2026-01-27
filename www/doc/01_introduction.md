@@ -68,7 +68,7 @@ Traduire le besoin en solution (i.e. ingénierie)
 
 * faisabilité technique
 * processus méthodologique
-* contrainte (logistique, opérationelle, etc.)
+* contrainte (logistique, opérationnelle, etc.)
 * anticipation des problèmes
 
 
@@ -93,7 +93,7 @@ Traduire le besoin en solution (i.e. ingénierie)
 Maîtriser votre processus de développement.
 
 
-* Découper la solution en tâches parrallélisables
+* Découper la solution en tâches parallélisables
 * Mutualiser les besoins communs
 * Partager la même vision du produit
 * S’entraider et… communiquer !

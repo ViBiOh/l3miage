@@ -31,7 +31,7 @@ Le marqueur `_` peut se substituer au marqueur `*`
   * permet des sous-listes
 
 
-## Ecriture de code ou de texte non-formaté
+## Écriture de code ou de texte non-formaté
 
 En mode `en ligne` simplement en l'entourant d'une apostrophe arrière **`**
 
@@ -40,7 +40,7 @@ En mode `en ligne` simplement en l'entourant d'une apostrophe arrière **`**
     ou une tabulation, ou balisé de 3 `
 
 
-## Ecriture de lien
+## Écriture de lien
 
 Le texte du lien doit se trouver entre crochets et l'URL de votre lien dans des parenthèses juxtaposées.
 

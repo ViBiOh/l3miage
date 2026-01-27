@@ -299,7 +299,7 @@ Chaque ajout de fonctionnalité vient modifier l'application, il faut donc veill
 > e.g. Un `if/else` peut vite se transformer en enchaînement disgracieux : faire un `switch`
 
 
-Enfin, l'environnement évolue sans cesse, les modèles, les méthodes, les outils, etc. Il faut donc veiller à ne pas avoir des architectures trop vieilles, devenues inmaintenables.
+Enfin, l'environnement évolue sans cesse, les modèles, les méthodes, les outils, etc. Il faut donc veiller à ne pas avoir des architectures trop vieilles, devenues immaintenables.
 
 
 [Dette technique et entropie du logiciel](https://www.youtube.com/watch?v=VKe9EE4MUxk)
@@ -358,4 +358,4 @@ Il est parfois compliqué de faire simple en appliquant les *patterns* de progra
 S'il y a vraiment un bug (i.e. après avoir lu la documentation), ouvrez un ticket !
 
 
-Contribuez, corrigez, ameliorez : appropriez-vous vos outils
+Contribuez, corrigez, améliorez : appropriez-vous vos outils
