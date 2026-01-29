@@ -381,13 +381,16 @@ class IntegerReader implements Reader<Integer> {
 ```
 
 
-Injection de dépendances automatique
+Injection par constructeur (moderne)
 
 ```java
 @Service
 class InverseWriter implements Writer<Object> {
-  @Autowired // Deprecated, prefer a constructor
-  private OutputStream out;
+  private final OutputStream out;
+
+  public InverseWriter(OutputStream out) {
+    this.out = out;
+  }
 
   public void write(Object value) throws IOException {
     out.write(
@@ -399,17 +402,22 @@ class InverseWriter implements Writer<Object> {
 ```
 
 
-Déclaration des comportements attendus
+Injection des dépendances par constructeur
 
 ```java
 @Component
 class ProcessImpl<I> implements Process {
-  @Autowired
-  private Reader<I> reader;
-  @Autowired
-  private Operation<I, Object> operation;
-  @Autowired
-  private Writer<Object> writer;
+  private final Reader<I> reader;
+  private final Operation<I, Object> operation;
+  private final Writer<Object> writer;
+
+  public ProcessImpl(Reader<I> reader,
+                     Operation<I, Object> operation,
+                     Writer<Object> writer) {
+    this.reader = reader;
+    this.operation = operation;
+    this.writer = writer;
+  }
 }
 ```
 
@@ -435,30 +443,48 @@ Configuration de l'application
 
 ```java
 @Configuration
-@EnableAutoConfiguration
 @ComponentScan("org.vibioh.spring")
 class Program implements CommandLineRunner {
-  @Autowired
-  private Process inverse;
+  private final Process inverse;
+  public Program(Process inverse) {
+    this.inverse = inverse;
+  }
   @Bean
-  public InputStream getInput() { return System.in; }
+  InputStream input() { return System.in; }
   @Bean
-  public OutputStream getOuput() { return System.out; }
-
+  OutputStream output() { return System.out; }
   @Override
-  public void run(String... strings) throws Exception {
+  public void run(String... args) {
     inverse.execute();
   }
 }
 ```
 
 
-Démarrage par auto-configuration
+Démarrage de l'application
 
 ```java
+@SpringBootApplication
+class Program implements CommandLineRunner {
+  // ... (voir au-dessus)
+
   public static void main(String[] args) {
     SpringApplication.run(Program.class, args);
   }
+}
+```
+
+Alternative avec Lombok (encore plus concis)
+
+```java
+@Service
+@RequiredArgsConstructor
+class ProcessImpl<I> implements Process {
+  private final Reader<I> reader;
+  private final Operation<I, Object> operation;
+  private final Writer<Object> writer;
+  // constructeur généré automatiquement
+}
 ```
 
 
