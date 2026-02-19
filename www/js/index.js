@@ -76,4 +76,5 @@ function getMarkedRenderer() {
   });
 
   addScript('/js/algolia.js?v={{version}}');
+  addScript('/js/rum.js?v={{version}}');
 })();
