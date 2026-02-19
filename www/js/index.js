@@ -54,6 +54,8 @@ function getMarkedRenderer() {
 }
 
 (async () => {
+  addScript('/js/rum.js?v={{version}}');
+
   await insertRevealScripts();
 
   Reveal.addEventListener('ready', () => {
@@ -76,5 +78,4 @@ function getMarkedRenderer() {
   });
 
   addScript('/js/algolia.js?v={{version}}');
-  addScript('/js/rum.js?v={{version}}');
 })();

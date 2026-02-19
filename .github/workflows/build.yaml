@@ -48,6 +48,7 @@ jobs:
           sed -i -e "s|{{version}}|$(make version)|g" www/index.html
           sed -i -e "s|{{version}}|$(make version)|g" www/js/index.js
           sed -i -e "s|{{version}}|$(make version)|g" www/js/algolia.js
+          sed -i -e "s|{{version}}|$(make version)|g" www/js/rum.js
       - name: Setup Docker
         uses: docker/setup-buildx-action@v3
       - name: Docker

@@ -25,6 +25,7 @@ window.DD_RUM.onReady(function () {
     site: 'datadoghq.eu',
     service: 'l3miage',
     env: 'prod',
+    version: '{{version}}',
     sessionSampleRate: 100,
     sessionReplaySampleRate: 0,
     trackBfcacheViews: true,
