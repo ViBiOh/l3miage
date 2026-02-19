@@ -34,11 +34,11 @@ spec:
     nameOverride: l3miage
     image:
       name: rg.fr-par.scw.cloud/vibioh/l3miage
-      tag: '202602020744' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tag: '202602191103' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     labels:
       tags.datadoghq.com/env: 'production'
       tags.datadoghq.com/service: 'l3miage'
-      tags.datadoghq.com/version: '202602020744' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
+      tags.datadoghq.com/version: '202602191103' # {"$imagepolicy": "default:flux-l3miage-web:tag"}
     env:
       - name: GOMEMLIMIT
         valueFrom:
@@ -78,7 +78,7 @@ spec:
         replacement: https://l3miage.fr${1}
     initContainers:
       - name: algolia
-        image: rg.fr-par.scw.cloud/vibioh/l3miage:202602020744 # {"$imagepolicy": "default:flux-l3miage-web"}
+        image: rg.fr-par.scw.cloud/vibioh/l3miage:202602191103 # {"$imagepolicy": "default:flux-l3miage-web"}
         imagePullPolicy: Always
         command:
           - /revealgolia
