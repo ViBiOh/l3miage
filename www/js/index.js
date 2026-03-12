@@ -34,6 +34,7 @@ async function addStyle(src) {
  * @return {Promise} Promise resolved when script is loaded
  */
 async function insertRevealScripts() {
+  await addScript('/vendor/marked.js?v={{version}}');
   await addScript('/vendor/reveal.js?v={{version}}');
   await addScript('/vendor/markdown.js?v={{version}}');
   await addScript('/vendor/highlight.js?v={{version}}');
@@ -44,11 +45,11 @@ async function insertRevealScripts() {
  * @return {marked.Renderer} Configured renderer
  */
 function getMarkedRenderer() {
-  const renderer = new (RevealMarkdown().marked.Renderer)();
+  const renderer = new marked.Renderer();
 
-  renderer.image = (href, title) =>
-    `<img data-src="/doc/${href}?v={{version}}" alt="${title}" />`;
-  renderer.link = (href, _, text) => `<a href="${href}">${text}</a>`;
+  renderer.image = (image) =>
+    `<img data-src="/doc/${image.href}?v={{version}}" alt="${image.title}" />`;
+  renderer.link = (link) => `<a href="${link.href}">${link.text}</a>`;
 
   return renderer;
 }

@@ -4,8 +4,8 @@
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
   "scripts": {
-    "reveal:css": "cat ./node_modules/reveal.js/dist/reveal.css | cleancss -O2 -o www/vendor/reveal.css && cat ./node_modules/reveal.js/dist/theme/night.css | grep -v -E \"^@import\" | grep -v -E \"font-family:.*?sans-serif\" | cleancss -O2 -o www/vendor/night.css && cat ./node_modules/reveal.js/plugin/highlight/zenburn.css | cleancss -O2 -o www/vendor/zenburn.css",
-    "reveal:js": "cp ./node_modules/reveal.js/plugin/markdown/markdown.js www/vendor/markdown.js && cp ./node_modules/reveal.js/plugin/highlight/highlight.js www/vendor/highlight.js && cp ./node_modules/reveal.js/dist/reveal.js www/vendor/reveal.js",
+    "reveal:css": "cat ./node_modules/reveal.js/dist/reveal.css | cleancss -O2 -o www/vendor/reveal.css && cat ./node_modules/reveal.js/dist/theme/night.css | perl -pe 's|\\@import.*?;||g' | cleancss -O2 -o www/vendor/night.css && cat ./node_modules/reveal.js/dist/plugin/highlight/zenburn.css | cleancss -O2 -o www/vendor/zenburn.css",
+    "reveal:js": "cp ./node_modules/marked/lib/marked.umd.js www/vendor/marked.js && cp ./node_modules/reveal.js/dist/plugin/markdown.js www/vendor/markdown.js && cp ./node_modules/reveal.js/dist/plugin/highlight.js www/vendor/highlight.js && cp ./node_modules/reveal.js/dist/reveal.js www/vendor/reveal.js",
     "reveal": "mkdir -p www/vendor && npm run reveal:css && npm run reveal:js",
     "build": "script/doc && script/ci",
     "prestart": "go install github.com/ViBiOh/viws/cmd/viws-light@latest",
@@ -30,7 +30,8 @@
   },
   "homepage": "https://github.com/ViBiOh/l3miage#readme",
   "dependencies": {
-    "reveal.js": "5.2.1"
+    "marked": "17.0.4",
+    "reveal.js": "6.0.0"
   },
   "devDependencies": {
     "clean-css-cli": "5.6.3",
