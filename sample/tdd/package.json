@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Kata",
   "scripts": {
-    "test": "ava -v"
+    "test": "ava -v",
+    "start": "ava -v -w"
   },
   "keywords": [
     "kata"

@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-npm i
+npm install
 ```
 
 ## Test

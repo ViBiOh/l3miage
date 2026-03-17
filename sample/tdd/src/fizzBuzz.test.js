@@ -1,5 +1,5 @@
-const test = require('ava');
-const fizzBuzz = require('../src/fizzBuzz.js').simple;
+import test from 'ava';
+import { simple as fizzBuzz } from '../src/fizzBuzz.js';
 
 test('should return the first value', (t) => {
   t.is(fizzBuzz(1), 1);
