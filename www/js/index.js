@@ -55,8 +55,6 @@ function getMarkedRenderer() {
 }
 
 (async () => {
-  addScript('/js/rum.js?v={{version}}');
-
   await insertRevealScripts();
 
   Reveal.addEventListener('ready', () => {
