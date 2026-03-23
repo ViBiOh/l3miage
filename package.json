@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/ViBiOh/l3miage#readme",
   "dependencies": {
-    "marked": "17.0.4",
+    "marked": "17.0.5",
     "reveal.js": "6.0.0"
   },
   "devDependencies": {
