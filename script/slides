@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -o nounset -o pipefail -o errexit
+
+main() {
+  local GIT_ROOT
+  GIT_ROOT=$(git rev-parse --show-cdup)
+  GIT_ROOT=${GIT_ROOT:-.}
+
+  local DOC_DIR="${GIT_ROOT}/www/doc"
+  local TEMPLATE="${GIT_ROOT}/www/pandoc/template.revealjs"
+  local FILTER="${GIT_ROOT}/www/pandoc/filters/rewrite-images.lua"
+  local OUTPUT="${GIT_ROOT}/www/index.html"
+
+  pandoc \
+    --from markdown+smart-citations \
+    --to revealjs \
+    --standalone \
+    --slide-level=2 \
+    --template="${TEMPLATE}" \
+    --lua-filter="${FILTER}" \
+    --output="${OUTPUT}" \
+    "${DOC_DIR}"/[0-9]*.md
+}
+
+main "${@:-}"

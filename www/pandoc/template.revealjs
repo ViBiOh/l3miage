@@ -24,24 +24,40 @@
     <meta property="og:image:width" content="512">
     <link rel="stylesheet" href="/vendor/reveal.css?v={{version}}">
     <link rel="stylesheet" href="/vendor/night.css?v={{version}}" id="theme">
-    <link rel="stylesheet" href="/vendor/zenburn.css?v={{version}}">
     <link rel="stylesheet" href="/css/style.css?v={{version}}">
-    <script src="/js/index.js?v={{version}}" defer></script>
-    </script>
+    <style>
+      .reveal .sourceCode { overflow: visible; }
+$if(highlighting-css)$
+$highlighting-css$
+$endif$
+    </style>
   </head>
 
   <body>
     <div class="reveal">
       <div class="slides">
-        <section data-separator="^\n\n\n"
-                 data-separator-vertical="^\n\n"
-                 data-charset="utf-8"
-                 data-markdown="/doc/genie.md?v={{version}}"
-        >
-        </section>
+$body$
       </div>
     </div>
 
     <noscript>Enable Javascript to see slides!</noscript>
+
+    <script src="/vendor/reveal.js?v={{version}}"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        hash: true,
+        transition: 'slide',
+      });
+      Reveal.on('ready', () => {
+        const s = document.createElement('script');
+        s.src = '/js/algolia.js?v={{version}}';
+        s.defer = true;
+        document.head.appendChild(s);
+      });
+    </script>
   </body>
 </html>
