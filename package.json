@@ -4,10 +4,10 @@
   "description": "Course for Genie Lociel in Paris Descartes",
   "main": "index.js",
   "scripts": {
-    "reveal:css": "cat ./node_modules/reveal.js/dist/reveal.css | cleancss -O2 -o www/vendor/reveal.css && cat ./node_modules/reveal.js/dist/theme/night.css | perl -pe 's|\\@import.*?;||g' | cleancss -O2 -o www/vendor/night.css && cat ./node_modules/reveal.js/dist/plugin/highlight/zenburn.css | cleancss -O2 -o www/vendor/zenburn.css",
-    "reveal:js": "cp ./node_modules/marked/lib/marked.umd.js www/vendor/marked.js && cp ./node_modules/reveal.js/dist/plugin/markdown.js www/vendor/markdown.js && cp ./node_modules/reveal.js/dist/plugin/highlight.js www/vendor/highlight.js && cp ./node_modules/reveal.js/dist/reveal.js www/vendor/reveal.js",
+    "reveal:css": "cat ./node_modules/reveal.js/dist/reveal.css | cleancss -O2 -o www/vendor/reveal.css && cat ./node_modules/reveal.js/dist/theme/night.css | perl -pe 's|\\@import.*?;||g' | cleancss -O2 -o www/vendor/night.css",
+    "reveal:js": "cp ./node_modules/reveal.js/dist/reveal.js www/vendor/reveal.js",
     "reveal": "mkdir -p www/vendor && npm run reveal:css && npm run reveal:js",
-    "build": "script/doc && script/ci",
+    "build": "script/slides && script/ci",
     "prestart": "go install github.com/ViBiOh/viws/cmd/viws-light@latest",
     "start": "ALGOLIA_APP=H35CS6IJ9J ALGOLIA_KEY=${ALGOLIA_KEY} ALGOLIA_INDEX=l3miage viws-light -directory ./www/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com; frame-src www.youtube.com; child-src www.youtube.com\" -env ALGOLIA_APP,ALGOLIA_KEY,ALGOLIA_INDEX",
     "start-airgap": "\"${HOME}/code/viws/bin/viws-light\" -directory ./www/ -csp \"default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net/algoliasearch/3/; style-src 'self' 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com; frame-src www.youtube.com; child-src www.youtube.com\""
@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/ViBiOh/l3miage#readme",
   "dependencies": {
-    "marked": "18.0.6",
     "reveal.js": "6.0.1"
   },
   "devDependencies": {
