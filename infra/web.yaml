@@ -75,40 +75,40 @@ spec:
       redirect:
         regex: ^https?://www.l3miage.fr(.*)
         replacement: https://l3miage.fr${1}
-    initContainers:
-      - name: algolia
-        image: rg.fr-par.scw.cloud/vibioh/l3miage:202607200946 # {"$imagepolicy": "default:flux-l3miage-web"}
-        imagePullPolicy: Always
-        command:
-          - /revealgolia
-          - -source
-          - /www/doc/genie.md
-        envFrom:
-          - secretRef:
-              name: l3miage-algolia
-        env:
-          - name: REVEALGOLIA_LOGGER_JSON
-            value: 'true'
-          - name: REVEALGOLIA_APP
-            valueFrom:
-              secretKeyRef:
-                name: l3miage
-                key: ALGOLIA_APP
-          - name: REVEALGOLIA_INDEX
-            valueFrom:
-              secretKeyRef:
-                name: l3miage
-                key: ALGOLIA_INDEX
-        resources:
-          limits:
-            memory: 64Mi
-          requests:
-            cpu: 100m
-            memory: 64Mi
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-              - ALL
-          readOnlyRootFilesystem: true
-          runAsNonRoot: true
+    # initContainers:
+    #   - name: algolia
+    #     image: rg.fr-par.scw.cloud/vibioh/l3miage:202607200946 # {"$imagepolicy": "default:flux-l3miage-web"}
+    #     imagePullPolicy: Always
+    #     command:
+    #       - /revealgolia
+    #       - -source
+    #       - /www/doc/genie.md
+    #     envFrom:
+    #       - secretRef:
+    #           name: l3miage-algolia
+    #     env:
+    #       - name: REVEALGOLIA_LOGGER_JSON
+    #         value: 'true'
+    #       - name: REVEALGOLIA_APP
+    #         valueFrom:
+    #           secretKeyRef:
+    #             name: l3miage
+    #             key: ALGOLIA_APP
+    #       - name: REVEALGOLIA_INDEX
+    #         valueFrom:
+    #           secretKeyRef:
+    #             name: l3miage
+    #             key: ALGOLIA_INDEX
+    #     resources:
+    #       limits:
+    #         memory: 64Mi
+    #       requests:
+    #         cpu: 100m
+    #         memory: 64Mi
+    #     securityContext:
+    #       allowPrivilegeEscalation: false
+    #       capabilities:
+    #         drop:
+    #           - ALL
+    #       readOnlyRootFilesystem: true
+    #       runAsNonRoot: true
