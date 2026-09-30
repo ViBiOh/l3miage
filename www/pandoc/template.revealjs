@@ -43,6 +43,7 @@ $body$
     <noscript>Enable Javascript to see slides!</noscript>
 
     <script src="/vendor/reveal.js?v={{version}}"></script>
+    <script src="/js/index.js?v={{version}}"></script>
     <script>
       Reveal.initialize({
         controls: true,
